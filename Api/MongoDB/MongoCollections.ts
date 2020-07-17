@@ -37,15 +37,22 @@ export module Collections {
     export class Feedback {
         Nome:string;
         Email:string;
+        Cliente:Cliente;
+        Titulo:string;
         Comentario:string;
         constructor(
         Nome:string,
         Email:string,
+        Cliente:Cliente,
+        Titulo:string,
         Comentario:string){
             this.Nome = Nome;
             this.Email = Email;
+            this.Cliente = Cliente;
+            this.Titulo = Titulo;
             this.Comentario = Comentario;
         }
+        
     };
     export class Cliente {
         Nome:string;

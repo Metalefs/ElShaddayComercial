@@ -1,7 +1,7 @@
 import {Collections} from './MongoCollections';
-export = {
+export module Seeder {
     
-      SeedCollections: function (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
+      export function SeedEmpresa (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
             let InformacoesContato = new Collections.InformacoesContato
             ("991823760",
             "simonejessicamarmitex@gmail.com",
@@ -22,12 +22,24 @@ export = {
             Cardapios.push(new Collections.Cardapio("6","","",""));
 
             let Clientes:Collections.Cliente[];
-            Cardapios = [];
+            Clientes = [];
+            Clientes.push(new Collections.Cliente("Jackson Ramalho",
+            "jack-ten@hotmail.com",
+            "987576467",
+            "Julio Verne",
+            "Aeronautas",
+            "185",
+            "Lagoa Santa",
+            "Minas Gerais",
+            "125.123.586-74"))
 
             let Pedidos:Collections.Pedido[];
-            let Feedback:Collections.Feedback;
+            Pedidos = [];
+
+            let Feedback = new Collections.Feedback(Clientes[0].Nome,Clientes[0].Email,Clientes[0],"Addrei","Entregue pontualmente todos os dias úteis, não preciso me preocupar com alimentação!");
+
             let Empresa = new Collections.Empresa(InformacoesContato,Sobre,Cardapios,Clientes,Pedidos,Feedback);
             
             return [Empresa];
-      },  
+      }
 }

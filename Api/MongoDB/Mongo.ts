@@ -1,8 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const MDBurl = "mongodb://mongo:27017/";
 const MongoDBName = "chat_rumo";
-const MongoSeeder = require("./MongoSeed");
-const MongoCollections = require("./MongoCollections");
+import {Seeder} from "./MongoSeed";
+import {Collections} from "./MongoCollections";
 const Options = {
       useNewUrlParser: true, 
       poolSize : 10      
@@ -48,14 +48,15 @@ module.exports = {
       /*Seeding Mongo DB */
       
       seedCollections: function(){
-            let collectionsToSeed = MongoSeeder.SeedCollections();
-            collectionsToSeed.forEach((collection: { Collection: any; Value: any; })=>{
-                  this.InsertMany(collection.Collection,collection.Value);
+            let collectionsToSeed = Seeder.SeedEmpresa();
+
+            collectionsToSeed.forEach((collection: Collections.Empresa)=>{
+                  this.InsertMany("Empresa",collection);
             })
       },
       /*----------------------------*/
 
-      InsertMany: (collection: any,value: any) => { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE VÁRIOS
+      InsertMany: (collection: any, value: any) => { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE VÁRIOS
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
                         logger.log(err,true)
@@ -74,9 +75,7 @@ module.exports = {
       },
 
       Insert: (collection: any,value: any) => { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
-            if(collection == MongoCollections.Usuario){
-                  logger.logusr(value);
-            }
+           
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
                         logger.log(err,true)
