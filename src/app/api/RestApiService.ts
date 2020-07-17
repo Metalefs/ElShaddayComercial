@@ -12,14 +12,31 @@ export class RestApiService {
     gapi = new GAPPI(this.http);    
     private IsLoading = true;
 
-    Cardapios() {
-        return this.gapi.LerCardapio();
+    async Cardapios() {
+        return await this.gapi.LerCardapio();
     }
-    InformacoesContato() {
-
+    async InformacoesContato() {
+        return await this.gapi.LerInformacaoContato();
     }
-    Sobre() {
+    async Sobre() {
+        return await this.gapi.LerSobre();
+    }
 
+    HandleReturn(data){
+        const returnArray: Array<any> = [];
+        console.log(data);
+        if (data && data.length > 0) {
+            data.forEach(entry => {
+                const obj = {};
+                for (const x in entry) {
+                    if (x.includes('gsx$') && entry[x].$t) {
+                        obj[x.split('$')[1]] = entry[x]['$t'];
+                    }
+                }
+                returnArray.push(obj);
+                console.log(returnArray);
+            });
+        }
     }
 
     getLoadingState(){

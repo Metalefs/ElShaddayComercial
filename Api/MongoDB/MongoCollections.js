@@ -1,0 +1,17 @@
+module.exports = {
+    Dialogo: "Dialogo",
+    Email: "Email",
+    Entidade: "Entidade",
+    Exemplos: "Exemplos",
+    ExemplosIngles: "Exemplos-Ingles",
+    Intencao: "Intencao",
+    Mensagem: "Mensagem",
+    Seed: "Seed",
+    Solucoes: "SolucoesRumo",
+    SolucoesIngles: "SolucoesRumoIngles",
+    SugestaoMensagens: "SugestaoMensagens",
+    SugestaoMensagensIngles: "SugestaoMensagensIngles",
+    UsoRecurso: "UsoRecurso",
+    Usuario: "Usuario",
+    Vagas: "VagasRumo",
+}

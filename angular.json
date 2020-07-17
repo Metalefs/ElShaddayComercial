@@ -64,8 +64,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ElShaddayCommercial:build"
-          },
+              "browserTarget": "ElShaddayCommercial:build",
+              "proxyConfig": "src/app/proxy.conf.json"
+          }
+          ,
           "configurations": {
             "production": {
               "browserTarget": "ElShaddayCommercial:build:production"

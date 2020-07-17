@@ -8,28 +8,55 @@ class GAPI {
     SOBRE_ID = '2PACX-1vThQGr5NLnPFJhNY4rnk6tzYHa75z0_bfekFLSQj_f93GaCUhicHxDfjGvNvlDnZfKqdsZncrOhs-6M';
     
     async LerCardapio(){
-        this.ReadSheet(this.CARDAPIO_ID);
+        return this.ReadSheet(this.CARDAPIO_ID).then(function(data){return data});
     }
     async LerInformacaoContato(){
-        this.ReadSheet(this.INFORMACAO_CONTATO_ID);
+        return this.ReadSheet(this.INFORMACAO_CONTATO_ID).then(function(data){return data});
     }
     async LerSobre(){
-        this.ReadSheet(this.SOBRE_ID);
+        return this.ReadSheet(this.SOBRE_ID).then(function(data){return data});
     }
 
-    ReadSheet = function (SheetId){
+    ReadSheet = async function (SheetId){
         let url = `https://docs.google.com/spreadsheets/d/e/${SheetId}/pub?output=csv`;
-        request(url, (error, response, body) => {
-            if(error) return console.log(error);
-            csv({
+        
+        const promisifiedRequest = function(options) {
+            return new Promise((resolve,reject) => {
+                request(options, (error, response, body) => {
+                    if (response) {
+                        return resolve(response);
+                    }
+                    if (error) {
+                        return reject(error);
+                    }
+                });
+            });
+        };
+        
+        return await (async function() {
+            const options = {
+                url: url,
+                method: 'GET',
+                gzip: true,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36'
+                }
+            };
+        
+            let response = await promisifiedRequest(options);
+            let data;
+            data = await csv({
                 noheader:true,
                 output: "csv"
             })
-            .fromString(body)
+            .fromString(response.body)
             .then((csvRow)=>{ 
-                console.log(csvRow)
+                data = csvRow;
+                return data;
             });
-        });     
+            return data;
+        })();
+        
     }
 }
 

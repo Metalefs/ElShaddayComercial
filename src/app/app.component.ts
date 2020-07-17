@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from './api/RestApiService'
+import { RestApiServiceExternal } from './api/RestApiService_External'
 
 @Component({
   selector: 'app-main',
@@ -9,16 +9,17 @@ import { RestApiService } from './api/RestApiService'
 
 export class AppComponent implements OnInit {
 
-  api:RestApiService;
-  constructor(api:RestApiService) {
+  api:RestApiServiceExternal;
+  constructor(api:RestApiServiceExternal) {
     this.api = api;
   }
   Cardapio:any;
   title = "ElShaddayCommercial";
 
-  LerCardapio(){
-    this.Cardapio = this.api.Cardapios();
-    console.log(this.Cardapio,"teste");
+  async LerCardapio(){
+    (await this.api.Sobre()).subscribe(function(data){
+      console.log(data);
+    });
   }
   
   ngOnInit(): void {

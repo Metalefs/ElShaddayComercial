@@ -1,0 +1,15 @@
+[
+{"IdProduto":1,"Nome":"Agenda","Descricao":"O Agenda é um sistema de informação que auxilia no controle de tarefas de funcionários e nas atividades gerais de uma empresa, possui gráficos e relatórios em múltiplos formatos</br>Para mais informações sobre o Agenda : <a href=\"http://rumosolucoes.com/solucao-para-gestao-de-vendas-agenda-e-disponibilidade/\">http://rumosolucoes.com/solucao-para-gestao-de-vendas-agenda-e-disponibilidade/</a>","Imagem":"./images/Agenda.png","Redirect":"undefined"},
+{"IdProduto":2,"Nome":"SGAE","Descricao":"Software direcionado para Gestão Financeira de instituições que realizam distribuição e cobrança de Água e Esgoto. Nossa solução possui gestão de Contas a Receber, Leitura de Hidrômetros, Geração de Boletos, Baixa de Boletos, Tarifas, Integração Bancária, Parcelamentos, Relatórios e muito mais. Entre em contato para conhecer mais a nossa solução.","Imagem":"./images/SGAE.png","Redirect":"http://rumosolucoes.com/solucao-para-gestao-de-vendas-agenda-e-disponibilidade/"},
+{"IdProduto":3,"Nome":"Genial","Descricao":"Software direcionado para Gestão de Apontamento de Horas de Funcionários e Terceiros","Imagem":"./images/Genial.png","Redirect":"http:\\/\\/www.controlegenial.com.br/"}
+]
+
+[
+{"IdVaga":1,"NomeVaga":"DESENVOLVEDOR SALESFORCE","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/29855"},
+{"IdVaga":2,"NomeVaga":"ANALISTA DESENVOLVEDOR .NET CORE","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/29701"},
+{"IdVaga":3,"NomeVaga":"ANALISTA DESENVOLVEDOR(A) .NET ANGULAR.JS","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/29695"},
+{"IdVaga":4,"NomeVaga":"ARQUITETO DE SISTEMAS","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/29696"},
+{"IdVaga":5,"NomeVaga":"ESTÁGIO DEVELOPER .NET","TipoContratacao":"Estágio","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/27872"},
+{"IdVaga":6,"NomeVaga":"DEVELOPER FULLSTACK","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/27900"},
+{"IdVaga":7,"NomeVaga":"ANALISTA DESENVOLVEDOR(A).NET MVC","TipoContratacao":"CLT","Redirect":"https:\\/\\/rumosolucoes.compleo.com.br\\/PreCandidatar\\/27746"}
+]
