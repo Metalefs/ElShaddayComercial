@@ -4,15 +4,16 @@ export module Collections {
         Email:string;
         HorarioAtendimento:string;
         Whatsapp:string
+        static NomeID:string = "InformacoesContato";
         constructor(
-        Telefone:string,
-        Email:string,
-        HorarioAtendimento:string,
-        Whatsapp:string){
-            this.Telefone = Telefone;
-            this.Email = Email;
-            this.HorarioAtendimento = HorarioAtendimento;
-            this.Whatsapp = Whatsapp;
+            Telefone:string,
+            Email:string,
+            HorarioAtendimento:string,
+            Whatsapp:string){
+                this.Telefone = Telefone;
+                this.Email = Email;
+                this.HorarioAtendimento = HorarioAtendimento;
+                this.Whatsapp = Whatsapp;
         }
     };
     export class Sobre {
@@ -21,6 +22,7 @@ export module Collections {
         Servico:string;
         Historia:string;
         Slogan:string;
+        static NomeID:string = "Sobre";
         constructor(
         Descricao:string,
         Nome:string,
@@ -40,6 +42,7 @@ export module Collections {
         Cliente:Cliente;
         Titulo:string;
         Comentario:string;
+        static NomeID:string = "Feedback";
         constructor(
         Nome:string,
         Email:string,
@@ -64,6 +67,7 @@ export module Collections {
         Cidade:string;
         Estado:string;
         CPF:string;
+        static NomeID:string = "Cliente";
         constructor(
         Nome:string,
         Email:string,
@@ -90,6 +94,7 @@ export module Collections {
         Ingredientes:string;
         Tipo:string;
         Preco:string;
+        static NomeID:string = "Cardapio";
         constructor(
         Dia:string,
         Ingredientes:string,
@@ -106,6 +111,7 @@ export module Collections {
         Cardapios:Cardapio[];
         Aberto:string;
         Preco:string;
+        static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
@@ -117,25 +123,4 @@ export module Collections {
             this.Preco = Preco;
         }
     };
-    export class Empresa{
-        InformacoesContato:InformacoesContato;
-        Cardapios:Cardapio[];
-        Clientes:Cliente[];
-        Pedidos:Pedido[];
-        Sobre:Sobre;
-        Feedback:Feedback;
-        constructor(InformacoesContato:InformacoesContato,
-            Sobre:Sobre,
-            Cardapios:Cardapio[],
-            Clientes:Cliente[],
-            Pedidos:Pedido[],
-            Feedback:Feedback){
-            this.InformacoesContato = InformacoesContato;
-            this.Cardapios = Cardapios;
-            this.Clientes = Clientes;
-            this.Pedidos = Pedidos;
-            this.Sobre = Sobre;
-            this.Feedback = Feedback;
-        };
-    }
 }

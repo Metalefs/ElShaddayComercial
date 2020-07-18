@@ -1,7 +1,7 @@
 import {Collections} from './MongoCollections';
 export module Seeder {
     
-      export function SeedEmpresa (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
+      export function SeedCollections (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
             let InformacoesContato = new Collections.InformacoesContato
             ("991823760",
             "simonejessicamarmitex@gmail.com",
@@ -36,10 +36,13 @@ export module Seeder {
             let Pedidos:Collections.Pedido[];
             Pedidos = [];
 
-            let Feedback = new Collections.Feedback(Clientes[0].Nome,Clientes[0].Email,Clientes[0],"Addrei","Entregue pontualmente todos os dias úteis, não preciso me preocupar com alimentação!");
+            let Feedback = new Collections.Feedback(Clientes[0].Nome,Clientes[0].Email,Clientes[0],"Adorei","Entregue pontualmente todos os dias úteis, não preciso me preocupar com alimentação!");
 
-            let Empresa = new Collections.Empresa(InformacoesContato,Sobre,Cardapios,Clientes,Pedidos,Feedback);
-            
-            return [Empresa];
+            return [{name:"InformacoesContato",value:InformacoesContato},
+                   {name:"Sobre",value:Sobre},
+                   {name:"Cardapios",value:Cardapios},
+                   {name:"Clientes",value:Clientes},
+                   {name:"Pedidos",value:Pedidos},
+                   {name:"Feedback",value:Feedback}];
       }
 }

@@ -1,9 +1,10 @@
 const port = 3000;
 const rootRoutes = require("./Rotas/Web");
 const bodyParser = require('body-parser');
-const express = require("express");
 const cors = require("cors");
-const app = express();
+
+import express = require('express');
+const app: express.Application = express();
 const session = require('express-session');
 
 app.use(cors());

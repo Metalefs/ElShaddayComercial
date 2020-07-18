@@ -1,6 +1,7 @@
-module.exports = {
+export let Rotas = {
     Cardapios:"/Cardapio/",
     InfoContato:"/InfoContato/",
     Sobre:"/Sobre/",
-    Registro:"/Registro/"
+    Registro:"/Registro/",
+    Seed:"/Seed/"
 };
