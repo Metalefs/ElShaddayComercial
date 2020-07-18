@@ -38,11 +38,11 @@ export module Seeder {
 
             let Feedback = new Collections.Feedback(Clientes[0].Nome,Clientes[0].Email,Clientes[0],"Adorei","Entregue pontualmente todos os dias úteis, não preciso me preocupar com alimentação!");
 
-            return [{name:"InformacoesContato",value:InformacoesContato},
-                   {name:"Sobre",value:Sobre},
-                   {name:"Cardapios",value:Cardapios},
-                   {name:"Clientes",value:Clientes},
-                   {name:"Pedidos",value:Pedidos},
-                   {name:"Feedback",value:Feedback}];
+            return [{name:"InformacoesContato",value:InformacoesContato,Single:true},
+                   {name:"Sobre",value:Sobre,Single:true},
+                   {name:"Cardapios",value:Cardapios,Single:false},
+                   {name:"Clientes",value:Clientes,Single:false},
+                   {name:"Pedidos",value:Pedidos,Single:false},
+                   {name:"Feedback",value:Feedback,Single:false}];
       }
 }

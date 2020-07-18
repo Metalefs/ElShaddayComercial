@@ -52,7 +52,10 @@ export module Mongo {
             let collectionsToSeed = Seeder.SeedCollections();
 
             collectionsToSeed.forEach((collection: any)=>{
-                  console.log(collection);
+                  collection.Single ?
+                        Insert(collection.name,collection.value)
+                  :
+                        InsertMany(collection.name,collection.value)
             })
       }
       /*----------------------------*/
@@ -94,8 +97,8 @@ export module Mongo {
             });
       }      
 
-      export function Ler (collection: string){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
-            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+      export function Ler (collection: string, res : Express.Response){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                   if (err){
                         logger.log(err)
                         throw err;
@@ -106,9 +109,8 @@ export module Mongo {
                               logger.log(err)
                               throw err;
                         }
-                        console.log(result);
                         db.close();
-                        return result;
+                        res.send(result);
                   });
             });
       }

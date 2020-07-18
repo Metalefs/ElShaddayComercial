@@ -94,7 +94,7 @@ export module Collections {
         Ingredientes:string;
         Tipo:string;
         Preco:string;
-        static NomeID:string = "Cardapio";
+        static NomeID:string = "Cardapios";
         constructor(
         Dia:string,
         Ingredientes:string,

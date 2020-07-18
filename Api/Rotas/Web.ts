@@ -14,16 +14,14 @@ app.use(function(req, res, next) {
     next();
 });
 app.get(Rotas.Cardapios, (req,res) =>{
-    let dados = Mongo.Ler(Collections.Cardapio.NomeID);
-    res.json(dados);
+    let dados = Mongo.Ler(Collections.Cardapio.NomeID,res);
+    console.log(dados);
 });
 app.get(Rotas.InfoContato, (req,res) => {
-    let dados = Mongo.Ler(Collections.InformacoesContato.NomeID);
-    res.json(dados);
+    Mongo.Ler(Collections.InformacoesContato.NomeID,res);
 });
 app.get(Rotas.Sobre, (req,res) => {
-    let dados = Mongo.Ler(Collections.Sobre.NomeID);
-    res.json(dados);
+    Mongo.Ler(Collections.Sobre.NomeID,res);
 });
 app.get(Rotas.Seed, (req,res) => {
     Mongo.seedCollections();
