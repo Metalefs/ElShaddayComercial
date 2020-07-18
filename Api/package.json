@@ -17,6 +17,8 @@
     "googleapis": "^39.2.0",
     "mongodb": "^3.5.9",
     "npm": "^6.9.0",
+    "@sendgrid/mail": "^7.2.1",
+    "express-session": "^1.17.1",
     "request": "^2.88.2",
     "typescript": "^3.9.7"
   },

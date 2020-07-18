@@ -1,11 +1,12 @@
 import {Rotas} from './Rotas';
+import {Mongo} from '../MongoDB/Mongo';
+import {Collections} from '../../Dominio/MongoCollections';;
+
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey("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")
 import express = require('express');
 
 const app: express.Application = express();
-import {Mongo} from '../MongoDB/Mongo';
-import {Collections} from '../MongoDB/MongoCollections';
 
 // [GET]----------------------------------------------------------------------------------------------
 app.use(function(req, res, next) {
@@ -14,8 +15,7 @@ app.use(function(req, res, next) {
     next();
 });
 app.get(Rotas.Cardapios, (req,res) =>{
-    let dados = Mongo.Ler(Collections.Cardapio.NomeID,res);
-    console.log(dados);
+    Mongo.Ler(Collections.Cardapio.NomeID,res);
 });
 app.get(Rotas.InfoContato, (req,res) => {
     Mongo.Ler(Collections.InformacoesContato.NomeID,res);
@@ -35,7 +35,7 @@ app.get(Rotas.Registro, (req,res) =>{
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     }
-    
+    res.send(msg)
     sgMail.send(msg)
 })
 

@@ -110,7 +110,7 @@ export module Mongo {
                               throw err;
                         }
                         db.close();
-                        res.send(result);
+                        res.json(result);
                   });
             });
       }
