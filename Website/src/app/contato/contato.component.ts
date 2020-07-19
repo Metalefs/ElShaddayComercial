@@ -12,27 +12,19 @@ import { PartialObserver } from 'rxjs';
 
 export class ContatoComponent implements OnInit {
 
-  api:RestApiService;
-  InformacoesContato:Collections.InformacoesContato;
-  constructor(api:RestApiService) {
-    this.api = api;
-    this.LerInformacoesContato().then((x)=>{this.InformacoesContato = x;});
+  InformacoesContato:Collections.InformacoesContato = null;
+  
+  constructor(public api: RestApiService) {  }
+
+  LerInformacoesContato() {
+    this.api.InformacoesContato().subscribe(data=>{
+      this.InformacoesContato = data[0];
+      console.log(this.InformacoesContato);
+    });
   }
 
-  async LerInformacoesContato() {
-    return (await this.api.InformacoesContato()).subscribe(function (data) {
-      console.log(data);
-      return {
-        Telefone: data.Telefone,
-        Email: data.Email,
-        HorarioAtendimento: data.HorarioAtendimento,
-        Whatsapp: data.Whatsapp
-      };
-    }) as unknown as Collections.InformacoesContato;
-  }
-
-  ngOnInit(): void {
-
+  ngOnInit() {
+    this.LerInformacoesContato();
   }
 
 }

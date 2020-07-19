@@ -1,3 +1,32 @@
-<p>
-    {{InformacoesContato?.Telefone}}
-</p>
+<section *ngIf="InformacoesContato != undefined" class="section">
+    
+    <div class="container">
+
+            <div class="columns level">
+                <div class="column primary">
+                   
+                    <div class="box">
+                       <h2>Contato</h2>
+
+                       <p><strong>Telefone:</strong> {{InformacoesContato.Telefone}}</p>
+                   
+                       <p><strong>Email:</strong> {{InformacoesContato.Email}}</p>          
+                   </div>
+                    
+                </div>
+                <div class="column">
+                    
+                    <div class="box">
+                        <h2>Atendimento</h2>
+ 
+                       <p>{{InformacoesContato.HorarioAtendimento}}</p>        
+                    </div>
+
+                    <td></td>
+                            
+                </div>
+            </div>
+
+    </div>
+    
+</section>

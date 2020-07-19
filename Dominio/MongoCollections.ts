@@ -16,6 +16,17 @@ export module Collections {
                 this.Whatsapp = Whatsapp;
         }
     };
+    export class PrecoMarmitex {
+        Pequena:string;
+        Grande:string;
+        constructor(
+            Pequena:string,
+            Grande:string,
+        ){
+            this.Pequena = Pequena;
+            this.Grande = Grande;
+        }
+    }
     export class Sobre {
         Descricao:string;
         Nome:string;
@@ -91,19 +102,19 @@ export module Collections {
     };
     export class Cardapio {
         Dia:string;
+        Nome:string;
         Ingredientes:string;
         Tipo:string;
-        Preco:string;
         static NomeID:string = "Cardapios";
         constructor(
         Dia:string,
+        Nome:string,
         Ingredientes:string,
-        Tipo:string,
-        Preco:string){
+        Tipo:string){
             this.Dia = Dia;
+            this.Nome = Nome;
             this.Ingredientes = Ingredientes;
             this.Tipo = Tipo;
-            this.Preco = Preco;
         }
     };
     export class Pedido {

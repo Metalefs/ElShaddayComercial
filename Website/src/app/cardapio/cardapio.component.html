@@ -1,0 +1,7 @@
+<section *ngIf="Cardapios != undefined" class="section columns">
+    
+    <div class="column" *ngFor="let Cardapio of Cardapios">
+        <cardapio-card [Cardapio]="Cardapio"> </cardapio-card>
+    </div>
+
+</section>

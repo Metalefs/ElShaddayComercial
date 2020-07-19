@@ -15,6 +15,7 @@ export class NavbariconComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log()
   }
 
 }

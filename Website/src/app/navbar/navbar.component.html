@@ -1,6 +1,14 @@
-
-<ng-template *ngFor="let opcao of Opcoes">
-
-    <navbaricon  [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon"></navbaricon>
-
-</ng-template>
+<nav class="navbar is-dark is-boxed">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="../../assets/3d-logo.png" alt="ElShadday Disk Marmitex: Comida caseira">
+      </a>
+      <p>{{Titulo}}</p>
+      <hr class="navbar-divider">
+      <ng-template *ngFor="let opcao of Opcoes">
+      
+          <navbaricon  [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon"></navbaricon>
+      
+      </ng-template>
+    </div>
+</nav>
