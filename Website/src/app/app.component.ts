@@ -1,28 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { RestApiService } from './api/RestApiService'
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { RestApiService } from './api/RestApiService';
 
-import {Collections} from '../../../Dominio/MongoCollections';
+import { Collections } from '../../../Dominio/MongoCollections';
+import { OpcaoNavbar } from '../../../Dominio/OpcoesNavbar';
+import { ContatoComponent } from '../app/contato/contato.component'/
 
 @Component({
-  selector: 'app-main',
+  selector: 'app.root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   api:RestApiService;
   Sobre:any;
   Cardapio:any;
-  InformacoesContato:any;
+  
   title = "ElShadday Disk Marmitex";
   
+  OpcoesNavBar = [
+    new OpcaoNavbar("Pedido","",""),
+    new OpcaoNavbar("Cardápio","",""),
+    new OpcaoNavbar("Sobre","",""),
+  ];
+
   constructor(api:RestApiService) {
     this.api = api;
-    this.Sobre = "sdsd";
+    this.Sobre = "";
     this.LerSobre().then(x=>{this.Sobre = x;});
     this.LerCardapio().then(x=>{this.Cardapio = x;});
-    this.LerInformacoesContato().then(x=>{this.InformacoesContato = x;});
   }
 
   async LerSobre(){
@@ -37,15 +44,13 @@ export class AppComponent implements OnInit {
       return data;
     });
   }
-  async LerInformacoesContato(){
-    (await this.api.InformacoesContato()).subscribe(function(data){
-      console.log(data);
-      return data;
-    });
-  }
   
   ngOnInit(): void {
     
+  }
+
+  ngAfterViewInit(){
+
   }
 
 }

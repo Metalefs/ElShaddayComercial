@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { OpcaoNavbar } from '../../../../Dominio/OpcoesNavbar';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  @Input()
+  Titulo: string;
+
+  @Input()
+  Opcoes: OpcaoNavbar[]; 
 
   constructor() { }
 
