@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.component';
 import { HeroComponent } from './hero/hero.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HeroComponent } from './hero/hero.component';
     AppRoutingModule,
     FlexLayoutModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../api/RestApiService';
 import { OpcaoNavbar } from '.../../../Dominio/OpcoesNavbar';
 
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
+import { faShippingFast } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -11,12 +15,12 @@ import { OpcaoNavbar } from '.../../../Dominio/OpcoesNavbar';
 export class MainPageComponent implements OnInit {
   
   api:RestApiService;  
-  title = "ElShadday Disk Marmitex";
+  title = "ElShadday Marmitex";
   
   OpcoesNavBar = [
-    new OpcaoNavbar("Pedido","",""),
-    new OpcaoNavbar("Cardápio","",""),
-    new OpcaoNavbar("Sobre","",""),
+    new OpcaoNavbar("Inicio", "", faHome),
+    new OpcaoNavbar("Menu", "", faStore),
+    new OpcaoNavbar("Entrega", "", faShippingFast),
   ];
 
   constructor(api:RestApiService) {

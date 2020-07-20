@@ -1,7 +1,13 @@
-<section *ngIf="Cardapios != undefined" class="section columns">
+<section *ngIf="Cardapios != undefined" class="section">
+
+    <h1 class="title"> Dê uma olhada no nosso cardápio!</h1>
     
-    <div class="column" *ngFor="let Cardapio of Cardapios">
-        <cardapio-card [Cardapio]="Cardapio"> </cardapio-card>
+    <div class="columns">
+        
+        <div class="column" *ngFor="let Cardapio of Cardapios">
+            <cardapio-card [Cardapio]="Cardapio"> </cardapio-card>
+        </div>
+
     </div>
 
 </section>

@@ -11,11 +11,13 @@ export class NavbariconComponent implements OnInit {
   @Input()
   Link: string;
   @Input()
-  Icon: string;
+  Icon: object;
   constructor() { }
 
   ngOnInit(): void {
-    console.log()
+    console.log(this.Titulo,
+      this.Link,
+      this.Icon)
   }
 
 }
