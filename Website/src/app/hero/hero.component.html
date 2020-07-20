@@ -1,10 +1,10 @@
 <section *ngIf="Sobre != undefined" class="section columns">
     <div class="column">
-        <h1 class="title is-1 has-text-weight-semibold has-text-white">{{Sobre.Servico}}</h1>
-        <h2 class="title is-4 has-text-weight-medium has-text-white  is-italic">{{Sobre.Slogan}}</h2>
-        <p class="is-family-primary has-text-weight-medium has-text-white">{{Sobre.Descricao}}</p>
+        <h1 class="title is-1 has-text-weight-semibold has-text-white has-text-justified">{{Sobre.Servico}}</h1>
+        <h2 class="title is-4 has-text-weight-medium has-text-white is-italic">{{Sobre.Slogan}}</h2>
+        <p class="is-5 is-family-primary has-text-weight-medium has-text-white has-text-justified">{{Sobre.Descricao}}</p>
     </div>
     <div class="column">
-        
+        <registro-cliente></registro-cliente>
     </div>
 </section>

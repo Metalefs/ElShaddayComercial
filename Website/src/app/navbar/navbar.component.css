@@ -10,13 +10,17 @@
 .navbar-item:hover{
     background-color: transparent !important;
 }
+.columns{
+    background: #61616129;
+    margin-top: 0;
+}
+.nav-icon{
+    margin: 0rem 3rem;
+    position: relative;
+}
 .navbar-brand{
     height:22px;
 }
 .absolute{
     position: absolute;
-}
-.columns{
-    background: #61616129;
-    margin-top:0;
 }

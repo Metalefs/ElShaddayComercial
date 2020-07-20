@@ -4,3 +4,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body{
     background: #ccc;
 }
+.mat-typography h1{
+    font-family: var(--clr-h1-font-family, Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif);
+}

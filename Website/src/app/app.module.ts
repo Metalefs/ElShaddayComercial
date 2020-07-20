@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { FormsModule }   from '@angular/forms';
 
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,10 +14,9 @@ import { ContatoComponent } from './contato/contato.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.component';
-import { HeroComponent } from './hero/hero.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ClarityModule } from '@clr/angular';
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { HeroComponent } from './hero/hero.component';
+import { ClarityModule } from '@clr/angular';
 
 
 @NgModule({
@@ -30,16 +29,16 @@ import { RegistroClienteComponent } from './registro-cliente/registro-cliente.co
     MainPageComponent,
     CardapioComponent,
     CardapioCardComponent,
-    HeroComponent,
     RegistroClienteComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FontAwesomeModule,
     ClarityModule
   ],
   providers: [],

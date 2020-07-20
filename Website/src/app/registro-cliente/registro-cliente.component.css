@@ -1,0 +1,9 @@
+.login-wrapper{
+    margin-bottom:-120px;
+    background: url() !important;
+}
+.login-wrapper .login{
+    padding-top: 4rem;
+    width: 100%;
+    justify-content: start;
+}
