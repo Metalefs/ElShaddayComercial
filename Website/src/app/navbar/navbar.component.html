@@ -14,16 +14,16 @@
     
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item has-text-white">
         Home
       </a>
 
-      <a class="navbar-item">
+      <a class="navbar-item has-text-white">
         Documentation
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link has-text-white">
           More
         </a>
 
@@ -59,6 +59,6 @@
     </div>
   </div>
 </nav>
-<div class="columns is-centered is-mobile is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-    <navbaricon class="nav-icon" [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon" *ngFor="let opcao of Opcoes"></navbaricon>
+<div class="columns tile is-ancestor is-centered is-mobile is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+    <navbaricon class="nav-icon tile" [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon" *ngFor="let opcao of Opcoes"></navbaricon>
 </div>

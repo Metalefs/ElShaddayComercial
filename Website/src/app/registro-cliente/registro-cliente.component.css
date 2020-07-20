@@ -1,6 +1,7 @@
 .login-wrapper{
     margin-bottom:-120px;
     background: url() !important;
+    min-height:initial !important;
 }
 .login-wrapper .login{
     padding-top: 4rem;
