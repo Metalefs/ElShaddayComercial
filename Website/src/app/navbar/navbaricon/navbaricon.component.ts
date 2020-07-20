@@ -11,7 +11,7 @@ export class NavbariconComponent implements OnInit {
   @Input()
   Link: string;
   @Input()
-  Icon: object;
+  Icon: string;
   constructor() { }
 
   ngOnInit(): void {

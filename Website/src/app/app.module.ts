@@ -16,6 +16,7 @@ import { CardapioComponent } from './cardapio/cardapio.component';
 import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.component';
 import { HeroComponent } from './hero/hero.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ClarityModule } from '@clr/angular';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ClarityModule
   ],
   providers: [],
   bootstrap: [AppComponent]

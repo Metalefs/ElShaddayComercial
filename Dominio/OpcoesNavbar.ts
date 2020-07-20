@@ -1,10 +1,10 @@
 export class OpcaoNavbar{
   Titulo: string;
   Link: string;
-  Icon: object;
+  Icon: string;
   constructor(Titulo: string,
     Link: string,
-    Icon: object){
+    Icon: string){
     this.Titulo= Titulo;
     this.Link= Link;
     this.Icon= Icon; 

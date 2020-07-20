@@ -3,10 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../api/RestApiService';
 import { OpcaoNavbar } from '.../../../Dominio/OpcoesNavbar';
 
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { faStore } from '@fortawesome/free-solid-svg-icons';
-import { faShippingFast } from '@fortawesome/free-solid-svg-icons';
-
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -18,9 +14,9 @@ export class MainPageComponent implements OnInit {
   title = "ElShadday Marmitex";
   
   OpcoesNavBar = [
-    new OpcaoNavbar("Inicio", "", faHome),
-    new OpcaoNavbar("Menu", "", faStore),
-    new OpcaoNavbar("Entrega", "", faShippingFast),
+    new OpcaoNavbar("Inicio", "", "Home"),
+    new OpcaoNavbar("Menu", "", "view-list"),
+    new OpcaoNavbar("Entrega", "", "shopping-cart"),
   ];
 
   constructor(api:RestApiService) {
