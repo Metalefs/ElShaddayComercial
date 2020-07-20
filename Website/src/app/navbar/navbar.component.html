@@ -1,11 +1,13 @@
-<nav class="navbar is-dark is-boxed">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-        <img src="../../assets/Logo.png" alt="ElShadday Disk Marmitex: Comida caseira">
-        </a>
-        <hr class="navbar-divider">
-
-        
+<div class="">
+    <nav class="navbar is-boxed">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="../../assets/Logo.png" alt="ElShadday Disk Marmitex: Comida caseira">
+            </a>
+            <hr class="navbar-divider">
+        </div>
+    </nav>
+    <div class="columns is-mobile is-centered">
+        <navbaricon  [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon" *ngFor="let opcao of Opcoes"></navbaricon>
     </div>
-    <navbaricon  [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon" *ngFor="let opcao of Opcoes"></navbaricon>
-</nav>
+</div>

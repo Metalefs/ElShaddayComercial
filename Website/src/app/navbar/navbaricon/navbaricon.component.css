@@ -1,3 +1,7 @@
 a{
     color:#ffff;
 }
+.border-white{
+    outline:1px solid #ccc;
+    outline-width: 0rem;
+}
