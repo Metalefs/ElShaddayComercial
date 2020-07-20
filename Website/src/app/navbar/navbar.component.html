@@ -1,63 +1,65 @@
 <nav class="header-nav navbar is-boxed" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <img src="../../assets/Logo.svg" alt="ElShadday Disk Marmitex: Comida caseira">
-        </a>
+    <div class="container">
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
-  
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="../../assets/Logo.svg" alt="ElShadday Disk Marmitex: Comida caseira">
+            </a>
     
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item has-text-white">
-        Home
-      </a>
-
-      <a class="navbar-item has-text-white">
-        Documentation
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link has-text-white">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Home
+                </a>
+            
+                <a class="navbar-item">
+                    Documentação
+                </a>
+            
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                    Mais
+                    </a>
+            
+                    <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        About
+                    </a>
+                    <a class="navbar-item">
+                        Jobs
+                    </a>
+                    <a class="navbar-item">
+                        Contact
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                        Report an issue
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                    <a class="button is-primary">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
-  </div>
 </nav>
 <div class="columns tile is-ancestor is-centered is-mobile is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
     <navbaricon class="nav-icon tile" [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon" *ngFor="let opcao of Opcoes"></navbaricon>

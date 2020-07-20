@@ -1,11 +1,9 @@
 .navbar{
     height:80px;
     width: 100vw;
-    display: flex;
-    align-items: center;
     background: transparent;
     border-bottom: 1px solid #ccc;
-    padding: 0 24px;
+    padding:15px 24px;
 }
 .navbar-item:hover{
     background-color: transparent !important;

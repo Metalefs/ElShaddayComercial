@@ -1,16 +1,32 @@
-<section *ngIf="InformacoesContato != undefined" class="section has-background-dark">
+<section *ngIf="InformacoesContato != undefined" class="section">
     
-    <div class="container">
+    <div class="has-background-gray-lighter">
 
-            <div class="columns is-gapless box">
+            <div class="columns is-gapless">
                 <div class="column primary">
                    
                     <div class="">
                        <h2>Contato</h2>
-
-                       <p><strong>Telefone:</strong> {{InformacoesContato.Telefone}}</p>
-                   
-                       <p><strong>Email:</strong> {{InformacoesContato.Email}}</p>          
+                       <article class="media">
+                            <figure class="media-left">
+                                <clr-icon shape="phone-handset" class="image"></clr-icon>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato.Telefone}} </p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <figure class="media-left">
+                                <clr-icon shape="envelope" class="image"></clr-icon>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="is-light has-text-weight-medium has-text-justified"> {{InformacoesContato.Email}} </p>
+                                </div>
+                            </div>
+                        </article>    
                    </div>
                     
                 </div>

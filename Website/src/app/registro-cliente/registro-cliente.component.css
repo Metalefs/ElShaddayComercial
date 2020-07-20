@@ -5,6 +5,7 @@
 }
 .login-wrapper .login{
     padding-top: 4rem;
+    min-height:initial !important;
     width: 100%;
     justify-content: start;
 }

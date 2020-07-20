@@ -1,15 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
-
-
+import { Collections } from '../../../../Dominio/MongoCollections';
+import { RestApiService } from '../api/RestApiService';
 class Form {
   username:string;
   password:string;
   rememberMe:string;
   type:string;
 }
-
 
 @Component({
   selector: 'registro-cliente',
@@ -18,11 +17,25 @@ class Form {
 })
 export class RegistroClienteComponent implements OnInit {
 
-  constructor() { }
-
+  @Input()
+  Telefone:string;
+  InformacoesContato:Collections.InformacoesContato = null;
+  
   form = new Form();
+  AceitaCartao:boolean;
 
-  ngOnInit(): void {
+  constructor(public api: RestApiService) {  }
+
+  LerInformacoesContato() {
+    this.api.InformacoesContato().subscribe(data=>{
+      this.InformacoesContato = data[0];
+      console.log(this.InformacoesContato);
+    });
   }
+
+  ngOnInit() {
+    this.LerInformacoesContato();
+  }
+  
 
 }

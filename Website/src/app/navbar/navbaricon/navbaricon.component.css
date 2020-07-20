@@ -1,5 +1,8 @@
 a{
-    color:#ffff;
+    color:#ffff; 
+}
+a:hover{
+
 }
 .border-white{
     outline:1px solid #ccc;

@@ -26,10 +26,36 @@
                 <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="form.rememberMe"/>
             </clr-checkbox-wrapper>
             <div class="error">
-                Invalid user name or password
+                Nome ou senha inválidos
             </div>
             <button type="submit" class="btn btn-primary">PEDIR</button>
             <a href="javascript://" class="signup">Registrar-se para obter uma conta</a>
+            
+            <hr>
+            <article class="media">
+                <figure class="media-left">
+                    <clr-icon shape="phone-handset" class="image"></clr-icon>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <p class="is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato.Telefone}} </p>
+                    </div>
+                </div>
+            </article>
+            <ng-template *ngIf="AceitaCartao">
+                <figure class="media-right">
+                    <p class="image is-32x32">
+                        <img class="is-rounded" src="../../assets/visto.svg" >
+                    </p>
+                </figure>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </article>
+            </ng-template>
         </div>
     </form>
 </div>
