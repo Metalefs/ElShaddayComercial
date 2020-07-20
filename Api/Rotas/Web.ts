@@ -1,9 +1,6 @@
 import {Rotas} from './Rotas';
 import {Mongo} from '../MongoDB/Mongo';
-import {Collections} from '../../Dominio/MongoCollections';;
-
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey("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")
+import {Collections} from '../../Dominio/MongoCollections';
 import express = require('express');
 
 const app: express.Application = express();
@@ -14,7 +11,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.get(Rotas.Cardapios, (req,res) =>{
+app.get(Rotas.Cardapios, (req:any,res) =>{
     Mongo.Ler(Collections.Cardapio.NomeID,res);
 });
 app.get(Rotas.InfoContato, (req,res) => {
@@ -27,16 +24,5 @@ app.get(Rotas.Seed, (req,res) => {
     Mongo.seedCollections();
     res.send('seeded');
 });
-app.get(Rotas.Registro, (req,res) =>{
-    const msg = {
-    to: 'jack-ten@hotmail.com',
-    from: 'test@example.com',
-    subject: 'Sending with SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    }
-    res.send(msg)
-    sgMail.send(msg)
-})
 
 module.exports = app;

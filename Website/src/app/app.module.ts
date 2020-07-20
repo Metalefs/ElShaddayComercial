@@ -17,6 +17,7 @@ import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.co
 import { HeroComponent } from './hero/hero.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClarityModule } from '@clr/angular';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ClarityModule } from '@clr/angular';
     CardapioComponent,
     CardapioCardComponent,
     HeroComponent,
+    RegistroClienteComponent,
   ],
   imports: [
     BrowserModule,
