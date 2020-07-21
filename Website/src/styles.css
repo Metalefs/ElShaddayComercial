@@ -7,3 +7,10 @@ body{
 .mat-typography h1{
     font-family: var(--clr-h1-font-family, Metropolis, "Avenir Next", "Helvetica Neue", Arial, sans-serif);
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+    .on-mobile-margin-top-1{
+        margin-top:1rem;
+    }
+    
+}
