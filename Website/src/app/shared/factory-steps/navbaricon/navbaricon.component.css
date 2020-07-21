@@ -1,0 +1,10 @@
+a{
+    color:#ffff; 
+}
+.nav-icon.tile:first-of-type{
+    padding-left: 2rem;
+}
+.border-white{
+    outline:1px solid #ccc;
+    outline-width: 0rem;
+}

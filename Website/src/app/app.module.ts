@@ -9,7 +9,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NavbariconComponent } from './navbar/navbaricon/navbaricon.component';
+import { NavbariconComponent } from './shared/factory-steps/navbaricon/navbaricon.component';
 import { ContatoComponent } from './contato/contato.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { CardapioComponent } from './cardapio/cardapio.component';

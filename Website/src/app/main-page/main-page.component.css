@@ -1,16 +1,7 @@
 .hero{
-    background: url(../../../src/assets/imagens/almoco.png);
+    background: url(../../../src/assets/imagens/fundos/inicio/almoco.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-}
-.main{
-    animation: fade-in ease-in-out .5s forwards;
-}
-
-@keyframes fade-in{
-    0%{
-        transform: translateY(-10px);
-    }
-    100%{
-        transform: translate(0px);
-    }
 }

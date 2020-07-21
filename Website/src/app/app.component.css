@@ -1,5 +1,6 @@
 .main{
     animation: fade-in ease-in-out .5s forwards;
+    width: 100vw;
 }
 
 @keyframes fade-in{

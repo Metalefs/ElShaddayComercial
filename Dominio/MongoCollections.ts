@@ -117,20 +117,30 @@ export module Collections {
             this.Tipo = Tipo;
         }
     };
+
+    export class Complemento{
+        Nome:string;
+        Tipo:string;
+        Preco:number;
+    }
+
     export class Pedido {
         IdCliente:string;
         Cardapios:Cardapio[];
+        Observacao:string;
         Aberto:string;
         Preco:string;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
+        Observacao:string,
         Aberto:string,
         Preco:string){
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
             this.Aberto = Aberto;
+            this.Observacao = Observacao;
             this.Preco = Preco;
         }
     };

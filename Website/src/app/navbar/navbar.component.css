@@ -1,20 +1,11 @@
 .navbar{
     height:80px;
-    width: 100vw;
     background: transparent;
     border-bottom: 1px solid #ccc;
     padding:15px 24px;
 }
 .navbar-item:hover{
     background-color: transparent !important;
-}
-.columns{
-    background: #31313138;
-    margin-top: 0;
-}
-.nav-icon{
-    margin: 0rem 3rem;
-    position: relative;
 }
 .navbar-brand{
     height:22px;
