@@ -1,8 +1,15 @@
 a{
     color:#ffff; 
 }
-a:hover{
-
+.navbar{
+    height:80px;
+    width: 100vw;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    padding:15px 24px;
+}
+.nav-icon{
+    margin: 0rem 3rem;
 }
 .border-white{
     outline:1px solid #ccc;

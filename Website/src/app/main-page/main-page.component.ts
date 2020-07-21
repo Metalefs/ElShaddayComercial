@@ -13,11 +13,8 @@ export class MainPageComponent implements OnInit {
   api:RestApiService;  
   title = "ElShadday Marmitex";
   
-  OpcoesNavBar = [
-    new OpcaoNavbar("Inicio", "", "Home"),
-    new OpcaoNavbar("Menu", "", "view-list"),
-    new OpcaoNavbar("Entrega", "", "shopping-cart"),
-  ];
+  desktop = "is-hidden-touch";
+  mobile = "is-hidden-desktop";
 
   constructor(api:RestApiService) {
     this.api = api;

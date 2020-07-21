@@ -1,0 +1,14 @@
+@media (min-width: 768px ) and (max-width: 1023px) {
+    
+    .fix-bottom-on-mobile{
+        position: fixed !important;
+        display: block;
+        bottom: 0 !important;
+    }
+    
+}
+
+.columns{
+    background: #31313138;
+    margin-top: 0;
+}

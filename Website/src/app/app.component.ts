@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
+import { OpcaoNavbar } from '../../../Dominio/OpcoesNavbar';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +10,13 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 export class AppComponent implements OnInit, AfterViewInit {
   title = "ElShaddayCommercial";
-  
+    
+  OpcoesNavBar = [
+    new OpcaoNavbar("Inicio", "", "Home"),
+    new OpcaoNavbar("Menu", "", "view-list"),
+    new OpcaoNavbar("Entrega", "", "shopping-cart"),
+  ];
+
   ngOnInit(): void {
     
   }

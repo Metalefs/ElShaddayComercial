@@ -12,15 +12,12 @@ export class NavbarComponent implements OnInit {
   @Input()
   Titulo: string;
 
-  @Input()
-  Opcoes: OpcaoNavbar[]; 
-
   constructor() { }
 
   menuAtivo = false;
 
   ngOnInit(): void {
-    console.log(this.Opcoes,this.Titulo);
+    console.log(this.Titulo);
     // Check for click events on the navbar burger icon
     const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 

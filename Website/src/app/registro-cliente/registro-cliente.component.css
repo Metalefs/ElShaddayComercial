@@ -3,6 +3,7 @@
     background: url() !important;
     background-color: #fafafae3;
     min-height:initial !important;
+    height: max-content;
 }
 .login-wrapper .login{
     padding-top: 3em;

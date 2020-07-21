@@ -1,17 +1,19 @@
-<div class="main">
-    <div class="hero is-small">
-        <app-navbar [Opcoes] = "OpcoesNavBar" [Titulo] = "title"></app-navbar>
-        <section class="hero-body">
-            <div>
-                <app-hero></app-hero>
-            </div>
-        </section>
-    </div>
-    <div>
-        <app-cardapio></app-cardapio>
-    </div>
-    <div>
-        <app-contato></app-contato>
+<div class="main columns">
+    <div class="column">
+        <div class="hero is-small">
+            <app-navbar [Titulo] = "title"></app-navbar>
+            <section class="hero-body">
+                <div>
+                    <app-hero></app-hero>
+                </div>
+            </section>
+        </div>
+        <div>
+            <app-cardapio></app-cardapio>
+        </div>
+        <div>
+            <app-contato></app-contato>
+        </div>
     </div>
 </div>
 <footer class="footer has-background-grey-dark">

@@ -17,6 +17,7 @@ import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.co
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
+import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ClarityModule } from '@clr/angular';
     CardapioCardComponent,
     RegistroClienteComponent,
     HeroComponent,
+    FactoryStepsComponent,
   ],
   imports: [
     BrowserModule,
