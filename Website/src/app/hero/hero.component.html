@@ -1,10 +1,10 @@
-<section *ngIf="Sobre != undefined" class="section columns">
+<section *ngIf="Sobre != undefined" class="section columns mt-0">
     <div class="column">
-        <h1 class="title is-1 has-text-weight-semibold has-text-white has-text-justified">{{Sobre.Servico}}</h1>
-        <h2 class="title is-4 has-text-weight-medium has-text-white is-italic">{{Sobre.Slogan}}</h2>
-        <p class="is-light has-text-weight-medium has-text-white has-text-justified">{{Sobre.Descricao}}</p>
+        <h1 class="txt-shadow title is-1 has-text-weight-semibold has-text-white has-text-justified">{{Sobre.Servico}}</h1>
+        <h2 class="txt-shadow ls-1 title is-4 has-text-weight-medium has-text-white is-italic">{{Sobre.Slogan}}</h2>
+        <p class="txt-shadow is-size-5 is-light has-text-weight-medium has-text-white has-text-justified" innerHTML="{{Sobre.Descricao}}"></p>
     </div>
     <div class="column">
-        <registro-cliente></registro-cliente>
+        <registro-cliente [Telefone]=""></registro-cliente>
     </div>
 </section>

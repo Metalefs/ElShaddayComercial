@@ -7,7 +7,7 @@ export module Seeder {
             "diskmarmitex@elshadday.com",
             "Segunda a Sábado, 9:00 ás 14:00h",
             "5531994461428");
-            let Sobre = new Collections.Sobre("Atendemos ao Aeronautas, bairros vizinhos e centro de Lagoa Santa sem taxa de entrega.",
+            let Sobre = new Collections.Sobre("Atendemos ao Aeronautas, bairros vizinhos e centro de Lagoa Santa <em>sem taxa de entrega.</em>",
             "El Shadday Marmitex",
             "Disk Marmitex",
             "",

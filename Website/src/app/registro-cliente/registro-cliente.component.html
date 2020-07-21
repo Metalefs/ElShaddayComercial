@@ -1,11 +1,11 @@
 <div class="login-wrapper has-background-white-t box">
     <form class="login">
-        <section class="title">
+        <section class="title mb-0">
             <h3 class="welcome">Faça seu pedido</h3>
             Use nosso serviço de entrega!
             <h5 class="hint">Entregue em menos de 30 minutos.*</h5>
         </section>
-        <div class="login-group">
+        <div class="login-group pt-0">
             <clr-select-container>
                 <label class="clr-sr-only">User Role</label>
                 <select clrSelect name="type" [(ngModel)]="form.type">
@@ -14,15 +14,15 @@
                 </select>
             </clr-select-container>
             <clr-input-container>
-                <label class="clr-sr-only">Username</label>
-                <input type="text" name="username" clrInput placeholder="Username" [(ngModel)]="form.username"/>
+                <label class="clr-sr-only">E-mail</label>
+                <input type="text" name="username" clrInput placeholder="E-mail" [(ngModel)]="form.username"/>
             </clr-input-container>
             <clr-password-container>
-                <label class="clr-sr-only">Password</label>
-                <input type="password" name="password" clrPassword placeholder="Password" [(ngModel)]="form.password"/>
+                <label class="clr-sr-only">Senha</label>
+                <input type="password" name="password" clrPassword placeholder="Senha" [(ngModel)]="form.password"/>
             </clr-password-container>
             <clr-checkbox-wrapper>
-                <label>Remember me</label>
+                <label>Lembrar neste navegador</label>
                 <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="form.rememberMe"/>
             </clr-checkbox-wrapper>
             <div class="error">
@@ -38,7 +38,7 @@
                 </figure>
                 <div class="media-content">
                     <div class="content">
-                        <p class="is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato.Telefone}} </p>
+                        <p class="is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato?.Telefone}} </p>
                     </div>
                 </div>
             </article>

@@ -1,10 +1,11 @@
 .login-wrapper{
     margin-bottom:-120px;
     background: url() !important;
+    background-color: #fafafae3;
     min-height:initial !important;
 }
 .login-wrapper .login{
-    padding-top: 4rem;
+    padding-top: 3em;
     min-height:initial !important;
     width: 100%;
     justify-content: start;
