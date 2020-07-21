@@ -18,6 +18,7 @@ import { RegistroClienteComponent } from './registro-cliente/registro-cliente.co
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
+import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.comp
     RegistroClienteComponent,
     HeroComponent,
     FactoryStepsComponent,
+    IconeWhatsappComponent,
   ],
   imports: [
     BrowserModule,

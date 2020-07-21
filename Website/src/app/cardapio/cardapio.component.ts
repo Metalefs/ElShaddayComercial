@@ -17,10 +17,11 @@ export class CardapioComponent implements OnInit {
 
   LerCardapio() {
     this.api.Cardapios().subscribe(data=>{
-      data.forEach(x=>{
+      console.log(data);
+      this.Cardapios = data;
+      this.Cardapios.forEach(x=>{
         x.Dia = this.ObterDiaSemana(x.Dia);
       })
-      this.Cardapios = data;
     });
   }
 

@@ -1,14 +1,21 @@
-@media (min-width: 413px ) and (max-width: 1023px) {
+
+.factory-steps{
+    background: #31313138;
+    width: 100vw;
+    position: relative;
+    margin: 0;
+    height: 70px;
+    z-index: 1;
+}
+
+@media (min-width: 340px ) and (max-width: 1023px) {
     
     .fix-bottom-on-mobile{
         position: fixed;
         bottom: 0;
-        background-color: #ccc;
+        top: initial;
+        background: #8c8c8ccf;
         width: 100%;
     }
     
-}
-.step-column{
-    background: #31313138;
-    margin-top: 0;
 }
