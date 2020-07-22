@@ -1,9 +1,10 @@
 .navbar{
-    height:80px;
-    background: transparent;
+    height: 80px;
+    background: #c1b3a68c;
     border-bottom: 1px solid #ccc;
-    padding:15px 24px;
+    padding: 15px 24px;
 }
+
 .navbar-item:hover{
     background-color: transparent !important;
 }

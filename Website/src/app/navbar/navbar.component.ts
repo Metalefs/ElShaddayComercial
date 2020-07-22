@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { OpcaoNavbar } from '../../../../Dominio/OpcoesNavbar';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

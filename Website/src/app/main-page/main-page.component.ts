@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../api/RestApiService';
-import { OpcaoNavbar } from '.../../../Dominio/OpcoesNavbar';
 
 @Component({
   selector: 'app-main-page',

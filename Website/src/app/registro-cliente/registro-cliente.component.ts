@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
-import { Collections } from '../../../../Dominio/MongoCollections';
+import { Collections } from '../shared/MongoCollections';
 import { RestApiService } from '../api/RestApiService';
 class Form {
   username:string;
@@ -18,7 +18,6 @@ class Form {
 export class RegistroClienteComponent implements OnInit {
 
   @Input()
-  Telefone:string;
   InformacoesContato:Collections.InformacoesContato = null;
   
   form = new Form();

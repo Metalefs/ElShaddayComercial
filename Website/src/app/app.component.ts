@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { OpcaoNavbar } from '../../../Dominio/OpcoesNavbar';
+import { OpcaoNavbar } from './shared/OpcoesNavbar';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,7 @@ import { OpcaoNavbar } from '../../../Dominio/OpcoesNavbar';
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
-  title = "ElShaddayCommercial";
-    
+  title = "ElShadday Marmitex";
   OpcoesNavBar = [
     new OpcaoNavbar("Inicio", "", "Home"),
     new OpcaoNavbar("Menu", "", "view-list"),

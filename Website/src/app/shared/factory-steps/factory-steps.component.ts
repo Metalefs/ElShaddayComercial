@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { OpcaoNavbar } from '../../../../../Dominio/OpcoesNavbar';
+import { OpcaoNavbar } from '../OpcoesNavbar';
 
 @Component({
   selector: 'app-factory-steps',

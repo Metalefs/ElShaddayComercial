@@ -1,5 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { Collections } from '../../../../../Dominio/MongoCollections';
+import { Collections } from '../../shared/MongoCollections';
 
 @Component({
   selector: 'cardapio-card',

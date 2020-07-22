@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const MDBurl = "mongodb://127.0.0.1:27017/";
+const MDBurl = process.env.MONGODB_URI || 'mongodb+srv://Metalefs:i4e7l4@cluster0.7u463.azure.mongodb.net/ElShadday?retryWrites=true&w=majority';
 const MongoDBName = "ElShadday";
 
 import {Seeder} from "./MongoSeed";
@@ -50,13 +50,17 @@ export module Mongo {
       
       export function seedCollections(){
             let collectionsToSeed = Seeder.SeedCollections();
-
-            collectionsToSeed.forEach((collection: any)=>{
-                  collection.Single ?
-                        Insert(collection.name,collection.value)
-                  :
-                        InsertMany(collection.name,collection.value)
-            })
+            try{
+                  collectionsToSeed.forEach((collection: any)=>{
+                        collection.Single ?
+                              Insert(collection.name,collection.value)
+                        :
+                              InsertMany(collection.name,collection.value)
+                  })
+            }
+            catch(err){
+                  console.log(err);
+            }
       }
       /*----------------------------*/
 
@@ -97,7 +101,7 @@ export module Mongo {
             });
       }      
 
-      export function Ler (collection: string, res : Express.Response){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+      export function Ler (collection: string, res : any){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                   if (err){
                         logger.log(err)

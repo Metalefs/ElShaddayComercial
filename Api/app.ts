@@ -1,4 +1,5 @@
-const port = 3000;
+require('dotenv').config()
+const port = process.env.PORT || 3000;
 const RotasWeb = require("./Rotas/Web");
 const RotasUsuario = require("./Rotas/Usuario");
 const bodyParser = require('body-parser');

@@ -19,6 +19,7 @@ import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
+import { ZippyComponent } from './shared/zippy/zippy.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.componen
     HeroComponent,
     FactoryStepsComponent,
     IconeWhatsappComponent,
+    ZippyComponent,
   ],
   imports: [
     BrowserModule,

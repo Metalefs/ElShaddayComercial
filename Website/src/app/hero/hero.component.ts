@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Collections } from '../../../../Dominio/MongoCollections';
+import { Collections } from '../shared/MongoCollections';
 import { RestApiService } from '../api/RestApiService';
 
 @Component({

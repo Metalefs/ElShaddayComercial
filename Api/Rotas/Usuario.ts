@@ -1,6 +1,6 @@
 import {Rotas} from './Rotas';
 import {Mongo} from '../MongoDB/Mongo';
-import {Collections} from '../../Dominio/MongoCollections';
+import {Collections} from '../MongoDB/MongoCollections';
 import express = require('express');
 
 const sgMail = require('@sendgrid/mail');

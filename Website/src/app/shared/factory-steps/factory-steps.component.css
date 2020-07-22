@@ -1,9 +1,9 @@
 
 .factory-steps{
-    background: #31313138;
+    background: rgb(78 78 78 / 29%);
     width: 100vw;
-    position: relative;
     margin: 0;
+    top: 80px;
     height: 70px;
     z-index: 1;
     place-items: center;

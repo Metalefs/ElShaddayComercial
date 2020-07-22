@@ -5,7 +5,7 @@ import { throwError, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { routes } from './routes';
 import { retry, catchError } from 'rxjs/operators';
-import { Collections } from '../../../../Dominio/MongoCollections';
+import { Collections } from '../shared/MongoCollections';
 @Injectable({
     providedIn: 'root'
 })

@@ -1,4 +1,4 @@
-import {Collections} from '../../Dominio/MongoCollections';
+import {Collections} from './MongoCollections';
 export module Seeder {
     
       export function SeedCollections (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
