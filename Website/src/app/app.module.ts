@@ -20,12 +20,12 @@ import { ClarityModule } from '@clr/angular';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
 import { ZippyComponent } from './shared/zippy/zippy.component';
-import { EditarComponent } from './guard/editar/editar.component';
-import { EditarSobreComponent } from './guard/editar/editar-sobre/editar-sobre.component';
-import { EditarInfocontatoComponent } from './guard/editar/editar-infocontato/editar-infocontato.component';
-import { EditarCardapioComponent } from './guard/editar/editar-cardapio/editar-cardapio.component';
-import { EditarComplementoComponent } from './guard/editar/editar-complemento/editar-complemento.component';
-import { EditarPrecoMarmitexComponent } from './guard/editar/editar-preco-marmitex/editar-preco-marmitex.component';
+import { EditarComponent } from './gerenciamento/editar/editar.component';
+import { EditarSobreComponent } from './gerenciamento/editar/editar-sobre/editar-sobre.component';
+import { EditarInfocontatoComponent } from './gerenciamento/editar/editar-infocontato/editar-infocontato.component';
+import { EditarCardapioComponent } from './gerenciamento/editar/editar-cardapio/editar-cardapio.component';
+import { EditarComplementoComponent } from './gerenciamento/editar/editar-complemento/editar-complemento.component';
+import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-preco-marmitex/editar-preco-marmitex.component';
 
 
 @NgModule({
