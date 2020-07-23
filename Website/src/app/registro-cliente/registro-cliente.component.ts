@@ -4,9 +4,11 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { Collections } from '../shared/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 import { ClienteService } from '../api/services/ClienteService';
+import { CardapioService } from '../api/services/CardapioService';
 
 class Form {
-  Cliente:Collections.Cliente;
+  Nome:string;
+  Email:string;
   rememberMe:string;
   type:string;
 }
@@ -23,8 +25,14 @@ export class RegistroClienteComponent implements OnInit {
   
   form = new Form();
   AceitaCartao:boolean;
+  Logado:boolean;
+  Cardapio:Collections.Cardapio;
 
-  constructor(public infocontatoservice: InformacoesContatoService, public clienteservice: ClienteService) {  }
+  constructor(
+    public infocontatoservice: InformacoesContatoService, 
+    public clienteservice: ClienteService,
+    public CardapioService: CardapioService,
+    ) {  }
 
   LerInformacoesContato() {
     this.infocontatoservice.Ler().subscribe(data=>{
@@ -34,15 +42,21 @@ export class RegistroClienteComponent implements OnInit {
   }
 
   Login() {
-    this.clienteservice.Login(this.form.Cliente).subscribe(data=>{
-      console.log(data);
-    });
+    // this.Logado = true;
+    // this.CardapioService.BuscarUm(new Date().getDay()).subscribe(data=>{
+    //   this.Cardapio = data[0];
+    //   console.log(this.Cardapio);
+    // });
+    alert(this.form.Nome);
+    // this.clienteservice.Login(this.cliente).subscribe(data=>{
+    //   console.log(data);
+    // });
   }
 
   Cadastro() {
-    this.clienteservice.Cadastro(this.form.Cliente).subscribe(data=>{
-      console.log(data);
-    });
+    // this.clienteservice.Cadastro(this.cliente).subscribe(data=>{
+    //   console.log(data);
+    // });
   }
 
   ngOnInit() {

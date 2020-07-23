@@ -1,6 +1,6 @@
-import {Rotas} from './Rotas';
-import {Mongo} from '../MongoDB/Mongo';
-import {Collections} from '../MongoDB/MongoCollections';
+import {Rotas} from '../Routes';
+import {Mongo} from '../../MongoDB/Mongo';
+import {Collections} from '../../MongoDB/MongoCollections';
 import express = require('express');
 
 const app: express.Application = express();

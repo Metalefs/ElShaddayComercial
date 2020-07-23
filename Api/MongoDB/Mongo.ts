@@ -120,6 +120,23 @@ export module Mongo {
                   });
             });
       }
+
+      export function BuscarUm (collection: string, query : any){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
+                  if (err){
+                        logger.log(err)
+                        throw err;
+                  }
+                  var dbo = db.db(MongoDBName);
+                  dbo.collection(collection).findOne(query).toArray(function(err: any, result: any) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        db.close();
+                  });
+            });
+      }
       
       export function Edit (collection: any, query: any, res : any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            

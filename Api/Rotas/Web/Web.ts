@@ -1,6 +1,6 @@
-import {Rotas} from './Rotas';
-import {Mongo} from '../MongoDB/Mongo';
-import {Collections} from '../MongoDB/MongoCollections';
+import {Rotas} from '../Routes';
+import {Mongo} from '../../MongoDB/Mongo';
+import {Collections} from '../../MongoDB/MongoCollections';
 import express = require('express');
 
 const app: express.Application = express();
@@ -12,6 +12,8 @@ app.use(function(req, res, next) {
     next();
 });
 app.get(Rotas.Cardapios, (req:any,res) =>{
+    if(req.queryObj !== undefined)
+        res.send(Mongo.BuscarUm(Collections.Cardapio.NomeID, JSON.parse(req.queryObj) ))
     Mongo.Ler(Collections.Cardapio.NomeID,res);
 });
 app.get(Rotas.InfoContato, (req,res) => {

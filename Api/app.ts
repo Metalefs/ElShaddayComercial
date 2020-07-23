@@ -9,11 +9,11 @@ const app: express.Application = express();
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-const RotasWeb = require("./Rotas/Web");
-const RotasUsuario = require("./Rotas/Usuario");
-const RotasEditar  = require("./Rotas/Editar");
-const RotasRemover = require("./Rotas/Remover");
-const RotasIncluir = require("./Rotas/Incluir");
+const RotasWeb = require("./Rotas/Web/Web");
+const RotasUsuario = require("./Rotas/Usuario/Usuario");
+const RotasEditar  = require("./Rotas/Gerenciamento/Editar");
+const RotasRemover = require("./Rotas/Gerenciamento/Remover");
+const RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
 
 app.use(cors());
 app.use(session({
