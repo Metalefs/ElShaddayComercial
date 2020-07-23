@@ -13,9 +13,12 @@ export class EditarSobreComponent implements OnInit {
   constructor(public api: SobreService) {  }
 
   Editar(){
-    this.api.Editar();
+    this.api.Editar(this.Sobre);
   }
-
+  Remover(){
+    this.api.Remover(this.Sobre._id);
+  }
+  
   ngOnInit(): void {
   }
 

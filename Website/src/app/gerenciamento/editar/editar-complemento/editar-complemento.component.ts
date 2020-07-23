@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Collections } from '../../../shared/MongoCollections';
+import { ComplementoService } from '../../../api/services/ComplementoService';
 
 @Component({
   selector: 'app-editar-complemento',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarComplementoComponent implements OnInit {
 
-  constructor() { }
+  Complemento:Collections.Complemento = null;
+  constructor(public api: ComplementoService) {  }
 
+  Editar(){
+    this.api.Editar(this.Complemento);
+  }
+  Remover(){
+    this.api.Remover(this.Complemento._id);
+  }
+  
   ngOnInit(): void {
   }
 

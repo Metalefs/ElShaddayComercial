@@ -1,5 +1,9 @@
+class MongoDocument{
+    _id!: string;
+}
+
 export module Collections { 
-    export class InformacoesContato {
+    export class InformacoesContato extends MongoDocument {
         Telefone:string;
         Email:string;
         HorarioAtendimento:string;
@@ -10,13 +14,14 @@ export module Collections {
             Email:string,
             HorarioAtendimento:string,
             Whatsapp:string){
+            super();
                 this.Telefone = Telefone;
                 this.Email = Email;
                 this.HorarioAtendimento = HorarioAtendimento;
                 this.Whatsapp = Whatsapp;
         }
     };
-    export class PrecoMarmitex {
+    export class PrecoMarmitex extends MongoDocument {
         Pequena:string;
         Grande:string;
         static NomeID:string = "PrecoMarmitex";
@@ -24,11 +29,12 @@ export module Collections {
             Pequena:string,
             Grande:string,
         ){
+            super();
             this.Pequena = Pequena;
             this.Grande = Grande;
         }
     }
-    export class Sobre {
+    export class Sobre extends MongoDocument {
         Descricao:string;
         Nome:string;
         Servico:string;
@@ -41,6 +47,7 @@ export module Collections {
         Servico:string,
         Historia:string,
         Slogan:string){
+            super();
             this.Descricao = Descricao;
             this.Nome = Nome;
             this.Servico = Servico;
@@ -48,7 +55,7 @@ export module Collections {
             this.Historia = Historia;
         }
     };
-    export class Feedback {
+    export class Feedback extends MongoDocument {
         Nome:string;
         Email:string;
         Cliente:Cliente;
@@ -61,6 +68,7 @@ export module Collections {
         Cliente:Cliente,
         Titulo:string,
         Comentario:string){
+            super();
             this.Nome = Nome;
             this.Email = Email;
             this.Cliente = Cliente;
@@ -69,7 +77,7 @@ export module Collections {
         }
         
     };
-    export class Cliente {
+    export class Cliente extends MongoDocument {
         Nome:string;
         Email:string;
         Telefone:string;
@@ -90,6 +98,7 @@ export module Collections {
         Cidade:string,
         Estado:string,
         CPF:string){
+            super();
             this.Nome = Nome;
             this.Email = Email;
             this.Telefone = Telefone;
@@ -101,7 +110,7 @@ export module Collections {
             this.CPF = CPF;
         }
     };
-    export class Cardapio {
+    export class Cardapio extends MongoDocument {
         Dia:string;
         Nome:string;
         Ingredientes:string;
@@ -114,6 +123,7 @@ export module Collections {
         Ingredientes:string,
         Tipo:string,
         ImgSrc:string){
+            super();
             this.Dia = Dia;
             this.Nome = Nome;
             this.Ingredientes = Ingredientes;
@@ -122,7 +132,7 @@ export module Collections {
         }
     };
 
-    export class Complemento{
+    export class Complemento extends MongoDocument{
         Nome:string;
         Tipo:string;
         Preco:number;
@@ -130,13 +140,14 @@ export module Collections {
         constructor(Nome:string,
             Tipo:string,
             Preco:number){
+            super();
                 this.Nome=Nome;
                 this.Tipo=Tipo;
                 this.Preco=Preco;
             }
     }
 
-    export class Pedido {
+    export class Pedido extends MongoDocument {
         IdCliente:string;
         Cardapios:Cardapio[];
         Observacao:string;
@@ -149,6 +160,7 @@ export module Collections {
         Observacao:string,
         Aberto:string,
         Preco:string){
+            super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
             this.Aberto = Aberto;
