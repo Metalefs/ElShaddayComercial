@@ -2,10 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 import { Collections } from '../shared/MongoCollections';
-import { RestApiService } from '../api/RestApiService';
+import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
+import { ClienteService } from '../api/services/ClienteService';
+
 class Form {
-  username:string;
-  password:string;
+  Cliente:Collections.Cliente;
   rememberMe:string;
   type:string;
 }
@@ -23,12 +24,24 @@ export class RegistroClienteComponent implements OnInit {
   form = new Form();
   AceitaCartao:boolean;
 
-  constructor(public api: RestApiService) {  }
+  constructor(public infocontatoservice: InformacoesContatoService, public clienteservice: ClienteService) {  }
 
   LerInformacoesContato() {
-    this.api.InformacoesContato().subscribe(data=>{
+    this.infocontatoservice.Ler().subscribe(data=>{
       this.InformacoesContato = data[0];
       console.log(this.InformacoesContato);
+    });
+  }
+
+  Login() {
+    this.clienteservice.Login(this.form.Cliente).subscribe(data=>{
+      console.log(data);
+    });
+  }
+
+  Cadastro() {
+    this.clienteservice.Cadastro(this.form.Cliente).subscribe(data=>{
+      console.log(data);
     });
   }
 
@@ -36,5 +49,4 @@ export class RegistroClienteComponent implements OnInit {
     this.LerInformacoesContato();
   }
   
-
 }

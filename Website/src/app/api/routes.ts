@@ -6,12 +6,14 @@ export let routes = {
     Complemento:"/complemento/",
     Feedback:"/feedback/",
     Pedido:"/pedido/",
-    
+
     Seed:"/seed/",
     
     Usuario: "/usuario/",
-    Login:"/login/",
-    Registro:"/registro/",
+        DeletarConta:"/deletarConta/",
+        AtualizarConta:"/atualizarConta/",
+        Login:"/login/",
+        Registro:"/registro/",
 
     Gerenciamento:"/gerenciamento/"
 };

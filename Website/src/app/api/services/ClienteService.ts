@@ -14,20 +14,26 @@ export class ClienteService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(item: Collections.Cliente): any {
-        return this.http.put<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario, {}).pipe(
+    AtualizarInformacoes(item: Collections.Cliente): any {
+        return this.http.put<Collections.Cliente>(environment.endpoint + routes.Usuario + routes.AtualizarConta, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(id: string): any {
-        return this.http.delete<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario).pipe(
+    DeleteAccount(id: string): any {
+        return this.http.delete<Collections.Cliente>(environment.endpoint + routes.Usuario + routes.DeletarConta).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(item: Collections.Cliente): any  {
-        return this.http.post<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario, {}).pipe(
+    Cadastro(item: Collections.Cliente): any  {
+        return this.http.post<Collections.Cliente>(environment.endpoint + routes.Usuario + routes.Registro, item).pipe(
+            retry(3),
+            catchError(this.handleError)
+        );
+    }
+    Login(item: Collections.Cliente): any  {
+        return this.http.post<Collections.Cliente>(environment.endpoint + routes.Usuario + routes.Login, item).pipe(
             retry(3),
             catchError(this.handleError)
         );

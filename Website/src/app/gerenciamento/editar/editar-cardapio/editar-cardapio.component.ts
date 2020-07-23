@@ -19,7 +19,6 @@ export class EditarCardapioComponent implements OnInit {
     this.api.Remover(this.Cardapio._id);
   }
   
-
   ngOnInit(): void {
   }
 
