@@ -15,12 +15,13 @@ export class RestApiService {
     
     private IsLoading = true;
 
-    Cardapios(): Observable<Collections.Cardapio[]> {
+    Cardapios(): Observable<Collections.Cardapio[]>{
         return this.http.get<Collections.Cardapio[]>(environment.endpoint + routes.Cardapios).pipe(
-            retry(3), // retry a failed request up to 3 times
-            catchError(this.handleError) // then handle the error
+            retry(3),
+            catchError(this.handleError)
         );
     }
+
     InformacoesContato(): Observable<Collections.InformacoesContato>{
         return this.http.get<Collections.InformacoesContato>(environment.endpoint + routes.InfoContato).pipe(
             retry(3),

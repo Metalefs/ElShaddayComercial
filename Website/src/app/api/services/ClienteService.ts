@@ -5,7 +5,7 @@ import { throwError, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { routes } from '../routes';
 import { retry, catchError } from 'rxjs/operators';
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../../shared/MongoCollections';
 @Injectable({
     providedIn: 'root'
 })
@@ -14,19 +14,19 @@ export class ClienteService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+    Editar(item: Collections.Cliente): any {
         return this.http.put<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): any {
+    Remover(id: string): any {
         return this.http.delete<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): any  {
+    Incluir(item: Collections.Cliente): any  {
         return this.http.post<Collections.Cliente>(environment.endpoint + routes.Gerenciamento + routes.Usuario, {}).pipe(
             retry(3),
             catchError(this.handleError)

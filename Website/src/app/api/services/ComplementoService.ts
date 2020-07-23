@@ -14,19 +14,27 @@ export class ComplementoService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+    
+    Ler(): Observable<Collections.Complemento[]> {
+        return this.http.get<Collections.Complemento[]>(environment.endpoint + routes.Complemento).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+    
+    Editar(item: Collections.Complemento): any {
         return this.http.put<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): any {
+    Remover(id: string): any {
         return this.http.delete<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): any  {
+    Incluir(item: Collections.Complemento): any  {
         return this.http.post<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento, {}).pipe(
             retry(3),
             catchError(this.handleError)

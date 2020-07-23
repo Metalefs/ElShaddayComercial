@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Collections } from '../../../shared/MongoCollections';
-import { RestApiService } from '../../../api/RestApiService';
+import { SobreService } from '../../../api/services/SobreService';
 
 @Component({
   selector: 'app-editar-sobre',
@@ -10,13 +10,10 @@ import { RestApiService } from '../../../api/RestApiService';
 export class EditarSobreComponent implements OnInit {
 
   Sobre:Collections.Sobre = null;
-  constructor(public api: RestApiService) {  }
+  constructor(public api: SobreService) {  }
 
-  LerInformacoesContato() {
-    this.api.Sobre().subscribe(data=>{
-      this.Sobre = data[0];
-      console.log(this.Sobre);
-    });
+  Editar(){
+    this.api.Editar();
   }
 
   ngOnInit(): void {

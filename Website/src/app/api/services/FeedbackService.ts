@@ -14,19 +14,27 @@ export class FeedbackService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+
+    Ler(): Observable<Collections.Feedback[]> {
+        return this.http.get<Collections.Feedback[]>(environment.endpoint + routes.Feedback).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.Feedback): any {
         return this.http.put<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): any {
+    Remover(id: string): any {
         return this.http.delete<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): any  {
+    Incluir(item: Collections.Feedback): any  {
         return this.http.post<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback, {}).pipe(
             retry(3),
             catchError(this.handleError)

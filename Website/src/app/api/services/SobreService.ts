@@ -14,26 +14,28 @@ export class SobreService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
-        return this.http.put<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, {}).pipe(
+
+    Ler(): Observable<Collections.Sobre[]> {
+        return this.http.get<Collections.Sobre[]>(environment.endpoint + routes.Sobre).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): Observable<any>{
+
+    Editar(item: Collections.Sobre): any {
+        return this.http.put<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, item).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+    Remover(id: string): Observable<any>{
         return this.http.delete<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): Observable<any> {
-        return this.http.post<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, {}).pipe(
-            retry(3),
-            catchError(this.handleError)
-        );
-    }
-    PrecoMarmitex(): Observable<Collections.PrecoMarmitex> {
-        return this.http.get<Collections.PrecoMarmitex>(environment.endpoint + routes.PrecoMarmitex).pipe(
+    Incluir(item: Collections.Sobre): Observable<any> {
+        return this.http.post<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, item).pipe(
             retry(3),
             catchError(this.handleError)
         );

@@ -14,19 +14,27 @@ export class PrecoMarmitexService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+
+    Ler(): Observable<Collections.PrecoMarmitex[]> {
+        return this.http.get<Collections.PrecoMarmitex[]>(environment.endpoint + routes.PrecoMarmitex).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.PrecoMarmitex): any {
         return this.http.put<Collections.PrecoMarmitex>(environment.endpoint + routes.Gerenciamento + routes.PrecoMarmitex, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): Observable<any>{
+    Remover(id: string): Observable<any>{
         return this.http.delete<Collections.PrecoMarmitex>(environment.endpoint + routes.Gerenciamento + routes.PrecoMarmitex).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): Observable<any> {
+    Incluir(item: Collections.PrecoMarmitex): Observable<any> {
         return this.http.post<Collections.PrecoMarmitex>(environment.endpoint + routes.Gerenciamento + routes.PrecoMarmitex, {}).pipe(
             retry(3),
             catchError(this.handleError)

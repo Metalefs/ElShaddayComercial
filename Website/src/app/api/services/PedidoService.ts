@@ -14,19 +14,27 @@ export class PedidoService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+
+    Ler(): Observable<Collections.Pedido[]> {
+        return this.http.get<Collections.Pedido[]>(environment.endpoint + routes.Pedido).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.Pedido): any {
         return this.http.put<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): Observable<any>{
+    Remover(id: string): Observable<any>{
         return this.http.delete<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): Observable<any> {
+    Incluir(item: Collections.Pedido): Observable<any> {
         return this.http.post<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido, {}).pipe(
             retry(3),
             catchError(this.handleError)

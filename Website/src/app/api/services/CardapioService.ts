@@ -14,25 +14,32 @@ export class CardapioService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+    Ler(): Observable<Collections.Cardapio[]> {
+        return this.http.get<Collections.Cardapio[]>(environment.endpoint + routes.Cardapios).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.Cardapio): any {
         return this.http.put<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): any {
+    Remover(id: string): any {
         return this.http.delete<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): any  {
+    Incluir(item: Collections.Cardapio): any  {
         return this.http.post<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, {}).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    
+
     getLoadingState(){
         return this.IsLoading;
     }

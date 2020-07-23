@@ -15,19 +15,26 @@ export class InformacoesContatoService {
     constructor(private http: HttpClient) { }
     
     private IsLoading = true;
-    Editar(): any {
+    Ler(): Observable<Collections.InformacoesContato[]> {
+        return this.http.get<Collections.InformacoesContato[]>(environment.endpoint + routes.InfoContato).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.InformacoesContato): any {
         return this.http.put<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
-    Remover(): Observable<any>{
+    Remover(id: string): Observable<any>{
         return this.http.delete<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
-    Incluir(): Observable<any> {
+    Incluir(item: Collections.InformacoesContato): Observable<any> {
         return this.http.post<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato, {}).pipe(
             retry(3),
             catchError(this.handleError)
