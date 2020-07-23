@@ -1,5 +1,17 @@
 export let routes = {
-    Cardapios:"/Cardapio/",
-    InfoContato:"/InfoContato/",
-    Sobre:"/Sobre/",
+    Cardapios:"/cardapio/",
+    InfoContato:"/infoContato/",
+    Sobre:"/sobre/",
+    PrecoMarmitex:"/precoMarmitex/",
+    Complemento:"/complemento/",
+    Feedback:"/feedback/",
+    Pedido:"/pedido/",
+    
+    Seed:"/seed/",
+    
+    Usuario: "/usuario/",
+    Login:"/login/",
+    Registro:"/registro/",
+
+    Gerenciamento:"/gerenciamento/"
 };

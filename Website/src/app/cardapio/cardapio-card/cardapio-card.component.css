@@ -2,7 +2,25 @@
     min-height: 400px;
     opacity: .75;
 }
-
+@keyframes jump{
+    0%{
+        font-size:medium;
+    }
+    100%{
+        font-size:x-large;
+    }
+}
+.NomeCardapio{
+    bottom: 15px;
+    z-index: 1;
+    color: black;
+    position: absolute;
+    font-size: MEDIUM;
+    font-family: Roboto;
+    font-weight: 600;
+    color: steelblue;
+    margin: 0rem 1rem;
+}
 @keyframes blink{
     0%{
         box-shadow:1px 1px 1px rgba(0,0,0,.5);

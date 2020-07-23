@@ -20,6 +20,12 @@ app.get(Rotas.InfoContato, (req,res) => {
 app.get(Rotas.Sobre, (req,res) => {
     Mongo.Ler(Collections.Sobre.NomeID,res);
 });
+app.get(Rotas.PrecoMarmitex, (req,res) => {
+    Mongo.Ler(Collections.PrecoMarmitex.NomeID,res);
+});
+app.get(Rotas.Complemento, (req,res) => {
+    Mongo.Ler(Collections.Complemento.NomeID,res);
+});
 app.get(Rotas.Seed, (req,res) => {
     Mongo.seedCollections();
     res.send('seeded');

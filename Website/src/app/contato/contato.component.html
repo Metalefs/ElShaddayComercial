@@ -1,6 +1,6 @@
 <section *ngIf="InformacoesContato != undefined" class="section">
     
-    <div class="has-background-gray-lighter">
+    <div class="has-background-gray-light">
 
             <div class="columns is-gapless">
                 <div class="column primary">
@@ -13,7 +13,7 @@
                             </figure>
                             <div class="media-content">
                                 <div class="content">
-                                    <p class="is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato.Telefone}} </p>
+                                    <p class="is-size-6 is-light has-text-weight-medium has-text-justified">(31) {{InformacoesContato.Telefone}} </p>
                                 </div>
                             </div>
                         </article>
@@ -23,7 +23,7 @@
                             </figure>
                             <div class="media-content">
                                 <div class="content">
-                                    <p class="is-light has-text-weight-medium has-text-justified"> {{InformacoesContato.Email}} </p>
+                                    <p class="is-size-6 is-light has-text-weight-medium has-text-justified"> {{InformacoesContato.Email}} </p>
                                 </div>
                             </div>
                         </article>    
@@ -37,7 +37,7 @@
                     <div class="">
                         <h2>Atendimento</h2>
  
-                       <p>{{InformacoesContato.HorarioAtendimento}}</p>        
+                       <p class="is-size-6">{{InformacoesContato.HorarioAtendimento}}</p>        
                     </div>
                     
                 </div>

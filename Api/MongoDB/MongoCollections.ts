@@ -19,6 +19,7 @@ export module Collections {
     export class PrecoMarmitex {
         Pequena:string;
         Grande:string;
+        static NomeID:string = "PrecoMarmitex";
         constructor(
             Pequena:string,
             Grande:string,
@@ -105,16 +106,19 @@ export module Collections {
         Nome:string;
         Ingredientes:string;
         Tipo:string;
+        ImgSrc:string;
         static NomeID:string = "Cardapios";
         constructor(
         Dia:string,
         Nome:string,
         Ingredientes:string,
-        Tipo:string){
+        Tipo:string,
+        ImgSrc:string){
             this.Dia = Dia;
             this.Nome = Nome;
             this.Ingredientes = Ingredientes;
             this.Tipo = Tipo;
+            this.ImgSrc = ImgSrc;
         }
     };
 
@@ -122,6 +126,7 @@ export module Collections {
         Nome:string;
         Tipo:string;
         Preco:number;
+        static NomeID:string = "Complemento";
         constructor(Nome:string,
             Tipo:string,
             Preco:number){

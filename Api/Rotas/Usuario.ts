@@ -29,5 +29,4 @@ app.get(Rotas.Registro, (req,res) =>{
     sgMail.send(msg)
 })
 
-
 module.exports = app;

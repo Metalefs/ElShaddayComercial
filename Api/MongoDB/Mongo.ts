@@ -5,7 +5,8 @@ const MongoDBName = "ElShadday";
 import {Seeder} from "./MongoSeed";
 const Options = {
       useNewUrlParser: true, 
-      poolSize : 10      
+      poolSize : 10,
+      useUnifiedTopology: true   
 }
 import * as logger from "../logger";
 
@@ -99,8 +100,9 @@ export module Mongo {
                         db.close();
                   });
             });
-      }      
 
+      }      
+      
       export function Ler (collection: string, res : any){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                   if (err){
@@ -119,4 +121,45 @@ export module Mongo {
             });
       }
       
+      export function Edit (collection: any, query: any, res : any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+           
+            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                  if (err){
+                        logger.log(err)
+                        throw err;
+                  }
+                  let dbo = db.db(MongoDBName);
+                  dbo.collection(collection).updateOne(query, function(err: any, result: any) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        res.send("atualizado "+result.insertedCount+" "+collection+" : | "+new Date());
+                        
+                        db.close();
+                  });
+            });
+            
+      }
+
+      export function Remove (collection: any, query: any, res : any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+           
+            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                  if (err){
+                        logger.log(err)
+                        throw err;
+                  }
+                  let dbo = db.db(MongoDBName);
+                  dbo.collection(collection).deleteOne(query, function(err: any, result: any) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        res.send("removido "+result.insertedCount+" "+collection+" : | "+new Date());
+                        
+                        db.close();
+                  });
+            });
+            
+      }
 }

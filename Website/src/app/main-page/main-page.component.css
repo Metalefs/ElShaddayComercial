@@ -5,3 +5,15 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {
+  
+    .hero{
+        background: url(../../../src/assets/imagens/fundos/inicio/almoco.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+}
