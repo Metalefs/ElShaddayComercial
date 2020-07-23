@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Collections } from '../shared/MongoCollections';
-import { RestApiService } from '../api/RestApiService';
+import { SobreService } from '../api/services/SobreService';
+import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 
 @Component({
   selector: 'app-hero',
@@ -11,17 +12,24 @@ import { RestApiService } from '../api/RestApiService';
 export class HeroComponent implements OnInit {
 
   Sobre:Collections.Sobre;
-  constructor(public api: RestApiService) {  }
+  InformacaoContato:Collections.InformacoesContato;
+  constructor(public SobreService: SobreService, public InfoContatoService: InformacoesContatoService) {  }
 
   async LerSobre(){
-    this.api.Sobre().subscribe(data=>{
+    this.SobreService.Ler().subscribe(data=>{
       this.Sobre = data[0];
-      console.log(this.Sobre);
+    });
+  }
+
+  async LerInfoContato(){
+    this.InfoContatoService.Ler().subscribe(data=>{
+      this.InformacaoContato = data[0];
     });
   }
 
   ngOnInit(): void {
     this.LerSobre();
+    this.LerInfoContato();
   }
 
 }

@@ -12,7 +12,25 @@ export class CardapioCardComponent implements OnInit {
   Cardapio: Collections.Cardapio;
 
   Ativo:boolean;  
-  constructor() { }
+  Video:boolean;  
+  Caminho:string;  
+  constructor() { 
+    this.Video = true;
+    this.Caminho = "";
+  }
+
+  VerificarTipoRecurso(){
+    this.Caminho = "";
+    this.Video = true;
+    if(this.Cardapio.ImgSrc === "F"){
+      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.mp4`;
+    }
+    else{
+      this.Video = false;
+      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.png`;
+    }
+    console.log("Video", this.Video, this.Caminho, this.Cardapio.ImgSrc);
+  }
 
   VerificarAtivo(){
     let Hoje = new Date();
@@ -20,7 +38,7 @@ export class CardapioCardComponent implements OnInit {
     if(parseInt(this.Cardapio.Dia) == Hoje.getDay() || this.DiaToNumber(this.Cardapio.Dia) == Hoje.getDay()){
       this.Ativo = true;
     }
-    console.log(this.Ativo, this.Cardapio.Dia)
+    console.log(this.Ativo, this.Cardapio.Dia);
   }
 
   DiaToNumber(dia): number{
@@ -43,6 +61,7 @@ export class CardapioCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.VerificarTipoRecurso();
     this.VerificarAtivo();
   }
 

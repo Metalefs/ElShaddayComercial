@@ -3,8 +3,14 @@
         <h1 class="txt-shadow title is-1 has-text-weight-semibold has-text-white has-text-justified">{{Sobre.Servico}}</h1>
         <h2 class="txt-shadow ls-1 title is-4 has-text-weight-medium has-text-white is-italic">{{Sobre.Slogan}}</h2>
         <p class="txt-shadow is-size-5 is-light has-text-weight-medium has-text-white has-text-justified" innerHTML="{{Sobre.Descricao}}"></p>
+        <div class="container mt-6">
+            <p class="txt-shadow is-size-3 is-light has-text-weight-medium has-text-white has-text-left">{{InformacaoContato?.Telefone}}</p>
+        </div>
+        <div class="container mt-6">
+            <p class="txt-shadow is-size-5 is-light has-text-weight-medium has-text-white has-text-justified">Marmitas entregues</p>
+        </div>
     </div>
-    <div class="column">
+    <div class="column is-4 mr-2">
         <registro-cliente [Telefone]=""></registro-cliente>
     </div>
 </section>

@@ -8,8 +8,8 @@ const Options = {
       poolSize : 10,
       useUnifiedTopology: true   
 }
-import * as logger from "../logger";
-
+import {Logger} from "../logger";
+let logger = new Logger();
 export module Mongo {
       export function createCollection(collection: string | any[]){ // CRIAR COLEÇÕES DE DADOS (Não utilizado)
             for(let i = 0; i < collection.length; i++){

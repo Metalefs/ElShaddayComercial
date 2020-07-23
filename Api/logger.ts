@@ -1,3 +1,8 @@
-export function log(txt:string){
-    console.log(txt);
+export class Logger {
+    constructor(){
+        
+    }
+    log(txt:string){
+        console.log(txt);
+    }
 }

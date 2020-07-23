@@ -4,9 +4,9 @@ export module Seeder {
       export function SeedCollections (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
             let InformacoesContato = 
             new Collections.InformacoesContato(
-                  "994461428",
+                  "(31) 99446-1428",
                   "diskmarmitex@elshadday.com",
-                  "Segunda a Sábado, 9:00 ás 14:00h",
+                  "Segunda a Sábado, 8:00 ás 14:00h",
                   "5531994461428"
             );
 
@@ -16,7 +16,7 @@ export module Seeder {
                   "El Shadday Marmitex",
                   "Disk Marmitex",
                   "",
-                  "Deliciosa comida caseira."
+                  "Uma deliciosa comida caseira."
             );
 
             let PrecoMarmitex = new Collections.PrecoMarmitex("10,00","12,00");
@@ -24,11 +24,11 @@ export module Seeder {
             let Cardapios:Collections.Cardapio[];
             Cardapios = [];
             Cardapios.push(new Collections.Cardapio("1","Bife de frango grelhado","Arroz, Feijao, Carne cozida com batata e salada","N",""));
-            Cardapios.push(new Collections.Cardapio("2","Carne de panela","Arroz, Feijao, Macarrão ao alho e olho, Filé de frango a milanesa","N",""));
+            Cardapios.push(new Collections.Cardapio("2","Carne de panela","Arroz, Feijao, Macarrão ao alho e óleo, Filé de frango a milanesa","N",""));
             Cardapios.push(new Collections.Cardapio("3","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N",""));
-            Cardapios.push(new Collections.Cardapio("4","Frango com Quiabo","Arroz, Feijao, Frango com Quiabo e Angu","N",""));
-            Cardapios.push(new Collections.Cardapio("5","Feijoada","Arroz, Feijoada, Couve, Farofa, Laranja e Vinagrete","N",""));
-            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N",""));
+            Cardapios.push(new Collections.Cardapio("4","Frango com Quiabo / Bisteca com couve e angu","Arroz, Feijao, Frango com Quiabo e Angu","N",""));
+            Cardapios.push(new Collections.Cardapio("5","Feijoada","Arroz, Feijoada, Couve, Farofa, Laranja e Vinagrete","N","F"));
+            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","V"));
 
             let Clientes:Collections.Cliente[];
             Clientes = [];
@@ -55,9 +55,6 @@ export module Seeder {
                   {name:"InformacoesContato",value:InformacoesContato,Single:true},
                   {name:"Sobre",value:Sobre,Single:true},
                   {name:"Cardapios",value:Cardapios,Single:false},
-                  {name:"Clientes",value:Clientes,Single:false},
-                  {name:"Pedidos",value:Pedidos,Single:false},
-                  {name:"Feedback",value:Feedback,Single:false},
                   {name:"PrecoMarmitex",value:PrecoMarmitex,Single:true}
             ];
       }
