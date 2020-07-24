@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Collections } from '../shared/MongoCollections';
+import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,12 +11,23 @@ export class NavbarComponent implements OnInit {
 
   @Input()
   Titulo: string;
+  
 
-  constructor() { }
+  async LerInfoContato(){
+    this.InfoContatoService.Ler().subscribe(data=>{
+      this.InformacaoContato = data[0];
+    });
+  }
+  InformacaoContato:Collections.InformacoesContato;
+
+  constructor( 
+    public InfoContatoService: InformacoesContatoService
+    ) {  }
 
   menuAtivo = false;
 
   ngOnInit(): void {
+    this.LerInfoContato();
     console.log(this.Titulo);
     // Check for click events on the navbar burger icon
     const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

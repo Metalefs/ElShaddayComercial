@@ -4,6 +4,19 @@ a{
 .nav-icon.tile:first-of-type{
     padding-left: 2rem;
 }
+navbaricon.nav-icon.tile{
+    cursor: pointer;
+    position: relative;
+    transition: .25s;
+}
+navbaricon.nav-icon.tile:hover{
+    top: 1px;
+
+}
+.nav-icon-p{
+    line-height: initial;
+    margin: initial;
+}
 .border-white{
     outline:1px solid #ccc;
     outline-width: 0rem;

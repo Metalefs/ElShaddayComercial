@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Collections } from '../shared/MongoCollections';
 import { SobreService } from '../api/services/SobreService';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
+import { PrecoMarmitexService } from '../api/services/PrecoMarmitexService';
 
 @Component({
   selector: 'app-hero',
@@ -13,7 +14,11 @@ export class HeroComponent implements OnInit {
 
   Sobre:Collections.Sobre;
   InformacaoContato:Collections.InformacoesContato;
-  constructor(public SobreService: SobreService, public InfoContatoService: InformacoesContatoService) {  }
+  PrecoMarmitex:Collections.PrecoMarmitex;
+  constructor(public SobreService: SobreService, 
+    public InfoContatoService: InformacoesContatoService,
+    public PrecoMarmitexService : PrecoMarmitexService
+    ) {  }
 
   async LerSobre(){
     this.SobreService.Ler().subscribe(data=>{
@@ -27,9 +32,16 @@ export class HeroComponent implements OnInit {
     });
   }
 
+  async LerPrecoMarmitex(){
+    this.PrecoMarmitexService.Ler().subscribe(data=>{
+      this.PrecoMarmitex = data[0];
+    });
+  }
+
   ngOnInit(): void {
     this.LerSobre();
     this.LerInfoContato();
+    this.LerPrecoMarmitex();
   }
 
 }

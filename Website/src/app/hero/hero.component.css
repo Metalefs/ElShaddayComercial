@@ -1,7 +1,30 @@
 .hero-section{
-    padding: 1rem 1.5rem 1rem 1.5rem;
+   padding-top: 0;
+}
+
+.right-column{
+    background: #4444446b;
+    border-radius: 36px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.section {
+    padding: 1rem 0.5rem;
+}
+.wp-svg{
+    bottom: 14px;
+    position: relative;
+}
+@media (min-width: 320px) and (max-width: 1023px) {
+  
+    .right-column{
+        background: transparent;
+        padding: inherit;
+    }
     
 }
+
 .txt-shadow{
     text-shadow: 5px 7px 5px rgba(0,0,0,.5);
 }

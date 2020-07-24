@@ -23,11 +23,11 @@ export class CardapioCardComponent implements OnInit {
     this.Caminho = "";
     this.Video = true;
     if(this.Cardapio.ImgSrc === "F"){
-      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.mp4`;
+      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.png`;
+      this.Video = false;
     }
     else{
-      this.Video = false;
-      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.png`;
+      this.Caminho = `/assets/imagens/cardapio/${this.DiaToNumber(this.Cardapio.Dia)}.mp4`;
     }
     console.log("Video", this.Video, this.Caminho, this.Cardapio.ImgSrc);
   }

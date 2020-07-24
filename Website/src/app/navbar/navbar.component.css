@@ -1,8 +1,8 @@
 .navbar{
-    height: 80px;
-    background: #c1b3a68c;
+    height: 70px;
+    background: rgba(255, 0, 0, 0.55);
     border-bottom: 1px solid #ccc;
-    padding: 15px 24px;
+    padding: 10px 24px;
 }
 
 .navbar-item:hover{
