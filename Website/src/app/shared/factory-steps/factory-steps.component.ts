@@ -14,7 +14,7 @@ export class FactoryStepsComponent implements OnInit {
   Opcoes:OpcaoNavbar[] = [
     new OpcaoNavbar("Inicio", "", "Home"),
     new OpcaoNavbar("Pedido", "/pedido", "view-list"),
-    new OpcaoNavbar("Entrega", "", "shopping-cart"),
+    new OpcaoNavbar("Entrega", "/entrega", "shopping-cart"),
   ];
 
   ngOnInit(): void {

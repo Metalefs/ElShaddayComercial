@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require('dotenv').config();
+var port = process.env.PORT || 3000;
+var bodyParser = require('body-parser');
+var cors = require("cors");
+var express = require("express");
+var app = express();
+var RotasWeb = require("./Rotas/Web/Web");
+var RotasUsuario = require("./Rotas/Usuario/Usuarios.controller");
+var RotasEditar = require("./Rotas/Gerenciamento/Editar");
+var RotasRemover = require("./Rotas/Gerenciamento/Remover");
+var RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+app.use("/", [RotasWeb]);
+app.use("/usuario", [RotasUsuario]);
+app.use("/gerenciamento/", [RotasEditar, RotasRemover, RotasIncluir]);
+app.listen(port, function () { return console.log("Running on port " + port); });

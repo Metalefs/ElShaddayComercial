@@ -64,11 +64,7 @@ export class RegistroClienteComponent implements OnInit {
 
   Login() {
     this.loading = true;
-    if (this.registerForm.invalid) {
-      this.EmailError = true;
-      this.PassError = true;
-      return;
-    }
+    
     this.authenticationService.login(this.form.Email, this.form.Senha)
         .pipe(first())
         .subscribe(
@@ -84,12 +80,6 @@ export class RegistroClienteComponent implements OnInit {
   }
 
   Cadastro() {
-    alert("SD!!")
-    if (this.registerForm.invalid) {
-      this.EmailError = true;
-      this.PassError = true;
-      return;
-    }
     let cliente = new Collections.Cliente(
       "",
       this.form.Email,
