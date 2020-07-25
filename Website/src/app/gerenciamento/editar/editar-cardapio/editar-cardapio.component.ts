@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collections } from '../../../shared/MongoCollections';
+import { Collections } from '../../../shared/_models/MongoCollections';
 import { CardapioService } from '../../../api/services/CardapioService';
 
 @Component({
@@ -10,7 +10,7 @@ import { CardapioService } from '../../../api/services/CardapioService';
 export class EditarCardapioComponent implements OnInit {
 
   Cardapio:Collections.Cardapio = null;
-  constructor(public api: CardapioService) {  }
+  constructor(private api: CardapioService) {  }
 
   Editar(){
     this.api.Editar(this.Cardapio);

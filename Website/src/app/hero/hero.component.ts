@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../shared/_models/MongoCollections';
 import { SobreService } from '../api/services/SobreService';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 import { PrecoMarmitexService } from '../api/services/PrecoMarmitexService';
@@ -11,13 +11,13 @@ import { PrecoMarmitexService } from '../api/services/PrecoMarmitexService';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit {
-
+  loading = false;
   Sobre:Collections.Sobre;
   InformacaoContato:Collections.InformacoesContato;
   PrecoMarmitex:Collections.PrecoMarmitex;
-  constructor(public SobreService: SobreService, 
-    public InfoContatoService: InformacoesContatoService,
-    public PrecoMarmitexService : PrecoMarmitexService
+  constructor(private SobreService: SobreService, 
+    private InfoContatoService: InformacoesContatoService,
+    private PrecoMarmitexService : PrecoMarmitexService
     ) {  }
 
   async LerSobre(){
@@ -35,10 +35,12 @@ export class HeroComponent implements OnInit {
   async LerPrecoMarmitex(){
     this.PrecoMarmitexService.Ler().subscribe(data=>{
       this.PrecoMarmitex = data[0];
+      this.loading = false;
     });
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.LerSobre();
     this.LerInfoContato();
     this.LerPrecoMarmitex();

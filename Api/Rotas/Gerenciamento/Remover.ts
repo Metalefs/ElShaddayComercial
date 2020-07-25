@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 app.delete(Rotas.Cardapios, (req:any,res) =>{
     try{
-        Mongo.Remove(Collections.Cardapio.NomeID, req.Cardapio ,res);
+        Mongo.Remove(Collections.Cardapio.NomeID, req.Cardapio)
     }
     catch(err){
         res.send({erro:err});
@@ -21,7 +21,7 @@ app.delete(Rotas.Cardapios, (req:any,res) =>{
 });
 app.delete(Rotas.InfoContato, (req:any,res) => {
     try{
-        Mongo.Remove(Collections.InformacoesContato.NomeID, req.InformacoesContato ,res);
+        Mongo.Remove(Collections.InformacoesContato.NomeID, req.InformacoesContato)
     }
     catch(err){
         res.send({erro:err});
@@ -29,7 +29,7 @@ app.delete(Rotas.InfoContato, (req:any,res) => {
 });
 app.delete(Rotas.Sobre, (req:any,res) => {
     try{
-        Mongo.Remove(Collections.Sobre.NomeID, req.Sobre, res);
+        Mongo.Remove(Collections.Sobre.NomeID, req.Sobre);
     }
     catch(err){
         res.send({erro:err});
@@ -37,7 +37,7 @@ app.delete(Rotas.Sobre, (req:any,res) => {
 });
 app.delete(Rotas.PrecoMarmitex, (req:any,res) => {
     try{
-        Mongo.Remove(Collections.PrecoMarmitex.NomeID, req.PrecoMarmitex, res);
+        Mongo.Remove(Collections.PrecoMarmitex.NomeID, req.PrecoMarmitex);
     }
     catch(err){
         res.send({erro:err});
@@ -45,7 +45,7 @@ app.delete(Rotas.PrecoMarmitex, (req:any,res) => {
 });
 app.delete(Rotas.Complemento, (req:any ,res) => {
     try{
-        Mongo.Remove(Collections.Complemento.NomeID, req.Complemento, res);
+        Mongo.Remove(Collections.Complemento.NomeID, req.Complemento);
     }
     catch(err){
         res.send({erro:err});

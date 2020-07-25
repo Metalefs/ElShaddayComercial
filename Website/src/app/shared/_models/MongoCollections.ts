@@ -21,6 +21,7 @@ export module Collections {
                 this.Whatsapp = Whatsapp;
         }
     };
+
     export class PrecoMarmitex extends MongoDocument {
         Pequena:string;
         Grande:string;
@@ -33,7 +34,8 @@ export module Collections {
             this.Pequena = Pequena;
             this.Grande = Grande;
         }
-    }
+    };
+
     export class Sobre extends MongoDocument {
         Descricao:string;
         Nome:string;
@@ -55,6 +57,7 @@ export module Collections {
             this.Historia = Historia;
         }
     };
+
     export class Feedback extends MongoDocument {
         Nome:string;
         Email:string;
@@ -77,39 +80,47 @@ export module Collections {
         }
         
     };
+
     export class Cliente extends MongoDocument {
         Nome:string;
         Email:string;
+        Senha:string;
         Telefone:string;
         Rua:string;
         Bairro:string;
         Numero:string;
         Cidade:string;
         Estado:string;
-        CPF:string;
+        DataCriacao:Date;
+        Tipo:number;
+        token?: string;
         static NomeID:string = "Cliente";
         constructor(
         Nome:string,
         Email:string,
+        Senha:string,
         Telefone:string,
         Rua:string,
         Bairro:string,
         Numero:string,
         Cidade:string,
         Estado:string,
-        CPF:string){
+        DataCriacao:Date,Tipo:number){
             super();
             this.Nome = Nome;
             this.Email = Email;
+            this.Senha = Senha;
             this.Telefone = Telefone;
             this.Rua = Rua;
             this.Bairro = Bairro;
             this.Numero = Numero;
             this.Cidade = Cidade;
             this.Estado = Estado;
-            this.CPF = CPF;
+            this.DataCriacao = DataCriacao;
+            this.Tipo = Tipo;
         }
     };
+
     export class Cardapio extends MongoDocument {
         Dia:string;
         Nome:string;
@@ -168,4 +179,17 @@ export module Collections {
             this.Preco = Preco;
         }
     };
+
+    // export class Sessoes extends MongoDocument {
+    //     jwt:string;
+    //     idCliente:string;
+    //     static NomeID:string = "Sessoes";
+    //     constructor(
+    //     jwt:string,
+    //     idCliente:string){
+    //         super();
+    //         this.idCliente = idCliente;
+    //         this.jwt = jwt;
+    //     }
+    // };
 }

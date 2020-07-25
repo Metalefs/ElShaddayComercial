@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../api/RestApiService';
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../shared/_models/MongoCollections';
 import { CardapioCardComponent } from './cardapio-card/cardapio-card.component';
 
 @Component({

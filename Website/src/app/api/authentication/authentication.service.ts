@@ -1,0 +1,49 @@
+﻿import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { environment } from "../../../environments/environment";
+import { Collections } from '../../shared/_models/MongoCollections';
+import { routes } from '../../api/routes';
+
+@Injectable({ providedIn: 'root' })
+export class AuthenticationService {
+    private currentUserSubject: BehaviorSubject<Collections.Cliente>;
+    public currentUser: Observable<Collections.Cliente>;
+
+    constructor(private http: HttpClient) {
+        this.currentUserSubject = new BehaviorSubject<Collections.Cliente>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUser = this.currentUserSubject.asObservable();
+    }
+
+    public get currentUserValue(): Collections.Cliente {
+        return this.currentUserSubject.value;
+    }
+
+    signup(cliente : Collections.Cliente){
+        return this.http.post<any>(`${environment.endpoint}`+routes.Registro, { cliente })
+        .pipe(map(user => {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            this.currentUserSubject.next(user);
+            return user;
+        }));
+    }
+
+    login(username: string, password: string) {
+        return this.http.post<any>(`${environment.endpoint}`+routes.Login, { username, password })
+            .pipe(map(user => {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
+                return user;
+            }));
+    }
+
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+    }
+}

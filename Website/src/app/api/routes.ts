@@ -10,10 +10,10 @@ export let routes = {
     Seed:"/seed/",
     
     Usuario: "/usuario/",
-        DeletarConta:"/deletarConta/",
-        AtualizarConta:"/atualizarConta/",
-        Login:"/login/",
-        Registro:"/registro/",
+        DeletarConta:"/usuario/deletarConta/",
+        AtualizarConta:"/usuario/atualizarConta/",
+        Login:"/usuario/login/",
+        Registro:"/usuario/registro/",
 
     Gerenciamento:"/gerenciamento/"
 };

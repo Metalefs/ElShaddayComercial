@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
+import { AuthGuard } from './_helpers';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HeroComponent } from './hero/hero.component';
@@ -14,12 +16,12 @@ const routes: Routes = [
   { path: 'hero', component: HeroComponent },
   { path: 'contato', component: ContatoComponent },
   { path: 'cardapio', component: CardapioComponent },
-  { path: 'gerenciamento', component: EditarComponent },
+  { path: 'gerenciamento', component: EditarComponent, canActivate: [AuthGuard] },
   // { path: '',
   //   redirectTo: '/main',
   //   pathMatch: 'full'
   // },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

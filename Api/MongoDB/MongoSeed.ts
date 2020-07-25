@@ -43,7 +43,8 @@ export module Seeder {
                         "185",
                         "Lagoa Santa",
                         "Minas Gerais",
-                        new Date()
+                        new Date(),
+                        1
                   )
             )
 

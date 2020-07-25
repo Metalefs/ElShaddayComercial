@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Collections } from '../../../shared/MongoCollections';
+import { Collections } from '../../../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../../../api/services/InformacoesContatoService';
 
 @Component({
@@ -11,7 +11,7 @@ import { InformacoesContatoService } from '../../../api/services/InformacoesCont
 export class EditarInfocontatoComponent implements OnInit {
 
   InformacoesContato:Collections.InformacoesContato = null;
-  constructor(public api: InformacoesContatoService) {  }
+  constructor(private api: InformacoesContatoService) {  }
 
   Editar(){
     this.api.Editar(this.InformacoesContato);

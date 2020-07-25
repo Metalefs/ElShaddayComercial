@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../api/RestApiService';
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../shared/_models/MongoCollections';
 import { PartialObserver } from 'rxjs';
 
 @Component({

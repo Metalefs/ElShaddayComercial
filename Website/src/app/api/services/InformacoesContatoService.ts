@@ -5,7 +5,7 @@ import { throwError, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { routes } from '../routes';
 import { retry, catchError } from 'rxjs/operators';
-import { Collections } from '../../shared/MongoCollections';
+import { Collections } from '../../shared/_models/MongoCollections';
 import { RowActionService } from '@clr/angular/data/datagrid/providers/row-action-service';
 @Injectable({
     providedIn: 'root'

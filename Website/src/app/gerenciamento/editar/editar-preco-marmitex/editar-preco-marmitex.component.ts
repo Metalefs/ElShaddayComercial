@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collections } from '../../../shared/MongoCollections';
+import { Collections } from '../../../shared/_models/MongoCollections';
 import { PrecoMarmitexService } from '../../../api/services/PrecoMarmitexService';
 
 @Component({
@@ -10,7 +10,7 @@ import { PrecoMarmitexService } from '../../../api/services/PrecoMarmitexService
 export class EditarPrecoMarmitexComponent implements OnInit {
 
   PrecoMarmitex:Collections.PrecoMarmitex = null;
-  constructor(public api: PrecoMarmitexService) {  }
+  constructor(private api: PrecoMarmitexService) {  }
 
   Editar(){
     this.api.Editar(this.PrecoMarmitex);

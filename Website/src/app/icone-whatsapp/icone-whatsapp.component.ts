@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../api/RestApiService';
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../shared/_models/MongoCollections';
 import { PartialObserver } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class IconeWhatsappComponent implements OnInit {
 
   Whatsapp:Collections.InformacoesContato = null;
   
-  constructor(public api: RestApiService) {  }
+  constructor(private api: RestApiService) {  }
 
   LerInformacoesContato() {
     this.api.InformacoesContato().subscribe(data=>{

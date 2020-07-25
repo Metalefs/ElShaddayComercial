@@ -121,24 +121,25 @@ export module Mongo {
             });
       }
 
-      export function BuscarUm (collection: string, query : any){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
-            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
+      export function BuscarUm (collection: string, query : any) : object { // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+           return MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                   if (err){
                         logger.log(err)
                         throw err;
                   }
                   var dbo = db.db(MongoDBName);
-                  dbo.collection(collection).findOne(query).toArray(function(err: any, result: any) {
+                 return dbo.collection(collection).findOne(query).toArray(function(err: any, result: any) {
                         if (err){
                               logger.log(err)
                               throw err;
                         }
                         db.close();
+                        return result;
                   });
             });
       }
       
-      export function Edit (collection: any, query: any, res : any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+      export function Edit (collection: any, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
@@ -151,15 +152,13 @@ export module Mongo {
                               logger.log(err)
                               throw err;
                         }
-                        res.send("atualizado "+result.insertedCount+" "+collection+" : | "+new Date());
-                        
                         db.close();
                   });
             });
             
       }
 
-      export function Remove (collection: any, query: any, res : any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+      export function Remove (collection: any, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
@@ -172,7 +171,7 @@ export module Mongo {
                               logger.log(err)
                               throw err;
                         }
-                        res.send("removido "+result.insertedCount+" "+collection+" : | "+new Date());
+                        console.log("removido "+result.insertedCount+" "+collection+" : | "+new Date());
                         
                         db.close();
                   });

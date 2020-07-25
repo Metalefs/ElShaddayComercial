@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collections } from '../../../shared/MongoCollections';
+import { Collections } from '../../../shared/_models/MongoCollections';
 import { SobreService } from '../../../api/services/SobreService';
 
 @Component({
@@ -10,7 +10,7 @@ import { SobreService } from '../../../api/services/SobreService';
 export class EditarSobreComponent implements OnInit {
 
   Sobre:Collections.Sobre = null;
-  constructor(public api: SobreService) {  }
+  constructor(private api: SobreService) {  }
 
   Editar(){
     this.api.Editar(this.Sobre);

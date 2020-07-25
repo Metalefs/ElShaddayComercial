@@ -92,6 +92,8 @@ export module Collections {
         Cidade:string;
         Estado:string;
         DataCriacao:Date;
+        Tipo:number;
+        token?: string;
         static NomeID:string = "Cliente";
         constructor(
         Nome:string,
@@ -103,7 +105,7 @@ export module Collections {
         Numero:string,
         Cidade:string,
         Estado:string,
-        DataCriacao:Date){
+        DataCriacao:Date,Tipo:number){
             super();
             this.Nome = Nome;
             this.Email = Email;
@@ -115,6 +117,7 @@ export module Collections {
             this.Cidade = Cidade;
             this.Estado = Estado;
             this.DataCriacao = DataCriacao;
+            this.Tipo = Tipo;
         }
     };
 
@@ -177,16 +180,16 @@ export module Collections {
         }
     };
 
-    export class Sessoes extends MongoDocument {
-        jwt:string;
-        idCliente:string;
-        static NomeID:string = "Sessoes";
-        constructor(
-        jwt:string,
-        idCliente:string){
-            super();
-            this.idCliente = idCliente;
-            this.jwt = jwt;
-        }
-    };
+    // export class Sessoes extends MongoDocument {
+    //     jwt:string;
+    //     idCliente:string;
+    //     static NomeID:string = "Sessoes";
+    //     constructor(
+    //     jwt:string,
+    //     idCliente:string){
+    //         super();
+    //         this.idCliente = idCliente;
+    //         this.jwt = jwt;
+    //     }
+    // };
 }

@@ -1,107 +1,77 @@
-// const config = require('config.json');
-// const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs');
+const config = require('config.json');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-// // users hardcoded for simplicity, store in a db for production applications
-// const users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
-
-// class User {
-//     username:string;
-//     password:string;
-//     hash: string;
-//     createdDate:Date;
-    
-//     constructor(username:string,password:string,
-//         hash: string,
-//     createdDate:Date){
-//         this.username = username;
-//         this.password = password;
-//         this.hash = hash;
-//         this.createdDate = createdDate;
-//     }
-// };
-
-// module.exports = {
-//     authenticate,
-//     getAll,
-//     getById,
-//     create,
-//     update,
-//     delete: _delete
-// };
-// async function authenticate(User : User) {
-//     const user = users.find(u => u.username === User.username && u.password === User.password);
-//     // if (user && bcrypt.compareSync(password, user.hash)) {
-//     //     const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
-//     //     return {
-//     //         ...user.toJSON(),
-//     //         token
-//     //     };
-//     // }
-//     if (!user) throw 'Username or password is incorrect';
-
-//     // create a jwt token that is valid for 7 days
-//     const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
-
-//     return {
-//         ...omitPassword(user),
-//         token
-//     };
-// }
-
-// async function getAll() {
-//     return users.map(u => omitPassword(u));
-// }
+import {Mongo} from '../../MongoDB/Mongo';
+import {Collections} from '../../MongoDB/MongoCollections';
 
 
-// async function getById(id:string) {
-//     return await User.findById(id);
-// }
+module.exports = {
+    authenticate,
+    getById,
+    create,
+    update,
+    delete: _delete
+};
 
-// async function create(newuser: User) {
-//     // validate
-//     if (await User.findOne({ username: newuser.username })) {
-//         throw 'Username "' + newuser.username + '" is already taken';
-//     }
+async function authenticate(cliente : Collections.Cliente) {
+    const user = Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: cliente.Email}) as Collections.Cliente;
+    if (user && bcrypt.compareSync(cliente.Senha, user.Senha)) {
+        const token = jwt.sign({ sub: user._id }, config.secret, { expiresIn: '7d' });
+        return {
+            ...user,
+            token
+        };
+    }
+    if (!user) throw 'E-mail ou senha incorretos';
+}
 
-//     const user = new User(newuser);
+async function create(NovoCliente : Collections.Cliente) {
+    // validate
+    if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email}) as Collections.Cliente) {
+        throw 'E-mail "' + NovoCliente.Email + '" já está sendo usado!';
+    }
 
-//     // hash password
-//     if (newuser.password) {
-//         user.hash = bcrypt.hashSync(newuser.password, 10);
-//     }
+    // hash password
+    if (NovoCliente.Senha) {
+        NovoCliente.Senha = bcrypt.hashSync(NovoCliente.Senha, 10);
+    }
 
-//     // save user
-//     // await user.save();
-// }
+    // save user
+    await Mongo.Insert(Collections.Cliente.NomeID, NovoCliente );
+}
 
-// async function update(id, userParam) {
-//     const user = await User.findById(id);
+async function getById(id:string) {
+    return await Mongo.BuscarUm(Collections.Cliente.NomeID, {_id: id}) as Collections.Cliente;
+}
 
-//     // validate
-//     if (!user) throw 'User not found';
-//     if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
-//         throw 'Username "' + userParam.username + '" is already taken';
-//     }
+async function update(id:string, cliente : Collections.Cliente) {
+    const user = await getById(id);
 
-//     // hash password if it was entered
-//     if (userParam.password) {
-//         userParam.hash = bcrypt.hashSync(userParam.password, 10);
-//     }
+    // validate
+    if (!user) throw 'Usuário não encontrado';
+    if (user.Email !== cliente.Email && await Mongo.BuscarUm(Collections.Cliente.NomeID, { username: cliente.Email }) as Collections.Cliente) {
+        throw 'E-mail "' + cliente.Email + '" já está sendo usado';
+    }
 
-//     // copy userParam properties to user
-//     Object.assign(user, userParam);
+    // hash password if it was entered
+    if (cliente.Senha) {
+        cliente.Senha = bcrypt.hashSync(cliente.Senha, 10);
+    }
 
-//     //await user.save();
-// }
+    // copy userParam properties to user
+    Object.assign(user, cliente);
 
-// async function _delete(id) {
-//     await User.findByIdAndRemove(id);
-// }
+    await Mongo.Edit(Collections.Cliente.NomeID, cliente);
+}
 
-// // helper functions
+async function _delete(id: string) {
+    await Mongo.Remove(Collections.Cliente.NomeID, {_id : id});
+}
 
-// function omitPassword(user) {
-//     const { password, ...userWithoutPassword } = user;
-//     return userWithoutPassword;
-// }
+// helper functions
+
+function omitPassword(cliente: Collections.Cliente) {
+    const { Senha, ...userWithoutPassword } = cliente;
+    return userWithoutPassword;
+}

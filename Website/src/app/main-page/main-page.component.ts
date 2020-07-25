@@ -14,7 +14,7 @@ export class MainPageComponent implements OnInit {
   
   desktop = "is-hidden-touch";
   mobile = "is-hidden-desktop";
-
+  
   constructor(api:RestApiService) {
     this.api = api;
   }

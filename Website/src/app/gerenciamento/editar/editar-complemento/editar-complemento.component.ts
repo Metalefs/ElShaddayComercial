@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collections } from '../../../shared/MongoCollections';
+import { Collections } from '../../../shared/_models/MongoCollections';
 import { ComplementoService } from '../../../api/services/ComplementoService';
 
 @Component({
@@ -10,7 +10,7 @@ import { ComplementoService } from '../../../api/services/ComplementoService';
 export class EditarComplementoComponent implements OnInit {
 
   Complemento:Collections.Complemento = null;
-  constructor(public api: ComplementoService) {  }
+  constructor(private api: ComplementoService) {  }
 
   Editar(){
     this.api.Editar(this.Complemento);

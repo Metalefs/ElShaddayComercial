@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 app.put(Rotas.Cardapios, (req:any,res) =>{
     try{
-        Mongo.Edit(Collections.Cardapio.NomeID, req.Cardapio, res);
+        Mongo.Edit(Collections.Cardapio.NomeID, req.Cardapio);
     }
     catch(err){
         res.send({erro:err});
@@ -21,7 +21,7 @@ app.put(Rotas.Cardapios, (req:any,res) =>{
 });
 app.put(Rotas.InfoContato, (req:any,res) => {
     try{
-        Mongo.Edit(Collections.InformacoesContato.NomeID, req.InformacoesContato, res);
+        Mongo.Edit(Collections.InformacoesContato.NomeID, req.InformacoesContato);
     }
     catch(err){
         res.send({erro:err});
@@ -29,7 +29,7 @@ app.put(Rotas.InfoContato, (req:any,res) => {
 });
 app.put(Rotas.Sobre, (req:any,res) => {
     try{
-        Mongo.Edit(Collections.Sobre.NomeID, req.Sobre, res);
+        Mongo.Edit(Collections.Sobre.NomeID, req.Sobre);
     }
     catch(err){
         res.send({erro:err});
@@ -37,7 +37,7 @@ app.put(Rotas.Sobre, (req:any,res) => {
 });
 app.put(Rotas.PrecoMarmitex, (req:any, res) => {
     try{
-        Mongo.Edit(Collections.PrecoMarmitex.NomeID, req.PrecoMarmitex, res);
+        Mongo.Edit(Collections.PrecoMarmitex.NomeID, req.PrecoMarmitex);
     }
     catch(err){
         res.send({erro:err});
@@ -45,7 +45,7 @@ app.put(Rotas.PrecoMarmitex, (req:any, res) => {
 });
 app.put(Rotas.Complemento, (req: any, res) => {
     try{
-        Mongo.Edit(Collections.Complemento.NomeID, req.Complemento, res);
+        Mongo.Edit(Collections.Complemento.NomeID, req.Complemento);
     }
     catch(err){
         res.send({erro:err});

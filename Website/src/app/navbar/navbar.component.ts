@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Collections } from '../shared/MongoCollections';
+import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 @Component({
   selector: 'app-navbar',
@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   InformacaoContato:Collections.InformacoesContato;
 
   constructor( 
-    public InfoContatoService: InformacoesContatoService
+    private InfoContatoService: InformacoesContatoService
     ) {  }
 
   menuAtivo = false;
