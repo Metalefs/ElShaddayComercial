@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule }   from '@angular/forms';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbariconComponent } from './shared/factory-steps/navbaricon/navbaricon.component';
@@ -59,7 +62,10 @@ import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-prec
     BrowserAnimationsModule,
     ClarityModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
