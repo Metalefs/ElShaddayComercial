@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -58,6 +58,7 @@ import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-prec
     AppRoutingModule,
     FormsModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ClarityModule

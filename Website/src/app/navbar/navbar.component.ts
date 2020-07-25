@@ -1,7 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { AuthenticationService } from '../api/authentication/authentication.service';
 
 import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,6 +16,9 @@ export class NavbarComponent implements OnInit {
 
   @Input()
   Titulo: string;
+  @Input()
+  Logado: boolean;
+  returnUrl: string;
   Whatsapp:string = null;
   
 
@@ -23,14 +31,23 @@ export class NavbarComponent implements OnInit {
   InformacaoContato:Collections.InformacoesContato;
 
   constructor( 
-    private InfoContatoService: InformacoesContatoService
+    private InfoContatoService: InformacoesContatoService,
+    private AuthenticationService:AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router,
     ) {  }
 
   menuAtivo = false;
 
+  Logout(){
+    this.AuthenticationService.logout();
+    this.router.navigate([this.returnUrl]);
+  }
+
   ngOnInit(): void {
     this.LerInfoContato();
     console.log(this.Titulo);
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     // Check for click events on the navbar burger icon
     const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 

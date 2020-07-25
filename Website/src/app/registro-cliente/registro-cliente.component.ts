@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+// import custom validator to validate that password and confirm password fields match
 import { AuthenticationService } from '../api/authentication/authentication.service';
 
 import { Collections } from '../shared/_models/MongoCollections';
@@ -25,6 +27,9 @@ export class RegistroClienteComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  emailPattern = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
+
+  registerForm: FormGroup;
 
   @Input()
   InformacoesContato:Collections.InformacoesContato = null;
@@ -32,6 +37,8 @@ export class RegistroClienteComponent implements OnInit {
   form = new Form();
   AceitaCartao:boolean;
   Logado:boolean;
+  EmailError:boolean;
+  PassError:boolean;
   Cardapio:Collections.Cardapio;
 
   constructor(
@@ -40,7 +47,8 @@ export class RegistroClienteComponent implements OnInit {
     private CardapioService: CardapioService,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private formBuilder: FormBuilder
     ) { 
         if (this.authenticationService.currentUserValue) { 
           this.Logado = true;
@@ -56,11 +64,18 @@ export class RegistroClienteComponent implements OnInit {
 
   Login() {
     this.loading = true;
+    if (this.registerForm.invalid) {
+      this.EmailError = true;
+      this.PassError = true;
+      return;
+    }
     this.authenticationService.login(this.form.Email, this.form.Senha)
         .pipe(first())
         .subscribe(
             data => {
                 this.router.navigate([this.returnUrl]);
+                this.EmailError = false;
+                this.PassError = false;
             },
             error => {
                 this.error = error;
@@ -68,7 +83,26 @@ export class RegistroClienteComponent implements OnInit {
             });
   }
 
-  Cadastro(cliente:Collections.Cliente) {
+  Cadastro() {
+    alert("SD!!")
+    if (this.registerForm.invalid) {
+      this.EmailError = true;
+      this.PassError = true;
+      return;
+    }
+    let cliente = new Collections.Cliente(
+      "",
+      this.form.Email,
+      this.form.Senha,
+      "",
+      "",
+      "",
+      "",
+      "Lagoa Santa",
+      "Minas Gerais",
+      new Date(),
+      1
+    ); 
     this.authenticationService.signup(cliente)
         .pipe(first())
         .subscribe(
@@ -84,6 +118,16 @@ export class RegistroClienteComponent implements OnInit {
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     this.LerInformacoesContato();
+
+    this.registerForm = this.formBuilder.group({
+      Email: ['', [Validators.required, Validators.email]],
+      Senha: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
   }
 
 }

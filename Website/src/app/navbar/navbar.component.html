@@ -47,12 +47,15 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                    <a class="button is-light">
-                        <strong>Instagram</strong>
-                    </a>
-                    <a class="button is-primary">
-                        Facebook
-                    </a>
+                        <a class="button is-light">
+                            <strong>Instagram</strong>
+                        </a>
+                        <a class="button is-primary">
+                            Facebook
+                        </a>
+                        <a (click)="Logout()" class="button is-dark" *ngIf="Logado" >
+                            Sair
+                        </a>
                     </div>
                 </div>
             </div>

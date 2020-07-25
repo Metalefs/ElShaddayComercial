@@ -1,9 +1,6 @@
-<app-navbar [Titulo] = "title"></app-navbar>
+<app-navbar [Titulo] = "title" [Logado]="currentUser"></app-navbar>
 <app-factory-steps></app-factory-steps>
 <div class="main">
-    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-       LOGADO
-    </nav>
     <router-outlet></router-outlet>
 </div>
 <app-icone-whatsapp></app-icone-whatsapp>
