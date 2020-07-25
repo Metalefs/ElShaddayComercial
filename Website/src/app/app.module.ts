@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
-import { MainPageComponent } from './main-page/main-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbariconComponent } from './shared/factory-steps/navbaricon/navbaricon.component';
 import { ContatoComponent } from './contato/contato.component';
@@ -29,7 +29,8 @@ import { EditarInfocontatoComponent } from './gerenciamento/editar/editar-infoco
 import { EditarCardapioComponent } from './gerenciamento/editar/editar-cardapio/editar-cardapio.component';
 import { EditarComplementoComponent } from './gerenciamento/editar/editar-complemento/editar-complemento.component';
 import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-preco-marmitex/editar-preco-marmitex.component';
-
+import { PedidoComponent } from './pages/pedido/pedido.component';
+import { EntregaComponent } from './pages/entrega/entrega.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,8 @@ import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-prec
     EditarCardapioComponent,
     EditarComplementoComponent,
     EditarPrecoMarmitexComponent,
+    PedidoComponent,
+    EntregaComponent,
   ],
   imports: [
     BrowserModule,

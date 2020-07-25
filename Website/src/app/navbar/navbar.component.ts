@@ -6,7 +6,6 @@ import { AuthenticationService } from '../api/authentication/authentication.serv
 import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,6 +17,7 @@ export class NavbarComponent implements OnInit {
   Titulo: string;
   @Input()
   Logado: boolean;
+  opened: boolean;
   returnUrl: string;
   Whatsapp:string = null;
   
@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.LerInfoContato();
+    this.opened = true;
     console.log(this.Titulo);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     // Check for click events on the navbar burger icon

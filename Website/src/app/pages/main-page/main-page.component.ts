@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RestApiService } from '../api/RestApiService';
+import { RestApiService } from '../../api/RestApiService';
 
 @Component({
   selector: 'app-main-page',

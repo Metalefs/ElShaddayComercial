@@ -56,9 +56,19 @@
                         <a (click)="Logout()" class="button is-dark" *ngIf="Logado" >
                             Sair
                         </a>
+                        <a (click)="opened = true" class="button is-dark" *ngIf="!Logado" >
+                            Entrar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+<clr-modal [(clrModalOpen)]="opened">
+    <registro-cliente ></registro-cliente>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="opened = false">Ok</button>
+    </div>
+</clr-modal>
