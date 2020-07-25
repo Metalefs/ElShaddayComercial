@@ -1,4 +1,4 @@
-const config = require('config.json');
+const config = require('../../config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -15,30 +15,47 @@ module.exports = {
 };
 
 async function authenticate(cliente : Collections.Cliente) {
-    const user = Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: cliente.Email}) as Collections.Cliente;
-    if (user && bcrypt.compareSync(cliente.Senha, user.Senha)) {
-        const token = jwt.sign({ sub: user._id }, config.secret, { expiresIn: '7d' });
-        return {
-            ...user,
-            token
-        };
-    }
-    if (!user) throw 'E-mail ou senha incorretos';
+    console.log('query:',{Email: cliente.Email});
+    
+    return await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: cliente.Email}).then((user: any) => {
+        
+        console.log('user:', user);
+        
+        if (user && bcrypt.compareSync(cliente.Senha, user.Senha)) {
+            const token = jwt.sign({ sub: user._id }, config.secret, { expiresIn: '7d' });
+            console.log("login com sucesso. token gerado", {...user,token});
+            
+            cliente.token = token;
+            update(cliente._id,cliente);
+            
+            return {
+                ...user,
+                token
+            };
+        }
+        if (!user) return {erro:'E-mail ou senha incorretos'};
+
+    });
 }
 
 async function create(NovoCliente : Collections.Cliente) {
     // validate
-    if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email}) as Collections.Cliente) {
-        throw 'E-mail "' + NovoCliente.Email + '" já está sendo usado!';
+    if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email})) {
+        return {erro:'E-mail "' + NovoCliente.Email + '" já está sendo usado!'};
     }
 
     // hash password
     if (NovoCliente.Senha) {
         NovoCliente.Senha = bcrypt.hashSync(NovoCliente.Senha, 10);
     }
-
-    // save user
-    await Mongo.Insert(Collections.Cliente.NomeID, NovoCliente );
+    if(NovoCliente.Email && NovoCliente.Senha){
+        // save user
+        NovoCliente.DataCriacao = new Date();
+        await Mongo.Insert(Collections.Cliente.NomeID, NovoCliente);
+        console.log("usuário cadastrado");
+    }else{
+        console.log("usuário não cadastrado");
+    }
 }
 
 async function getById(id:string) {
@@ -49,9 +66,9 @@ async function update(id:string, cliente : Collections.Cliente) {
     const user = await getById(id);
 
     // validate
-    if (!user) throw 'Usuário não encontrado';
+    if (!user) return {erro:'Usuário não encontrado'};
     if (user.Email !== cliente.Email && await Mongo.BuscarUm(Collections.Cliente.NomeID, { username: cliente.Email }) as Collections.Cliente) {
-        throw 'E-mail "' + cliente.Email + '" já está sendo usado';
+        return {erro:'E-mail "' + cliente.Email + '" já está sendo usado'};
     }
 
     // hash password if it was entered
@@ -62,7 +79,7 @@ async function update(id:string, cliente : Collections.Cliente) {
     // copy userParam properties to user
     Object.assign(user, cliente);
 
-    await Mongo.Edit(Collections.Cliente.NomeID, cliente);
+    await Mongo.Edit(Collections.Cliente.NomeID, cliente._id, cliente);
 }
 
 async function _delete(id: string) {

@@ -10,10 +10,10 @@ export let Rotas = {
     Seed:"/seed/",
     
     Usuario: "/usuario/",
-        DeletarConta:"/usuario/deletarConta/",
-        AtualizarConta:"/usuario/atualizarConta/",
-        Login:"/usuario/login/",
-        Registro:"/usuario/registro/",
+        DeletarConta:"/deletarConta/",
+        AtualizarConta:"/atualizarConta/",
+        Login:"/login/",
+        Registro:"/registro/",
 
     Gerenciamento:"/gerenciamento/"
 };

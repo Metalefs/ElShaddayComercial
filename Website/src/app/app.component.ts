@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from './api/authentication/authentication.service';
 
-import { OpcaoNavbar } from './shared/OpcoesNavbar';
+import { OpcaoNavbar } from './shared/_models/OpcoesNavbar';
 import { Collections } from './shared/_models/MongoCollections';
 
 @Component({

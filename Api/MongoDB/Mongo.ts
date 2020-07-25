@@ -121,25 +121,28 @@ export module Mongo {
             });
       }
 
-      export function BuscarUm (collection: string, query : any) : object { // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
-           return MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
-                  if (err){
-                        logger.log(err)
-                        throw err;
-                  }
-                  var dbo = db.db(MongoDBName);
-                 return dbo.collection(collection).findOne(query).toArray(function(err: any, result: any) {
+      export async function BuscarUm (collection: string, query : any) { // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+           return new Promise((resolve, reject) => { 
+                 MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                         if (err){
                               logger.log(err)
                               throw err;
                         }
-                        db.close();
-                        return result;
+                        var dbo = db.db(MongoDBName);
+                        return dbo.collection(collection).findOne(query, function(err: any, result: any) {
+                              if (err){
+                                    logger.log(err)
+                                    throw err;
+                              }
+                              db.close();
+                              console.log(result);
+                              resolve(result)
+                        });
                   });
             });
       }
       
-      export function Edit (collection: any, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+      export function Edit (collection: any, id:string, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
@@ -147,7 +150,7 @@ export module Mongo {
                         throw err;
                   }
                   let dbo = db.db(MongoDBName);
-                  dbo.collection(collection).updateOne(query, function(err: any, result: any) {
+                  dbo.collection(collection).updateOne({_id: id}, query, function(err: any, result: any) {
                         if (err){
                               logger.log(err)
                               throw err;
