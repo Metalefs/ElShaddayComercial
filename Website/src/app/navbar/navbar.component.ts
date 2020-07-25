@@ -11,11 +11,13 @@ export class NavbarComponent implements OnInit {
 
   @Input()
   Titulo: string;
+  Whatsapp:string = null;
   
 
   async LerInfoContato(){
     this.InfoContatoService.Ler().subscribe(data=>{
       this.InformacaoContato = data[0];
+      this.Whatsapp = data[0].Whatsapp;
     });
   }
   InformacaoContato:Collections.InformacoesContato;

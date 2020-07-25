@@ -9,7 +9,7 @@
     place-items: center;
 }
 
-@media (min-width: 340px ) and (max-width: 1023px) {
+@media (min-width: 320px ) and (max-width: 1023px) {
     
     .fix-bottom-on-mobile{
         position: fixed;

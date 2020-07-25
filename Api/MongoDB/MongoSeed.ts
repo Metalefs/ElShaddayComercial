@@ -36,13 +36,14 @@ export module Seeder {
                   new Collections.Cliente(
                         "Jackson Ramalho",
                         "jack-ten@hotmail.com",
+                        "sd1245",
                         "987576467",
                         "Julio Verne",
                         "Aeronautas",
                         "185",
                         "Lagoa Santa",
                         "Minas Gerais",
-                        "125.123.586-74"
+                        new Date()
                   )
             )
 

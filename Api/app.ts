@@ -2,31 +2,17 @@ require('dotenv').config()
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const cors = require("cors");
-const uuid = require('uuid').v4
 
 import express = require('express');
 const app: express.Application = express();
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 
 const RotasWeb = require("./Rotas/Web/Web");
-const RotasUsuario = require("./Rotas/Usuario/Usuario");
+const RotasUsuario = require("./Rotas/Usuario/Usuarios.controller");
 const RotasEditar  = require("./Rotas/Gerenciamento/Editar");
 const RotasRemover = require("./Rotas/Gerenciamento/Remover");
 const RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
 
 app.use(cors());
-app.use(session({
-  genid: (req: any) => {
-    console.log('Inside the session middleware')
-    console.log(req.sessionID)
-    return uuid() // use UUIDs for session IDs
-  },
-  store: new FileStore(),
-  secret: 'mus bbdhm',
-  resave: false,
-  saveUninitialized: true
-}));
 
 app.use(bodyParser.json());      
 app.use(bodyParser.urlencoded({extended: true}));
