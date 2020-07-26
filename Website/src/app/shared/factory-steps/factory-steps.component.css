@@ -1,6 +1,6 @@
 
 .factory-steps{
-    background: rgb(80, 77, 77);
+    background: linear-gradient(90deg, rgba(72,71,79,1) 0%, rgba(71,73,77,1) 35%, rgba(85,76,76,1) 100%);
     width: 100vw;
     margin: 0;
     top: 80px;

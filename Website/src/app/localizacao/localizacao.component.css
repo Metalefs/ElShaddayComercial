@@ -2,6 +2,15 @@
     position:relative;
     text-align:right;
 }
+
+@media (min-width: 320px ) and (max-width: 1023px) {
+    
+    .mapouter{
+        overflow-x:scroll;
+    }
+    
+    
+}
 .gmap_canvas {
     overflow:hidden;
     background:none!important;
