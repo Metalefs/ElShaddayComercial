@@ -10,6 +10,7 @@ const Options = {
 }
 import {Logger} from "../logger";
 let logger = new Logger();
+
 export module Mongo {
       export function createCollection(collection: string | any[]){ // CRIAR COLEÇÕES DE DADOS (Não utilizado)
             for(let i = 0; i < collection.length; i++){
@@ -120,6 +121,31 @@ export module Mongo {
                   });
             });
       }
+
+      
+      export async function LerECachear (collection: string, redisConfig: any, CacheKey: string){ // OBTÉM DADOS DO BANCO, COLOCA EM CACHE E RETORNA PARA O CLIENTE
+            return new Promise((resolve, reject) => { 
+                  MongoClient.connect(MDBurl,Options, function(err: string, db: { db: (arg0: string) => any; close: () => void; }) {
+                        if (err){
+                              logger.log(err)
+                              reject(err);
+                              throw err;
+                        }
+                        var dbo = db.db(MongoDBName);
+                        dbo.collection(collection).find({}).toArray(function(err: string, result: any) {
+                              if (err){
+                                    logger.log(err)
+                                    reject(err);
+                                    throw err;
+                              }
+                              redisConfig.cacheResponse(CacheKey, result);
+                              resolve(result);
+                              db.close();
+                        });
+                  });
+            });
+      }
+
 
       export async function BuscarUm (collection: string, query : any) { // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
            return new Promise((resolve, reject) => { 

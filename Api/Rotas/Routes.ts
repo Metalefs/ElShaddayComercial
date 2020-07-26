@@ -8,6 +8,7 @@ export let Rotas = {
     Pedido:"/pedido/",
 
     Seed:"/seed/",
+    FlushAll: "/flushAll/",
     
     Usuario: "/usuario/",
         DeletarConta:"/deletarConta/",
