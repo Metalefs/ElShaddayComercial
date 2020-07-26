@@ -5,14 +5,8 @@
             Use nosso serviço de entrega!
             <h5 class="hint">Entregue em até 50 minutos após o pedido.*</h5>
         </section>
+        
         <div class="login-group pt-0">
-            <!-- <clr-select-container>
-                <label class="clr-sr-only">User Role</label>
-                <select clrSelect name="type" [(ngModel)]="form.type">
-                    <option value="local">Local Users</option>
-                    <option value="admin">Administrator</option>
-                </select>
-            </clr-select-container> -->
             <clr-input-container>
                 <label class="clr-sr-only">E-mail</label>
                 <input type="email" name="Email" clrInput placeholder="E-mail" [(ngModel)]="form.Email" #emailControl="ngModel" required />
@@ -27,7 +21,7 @@
                 <label>Lembrar neste navegador</label>
                 <input type="checkbox" name="form.rememberMe" clrCheckbox [(ngModel)]="form.rememberMe" />
             </clr-checkbox-wrapper>
-            <div [ngClass]="(EmailError || PassError)?'error active':'error'">
+            <div [ngClass]="(EmailError || PassError || error)?'error active':'error'">
                 Nome ou senha inválidos
             </div>
             <button type="submit" class="btn btn-primary" (click)="Login()">PEDIR</button>

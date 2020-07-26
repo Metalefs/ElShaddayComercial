@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from './api/authentication/authentication.service';
+import { fade } from './animations';
 
 import { OpcaoNavbar } from './shared/_models/OpcoesNavbar';
 import { Collections } from './shared/_models/MongoCollections';

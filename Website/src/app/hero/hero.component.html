@@ -6,11 +6,23 @@
         <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white is-italic has-text-centered">{{Sobre.Slogan}}</h2>
         <p class="is-size-5 is-light has-text-weight-medium has-text-white has-text-centered" innerHTML="{{Sobre.Descricao}}"></p>
         <div class="is-divider" data-content="Preço"></div>
-        <h2 class=" ls-1 title is-4 has-text-weight-medium has-text-white has-text-centered">Normal: {{PrecoMarmitex.Grande}} | Pequena: {{PrecoMarmitex.Pequena}}</h2>
-        
-        <p class=" is-size-5 is-light has-text-weight-medium has-text-white has-text-centered">Funcionamento de {{InformacaoContato?.HorarioAtendimento}}</p>
+        <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white has-text-centered">Normal: {{PrecoMarmitex.Grande}} | Pequena: {{PrecoMarmitex.Pequena}}</h2>
+        <hr>
+        <h3 class="subtitle has-text-weight-medium has-text-warning">Funcionamento de {{InformacaoContato?.HorarioAtendimento}}</h3>
+        <div class="tile is-ancestor is-hidden-desktop">
+            <div class="tile is-parent is-12">
+                <article class="tile is-child">
+                    <div class="content">
+                        <a target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">
+                            <p class="mr-0 is-size-3 is-size-5-mobile is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
         <div class="container mt-6">
-            <p class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified">Marmitas entregues</p>
+            <span class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified" [countUp]="TotalMarmitasEntregues">0</span>
+            <span class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified"> Marmitas entregues</span>
         </div>
     </div>
     <div class="column is-4 mr-2">

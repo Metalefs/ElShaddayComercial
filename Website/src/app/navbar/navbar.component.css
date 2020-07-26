@@ -1,8 +1,16 @@
 .navbar{
     height: 80px;
-    background: rgba(255, 0, 0, 0.55);
+    background: rgb(246, 100, 107);
     border-bottom: 1px solid #ccc;
     padding: 10px 24px;
+}
+.m-number{
+    margin: 0 auto;
+    color: #ccc;
+    position: relative;
+}
+.bg-transparent{
+    background: transparent;
 }
 @media screen and (max-width: 1023px){
     .navbar-menu {

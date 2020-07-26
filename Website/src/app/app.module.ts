@@ -20,6 +20,7 @@ import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.co
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
+import { CountUpModule } from 'ngx-countup';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
 import { ZippyComponent } from './shared/zippy/zippy.component';
@@ -68,7 +69,8 @@ import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClarityModule
+    ClarityModule,
+    CountUpModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

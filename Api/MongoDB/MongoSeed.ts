@@ -12,7 +12,7 @@ export module Seeder {
 
             let Sobre = 
             new Collections.Sobre(
-                  "Atendemos ao Aeronautas, bairros vizinhos e centro de Lagoa Santa <em>sem taxa de entrega.</em>",
+                  "<em>Sem taxa de entrega</em> para o bairro Aeronautas, bairros vizinhos e centro.",
                   "El Shadday Marmitex",
                   "Disk Marmitex",
                   "",

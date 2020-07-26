@@ -25,10 +25,18 @@ export class AuthenticationService {
         return this.http.post<any>(`${environment.endpoint}`+routes.Registro, { cliente })
         .pipe(map(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            console.log(user);
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
-            return user;
+            if(user.error == undefined){
+                console.log(user);
+                if(user.token){
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                    return user;
+                }
+                throw "Nome ou senha inválidos";
+            }
+            else{
+                throw user.error;
+            }
         }));
     }
 

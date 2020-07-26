@@ -14,15 +14,15 @@
         
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <div class="navbar-item">
-                    <a target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">
-                        <p class="mr-0 is-size-2  is-size-5-mobile is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
-                    </a>
-                </div>
                 <div style="display: flex;">
                     <div style="flex: 1;height: 20px; background-color: #ff8686"></div>
-                    <div class="divider is-vertical has-text-white-bis">Marmitex</div>
+                    <p class="divider is-vertical has-text-white-bis">Marmitex</p>
                     <div style="flex: 1;height: 20px; background-color: #ff8686"></div>
+                </div>
+                <div class="navbar-item m-number">
+                    <a target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">
+                        <p class="mr-0 is-size-3 is-size-5-mobile is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
+                    </a>
                 </div>
                 <!--                
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -47,18 +47,18 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-light">
-                            <strong>Instagram</strong>
+                        <a href="#" target="_blank" class="button is-light bg-transparent" title="Acesse nosso Instagram">
+                            <img class="image is-16x16" src="../../assets/imagens/icones/instagram.svg" alt="Instagram">
                         </a>
-                        <a class="button is-primary">
-                            Facebook
+                        <a href="#" target="_blank" class="button is-light bg-transparent" title="Acesse nosso Facebook">
+                            <img class="image is-16x16" src="../../assets/imagens/icones/facebook.svg" alt="Facebook">
                         </a>
-                        <a (click)="Logout()" class="button is-dark" *ngIf="Logado" >
+                        <button (click)="Logout()" class="button is-dark" *ngIf="Logado" >
                             Sair
-                        </a>
-                        <a (click)="opened = true" class="button is-dark" *ngIf="!Logado" >
+                        </button>
+                        <button (click)="opened = true" class="button is-dark" *ngIf="!Logado" >
                             Entrar
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

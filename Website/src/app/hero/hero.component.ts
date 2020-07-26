@@ -15,6 +15,7 @@ export class HeroComponent implements OnInit {
   Sobre:Collections.Sobre;
   InformacaoContato:Collections.InformacoesContato;
   PrecoMarmitex:Collections.PrecoMarmitex;
+  TotalMarmitasEntregues: number;
   constructor(private SobreService: SobreService, 
     private InfoContatoService: InformacoesContatoService,
     private PrecoMarmitexService : PrecoMarmitexService
@@ -40,6 +41,7 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.TotalMarmitasEntregues = 300;
     this.loading = true;
     this.LerSobre();
     this.LerInfoContato();
