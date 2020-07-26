@@ -1,26 +1,9 @@
 <section *ngIf="Cardapios != undefined" class="section cardapio-section has-background-gray-light mx-0">
 
-    <h1 class="title has-text-weight-medium on-mobile-margin-top-1 cardapio-bg"> Dê uma olhada no nosso cardápio!</h1>
-    
-    <div class="columns max-height-30">
-        <div class="column is-3 overflow-y-scroll">
-            <div *ngFor="let Cardapio of Cardapios">
-                <cardapio-card [Cardapio]="Cardapio"></cardapio-card>
-            </div>
-        </div>
-        <div class="column">
-            <article class="tile is-child notification">
-                <div class="content">
-                  <p class="title">Monte o seu pedido</p>
-                  <p class="subtitle">Condimentos</p>
-                  <div class="content">
-                    <!-- Content -->
-                  </div>
-                </div>
-              </article>
+    <div class="">
+        <div class="column" *ngFor="let Cardapio of Cardapios">
+            <cardapio-card [Cardapio]="Cardapio"></cardapio-card>
         </div>
     </div>
-     
-
 
 </section>

@@ -134,13 +134,15 @@ var Collections;
     Collections.Complemento = Complemento;
     var Pedido = /** @class */ (function (_super) {
         __extends(Pedido, _super);
-        function Pedido(IdCliente, Cardapios, Observacao, Aberto, Preco) {
+        function Pedido(IdCliente, Cardapios, Complementos, Observacao, Aberto, Preco, Data) {
             var _this = _super.call(this) || this;
             _this.IdCliente = IdCliente;
             _this.Cardapios = Cardapios;
+            _this.Complementos = Complementos;
             _this.Aberto = Aberto;
             _this.Observacao = Observacao;
             _this.Preco = Preco;
+            _this.Data = Data;
             return _this;
         }
         Pedido.NomeID = "Pedido";

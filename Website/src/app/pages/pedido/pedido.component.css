@@ -1,0 +1,17 @@
+.max-height-30{
+    max-height: 20vw;
+}
+.bg-semi-transparent{
+    background: rgba(205, 205, 205, 0.8);
+}
+.overflow-y-scroll{
+    overflow-y: scroll;
+    max-height: 100vw;
+}
+.pedido-section{
+    background: url(../../../../src/assets/imagens/fundos/inicio/Marmitex.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

@@ -34,6 +34,8 @@ import { PedidoComponent } from './pages/pedido/pedido.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
 import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
+import { MontarPedidoComponent } from './pages/pedido/montar-pedido/montar-pedido.component';
+import { CondimentoItemComponent } from './pages/pedido/montar-pedido/condimento-item/condimento-item.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
     EntregaComponent,
     LocalizacaoComponent,
     AvaliacoesComponent,
+    MontarPedidoComponent,
+    CondimentoItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -161,22 +161,28 @@ export module Collections {
     export class Pedido extends MongoDocument {
         IdCliente:string;
         Cardapios:Cardapio[];
+        Complementos:Complemento[];
         Observacao:string;
         Aberto:string;
         Preco:string;
+        Data:Date;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
+        Complementos:Complemento[],
         Observacao:string,
         Aberto:string,
-        Preco:string){
+        Preco:string,
+        Data:Date){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
+            this.Complementos = Complementos;
             this.Aberto = Aberto;
             this.Observacao = Observacao;
             this.Preco = Preco;
+            this.Data = Data;
         }
     };
 

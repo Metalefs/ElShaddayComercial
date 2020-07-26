@@ -50,14 +50,19 @@ export module Mongo {
       }
       /*Seeding Mongo DB */
       
-      export function seedCollections(){
+      export async function seedCollections(){
             let collectionsToSeed = Seeder.SeedCollections();
             try{
                   collectionsToSeed.forEach((collection: any)=>{
-                        collection.Single ?
-                              Insert(collection.name,collection.value)
-                        :
-                              InsertMany(collection.name,collection.value)
+                        console.log(collection.name);
+                        if(collection.Single){
+                              console.log("Inserindo um", collection.Single, collection.value);
+                              Insert(collection.name, collection.value)
+                        }
+                        else{
+                              console.log("Inserindo muitos", collection.Single, collection.value);
+                              InsertMany(collection.name, collection.value)
+                        }
                   })
             }
             catch(err){

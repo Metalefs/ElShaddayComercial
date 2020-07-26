@@ -93,18 +93,29 @@ var Mongo;
     Mongo.deleteCollection = deleteCollection;
     /*Seeding Mongo DB */
     function seedCollections() {
-        var collectionsToSeed = MongoSeed_1.Seeder.SeedCollections();
-        try {
-            collectionsToSeed.forEach(function (collection) {
-                collection.Single ?
-                    Insert(collection.name, collection.value)
-                    :
-                        InsertMany(collection.name, collection.value);
+        return __awaiter(this, void 0, void 0, function () {
+            var collectionsToSeed;
+            return __generator(this, function (_a) {
+                collectionsToSeed = MongoSeed_1.Seeder.SeedCollections();
+                try {
+                    collectionsToSeed.forEach(function (collection) {
+                        console.log(collection.name);
+                        if (collection.Single) {
+                            console.log("Inserindo um", collection.Single, collection.value);
+                            Insert(collection.name, collection.value);
+                        }
+                        else {
+                            console.log("Inserindo muitos", collection.Single, collection.value);
+                            InsertMany(collection.name, collection.value);
+                        }
+                    });
+                }
+                catch (err) {
+                    console.log(err);
+                }
+                return [2 /*return*/];
             });
-        }
-        catch (err) {
-            console.log(err);
-        }
+        });
     }
     Mongo.seedCollections = seedCollections;
     /*----------------------------*/

@@ -28,7 +28,39 @@ export module Seeder {
             Cardapios.push(new Collections.Cardapio("3","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","V"));
             Cardapios.push(new Collections.Cardapio("4","Frango com Quiabo / Bisteca com couve e angu","Arroz, Feijao, Frango com Quiabo e Angu","N","F"));
             Cardapios.push(new Collections.Cardapio("5","Feijoada","Arroz, Feijoada, Couve, Farofa, Laranja e Vinagrete","N","V"));
-            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","V"));
+            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","F"));
+
+            let Saladas_Complemento:Collections.Complemento[];
+            Saladas_Complemento = [];
+            Saladas_Complemento.push(new Collections.Complemento("Alface","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Tomate","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Cenoura","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Vinagrete","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Brócolis","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Couve-flor","S",2.00));
+            
+            let Carnes_Complemento:Collections.Complemento[];
+            Carnes_Complemento = [];
+            Carnes_Complemento.push(new Collections.Complemento("Filé de frango","C",3.50));
+            Carnes_Complemento.push(new Collections.Complemento("Bife de porco","C",3.50));
+            Carnes_Complemento.push(new Collections.Complemento("Bife de boi","C",4.00));
+ 
+            let Bebidas_Complemento:Collections.Complemento[];
+            Bebidas_Complemento = [];
+            Bebidas_Complemento.push(new Collections.Complemento("Guaraná 200ml","B",3.00));
+            Bebidas_Complemento.push(new Collections.Complemento("Coca-Cola 200ml","B",3.00));
+
+            let Outros_Complemento:Collections.Complemento[];
+            Outros_Complemento = [];
+            Outros_Complemento.push(new Collections.Complemento("Fritas","O",8.00));
+            Outros_Complemento.push(new Collections.Complemento("Fritas com Filé de Frango","O", 10.00));
+
+            let Complementos:Collections.Complemento[];
+            Complementos = [];
+            Complementos = Complementos.concat(Saladas_Complemento);
+            Complementos = Complementos.concat(Carnes_Complemento);
+            Complementos = Complementos.concat(Bebidas_Complemento);
+            Complementos = Complementos.concat(Outros_Complemento);
 
             let Clientes:Collections.Cliente[];
             Clientes = [];
@@ -54,10 +86,11 @@ export module Seeder {
             let Feedback = new Collections.Feedback(Clientes[0].Nome,Clientes[0].Email,Clientes[0],"Adorei","Entregue pontualmente todos os dias úteis, não preciso me preocupar com alimentação!");
 
             return [
-                  {name:"InformacoesContato",value:InformacoesContato,Single:true},
-                  {name:"Sobre",value:Sobre,Single:true},
-                  {name:"Cardapios",value:Cardapios,Single:false},
-                  {name:"PrecoMarmitex",value:PrecoMarmitex,Single:true}
+                  {name:Collections.InformacoesContato.NomeID, value:InformacoesContato, Single:true},
+                  {name:Collections.Sobre.NomeID, value:Sobre, Single:true},
+                  {name:Collections.Cardapio.NomeID, value:Cardapios, Single:false},
+                  {name:Collections.Complemento.NomeID, value:Complementos, Single:false},
+                  {name:Collections.PrecoMarmitex.NomeID, value:PrecoMarmitex, Single:true}
             ];
       }
 }
