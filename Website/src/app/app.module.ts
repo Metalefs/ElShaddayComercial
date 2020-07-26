@@ -31,6 +31,8 @@ import { EditarComplementoComponent } from './gerenciamento/editar/editar-comple
 import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-preco-marmitex/editar-preco-marmitex.component';
 import { PedidoComponent } from './pages/pedido/pedido.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
+import { LocalizacaoComponent } from './localizacao/localizacao.component';
+import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { EntregaComponent } from './pages/entrega/entrega.component';
     EditarPrecoMarmitexComponent,
     PedidoComponent,
     EntregaComponent,
+    LocalizacaoComponent,
+    AvaliacoesComponent,
   ],
   imports: [
     BrowserModule,
