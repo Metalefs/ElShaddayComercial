@@ -1,1 +1,29 @@
-<p>cardapio-lista-item works!</p>
+<div class="content" [ngClass]="(Ativo)?'cardapio cardapio-atual':'cardapio'">
+    <td>
+        <p class="image is-64x64">
+            <ng-container
+                *ngIf="Video != undefined && Video === true; then VideoS; else Imagem">
+            </ng-container>
+            
+            <ng-template #Imagem>
+                <img src="{{Caminho}}" alt="Placeholder image">
+            </ng-template>
+    
+            <ng-template #VideoS>
+                <video  width="64" height="64" autoplay loop>
+                <source src="{{Caminho}}" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </ng-template>
+        </p>
+    </td>
+    <td>
+        <div>
+            <p>
+                <strong>{{Cardapio.Nome}}</strong>
+                <br>
+                {{Cardapio.Ingredientes}}
+            </p>
+        </div>
+    </td>
+</div>

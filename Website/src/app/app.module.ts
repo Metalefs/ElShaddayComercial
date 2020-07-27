@@ -36,8 +36,9 @@ import { LocalizacaoComponent } from './localizacao/localizacao.component';
 import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
 import { MontarPedidoComponent } from './pages/pedido/montar-pedido/montar-pedido.component';
 import { CardapioListaAgrupadaComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-agrupada.component';
-import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-item/cardapio-lista-item.component';
 import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos/complementos.component';
+import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-item/cardapio-lista-item.component';
+import { CardapioHelper } from './_helpers/cardapio_helper';
 
 @NgModule({
   declarations: [
@@ -66,8 +67,8 @@ import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos
     AvaliacoesComponent,
     MontarPedidoComponent,
     CardapioListaAgrupadaComponent,
-    CardapioListaItemComponent,
     ComplementosComponent,
+    CardapioListaItemComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +84,7 @@ import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: CardapioHelper },
   ],
   bootstrap: [AppComponent]
 })

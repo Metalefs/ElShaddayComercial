@@ -1,1 +1,21 @@
-<p>cardapio-lista-agrupada works!</p>
+<section *ngIf="Cardapios != undefined" class="cardapio-section has-background-gray-light mx-0">
+
+    
+    <div *ngFor="let DiaSemana of DiasSemana" [ngClass]="(DiaSemana.number != DiaAtual)?'cardapio cardapio-atual container mb-0 pb-0':'cardapio container mb-0 pb-0'">
+        <table class="table mb-0 pb-0">
+            <thead>
+                <tr>
+                    <th><p class="subtitle">{{DiaSemana.day}}</p></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let Cardapio of Cardapios">
+                <tr *ngIf="Cardapio.Dia == DiaSemana.number_string">
+                   <cardapio-lista-item [Cardapio]="Cardapio" *ngIf="Cardapio.Dia == DiaSemana.number_string"></cardapio-lista-item>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</section>

@@ -1,1 +1,13 @@
-<p>complementos works!</p>
+<div *ngFor="let Complemento of Complementos">
+
+    <div *ngIf="Complemento.Tipo == 'S'">
+        {{Complemento.Nome}} SALADA
+    </div>
+    <div *ngIf="Complemento.Tipo == 'C'">
+        {{Complemento.Nome}} CARNE
+    </div>
+    <div *ngIf="Complemento.Tipo == 'B'">
+        {{Complemento.Nome}} BEBIDA
+    </div>
+
+</div>
