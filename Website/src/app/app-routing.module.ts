@@ -9,7 +9,7 @@ import { PedidoComponent } from './pages/pedido/pedido.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
 import { HeroComponent } from './hero/hero.component';
 import { ContatoComponent } from './contato/contato.component';
-import { CardapioComponent } from './cardapio/cardapio.component';
+import { CardapioCardComponent } from './cardapio-card/cardapio-card.component';
 import { EditarComponent } from './gerenciamento/editar/editar.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
@@ -19,12 +19,8 @@ const routes: Routes = [
   { path: 'entrega', component: EntregaComponent },
   { path: 'hero', component: HeroComponent },
   { path: 'contato', component: ContatoComponent },
-  { path: 'cardapio', component: CardapioComponent },
+  { path: 'cardapio-card', component: CardapioCardComponent },
   { path: 'gerenciamento', component: EditarComponent, canActivate: [AuthGuard] },
-  // { path: '',
-  //   redirectTo: '/main',
-  //   pathMatch: 'full'
-  // },
   { path: '**', redirectTo: '' }
 ];
 

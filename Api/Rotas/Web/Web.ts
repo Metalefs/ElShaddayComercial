@@ -14,41 +14,41 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get(Rotas.Cardapios, (req: Express.Request, res: Express.Response) =>{
+app.get(Rotas.Cardapios, (req: Express.Request, res: any) =>{
     let key = Rotas.Cardapios;
     getFromCacheOrDb(key,Collections.Cardapio.NomeID).then(result => {
         res.send(result);
     });
 });
 
-app.get(`${Rotas.Cardapios}/:id`, (req: any, res: Express.Response) =>{
+app.get(`${Rotas.Cardapios}/:id`, (req: any, res: any) =>{
     if(req.queryObj !== undefined){
         res.send(Mongo.BuscarUm(Collections.Cardapio.NomeID, JSON.parse(req.queryObj)));
     }
 });
 
-app.get(Rotas.InfoContato, (req: Express.Request, res: Express.Response) => {
+app.get(Rotas.InfoContato, (req: Express.Request, res: any) => {
     let key = Rotas.InfoContato;
     getFromCacheOrDb(key,Collections.InformacoesContato.NomeID).then(result => {
         res.send(result);
     });
 });
 
-app.get(Rotas.Sobre, (req: Express.Request, res: Express.Response) => {
+app.get(Rotas.Sobre, (req: Express.Request, res: any) => {
     let key = Rotas.Sobre;
     getFromCacheOrDb(key,Collections.Sobre.NomeID).then(result => {
         res.send(result);
     });
 });
 
-app.get(Rotas.PrecoMarmitex, (req: Express.Request, res: Express.Response) => {
+app.get(Rotas.PrecoMarmitex, (req: Express.Request, res: any) => {
     let key = Rotas.PrecoMarmitex;
     getFromCacheOrDb(key,Collections.PrecoMarmitex.NomeID).then(result => {
         res.send(result);
     });
 });
 
-app.get(Rotas.Complemento, (req: Express.Request, res: Express.Response) => {
+app.get(Rotas.Complemento, (req: Express.Request, res: any) => {
     let key = Rotas.Complemento;
     getFromCacheOrDb(key,Collections.Complemento.NomeID).then(result => {
         res.send(result);
@@ -64,12 +64,12 @@ async function getFromCacheOrDb (key: string, collection: string){
     });
 }
 
-app.get(Rotas.Seed, (req: Express.Request, res: Express.Response) => {
+app.get(Rotas.Seed, (req: Express.Request, res: any) => {
     Mongo.seedCollections();
     res.send('seeded');
 });
 
-app.get(Rotas.FlushAll, (req: any, res: Express.Response) => {
+app.get(Rotas.FlushAll, (req: any, res: any) => {
     if(req.query.force) {
         redisConfig.flushAll().then((x: boolean)=>{
             if(x == true)

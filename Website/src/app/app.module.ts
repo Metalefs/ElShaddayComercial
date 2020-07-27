@@ -15,8 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavbariconComponent } from './shared/factory-steps/navbaricon/navbaricon.component';
 import { ContatoComponent } from './contato/contato.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
-import { CardapioComponent } from './cardapio/cardapio.component';
-import { CardapioCardComponent } from './cardapio/cardapio-card/cardapio-card.component';
+import { CardapioCardComponent } from './cardapio-card/cardapio-card.component';
+import { CardapioCardItemComponent } from './cardapio-card/cardapio-card-item/cardapio-card-item.component';
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
@@ -35,7 +35,9 @@ import { EntregaComponent } from './pages/entrega/entrega.component';
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
 import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
 import { MontarPedidoComponent } from './pages/pedido/montar-pedido/montar-pedido.component';
-import { CondimentoItemComponent } from './pages/pedido/montar-pedido/condimento-item/condimento-item.component';
+import { CardapioListaAgrupadaComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-agrupada.component';
+import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-item/cardapio-lista-item.component';
+import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos/complementos.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,8 @@ import { CondimentoItemComponent } from './pages/pedido/montar-pedido/condimento
     ContatoComponent,
     PageNotFoundComponent,
     MainPageComponent,
-    CardapioComponent,
     CardapioCardComponent,
+    CardapioCardItemComponent,
     RegistroClienteComponent,
     HeroComponent,
     FactoryStepsComponent,
@@ -63,7 +65,9 @@ import { CondimentoItemComponent } from './pages/pedido/montar-pedido/condimento
     LocalizacaoComponent,
     AvaliacoesComponent,
     MontarPedidoComponent,
-    CondimentoItemComponent,
+    CardapioListaAgrupadaComponent,
+    CardapioListaItemComponent,
+    ComplementosComponent,
   ],
   imports: [
     BrowserModule,
