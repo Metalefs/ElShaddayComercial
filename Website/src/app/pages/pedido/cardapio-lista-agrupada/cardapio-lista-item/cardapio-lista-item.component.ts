@@ -10,7 +10,8 @@ export class CardapioListaItemComponent implements OnInit {
 
   @Input()
   Cardapio: Collections.Cardapio;
-
+  @Input()
+  Pedido:Collections.Pedido;
   Ativo:boolean;  
   Video:boolean;  
   Caminho:string;  

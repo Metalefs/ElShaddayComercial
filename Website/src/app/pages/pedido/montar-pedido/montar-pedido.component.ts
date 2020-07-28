@@ -10,6 +10,7 @@ export class MontarPedidoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

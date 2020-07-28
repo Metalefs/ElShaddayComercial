@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RestApiService } from '../../../api/RestApiService';
 import { Collections } from '../../../shared/_models/MongoCollections';
 class Dia{
@@ -17,10 +17,13 @@ export class CardapioListaAgrupadaComponent implements OnInit {
 
   DiasSemana: Dia[];
   DiaAtual:number;  
-  
+  @Input()
+  Pedido:Collections.Pedido;
   Cardapios:Collections.Cardapio[] = null;
-  
-  constructor(public api: RestApiService) {  }
+  expanded:boolean;
+  constructor(public api: RestApiService) {  
+    this.expanded = true;
+  }
 
   LerCardapio() {
     this.api.Cardapios().subscribe(data=>{
@@ -46,6 +49,7 @@ export class CardapioListaAgrupadaComponent implements OnInit {
     ];
     this.LerCardapio();
     this.DiaAtual = new Date().getDay();
+   
   }
 
 }

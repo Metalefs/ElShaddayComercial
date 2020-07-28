@@ -2,7 +2,9 @@
     animation: fade-in ease-in-out .5s forwards;
     width: 100vw;
 }
-
+.stack-view-key{
+    flex:initial !important;
+}
 @keyframes fade-in{
     0%{
         transform: translateY(-10px);
