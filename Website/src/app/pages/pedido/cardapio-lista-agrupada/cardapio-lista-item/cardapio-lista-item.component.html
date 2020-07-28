@@ -1,23 +1,21 @@
-<div class="content" [ngClass]="(Ativo)?'cardapio cardapio-atual':'cardapio'">
-    <article class="media">
-        <figure class="media-left">
-            <p class="image is-64x64">
-                <ng-container
-                    *ngIf="Video != undefined && Video === true; then VideoS; else Imagem">
-                </ng-container>
-                
-                <ng-template #Imagem>
-                    <img src="{{Caminho}}" alt="Placeholder image">
-                </ng-template>
+<div class="content columns" [ngClass]="(Ativo)?'cardapio cardapio-atual':'cardapio'">
+    <div class="column">
+        <ng-container
+            *ngIf="Video != undefined && Video === true; then VideoS; else Imagem">
+        </ng-container>
         
-                <ng-template #VideoS>
-                    <video  width="64" height="64" autoplay loop>
-                    <source src="{{Caminho}}" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video>
-                </ng-template>
-            </p>
-        </figure>
+        <ng-template #Imagem>
+            <img src="{{Caminho}}" alt="Placeholder image">
+        </ng-template>
+
+        <ng-template #VideoS>
+            <video  width="64" height="64" autoplay loop>
+            <source src="{{Caminho}}" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </ng-template>
+    </div>
+    <div class="column">
         <div class="media-content">
             <div class="content">
                 <p>
@@ -40,5 +38,7 @@
                 <clr-icon shape="minus"></clr-icon>
             </button>
         </div>
-    </article>
+    </div>
+            
+        
 </div>

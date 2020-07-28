@@ -1,13 +1,22 @@
-<div *ngFor="let Complemento of Complementos">
+<clr-accordion *ngFor="let Tipo of Tipos">
+    <clr-accordion-panel class=" mb-0 pb-0">
+                
+        <clr-accordion-title class=" mb-0 pb-0">
+            <p class="subtitle">{{Tipo.nome}}</p>
+        </clr-accordion-title>
+        
+        <div *ngFor="let Complemento of Complementos">
+        
+            <div *ngIf="Complemento.Tipo == Tipo.tipo">
+    
+                <clr-accordion-content *clrIfExpanded>
+                    <app-complemento-item [Complemento]="Complemento" [Pedido]="Pedido"></app-complemento-item>
+                </clr-accordion-content>
+        
+            </div>
+            
+        </div>
 
-    <div *ngIf="Complemento.Tipo == 'S'">
-        {{Complemento.Nome}} SALADA
-    </div>
-    <div *ngIf="Complemento.Tipo == 'C'">
-        {{Complemento.Nome}} CARNE
-    </div>
-    <div *ngIf="Complemento.Tipo == 'B'">
-        {{Complemento.Nome}} BEBIDA
-    </div>
-
-</div>
+    </clr-accordion-panel>
+        
+</clr-accordion>

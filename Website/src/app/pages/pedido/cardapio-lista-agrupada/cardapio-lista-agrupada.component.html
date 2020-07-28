@@ -8,7 +8,7 @@
                 <p class="subtitle">{{DiaSemana.day}}</p>
             </clr-accordion-title>
             
-            <div *ngFor="let Cardapio of Cardapios" style="z-index: 2;">
+            <div *ngFor="let Cardapio of Cardapios">
           
                 <clr-accordion-content *clrIfExpanded>
                     <cardapio-lista-item *ngIf="Cardapio.Dia == DiaSemana.number_string" [Pedido]="Pedido" [Cardapio]="Cardapio"></cardapio-lista-item>

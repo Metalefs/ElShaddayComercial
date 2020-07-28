@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Collections } from '../../../../app/shared/_models/MongoCollections';
 
 @Component({
   selector: 'app-montar-pedido',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./montar-pedido.component.css']
 })
 export class MontarPedidoComponent implements OnInit {
-
+  @Input()
+  Pedido:Collections.Pedido;
   constructor() { }
 
   ngOnInit(): void {

@@ -14,7 +14,7 @@ export class PedidoComponent implements OnInit {
     this.Pedido = new Collections.Pedido(
       "",
       this.Cardapios,
-      null,
+      [new Collections.Complemento("","",0)],
       "",
       true,
       0

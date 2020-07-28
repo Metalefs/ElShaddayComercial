@@ -39,6 +39,7 @@ import { CardapioListaAgrupadaComponent } from './pages/pedido/cardapio-lista-ag
 import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos/complementos.component';
 import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-item/cardapio-lista-item.component';
 import { CardapioHelper } from './_helpers/cardapio_helper';
+import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complementos/complemento-item/complemento-item.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
     MontarPedidoComponent,
     CardapioListaAgrupadaComponent,
     ComplementosComponent,
-    CardapioListaItemComponent
+    CardapioListaItemComponent,
+    ComplementoItemComponent
   ],
   imports: [
     BrowserModule,
