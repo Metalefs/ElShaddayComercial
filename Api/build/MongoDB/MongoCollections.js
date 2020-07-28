@@ -105,13 +105,15 @@ var Collections;
     ;
     var Cardapio = /** @class */ (function (_super) {
         __extends(Cardapio, _super);
-        function Cardapio(Dia, Nome, Ingredientes, Tipo, ImgSrc) {
+        function Cardapio(Dia, Nome, Ingredientes, Tipo, ImgSrc, Preco, Tamanho) {
             var _this = _super.call(this) || this;
             _this.Dia = Dia;
             _this.Nome = Nome;
             _this.Ingredientes = Ingredientes;
             _this.Tipo = Tipo;
             _this.ImgSrc = ImgSrc;
+            _this.Preco = Preco;
+            _this.Tamanho = Tamanho;
             return _this;
         }
         Cardapio.NomeID = "Cardapios";

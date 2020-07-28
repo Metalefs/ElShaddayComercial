@@ -1,5 +1,57 @@
-<div class="box" *ngFor="let Cardapio of Pedido?.Cardapios">
-    <cardapio-card-item [Cardapio]="Cardapio"></cardapio-card-item>
-</div>
-<div class="box" *ngFor="let Complemento of Pedido?.Complementos">{{Complemento?.Nome}}</div>
-<div class="box">{{Pedido.CalcularPreco()}}</div>
+<div>
+
+    <table class="table section">
+        <thead>
+            <tr>
+                <th>Marmitas</th>
+                <th>Preço</th>
+                <th>Tamanho</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Cardapio of Pedido?.Cardapios">
+                <td>
+                    <p class="subtitle is-6">{{Cardapio.Nome}}</p>
+                </td>
+                <td>
+                    <p class="subtitle is-6">{{Cardapio.Preco}}</p>
+                </td>
+                <td>
+                    <p class="subtitle is-6">{{Cardapio.Tamanho}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table section">
+        <thead>
+            <tr>
+                <th>
+                    <p class="subtitle is-6">Complementos</p>
+                </th>
+                <th>
+                    <p class="subtitle is-6">Preço</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Complemento of Pedido?.Complementos">
+                <td>
+                    <div class="">{{Complemento?.Nome}}</div>
+                </td>
+                <td>
+                    <div class="">{{Complemento?.Preco.toFixed(2)}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="box">
+        <p class="subtitle is-6">R$ {{Pedido.CalcularPreco().toFixed(2)}}</p>
+        <div class="container">
+    
+            <button class="button is-success">
+                Realizar pedido
+            </button>
+    
+        </div>
+    </div>
+</div>    

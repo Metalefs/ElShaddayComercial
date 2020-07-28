@@ -28,6 +28,7 @@ export class PedidoComponent implements OnInit {
         if(parseInt(y.Dia) == new Date().getDay()){
           if(this.Pedido.Cardapios.length == 0)
             this.Pedido.Cardapios.push(y);
+            this.Pedido.Cardapios.pop();
         }
       });
     });

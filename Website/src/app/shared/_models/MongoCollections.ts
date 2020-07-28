@@ -127,19 +127,25 @@ export module Collections {
         Ingredientes:string;
         Tipo:string;
         ImgSrc:string;
+        Preco?:number;
+        Tamanho?:string;
         static NomeID:string = "Cardapios";
         constructor(
         Dia:string,
         Nome:string,
         Ingredientes:string,
         Tipo:string,
-        ImgSrc:string){
+        ImgSrc:string,
+        Preco?:number,
+        Tamanho?:string){
             super();
             this.Dia = Dia;
             this.Nome = Nome;
             this.Ingredientes = Ingredientes;
             this.Tipo = Tipo;
             this.ImgSrc = ImgSrc;
+            this.Preco = Preco;
+            this.Tamanho = Tamanho;
         }
     };
 
@@ -196,6 +202,7 @@ export module Collections {
         }
 
         SelecionarCardapio(Cardapio: Cardapio){
+            Cardapio.Preco = parseFloat(Cardapio.Preco.toString());
             this.Cardapios.push(Cardapio);
         }
 
@@ -205,6 +212,10 @@ export module Collections {
             this.Complementos.forEach(complemento => {
                 this.Preco += complemento.Preco;
             });
+            this.Cardapios.forEach(cardapio => {
+                this.Preco += cardapio.Preco;
+            });
+
             return this.Preco;
         }
 

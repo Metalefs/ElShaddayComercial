@@ -209,7 +209,7 @@ var Mongo;
                                 throw err;
                             }
                             var dbo = db.db(MongoDBName);
-                            dbo.collection(collection).find({ query: query }).toArray(function (err, result) {
+                            dbo.collection(collection).find(query).toArray(function (err, result) {
                                 if (err) {
                                     throw err;
                                 }

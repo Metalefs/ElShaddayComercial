@@ -19,15 +19,16 @@
       </ng-template>
 
       <p class="NomeCardapio">{{Cardapio.Nome}}</p>
-
-      </div>
+      
+    </div>
     <div class="card-content">
       <div class="media">
         <div class="media-left">
-         
+          
         </div>
         <div class="media-content">
           <p class="title is-4">{{Cardapio.Dia}}</p>
+          <p class="title is-4" *ngIf="Cardapio.Tamanho">({{Cardapio.Tamanho}})</p>
           <p class="subtitle is-6">{{Cardapio.Ingredientes}}</p>
         </div>
       </div>

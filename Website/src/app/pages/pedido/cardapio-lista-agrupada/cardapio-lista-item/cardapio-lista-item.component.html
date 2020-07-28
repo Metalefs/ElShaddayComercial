@@ -31,8 +31,11 @@
             </nav>
         </div>
         <div class="media-right">
-            <button type="button" (click)="AdicinarAoPedido()" [disabled]="!Ativo" class="btn btn-icon btn-success" aria-label="done">
-                <clr-icon shape="plus"></clr-icon>
+            <button type="button" (click)="AdicinarAoPedido('p')" [disabled]="!Ativo" class="btn btn-icon btn-success" aria-label="done">
+                <clr-icon shape="plus"></clr-icon>Pequena
+            </button>
+            <button type="button" (click)="AdicinarAoPedido('g')" [disabled]="!Ativo" class="btn btn-icon btn-success" aria-label="done">
+                <clr-icon shape="plus"></clr-icon>Grande
             </button>
             <button type="button" (click)="RemoverDoPedido()" [disabled]="!Ativo" class="btn btn-icon" aria-label="home">
                 <clr-icon shape="minus"></clr-icon>
