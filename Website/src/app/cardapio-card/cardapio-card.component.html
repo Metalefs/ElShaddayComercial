@@ -1,6 +1,6 @@
-<section *ngIf="Cardapios != undefined" class="section cardapio-section has-background-gray-light mx-0">
+<section *ngIf="Cardapios != undefined" class="section has-background-gray-light mx-0">
 
-    <div class="columns is-mobile overflow-x-scroll">
+    <div class="columns cardapio-section is-mobile overflow-x-scroll">
         <div class="column" *ngFor="let Cardapio of Cardapios">
             <cardapio-card-item [Cardapio]="Cardapio"></cardapio-card-item>
         </div>

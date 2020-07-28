@@ -23,12 +23,12 @@ export module Collections {
     };
 
     export class PrecoMarmitex extends MongoDocument {
-        Pequena:string;
-        Grande:string;
+        Pequena:number;
+        Grande:number;
         static NomeID:string = "PrecoMarmitex";
         constructor(
-            Pequena:string,
-            Grande:string,
+            Pequena:number,
+            Grande:number,
         ){
             super();
             this.Pequena = Pequena;
@@ -161,23 +161,40 @@ export module Collections {
     export class Pedido extends MongoDocument {
         IdCliente:string;
         Cardapios:Cardapio[];
+        Complementos:Complemento[];
         Observacao:string;
-        Aberto:string;
-        Preco:string;
+        Aberto:boolean;
+        Preco:number;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
+        Complementos:Complemento[],
         Observacao:string,
-        Aberto:string,
-        Preco:string){
+        Aberto:boolean,
+        Preco:number){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
+            this.Complementos = Complementos;
             this.Aberto = Aberto;
             this.Observacao = Observacao;
             this.Preco = Preco;
         }
+
+        AdicionarComplemento(Complemento: Complemento){
+            this.Complementos.push(Complemento);
+        }
+        SelecionarCardapio(Cardapio: Cardapio){
+            this.Cardapios.push(Cardapio);
+        }
+        CalcularPreco(PrecoMarmitex: PrecoMarmitex){
+            this.Preco = this.Cardapios[0].Tipo == "N" ? PrecoMarmitex.Pequena : PrecoMarmitex.Pequena ;
+            this.Complementos.forEach(complemento => {
+                this.Preco += complemento.Preco;
+            })
+        }
+
     };
 
     // export class Sessoes extends MongoDocument {

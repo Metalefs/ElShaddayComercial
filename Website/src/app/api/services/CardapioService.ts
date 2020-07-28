@@ -21,8 +21,8 @@ export class CardapioService {
         );
     }
 
-    BuscarUm(dia: number): Observable<Collections.Cardapio> {
-        return this.http.get<Collections.Cardapio>(environment.endpoint + routes.Cardapios + `?queryObj={Dia: ${dia}}`).pipe(
+    Filtrar(dia: number): Observable<Collections.Cardapio[]> {
+        return this.http.get<Collections.Cardapio[]>(environment.endpoint + routes.Cardapios + `?queryObj={Dia: ${dia}}`).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );

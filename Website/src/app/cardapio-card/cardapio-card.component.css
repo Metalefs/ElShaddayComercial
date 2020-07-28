@@ -1,9 +1,9 @@
 .cardapio-section{
-    max-width: 100vw;
+    max-width: 97vw;
 }
 .cardapio-column{
     margin: 0 auto;
-    width: 110%;
+    width: 100%;
     padding: 0 1rem;
 }
 .overflow-x-scroll{

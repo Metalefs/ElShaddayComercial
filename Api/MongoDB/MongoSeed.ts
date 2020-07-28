@@ -19,7 +19,7 @@ export module Seeder {
                   "Uma deliciosa comida caseira."
             );
 
-            let PrecoMarmitex = new Collections.PrecoMarmitex("10,00","12,00");
+            let PrecoMarmitex = new Collections.PrecoMarmitex(10.00,12.00);
 
             let Cardapios:Collections.Cardapio[];
             Cardapios = [];

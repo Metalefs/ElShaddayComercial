@@ -23,7 +23,7 @@ app.get(Rotas.Cardapios, (req: Express.Request, res: any) =>{
 
 app.get(`${Rotas.Cardapios}/:id`, (req: any, res: any) =>{
     if(req.queryObj !== undefined){
-        res.send(Mongo.BuscarUm(Collections.Cardapio.NomeID, JSON.parse(req.queryObj)));
+        res.send(Mongo.Filtrar(Collections.Cardapio.NomeID, JSON.parse(req.queryObj)));
     }
 });
 

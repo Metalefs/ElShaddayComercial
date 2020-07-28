@@ -43,8 +43,6 @@ export class RegistroClienteComponent implements OnInit {
 
   constructor(
     private infocontatoservice: InformacoesContatoService, 
-    private clienteservice: ClienteService,
-    private CardapioService: CardapioService,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,

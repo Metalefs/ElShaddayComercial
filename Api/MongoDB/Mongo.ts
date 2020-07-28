@@ -172,6 +172,27 @@ export module Mongo {
                   });
             });
       }
+
+      export async function Filtrar (collection: string, query : any) { // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+            return new Promise((resolve, reject) => { 
+                  MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
+                         if (err){
+                               logger.log(err)
+                               throw err;
+                         }
+                         var dbo = db.db(MongoDBName);
+                         return dbo.collection(collection).find(query, function(err: any, result: any) {
+                               if (err){
+                                     logger.log(err)
+                                     throw err;
+                               }
+                               db.close();
+                               console.log(result);
+                               resolve(result)
+                         });
+                   });
+             });
+       }
       
       export function Edit (collection: any, id:string, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            
