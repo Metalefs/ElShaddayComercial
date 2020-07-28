@@ -185,14 +185,27 @@ export module Collections {
         AdicionarComplemento(Complemento: Complemento){
             this.Complementos.push(Complemento);
         }
+
+        RemoverComplemento(Complemento: Complemento){
+            for(var i = 0; i < this.Complementos.length; i++) {
+                if(this.Complementos[i].Nome == Complemento.Nome) {
+                    this.Complementos.pop();
+                    break;
+                }
+            }
+        }
+
         SelecionarCardapio(Cardapio: Cardapio){
             this.Cardapios.push(Cardapio);
         }
-        CalcularPreco(PrecoMarmitex: PrecoMarmitex){
-            this.Preco = this.Cardapios[0].Tipo == "N" ? PrecoMarmitex.Pequena : PrecoMarmitex.Pequena ;
+
+        CalcularPreco(){
+            this.Preco = 0;
+            
             this.Complementos.forEach(complemento => {
                 this.Preco += complemento.Preco;
-            })
+            });
+            return this.Preco;
         }
 
     };

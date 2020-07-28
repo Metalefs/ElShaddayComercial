@@ -15,21 +15,28 @@ export class CardapioListaItemComponent implements OnInit {
   Ativo:boolean;  
   Video:boolean;  
   Caminho:string;  
+  Quantidade:number;
   constructor(private CardapioHelper: CardapioHelper) { 
     this.Video = false;
     this.Caminho = "";
+    this.Quantidade = 0;
   }
   AdicinarAoPedido(){
     if(this.Pedido != undefined){
       this.Pedido.SelecionarCardapio(this.Cardapio);
+      this.CalcularQuantidade();
     }  
     console.log(this.Pedido);
   }
   RemoverDoPedido(){
     if(this.Pedido != undefined){
       this.Pedido.Cardapios.pop();
+      this.CalcularQuantidade();
     }
     console.log(this.Pedido);
+  }
+  CalcularQuantidade(){
+    this.Quantidade = this.Pedido.Cardapios.filter(x=>x.Nome == this.Cardapio.Nome).length;
   }
   ngOnInit(): void {
     this.Caminho = this.CardapioHelper.ObertCaminhoRecurso(this.Cardapio);

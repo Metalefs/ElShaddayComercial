@@ -1,7 +1,7 @@
 <app-navbar [Titulo] = "title" [Logado]="currentUser"></app-navbar>
 <app-factory-steps></app-factory-steps>
-<div class="main">
-    <router-outlet @fade></router-outlet>
+<div [@slideInOut]="triggerAnimation(outlet)" class="main">
+    <router-outlet #outlet="outlet" ></router-outlet>
 </div>
 <app-icone-whatsapp></app-icone-whatsapp>
 <app-avaliacoes></app-avaliacoes>

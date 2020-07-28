@@ -1,0 +1,5 @@
+<div class="box" *ngFor="let Cardapio of Pedido?.Cardapios">
+    <cardapio-card-item [Cardapio]="Cardapio"></cardapio-card-item>
+</div>
+<div class="box" *ngFor="let Complemento of Pedido?.Complementos">{{Complemento?.Nome}}</div>
+<div class="box">{{Pedido.CalcularPreco()}}</div>

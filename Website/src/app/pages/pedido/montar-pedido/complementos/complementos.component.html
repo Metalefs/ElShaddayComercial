@@ -1,22 +1,30 @@
-<clr-accordion *ngFor="let Tipo of Tipos">
-    <clr-accordion-panel class=" mb-0 pb-0">
+<clr-accordion *ngFor="let Tipo of Tipos" class=" mb-0 pb-0">
+    <div class="{{Tipo.class}}">
+
+        <clr-accordion-panel>
+            
+            <clr-accordion-title>
+                <p class="subtitle">{{Tipo.nome}} </p>
+                <p class="subtitle is-7 mt-1">R$ <span class="subtitle is-7">{{Tipo.total}}</span></p>
                 
-        <clr-accordion-title class=" mb-0 pb-0">
-            <p class="subtitle">{{Tipo.nome}}</p>
-        </clr-accordion-title>
-        
-        <div *ngFor="let Complemento of Complementos">
-        
-            <div *ngIf="Complemento.Tipo == Tipo.tipo">
-    
-                <clr-accordion-content *clrIfExpanded>
-                    <app-complemento-item [Complemento]="Complemento" [Pedido]="Pedido"></app-complemento-item>
-                </clr-accordion-content>
-        
+            </clr-accordion-title>
+            
+            <div *ngFor="let Complemento of Complementos" class="">
+                
+                <div *ngIf="Complemento.Tipo == Tipo.tipo">
+                    
+                    <clr-accordion-content>
+                        <app-complemento-item [Complemento]="Complemento" [Pedido]="Pedido" [Tipo]="Tipo"></app-complemento-item>
+                    </clr-accordion-content>
+                    
+                </div>
             </div>
             
-        </div>
-
-    </clr-accordion-panel>
+        </clr-accordion-panel>
         
+    </div>
 </clr-accordion>
+<div class="container has-background-success">
+    
+    <p class="subtitle is-size-6 ">Total: R$<span class="is-family-primary has-text-justified" >{{SomaTipos().toFixed(2)}}</span></p>
+</div>
