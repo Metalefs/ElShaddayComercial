@@ -1,5 +1,6 @@
 export let Rotas = {
     Cardapios:"/cardapio/",
+    CardapiosPorDia:"/cardapioPorDia/",
     InfoContato:"/infoContato/",
     Sobre:"/sobre/",
     PrecoMarmitex:"/precoMarmitex/",
@@ -8,12 +9,13 @@ export let Rotas = {
     Pedido:"/pedido/",
 
     Seed:"/seed/",
+    FlushAll: "/flushAll/",
     
     Usuario: "/usuario/",
-        DeletarConta:"/usuario/deletarConta/",
-        AtualizarConta:"/usuario/atualizarConta/",
-        Login:"/usuario/login/",
-        Registro:"/usuario/registro/",
+        DeletarConta:"/deletarConta/",
+        AtualizarConta:"/atualizarConta/",
+        Login:"/login/",
+        Registro:"/registro/",
 
     Gerenciamento:"/gerenciamento/"
 };

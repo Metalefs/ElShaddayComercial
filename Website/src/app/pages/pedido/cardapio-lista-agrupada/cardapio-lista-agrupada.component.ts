@@ -32,12 +32,6 @@ export class CardapioListaAgrupadaComponent implements OnInit {
     });
   }
 
-  SetCardapioSelecionado(cardapio : Collections.Cardapio){
-    if(parseInt(cardapio.Dia) == new Date().getDay()){
-      alert("Válido!");
-    }
-  }
-
   ngOnInit(): void {
     this.DiasSemana = [
       {number_string:"1",number: 1, day:"Segunda"},

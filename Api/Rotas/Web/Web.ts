@@ -21,10 +21,13 @@ app.get(Rotas.Cardapios, (req: Express.Request, res: any) =>{
     });
 });
 
-app.get(`${Rotas.Cardapios}/:id`, (req: any, res: any) =>{
-    if(req.queryObj !== undefined){
-        res.send(Mongo.Filtrar(Collections.Cardapio.NomeID, JSON.parse(req.queryObj)));
+app.get(Rotas.CardapiosPorDia, (req: any, res: any) =>{
+    if(req.query.Dia !== undefined){
+        Mongo.Filtrar(Collections.Cardapio.NomeID, {Dia:"1"}).then(x=>{
+            res.send(x);
+        });
     }
+    console.log(req.query.Dia)
 });
 
 app.get(Rotas.InfoContato, (req: Express.Request, res: any) => {

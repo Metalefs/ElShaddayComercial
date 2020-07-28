@@ -134,7 +134,7 @@ var Collections;
     Collections.Complemento = Complemento;
     var Pedido = /** @class */ (function (_super) {
         __extends(Pedido, _super);
-        function Pedido(IdCliente, Cardapios, Complementos, Observacao, Aberto, Preco, Data) {
+        function Pedido(IdCliente, Cardapios, Complementos, Observacao, Aberto, Preco) {
             var _this = _super.call(this) || this;
             _this.IdCliente = IdCliente;
             _this.Cardapios = Cardapios;
@@ -142,9 +142,21 @@ var Collections;
             _this.Aberto = Aberto;
             _this.Observacao = Observacao;
             _this.Preco = Preco;
-            _this.Data = Data;
             return _this;
         }
+        Pedido.prototype.AdicionarComplemento = function (Complemento) {
+            this.Complementos.push(Complemento);
+        };
+        Pedido.prototype.SelecionarCardapio = function (Cardapio) {
+            this.Cardapios.push(Cardapio);
+        };
+        Pedido.prototype.CalcularPreco = function (PrecoMarmitex) {
+            var _this = this;
+            this.Preco = this.Cardapios[0].Tipo == "N" ? PrecoMarmitex.Pequena : PrecoMarmitex.Pequena;
+            this.Complementos.forEach(function (complemento) {
+                _this.Preco += complemento.Preco;
+            });
+        };
         Pedido.NomeID = "Pedido";
         return Pedido;
     }(MongoDocument));

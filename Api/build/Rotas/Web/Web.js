@@ -54,10 +54,13 @@ app.get(Routes_1.Rotas.Cardapios, function (req, res) {
         res.send(result);
     });
 });
-app.get(Routes_1.Rotas.Cardapios + "/:id", function (req, res) {
-    if (req.queryObj !== undefined) {
-        res.send(Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cardapio.NomeID, JSON.parse(req.queryObj)));
+app.get(Routes_1.Rotas.CardapiosPorDia, function (req, res) {
+    if (req.query.Dia !== undefined) {
+        Mongo_1.Mongo.Filtrar(MongoCollections_1.Collections.Cardapio.NomeID, { Dia: "1" }).then(function (x) {
+            res.send(x);
+        });
     }
+    console.log(req.query.Dia);
 });
 app.get(Routes_1.Rotas.InfoContato, function (req, res) {
     var key = Routes_1.Rotas.InfoContato;

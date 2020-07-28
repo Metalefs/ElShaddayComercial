@@ -7,7 +7,7 @@ var Seeder;
     function SeedCollections() {
         var InformacoesContato = new MongoCollections_1.Collections.InformacoesContato("(31) 99446-1428", "diskmarmitex@elshadday.com", "Segunda a Sábado, 8:00 ás 14:00h", "5531994461428");
         var Sobre = new MongoCollections_1.Collections.Sobre("<em>Sem taxa de entrega</em> para o bairro Aeronautas, bairros vizinhos e centro.", "El Shadday Marmitex", "Disk Marmitex", "", "Uma deliciosa comida caseira.");
-        var PrecoMarmitex = new MongoCollections_1.Collections.PrecoMarmitex("10,00", "12,00");
+        var PrecoMarmitex = new MongoCollections_1.Collections.PrecoMarmitex(10.00, 12.00);
         var Cardapios;
         Cardapios = [];
         Cardapios.push(new MongoCollections_1.Collections.Cardapio("1", "Carne de panela", "Arroz, Feijao, Carne cozida com batata e salada", "N", "F"));

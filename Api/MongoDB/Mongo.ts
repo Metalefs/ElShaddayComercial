@@ -156,13 +156,11 @@ export module Mongo {
            return new Promise((resolve, reject) => { 
                  MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
                         if (err){
-                              logger.log(err)
                               throw err;
                         }
                         var dbo = db.db(MongoDBName);
-                        return dbo.collection(collection).findOne(query, function(err: any, result: any) {
+                        dbo.collection(collection).find(query).toArray(function(err: string, result: unknown) {
                               if (err){
-                                    logger.log(err)
                                     throw err;
                               }
                               db.close();

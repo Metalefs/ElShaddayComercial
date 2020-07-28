@@ -19,7 +19,18 @@ export class CardapioListaItemComponent implements OnInit {
     this.Video = false;
     this.Caminho = "";
   }
-
+  AdicinarAoPedido(){
+    if(this.Pedido != undefined){
+      this.Pedido.SelecionarCardapio(this.Cardapio);
+    }  
+    console.log(this.Pedido);
+  }
+  RemoverDoPedido(){
+    if(this.Pedido != undefined){
+      this.Pedido.Cardapios.pop();
+    }
+    console.log(this.Pedido);
+  }
   ngOnInit(): void {
     this.Caminho = this.CardapioHelper.ObertCaminhoRecurso(this.Cardapio);
     this.Ativo = this.CardapioHelper.VerificarAtivo(this.Cardapio);

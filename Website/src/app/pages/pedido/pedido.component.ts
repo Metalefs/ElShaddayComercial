@@ -22,9 +22,14 @@ export class PedidoComponent implements OnInit {
   }
 
   CardapioDeHoje(){
-    this.CardapioService.Filtrar(new Date().getDay()).subscribe(x=>{
-      this.Cardapios = x;
-      this.Pedido.Cardapios = x;
+    this.Pedido.Cardapios = [];
+    this.CardapioService.Ler().subscribe(x=>{
+      x.forEach(y=>{
+        if(parseInt(y.Dia) == new Date().getDay()){
+          if(this.Pedido.Cardapios.length == 0)
+            this.Pedido.Cardapios.push(y);
+        }
+      });
     });
   }
 

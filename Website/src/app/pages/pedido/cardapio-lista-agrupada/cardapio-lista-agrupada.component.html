@@ -1,14 +1,14 @@
 <section *ngIf="Cardapios != undefined" class="cardapio-section has-background-gray-light mx-0">
 
-    <clr-accordion *ngFor="let DiaSemana of DiasSemana" [ngClass]="(DiaSemana.number == DiaAtual)?'cardapio cardapio-atual mb-0 pb-0':'cardapio  mb-0 pb-0'">
+    <clr-accordion *ngFor="let DiaSemana of DiasSemana" [ngClass]="(DiaSemana.number == DiaAtual)?'cardapio-atual mb-0 pb-0':'cardapio  mb-0 pb-0'" class=" mb-0 pb-0">
        
-        <clr-accordion-panel>
+        <clr-accordion-panel class=" mb-0 pb-0" [clrAccordionPanelOpen]="DiaSemana.number == DiaAtual">
 
-            <clr-accordion-title>
+            <clr-accordion-title class=" mb-0 pb-0">
                 <p class="subtitle">{{DiaSemana.day}}</p>
             </clr-accordion-title>
             
-            <div *ngFor="let Cardapio of Cardapios">
+            <div *ngFor="let Cardapio of Cardapios" style="z-index: 2;">
           
                 <clr-accordion-content *clrIfExpanded>
                     <cardapio-lista-item *ngIf="Cardapio.Dia == DiaSemana.number_string" [Pedido]="Pedido" [Cardapio]="Cardapio"></cardapio-lista-item>

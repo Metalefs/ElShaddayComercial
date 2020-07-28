@@ -206,11 +206,34 @@ var Mongo;
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         MongoClient.connect(MDBurl, Options, function (err, db) {
                             if (err) {
+                                throw err;
+                            }
+                            var dbo = db.db(MongoDBName);
+                            dbo.collection(collection).find({ query: query }).toArray(function (err, result) {
+                                if (err) {
+                                    throw err;
+                                }
+                                db.close();
+                                console.log(result);
+                                resolve(result);
+                            });
+                        });
+                    })];
+            });
+        });
+    }
+    Mongo.BuscarUm = BuscarUm;
+    function Filtrar(collection, query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        MongoClient.connect(MDBurl, Options, function (err, db) {
+                            if (err) {
                                 logger.log(err);
                                 throw err;
                             }
                             var dbo = db.db(MongoDBName);
-                            return dbo.collection(collection).findOne(query, function (err, result) {
+                            return dbo.collection(collection).find(query, function (err, result) {
                                 if (err) {
                                     logger.log(err);
                                     throw err;
@@ -224,7 +247,7 @@ var Mongo;
             });
         });
     }
-    Mongo.BuscarUm = BuscarUm;
+    Mongo.Filtrar = Filtrar;
     function Edit(collection, id, query) {
         MongoClient.connect(MDBurl, Options, function (err, db) {
             if (err) {

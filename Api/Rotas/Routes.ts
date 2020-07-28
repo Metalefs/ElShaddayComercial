@@ -1,5 +1,6 @@
 export let Rotas = {
     Cardapios:"/cardapio/",
+    CardapiosPorDia:"/cardapioPorDia/",
     InfoContato:"/infoContato/",
     Sobre:"/sobre/",
     PrecoMarmitex:"/precoMarmitex/",

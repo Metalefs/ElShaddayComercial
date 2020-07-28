@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rotas = void 0;
 exports.Rotas = {
     Cardapios: "/cardapio/",
+    CardapiosPorDia: "/cardapioPorDia/",
     InfoContato: "/infoContato/",
     Sobre: "/sobre/",
     PrecoMarmitex: "/precoMarmitex/",
