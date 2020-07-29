@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -20,6 +21,8 @@ import { CardapioCardItemComponent } from './cardapio-card/cardapio-card-item/ca
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
+
+
 import { CountUpModule } from 'ngx-countup';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
@@ -42,6 +45,8 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
 import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complementos/complemento-item/complemento-item.component';
 import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+ import { DragScrollModule } from 'ngx-drag-scroll';
+import { DialogComponent } from './dialog/dialog.component'
 
 @NgModule({
   declarations: [
@@ -74,7 +79,8 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     CardapioListaItemComponent,
     ComplementoItemComponent,
     ExibicaoPedidoComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,9 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ClarityModule,
-    CountUpModule
+    CountUpModule,
+    DragScrollModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

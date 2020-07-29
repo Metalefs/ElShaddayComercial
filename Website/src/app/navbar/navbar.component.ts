@@ -5,6 +5,8 @@ import { AuthenticationService } from '../api/authentication/authentication.serv
 
 import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -35,6 +37,7 @@ export class NavbarComponent implements OnInit {
     private AuthenticationService:AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
+    private dialog: MatDialog
     ) {  }
 
   menuAtivo = false;
@@ -42,6 +45,16 @@ export class NavbarComponent implements OnInit {
   Logout(){
     this.AuthenticationService.logout();
     this.router.navigateByUrl(this.router.url);
+  }
+
+  AbrirModalEntrar(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '90%',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   ngOnInit(): void {
