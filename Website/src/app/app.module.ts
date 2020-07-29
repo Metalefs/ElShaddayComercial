@@ -41,6 +41,7 @@ import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupa
 import { CardapioHelper } from './_helpers/cardapio_helper';
 import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complementos/complemento-item/complemento-item.component';
 import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao
     ComplementosComponent,
     CardapioListaItemComponent,
     ComplementoItemComponent,
-    ExibicaoPedidoComponent
+    ExibicaoPedidoComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +91,7 @@ import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: CardapioHelper },
+    { provide: Document },
   ],
   bootstrap: [AppComponent]
 })

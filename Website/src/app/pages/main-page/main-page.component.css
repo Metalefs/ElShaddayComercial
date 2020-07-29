@@ -5,7 +5,16 @@
     -o-background-size: cover;
     background-size: cover;
 }
-
+.bg-ls{
+    background: url(../../../../src/assets/imagens/fundos/inicio/lagoa-central.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg-light-transparent{
+    background: rgba(220, 220, 220, .5);
+}
 @media (min-width: 320px) and (max-width: 1023px) {
   
     .hero{
