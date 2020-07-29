@@ -23,10 +23,10 @@ export class ExibicaoPedidoComponent implements OnInit {
 
 
   CriarMensagemPedido(){
-    let mensagem = "Pedido 202, " +
+    let mensagem = "Pedido undefined, " +
       this.Pedido.MensagemCardapio() + 
       ". Complementos: " + this.Pedido.MensagemComplemento() + 
-      " Endereço: Rua Júlio Verne, 185, Aeronautas - Lagoa Santa, Minas Gerais";
+      " Endereço: undefined - Lagoa Santa, Minas Gerais";
     
     alert(mensagem)
   }

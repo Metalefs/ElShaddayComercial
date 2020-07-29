@@ -73,17 +73,17 @@ var service;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log('query:', { Email: cliente.Email });
+                        console.log('query:', { Email: cliente.Email }, { Senha: cliente.Senha });
                         return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { Email: cliente.Email }).then(function (user) {
-                                console.log('user:', user);
-                                if (user && bcrypt.compareSync(cliente.Senha, user.Senha)) {
-                                    var token = jwt.sign({ sub: user._id }, config_1.config.secret, { expiresIn: '7d' });
-                                    console.log("login com sucesso. token gerado", __assign(__assign({}, user), { token: token }));
+                                console.log('user:', user[0]);
+                                if (user && bcrypt.compareSync(cliente.Senha, user[0].Senha)) {
+                                    var token = jwt.sign({ sub: user[0]._id }, config_1.config.secret, { expiresIn: '7d' });
+                                    console.log("login com sucesso. token gerado", __assign(__assign({}, user[0]), { token: token }));
                                     cliente.token = token;
                                     update(cliente._id, cliente);
-                                    return __assign(__assign({}, user), { token: token });
+                                    return __assign(__assign({}, user[0]), { token: token });
                                 }
-                                if (!user)
+                                if (!user[0].Senha)
                                     return { erro: 'E-mail ou senha incorretos' };
                             })];
                     case 1: return [2 /*return*/, _a.sent()];
@@ -100,8 +100,10 @@ var service;
                     case 0: return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { Email: NovoCliente.Email })];
                     case 1:
                         // validate
-                        if ((_a.sent()) != []) {
+                        if ((_a.sent()) != 0) {
                             return [2 /*return*/, { erro: 'E-mail "' + NovoCliente.Email + '" já está sendo usado!' }];
+                        }
+                        else {
                         }
                         // hash password
                         if (NovoCliente.Senha) {

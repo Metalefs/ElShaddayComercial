@@ -11,33 +11,35 @@ export module service {
    
 
     export async function authenticate(cliente : Collections.Cliente) {
-        console.log('query:', {Email: cliente.Email});
+        console.log('query:', {Email: cliente.Email}, {Senha: cliente.Senha});
         
         return await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: cliente.Email}).then((user: any) => {
             
-            console.log('user:', user);
-            
-            if (user && bcrypt.compareSync(cliente.Senha, user.Senha)) {
-                const token = jwt.sign({ sub: user._id }, config.secret, { expiresIn: '7d' });
-                console.log("login com sucesso. token gerado", {...user,token});
+            console.log('user:', user[0]);
+
+            if (user && bcrypt.compareSync(cliente.Senha, user[0].Senha)) {
+                const token = jwt.sign({ sub: user[0]._id }, config.secret, { expiresIn: '7d' });
+                console.log("login com sucesso. token gerado", {...user[0],token});
                 
                 cliente.token = token;
                 update(cliente._id,cliente);
                 
                 return {
-                    ...user,
+                    ...user[0],
                     token
                 };
             }
-            if (!user) return {erro:'E-mail ou senha incorretos'};
+            if (!user[0].Senha) return {erro:'E-mail ou senha incorretos'};
 
         });
     }
 
     export async function create(NovoCliente : Collections.Cliente) {
         // validate
-        if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email}) != []) {
+        if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email}) != 0) {
             return {erro:'E-mail "' + NovoCliente.Email + '" já está sendo usado!'};
+        }else{
+
         }
 
         // hash password
