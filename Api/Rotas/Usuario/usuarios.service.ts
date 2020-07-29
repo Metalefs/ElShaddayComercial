@@ -11,7 +11,7 @@ export module service {
    
 
     export async function authenticate(cliente : Collections.Cliente) {
-        console.log('query:',{Email: cliente.Email});
+        console.log('query:', {Email: cliente.Email});
         
         return await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: cliente.Email}).then((user: any) => {
             
@@ -36,7 +36,7 @@ export module service {
 
     export async function create(NovoCliente : Collections.Cliente) {
         // validate
-        if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email})) {
+        if (await Mongo.BuscarUm(Collections.Cliente.NomeID, {Email: NovoCliente.Email}) != []) {
             return {erro:'E-mail "' + NovoCliente.Email + '" já está sendo usado!'};
         }
 
@@ -44,6 +44,7 @@ export module service {
         if (NovoCliente.Senha) {
             NovoCliente.Senha = bcrypt.hashSync(NovoCliente.Senha, 10);
         }
+        console.log("Cliente a ser criado:",NovoCliente);
         if(NovoCliente.Email && NovoCliente.Senha){
             // save user
             NovoCliente.DataCriacao = new Date();

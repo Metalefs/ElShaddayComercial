@@ -7,34 +7,13 @@ import { fade } from './animations';
 
 import { OpcaoNavbar } from './shared/_models/OpcoesNavbar';
 import { Collections } from './shared/_models/MongoCollections';
-import { trigger, transition, query, style, group, animate } from '@angular/animations';
+import { slide } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('slideInOut', [
-      transition('* => *, :enter', [
-        query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-        query(':enter', style({ transform: 'translateX(-100vw)' }), { optional: true }),
-        query(':leave', style({ transform: 'translateX(0vw)' }), { optional: true }),
-
-        group([
-          query(':leave', [
-            animate('500ms ease-in-out', style({
-              transform: 'translateX(100vw)'
-            }))
-          ], { optional: true }),
-          query(':enter', [
-            animate('500ms ease-in-out', style({
-              transform: 'translateX(0)'
-            }))
-          ], { optional: true })
-        ])
-      ])
-    ])
-  ]
+  animations: [slide]
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
@@ -57,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   triggerAnimation(outlet) {
     return outlet.activatedRouteData.animation || null;
   }
-  
+
   ngOnInit(): void {
     
   }

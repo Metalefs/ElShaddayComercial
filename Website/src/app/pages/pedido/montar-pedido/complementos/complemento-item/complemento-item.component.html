@@ -1,11 +1,11 @@
-<div class="content columns is-0 is-mobile mb-0 pb-0">
-    <div class="column is-3 mb-0 pb-0">
-        <p class="title is-7">{{Complemento.Nome}}</p>
+<div class="columns is-vcentered border is-0 is-mobile mb-0 pb-0">
+    <div class="column is-3  px-0 mb-0 pb-0">
+        <p class="title has-text-grey-dark is-7 px-0">{{Complemento.Nome}}</p>
     </div>
     <div class="column mb-0 pb-0">
         <p class="subtitle is-7">R$ {{Complemento.Preco.toFixed(2)}}</p>
     </div>
-    <div class="column is-5">
+    <div class="column is-4">
         <div class="media-right">
             <button type="button" (click)="AdicinarAoPedido()"  class="btn btn-icon btn-success" aria-label="done">
                 <clr-icon shape="plus"></clr-icon>

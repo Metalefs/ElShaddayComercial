@@ -11,7 +11,7 @@ app.post(Routes_1.Rotas.Login, function (req, res, next) {
         .catch(next);
 });
 app.post(Routes_1.Rotas.Registro, function (req, res, next) {
-    console.log(req.body);
+    console.log(req.body.cliente);
     usuarios_service_1.service.create(req.body.cliente)
         .then(function (user) { return res.json(user); })
         .catch(next);

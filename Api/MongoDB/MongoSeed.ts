@@ -33,8 +33,8 @@ export module Seeder {
 
             let Saladas_Complemento:Collections.Complemento[];
             Saladas_Complemento = [];
-            Saladas_Complemento.push(new Collections.Complemento("Alface","S",2.00));
-            Saladas_Complemento.push(new Collections.Complemento("Tomate","S",2.00));
+            Saladas_Complemento.push(new Collections.Complemento("Alface","S",1.00));
+            Saladas_Complemento.push(new Collections.Complemento("Tomate","S",1.00));
             Saladas_Complemento.push(new Collections.Complemento("Cenoura","S",2.00));
             Saladas_Complemento.push(new Collections.Complemento("Vinagrete","S",2.00));
             Saladas_Complemento.push(new Collections.Complemento("Brócolis","S",2.00));

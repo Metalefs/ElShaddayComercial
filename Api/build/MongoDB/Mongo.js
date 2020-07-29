@@ -214,7 +214,7 @@ var Mongo;
                                     throw err;
                                 }
                                 db.close();
-                                console.log(result);
+                                console.log("Mongo", result);
                                 resolve(result);
                             });
                         });

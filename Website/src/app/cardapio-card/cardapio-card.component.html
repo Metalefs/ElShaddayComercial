@@ -1,5 +1,6 @@
 <section *ngIf="Cardapios != undefined" class="section has-background-gray-light mx-0">
-
+    <h3 class="title is-4 has-text-dark">Confira o cardápio da semana! </h3>
+                
     <div class="columns cardapio-section is-mobile overflow-x-scroll">
         <div class="column" *ngFor="let Cardapio of Cardapios">
             <cardapio-card-item [Cardapio]="Cardapio"></cardapio-card-item>

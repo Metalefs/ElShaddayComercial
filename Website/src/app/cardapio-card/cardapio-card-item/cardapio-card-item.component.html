@@ -1,5 +1,5 @@
-<div [ngClass]="(Ativo)?'cardapio-atual card':'card'">
-    <div class="card-image">
+<div [ngClass]="(Ativo)?'cardapio-atual card cardapio-card':'card cardapio-card'">
+    <div class="card-image" title="{{Cardapio.Nome}}">
       
       <ng-container
         *ngIf="Video != undefined && Video === true; then VideoS; else Imagem">

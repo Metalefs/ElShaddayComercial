@@ -1,20 +1,22 @@
 <section class="section pedido-section px-0 py-0 mb-0 pb-0 ">
-    <div class="container mb-0 pb-0 bg-semi-transparent">
+    <div class="container mb-0 pb-0">
         
         <div class="section ">
-            <div class="container columns is-1">
+            <div class=" columns is-1">
+                
                 <div class="column mb-0 pb-0 is-4 box">
                     <h1 class="title">Refeições</h1>
                     <cardapio-lista-agrupada [Pedido]="Pedido"></cardapio-lista-agrupada>
                 </div>
-                <div class="column mb-0 pb-0 is-4">
-                    <h1 class="title">Monte seu marmitex</h1>
+                <div class="column mb-0 pb-0 is-4 bg-semi-transparent">
+                    <h1 class="title has-text-dark">Complementar a refeição<h3>(Opcional)*</h3></h1>
                     <app-montar-pedido [Pedido]="Pedido"></app-montar-pedido>
                 </div>
                 <div class="column mb-0 pb-0 box">
                     <h1 class="title">Pedido</h1>
                     <app-exibicao-pedido [Pedido]="Pedido"></app-exibicao-pedido>
                 </div>
+
             </div>
         </div>
 

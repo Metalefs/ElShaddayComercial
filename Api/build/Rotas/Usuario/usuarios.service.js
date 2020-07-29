@@ -100,13 +100,14 @@ var service;
                     case 0: return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { Email: NovoCliente.Email })];
                     case 1:
                         // validate
-                        if (_a.sent()) {
+                        if ((_a.sent()) != []) {
                             return [2 /*return*/, { erro: 'E-mail "' + NovoCliente.Email + '" já está sendo usado!' }];
                         }
                         // hash password
                         if (NovoCliente.Senha) {
                             NovoCliente.Senha = bcrypt.hashSync(NovoCliente.Senha, 10);
                         }
+                        console.log("Cliente a ser criado:", NovoCliente);
                         if (!(NovoCliente.Email && NovoCliente.Senha)) return [3 /*break*/, 3];
                         // save user
                         NovoCliente.DataCriacao = new Date();

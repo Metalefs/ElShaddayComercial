@@ -219,6 +219,22 @@ export module Collections {
             return this.Preco;
         }
 
+        MensagemCardapio(){
+            let Cardapios = '';
+            this.Cardapios.forEach(cardapio => {
+                Cardapios += `, ${cardapio.Nome}`;
+            });
+            return Cardapios;
+        }
+
+        MensagemComplemento(){
+            let Complementos = '';
+            this.Complementos.forEach(complemento => {
+                Complementos += `, ${complemento.Nome}`;
+            });
+            return Complementos;
+        }
+
     };
 
     // export class Sessoes extends MongoDocument {

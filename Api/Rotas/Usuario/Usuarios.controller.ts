@@ -13,7 +13,7 @@ app.post(Rotas.Login, (req : any, res, next) => {
 })
 
 app.post(Rotas.Registro, (req,res, next) =>{
-    console.log(req.body);
+    console.log(req.body.cliente);
     service.create(req.body.cliente)
         .then((user: Collections.Cliente | any) => res.json(user))
         .catch(next);

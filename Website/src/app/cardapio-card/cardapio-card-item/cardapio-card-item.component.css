@@ -1,6 +1,11 @@
 .card{
     min-height: 400px;
     opacity: .75;
+    transition: .5s;
+}
+.cardapio-card:hover{
+    opacity:1;
+    cursor: pointer;
 }
 @keyframes jump{
     0%{
