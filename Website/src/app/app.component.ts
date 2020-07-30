@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { AuthenticationService } from './api/authentication/authentication.service';
-import { fade } from './animations';
+import { fade, slider } from './animations';
 
 import { OpcaoNavbar } from './shared/_models/OpcoesNavbar';
 import { Collections } from './shared/_models/MongoCollections';
@@ -13,7 +13,12 @@ import { slide } from './animations';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [slide]
+  animations: [
+    // fader,
+     slider,
+    // transformer,
+    //stepper
+  ]
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
@@ -25,6 +30,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     private authenticationService: AuthenticationService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
   OpcoesNavBar = [

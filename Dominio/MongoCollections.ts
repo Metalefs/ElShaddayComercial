@@ -7,18 +7,21 @@ export module Collections {
         Telefone:string;
         Email:string;
         HorarioAtendimento:string;
-        Whatsapp:string
+        Whatsapp:string;
+        Instagram:string;
         static NomeID:string = "InformacoesContato";
         constructor(
             Telefone:string,
             Email:string,
             HorarioAtendimento:string,
-            Whatsapp:string){
+            Whatsapp:string,
+            Instagram:string){
             super();
                 this.Telefone = Telefone;
                 this.Email = Email;
                 this.HorarioAtendimento = HorarioAtendimento;
                 this.Whatsapp = Whatsapp;
+                this.Instagram = Instagram;
         }
     };
 

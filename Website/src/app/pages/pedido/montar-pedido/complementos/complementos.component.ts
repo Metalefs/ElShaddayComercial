@@ -34,6 +34,7 @@ export class ComplementosComponent implements OnInit {
       {tipo:"B", nome: "Bebida", class:"has-background-info", total:0.00},
     ];
     this.LerComplementos();
+    
   }
 
 }

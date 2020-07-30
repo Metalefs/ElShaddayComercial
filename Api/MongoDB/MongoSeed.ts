@@ -7,7 +7,8 @@ export module Seeder {
                   "(31) 99446-1428",
                   "diskmarmitex@elshadday.com",
                   "Segunda a Sábado, 8:00 ás 14:00h",
-                  "5531994461428"
+                  "5531994461428",
+                  "diskmarmitexls"
             );
 
             let Sobre = 

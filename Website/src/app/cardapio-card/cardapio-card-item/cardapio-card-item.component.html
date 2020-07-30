@@ -1,4 +1,8 @@
-<div [ngClass]="(Ativo)?'cardapio-atual card cardapio-card':'card cardapio-card'">
+<ng-container *ngIf="Ativo; then CardAtivo; else Card">
+</ng-container>
+
+<ng-template  #CardAtivo>
+<a [attr.title]="Ativo? 'Pedir' : ''" routerLink="/pedido" routerLinkActive="Active" [ngClass]="(Ativo)?'cardapio-atual card cardapio-card':'card cardapio-card'">
     <div class="card-image" title="{{Cardapio.Nome}}">
       
       <ng-container
@@ -40,4 +44,50 @@
         <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
       </div>
     </div>
-</div>
+</a>
+</ng-template>
+<ng-template #Card>
+  <div class="card cardapio-card">
+    <div class="card-image" title="{{Cardapio.Nome}}">
+        
+      <ng-container
+        *ngIf="Video != undefined && Video === true; then VideoS; else Imagem">
+      </ng-container>
+    
+      <ng-template #Imagem>
+        <figure class="image has-ratio">
+          <img src="{{Caminho}}" alt="Placeholder image">
+        </figure>
+      </ng-template>
+
+      <ng-template #VideoS>
+        <video  width="320" height="240" autoplay loop>
+          <source src="{{Caminho}}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </ng-template>
+
+      <p class="NomeCardapio">{{Cardapio.Nome}}</p>
+      
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{Cardapio.Dia}}</p>
+          <p class="title is-4" *ngIf="Cardapio.Tamanho">({{Cardapio.Tamanho}})</p>
+          <p class="subtitle is-6">{{Cardapio.Ingredientes}}</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <br><a>@diskmarmitexelshadday</a>.
+        <a href="#">#@diskmarmitexls</a>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      </div>
+    </div>
+  </div>
+</ng-template>

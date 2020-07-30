@@ -4,7 +4,7 @@
         <div class="section ">
             <div class="portrait columns is-1">
                 
-                <div class="column mb-0 pb-0 is-4 box">
+                <div class="column mb-0 pb-0 is-4 box has-border-right-straight">
                     <h1 class="title">Refeições</h1>
                     <cardapio-lista-agrupada [Pedido]="Pedido"></cardapio-lista-agrupada>
                 </div>
@@ -12,7 +12,7 @@
                     <h1 class="title has-text-dark">Complementar a refeição<h3>(Opcional)*</h3></h1>
                     <app-montar-pedido [Pedido]="Pedido"></app-montar-pedido>
                 </div>
-                <div class="column mb-0 pb-0 box">
+                <div class="column mb-0 pb-0 box has-border-left-straight">
                     <h1 class="title">Pedido</h1>
                     <app-exibicao-pedido [Pedido]="Pedido"></app-exibicao-pedido>
                 </div>

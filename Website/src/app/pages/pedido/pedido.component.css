@@ -21,3 +21,11 @@
 .portrait{
    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
 }
+.has-border-right-straight{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.has-border-left-straight{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}

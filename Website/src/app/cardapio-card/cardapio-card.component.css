@@ -1,7 +1,14 @@
 .cardapio-section{
     max-width: 97vw;
 }
-
+.cardapio-bg{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
+    border-radius: 0;
+}
 .overflow-x-scroll::-webkit-scrollbar{
     border-bottom: 2px solid;
     background: transparent;
@@ -43,7 +50,9 @@ img {
     overflow-x: scroll;
     width: 100vw;
 }
-
+.bg-light-transparent{
+    background: rgba(220, 220, 220, .5);
+}
 .max-width-80{
     max-width: 80vw;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Collections } from 'src/app/shared/_models/MongoCollections';
 import { CardapioService } from '../../api/services/CardapioService';
 
@@ -7,18 +7,21 @@ import { CardapioService } from '../../api/services/CardapioService';
   templateUrl: './pedido.component.html',
   styleUrls: ['./pedido.component.css']
 })
-export class PedidoComponent implements OnInit {
+export class PedidoComponent implements OnInit, OnDestroy {
   Pedido: Collections.Pedido;
   Cardapios: Collections.Cardapio[];
   constructor(private CardapioService: CardapioService) {
-    this.Pedido = new Collections.Pedido(
-      "",
-      this.Cardapios,
-      [new Collections.Complemento("","",0)],
-      "",
-      true,
-      0
-    );
+    
+      this.Pedido = new Collections.Pedido(
+        "",
+        this.Cardapios,
+        [new Collections.Complemento("","",0)],
+        "",
+        true,
+        0
+      );
+      this.CardapioDeHoje();
+    
   }
 
   CardapioDeHoje(){
@@ -34,8 +37,20 @@ export class PedidoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.CardapioDeHoje();
+  SaveState(){
+    localStorage.setItem("Pedido", JSON.stringify(this.Pedido));
   }
 
+  LoadState(){
+    if(localStorage.getItem("Pedido"))
+      this.Pedido = JSON.parse(localStorage.getItem("Pedido"));
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy() : void {
+    this.SaveState();
+    alert('Obs: Os dados do pedido serão perdidos.')
+  }
 }
