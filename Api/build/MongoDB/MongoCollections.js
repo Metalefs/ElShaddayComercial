@@ -23,12 +23,13 @@ var Collections;
 (function (Collections) {
     var InformacoesContato = /** @class */ (function (_super) {
         __extends(InformacoesContato, _super);
-        function InformacoesContato(Telefone, Email, HorarioAtendimento, Whatsapp) {
+        function InformacoesContato(Telefone, Email, HorarioAtendimento, Whatsapp, Instagram) {
             var _this = _super.call(this) || this;
             _this.Telefone = Telefone;
             _this.Email = Email;
             _this.HorarioAtendimento = HorarioAtendimento;
             _this.Whatsapp = Whatsapp;
+            _this.Instagram = Instagram;
             return _this;
         }
         InformacoesContato.NomeID = "InformacoesContato";

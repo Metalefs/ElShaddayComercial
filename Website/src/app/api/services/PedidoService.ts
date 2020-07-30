@@ -6,12 +6,14 @@ import { environment } from '../../../environments/environment';
 import { routes } from '../routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from '../../shared/_models/MongoCollections';
+import { AuthenticationService } from '../authentication/authentication.service';
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class PedidoService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
     
     private IsLoading = true;
 
@@ -36,8 +38,11 @@ export class PedidoService {
         );
     }
 
-    Incluir(item: Collections.Pedido): Observable<any> {
-        return this.http.post<Collections.Pedido>(environment.endpoint +  routes.Pedido, {}).pipe(
+    Incluir(Pedido: Collections.Pedido): Observable<any> {
+        let token;
+        this.AuthenticationService.currentUser.subscribe(x=>token = x);
+        console.log(environment.endpoint +  routes.Pedido, {Pedido, token});
+        return this.http.post<Collections.Pedido>(environment.endpoint + routes.Pedido, {Pedido:Pedido, token:token}).pipe(
             retry(3),
             catchError(this.handleError)
         );

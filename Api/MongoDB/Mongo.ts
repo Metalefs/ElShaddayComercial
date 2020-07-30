@@ -164,7 +164,7 @@ export module Mongo {
                                     throw err;
                               }
                               db.close();
-                              console.log("Mongo",result);
+                              console.log("Mongo", result);
                               resolve(result)
                         });
                   });
@@ -200,11 +200,32 @@ export module Mongo {
                         throw err;
                   }
                   let dbo = db.db(MongoDBName);
-                  dbo.collection(collection).updateOne({_id: id}, query, function(err: any, result: any) {
+                  dbo.collection(collection).updateOne({_id: id}, {$set: query}, function(err: any, result: any) {
                         if (err){
                               logger.log(err)
                               throw err;
                         }
+                        console.log("Editado",result, query)
+                        db.close();
+                  });
+            });
+            
+      }
+
+      export function UpdateUserToken (collection: any, id:string, token: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+           
+            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                  if (err){
+                        logger.log(err)
+                        throw err;
+                  }
+                  let dbo = db.db(MongoDBName);
+                  dbo.collection(collection).updateOne({_id: id},{ $set: { token: token } }, function(err: any, result: any) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        console.log("Editado", result)
                         db.close();
                   });
             });

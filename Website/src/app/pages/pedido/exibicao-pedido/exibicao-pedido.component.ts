@@ -25,7 +25,7 @@ export class ExibicaoPedidoComponent implements OnInit {
 
 
   CriarMensagemPedido(){    
-    this.PedidoService.Incluir(this.Pedido);
+    this.PedidoService.Incluir(this.Pedido).subscribe(x=>console.log(x));
   }
 
 

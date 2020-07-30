@@ -22,7 +22,7 @@ export module service {
                 console.log("login com sucesso. token gerado", {...user[0],token});
                 
                 cliente.token = token;
-                update(cliente._id,cliente);
+                update({...user[0],token});
                 
                 return {
                     ...user[0],
@@ -56,7 +56,7 @@ export module service {
             console.log("usuário cadastrado com sucesso. token gerado", {...NovoCliente,token});
             
             NovoCliente.token = token;
-            update(NovoCliente._id,NovoCliente);
+            update(NovoCliente);
             const msg = {
                 to: NovoCliente.Email,
                 from: 'suporte@elshaddaymarmitex.com',
@@ -84,24 +84,16 @@ export module service {
         return await Mongo.BuscarUm(Collections.Cliente.NomeID, {token: id}) as Collections.Cliente;
     }
 
-    export async function update(id:string, cliente : Collections.Cliente) {
-        const user = await getById(id);
+    export async function update(cliente : Collections.Cliente) {
+        const user = await getById(cliente._id);
 
         // validate
         if (!user) return {erro:'Usuário não encontrado'};
-        if (user.Email !== cliente.Email && await Mongo.BuscarUm(Collections.Cliente.NomeID, { username: cliente.Email }) as Collections.Cliente) {
-            return {erro:'E-mail "' + cliente.Email + '" já está sendo usado'};
-        }
-
-        // hash password if it was entered
-        if (cliente.Senha) {
-            cliente.Senha = bcrypt.hashSync(cliente.Senha, 10);
-        }
-
+        
         // copy userParam properties to user
         Object.assign(user, cliente);
 
-        await Mongo.Edit(Collections.Cliente.NomeID, cliente._id, cliente);
+        Mongo.UpdateUserToken(Collections.Cliente.NomeID, cliente._id, cliente.token);
     }
 
     export async function _delete(id: string) {

@@ -80,7 +80,7 @@ var service;
                                     var token = jwt.sign({ sub: user[0]._id }, config_1.config.secret, { expiresIn: '7d' });
                                     console.log("login com sucesso. token gerado", __assign(__assign({}, user[0]), { token: token }));
                                     cliente.token = token;
-                                    update(cliente._id, cliente);
+                                    update(__assign(__assign({}, user[0]), { token: token }));
                                     return __assign(__assign({}, user[0]), { token: token });
                                 }
                                 if (!user[0].Senha)
@@ -119,7 +119,7 @@ var service;
                         token = jwt.sign({ sub: NovoCliente._id }, config_1.config.secret, { expiresIn: '7d' });
                         console.log("usuário cadastrado com sucesso. token gerado", __assign(__assign({}, NovoCliente), { token: token }));
                         NovoCliente.token = token;
-                        update(NovoCliente._id, NovoCliente);
+                        update(NovoCliente);
                         msg = {
                             to: NovoCliente.Email,
                             from: 'suporte@elshaddaymarmitex.com',
@@ -149,36 +149,31 @@ var service;
         });
     }
     service.getById = getById;
-    function update(id, cliente) {
+    function getByToken(id) {
         return __awaiter(this, void 0, void 0, function () {
-            var user, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0: return [4 /*yield*/, getById(id)];
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { token: id })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    }
+    service.getByToken = getByToken;
+    function update(cliente) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getById(cliente._id)];
                     case 1:
-                        user = _b.sent();
+                        user = _a.sent();
                         // validate
                         if (!user)
                             return [2 /*return*/, { erro: 'Usuário não encontrado' }];
-                        _a = user.Email !== cliente.Email;
-                        if (!_a) return [3 /*break*/, 3];
-                        return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { username: cliente.Email })];
-                    case 2:
-                        _a = (_b.sent());
-                        _b.label = 3;
-                    case 3:
-                        if (_a) {
-                            return [2 /*return*/, { erro: 'E-mail "' + cliente.Email + '" já está sendo usado' }];
-                        }
-                        // hash password if it was entered
-                        if (cliente.Senha) {
-                            cliente.Senha = bcrypt.hashSync(cliente.Senha, 10);
-                        }
                         // copy userParam properties to user
                         Object.assign(user, cliente);
-                        return [4 /*yield*/, Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Cliente.NomeID, cliente._id, cliente)];
-                    case 4:
-                        _b.sent();
+                        Mongo_1.Mongo.UpdateUserToken(MongoCollections_1.Collections.Cliente.NomeID, cliente._id, cliente.token);
                         return [2 /*return*/];
                 }
             });

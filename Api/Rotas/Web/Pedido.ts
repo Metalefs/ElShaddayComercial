@@ -15,8 +15,13 @@ app.use(function(req, res, next) {
 app.post(Rotas.Pedido, (req:any,res) =>{
     console.log(req.body);
     try{
-        if(service.getByToken(req.body.token))
-            res.send(Mongo.Insert(Collections.Pedido.NomeID, req.body.Pedido));
+        service.getByToken(req.body.token).then(user=>{
+            if(user){
+                req.body.Pedido.IdCliente = user;
+                console.log(req.body.Pedido);
+                res.send(Mongo.Insert(Collections.Pedido.NomeID, req.body.Pedido));
+            }
+        });
     }
     catch(err){
         res.send({erro:err})

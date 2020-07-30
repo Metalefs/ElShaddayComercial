@@ -255,16 +255,35 @@ var Mongo;
                 throw err;
             }
             var dbo = db.db(MongoDBName);
-            dbo.collection(collection).updateOne({ _id: id }, query, function (err, result) {
+            dbo.collection(collection).updateOne({ _id: id }, { $set: query }, function (err, result) {
                 if (err) {
                     logger.log(err);
                     throw err;
                 }
+                console.log("Editado", result, query);
                 db.close();
             });
         });
     }
     Mongo.Edit = Edit;
+    function UpdateUserToken(collection, id, token) {
+        MongoClient.connect(MDBurl, Options, function (err, db) {
+            if (err) {
+                logger.log(err);
+                throw err;
+            }
+            var dbo = db.db(MongoDBName);
+            dbo.collection(collection).updateOne({ _id: id }, { $set: { token: token } }, function (err, result) {
+                if (err) {
+                    logger.log(err);
+                    throw err;
+                }
+                console.log("Editado", result);
+                db.close();
+            });
+        });
+    }
+    Mongo.UpdateUserToken = UpdateUserToken;
     function Remove(collection, query) {
         MongoClient.connect(MDBurl, Options, function (err, db) {
             if (err) {
