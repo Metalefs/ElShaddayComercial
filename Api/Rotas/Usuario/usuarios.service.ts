@@ -80,6 +80,10 @@ export module service {
         return await Mongo.BuscarUm(Collections.Cliente.NomeID, {_id: id}) as Collections.Cliente;
     }
 
+    export async function getByToken(id:string) {
+        return await Mongo.BuscarUm(Collections.Cliente.NomeID, {token: id}) as Collections.Cliente;
+    }
+
     export async function update(id:string, cliente : Collections.Cliente) {
         const user = await getById(id);
 

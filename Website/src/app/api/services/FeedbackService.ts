@@ -23,19 +23,19 @@ export class FeedbackService {
     }
 
     Editar(item: Collections.Feedback): any {
-        return this.http.put<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback, {}).pipe(
+        return this.http.put<Collections.Feedback>(environment.endpoint + routes.Feedback, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
     }
     Remover(id: string): any {
-        return this.http.delete<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback).pipe(
+        return this.http.delete<Collections.Feedback>(environment.endpoint + routes.Feedback).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
     Incluir(item: Collections.Feedback): any  {
-        return this.http.post<Collections.Feedback>(environment.endpoint + routes.Gerenciamento + routes.Feedback, {}).pipe(
+        return this.http.post<Collections.Feedback>(environment.endpoint + routes.Feedback, {}).pipe(
             retry(3),
             catchError(this.handleError)
         );

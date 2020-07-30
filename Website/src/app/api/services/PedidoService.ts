@@ -28,14 +28,16 @@ export class PedidoService {
             catchError(this.handleError) // then handle the error
         );
     }
+
     Remover(id: string): Observable<any>{
-        return this.http.delete<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido).pipe(
+        return this.http.delete<Collections.Pedido>(environment.endpoint + routes.Pedido).pipe(
             retry(3),
             catchError(this.handleError)
         );
     }
+
     Incluir(item: Collections.Pedido): Observable<any> {
-        return this.http.post<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido, {}).pipe(
+        return this.http.post<Collections.Pedido>(environment.endpoint +  routes.Pedido, {}).pipe(
             retry(3),
             catchError(this.handleError)
         );
