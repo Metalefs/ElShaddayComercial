@@ -14,11 +14,12 @@ import { AuthenticationService } from '../authentication/authentication.service'
 
 export class PedidoService {
     constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
-    
+    private currentUser: Collections.Cliente;
     private IsLoading = true;
 
     Ler(): Observable<Collections.Pedido[]> {
-        return this.http.get<Collections.Pedido[]>(environment.endpoint + routes.Pedido).pipe(
+        this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
+        return this.http.get<Collections.Pedido[]>(environment.endpoint + routes.Pedido + "?token="+this.currentUser?.token).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
@@ -40,7 +41,7 @@ export class PedidoService {
 
     Incluir(Pedido: Collections.Pedido): Observable<any> {
         let token;
-        this.AuthenticationService.currentUser.subscribe(x=>token = x);
+        this.AuthenticationService.currentUser.subscribe(x=>token = x.token);
         console.log(environment.endpoint +  routes.Pedido, {Pedido, token});
         return this.http.post<Collections.Pedido>(environment.endpoint + routes.Pedido, {Pedido:Pedido, token:token}).pipe(
             retry(3),

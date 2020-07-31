@@ -214,7 +214,7 @@ var Mongo;
                                     throw err;
                                 }
                                 db.close();
-                                console.log("Mongo", result);
+                                console.log("Mongo BuscarUm", result);
                                 resolve(result);
                             });
                         });
@@ -233,7 +233,7 @@ var Mongo;
                                 throw err;
                             }
                             var dbo = db.db(MongoDBName);
-                            return dbo.collection(collection).find(query, function (err, result) {
+                            return dbo.collection(collection).find(query).toArray(function (err, result) {
                                 if (err) {
                                     logger.log(err);
                                     throw err;
@@ -278,7 +278,7 @@ var Mongo;
                     logger.log(err);
                     throw err;
                 }
-                console.log("Editado", result);
+                console.log("Editado ", result.documents);
                 db.close();
             });
         });

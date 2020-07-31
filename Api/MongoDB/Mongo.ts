@@ -164,7 +164,7 @@ export module Mongo {
                                     throw err;
                               }
                               db.close();
-                              console.log("Mongo", result);
+                              console.log("Mongo BuscarUm", result);
                               resolve(result)
                         });
                   });
@@ -179,7 +179,7 @@ export module Mongo {
                                throw err;
                          }
                          var dbo = db.db(MongoDBName);
-                         return dbo.collection(collection).find(query, function(err: any, result: any) {
+                         return dbo.collection(collection).find(query).toArray(function(err: any, result: any) {
                                if (err){
                                      logger.log(err)
                                      throw err;
@@ -225,7 +225,7 @@ export module Mongo {
                               logger.log(err)
                               throw err;
                         }
-                        console.log("Editado", result)
+                        console.log("Editado ", result.documents)
                         db.close();
                   });
             });

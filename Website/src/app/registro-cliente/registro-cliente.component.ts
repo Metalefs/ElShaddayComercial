@@ -70,6 +70,7 @@ export class RegistroClienteComponent implements OnInit {
                 this.router.navigate([this.returnUrl]);
                 this.EmailError = false;
                 this.PassError = false;
+                this.error = null;
             },
             error => {
                 this.error = error;

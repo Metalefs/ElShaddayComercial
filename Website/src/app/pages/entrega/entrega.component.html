@@ -1,0 +1,25 @@
+<section class="section">
+
+    <ng-container *ngIf="currentUser; then isLogado; else Deslogado">
+    </ng-container>
+
+    <ng-template #isLogado>
+        
+        <div class="columns">
+            <div class="column">
+                <h1>Meus pedidos</h1>
+                <app-meu-pedido-card></app-meu-pedido-card>
+            </div>
+        </div>
+
+    </ng-template>
+
+    <ng-template #Deslogado>
+        <div class="columns">
+            <div class="column">
+                <h1>Registre-se para acompanhar pedidos</h1>
+            </div>
+        </div>
+    </ng-template>
+
+</section>

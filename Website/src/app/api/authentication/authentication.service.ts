@@ -45,10 +45,12 @@ export class AuthenticationService {
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 if(user.token){
-                    localStorage.setItem('currentUser', JSON.stringify(user.token));
+                    localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);
+                }else{
+
+                    throw "Nome ou senha inválidos";
                 }
-                throw "Nome ou senha inválidos";
             }));
     }
 

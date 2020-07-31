@@ -77,11 +77,11 @@ export module service {
     }
 
     export async function getById(id:string) {
-        return await Mongo.BuscarUm(Collections.Cliente.NomeID, {_id: id}) as Collections.Cliente;
+        return await Mongo.BuscarUm(Collections.Cliente.NomeID, {_id: id}) as Collections.Cliente[];
     }
 
     export async function getByToken(id:string) {
-        return await Mongo.BuscarUm(Collections.Cliente.NomeID, {token: id}) as Collections.Cliente;
+        return await Mongo.BuscarUm(Collections.Cliente.NomeID, {token: id}) as Collections.Cliente[];
     }
 
     export async function update(cliente : Collections.Cliente) {

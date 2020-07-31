@@ -46,7 +46,8 @@ import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complemen
 import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
  import { DragScrollModule } from 'ngx-drag-scroll';
-import { DialogComponent } from './dialog/dialog.component'
+import { DialogComponent } from './dialog/dialog.component';
+import { MeuPedidoCardComponent } from './pages/entrega/meu-pedido-card/meu-pedido-card.component'
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { DialogComponent } from './dialog/dialog.component'
     ComplementoItemComponent,
     ExibicaoPedidoComponent,
     ScrollTopComponent,
-    DialogComponent
+    DialogComponent,
+    MeuPedidoCardComponent
   ],
   imports: [
     BrowserModule,
