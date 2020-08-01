@@ -12,6 +12,7 @@ app.use(function(req, res, next) {
     next();
 });
 app.get(Rotas.Avaliacao, (req:any,res) =>{
+    console.log(Rotas.Avaliacao);
     try{
        Mongo.Ler(Collections.Avaliacao.NomeID,res);
     }

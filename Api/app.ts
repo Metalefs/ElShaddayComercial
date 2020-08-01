@@ -9,6 +9,7 @@ const app: express.Application = express();
 const RotasWeb = require("./Rotas/Web/Web");
 const RotasPedido = require("./Rotas/Web/Pedido");
 const RotasFeedback = require("./Rotas/Web/Feedback");
+const RotasAvaliacao = require("./Rotas/Web/Avaliacao");
 const RotasUsuario = require("./Rotas/Usuario/Usuarios.controller");
 const RotasEditar  = require("./Rotas/Gerenciamento/Editar");
 const RotasRemover = require("./Rotas/Gerenciamento/Remover");
@@ -24,7 +25,7 @@ app.use(function(req: any, res: { header: (arg0: string, arg1: string) => void; 
   next();
 });
 
-app.use("/", [RotasWeb,RotasPedido,RotasFeedback]);
+app.use("/", [RotasWeb,RotasPedido,RotasAvaliacao,RotasFeedback]);
 app.use("/usuario", [RotasUsuario]);
 app.use("/gerenciamento/", [RotasEditar,RotasRemover,RotasIncluir]);
 

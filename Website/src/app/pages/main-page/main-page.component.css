@@ -16,6 +16,9 @@
 .bg-light-transparent{
     background: rgba(220, 220, 220, .5);
 }
+.bg-dark-transparent{
+    background: rgba(20, 20, 20, .5);
+}
 @media (min-width: 320px) and (max-width: 1023px) {
   
     .hero{
