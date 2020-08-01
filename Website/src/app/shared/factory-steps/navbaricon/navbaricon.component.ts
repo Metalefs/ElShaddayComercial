@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { EstadoNav } from '../factory-steps.component';
 
 @Component({
   selector: 'navbaricon',
@@ -12,7 +13,14 @@ export class NavbariconComponent implements OnInit {
   Link: string;
   @Input()
   Icon: string;
+  @Input()
+  EstadoNav: EstadoNav;
+
   constructor() { }
+
+  ChangeToThis(){
+    this.EstadoNav.pagina = this.Link;
+  }
 
   ngOnInit(): void {
     console.log(this.Titulo,

@@ -1,5 +1,6 @@
 <div class="login-wrapper has-background-white-t box" *ngIf="!Logado">
-    <form clrForm class="login">
+    
+    <form @fade clrForm class="login" *ngIf="!Cadastrar">
         <section class="title mb-0">
             <h3 class="welcome">Faça seu pedido</h3>
             Use nosso serviço de entrega!
@@ -25,7 +26,69 @@
                 Nome ou senha inválidos
             </div>
             <button type="submit" class="btn btn-primary" (click)="Login()">PEDIR</button>
-            <a href="javascript://" (click)="Cadastro()" class="signup">Registrar-se para obter uma conta</a>
+            <a href="javascript://" (click)="Cadastrar = true" class="signup">Registrar-se para obter uma conta</a>
+            
+            <hr>
+            <article class="media">
+                <figure class="media-left">
+                    <clr-icon shape="phone-handset" class="image"></clr-icon>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <p class="is-light has-text-weight-medium has-text-justified">{{InformacoesContato?.Telefone}} </p>
+                    </div>
+                </div>
+            </article>
+            <ng-template *ngIf="AceitaCartao">
+                <figure class="media-right">
+                    <p class="image is-32x32">
+                        <img class="is-rounded" src="../../assets/visto.svg" >
+                    </p>
+                </figure>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </article>
+            </ng-template>
+        </div>
+    </form>
+
+    <form @slideInOut clrForm class="login" *ngIf="Cadastrar">
+        <section class="title mb-0">
+            <h3 class="welcome">Formulário de registro</h3>
+            Use nosso serviço de entrega!
+            <h5 class="hint"></h5>
+        </section>
+        
+        <div class="login-group pt-0">
+            <clr-input-container>
+                <label class="clr-sr-only">Nome completo</label>
+                <input type="text" name="Nome" clrInput placeholder="Meu nome" [(ngModel)]="Cadastro_Form.Nome" required />
+                <clr-control-error>O Campo Nome é necessário para o cadastro</clr-control-error>
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">E-mail</label>
+                <input type="text" name="Email" clrInput placeholder="E-mail" [(ngModel)]="Cadastro_Form.Email" required />
+                <clr-control-error>O Campo de e-mail é necessário para o cadastro</clr-control-error>
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Telefone</label>
+                <input type="tel" name="Telefone" clrInput placeholder="(31) 999446-1428" [(ngModel)]="Cadastro_Form.Telefone" required />
+                <clr-control-error>O Campo telefone é necessário para o cadastro</clr-control-error>
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Senha</label>
+                <input type="password" name="Senha" clrPassword placeholder="Senha" [(ngModel)]="Cadastro_Form.Senha" required />
+                <clr-control-error>A senha deve ser fornecida</clr-control-error>
+            </clr-password-container>
+            <div [ngClass]="(EmailError || PassError || error)?'error active':'error'">
+                Nome ou senha inválidos
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="Cadastro()">Registrar-se</button>
+            <a href="javascript://" (click)="Cadastrar = false" class="signup">Login</a>
             
             <hr>
             <article class="media">
@@ -55,7 +118,3 @@
         </div>
     </form>
 </div>
-
-<ng-template *ngIf="Cardapio">
-    <cardapio-card [Cardapio]="Cardapio"></cardapio-card>
-</ng-template>

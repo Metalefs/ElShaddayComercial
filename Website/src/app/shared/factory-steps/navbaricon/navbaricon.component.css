@@ -20,3 +20,7 @@ navbaricon.nav-icon.tile:hover{
     outline:1px solid #ccc;
     outline-width: 0rem;
 }
+.active{
+    border-bottom: 1px yellow solid;
+    transition: .5s ease-in;
+}

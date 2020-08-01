@@ -10,17 +10,26 @@ import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 import { ClienteService } from '../api/services/ClienteService';
 import { CardapioService } from '../api/services/CardapioService';
+import { slide,fade } from 'src/app/animations';
 
-class Form {
+class Login_Form {
   Email:string;
   Senha:string;
-  rememberMe:string;
 }
+
+class Cadastro_Form {
+  Email:string;
+  Nome:string;
+  Telefone:string;
+  Senha:string;
+}
+
 
 @Component({
   selector: 'registro-cliente',
   templateUrl: './registro-cliente.component.html',
-  styleUrls: ['./registro-cliente.component.css']
+  styleUrls: ['./registro-cliente.component.css'],
+  animations: [slide,fade]
 })
 export class RegistroClienteComponent implements OnInit {
   loading = false;
@@ -34,23 +43,24 @@ export class RegistroClienteComponent implements OnInit {
   @Input()
   InformacoesContato:Collections.InformacoesContato = null;
   
-  form = new Form();
+  form = new Login_Form();
+  Cadastro_Form = new Cadastro_Form();
   AceitaCartao:boolean;
   Logado:boolean;
   EmailError:boolean;
   PassError:boolean;
   Cardapio:Collections.Cardapio;
-
+  Cadastrar:boolean;
   constructor(
     private infocontatoservice: InformacoesContatoService, 
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder
-    ) { 
-        if (this.authenticationService.currentUserValue) { 
-          this.Logado = true;
-        }
+    ) 
+    { 
+        this.authenticationService.currentUser.subscribe(x =>console.log(x));
+        this.Cadastrar = false;
     }
 
   LerInformacoesContato() {
@@ -71,6 +81,7 @@ export class RegistroClienteComponent implements OnInit {
                 this.EmailError = false;
                 this.PassError = false;
                 this.error = null;
+                this.Logado = true;
             },
             error => {
                 this.error = error;
@@ -79,11 +90,12 @@ export class RegistroClienteComponent implements OnInit {
   }
 
   Cadastro() {
+    this.loading = true;
     let cliente = new Collections.Cliente(
-      "",
-      this.form.Email,
-      this.form.Senha,
-      "",
+      this.Cadastro_Form.Nome,
+      this.Cadastro_Form.Email,
+      this.Cadastro_Form.Senha,
+      this.Cadastro_Form.Telefone,
       "",
       "",
       "",

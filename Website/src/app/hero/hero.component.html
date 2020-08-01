@@ -1,5 +1,5 @@
 <section *ngIf="Sobre != undefined" class="section hero-section columns mt-0">
-    <div class="right-column column px-4 py-4">
+    <div class="right-column column px-4 py-4" [ngClass]="currentUser ? 'is-12' : ''">
         <div class="tile">
           </div>
         <h1 class="title is-1 has-text-weight-semibold has-text-white has-text-centered">{{Sobre.Servico}}</h1>
@@ -24,7 +24,7 @@
             <span class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified"> Marmitas entregues</span>
         </div>
     </div>
-    <div class="column is-4 mr-2">
+    <div class="column is-4 mr-2" *ngIf="!currentUser">
         <registro-cliente [Telefone]=""></registro-cliente>
     </div>
 </section>

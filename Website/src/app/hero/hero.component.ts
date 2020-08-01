@@ -4,7 +4,7 @@ import { Collections } from '../shared/_models/MongoCollections';
 import { SobreService } from '../api/services/SobreService';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 import { PrecoMarmitexService } from '../api/services/PrecoMarmitexService';
-
+import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
@@ -16,10 +16,14 @@ export class HeroComponent implements OnInit {
   InformacaoContato:Collections.InformacoesContato;
   PrecoMarmitex:Collections.PrecoMarmitex;
   TotalMarmitasEntregues: number;
+  currentUser: Collections.Cliente;
   constructor(private SobreService: SobreService, 
     private InfoContatoService: InformacoesContatoService,
-    private PrecoMarmitexService : PrecoMarmitexService
-    ) {  }
+    private PrecoMarmitexService : PrecoMarmitexService,
+    private authenticationService: AuthenticationService
+    ) { 
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+     }
 
   async LerSobre(){
     this.SobreService.Ler().subscribe(data=>{
