@@ -172,26 +172,30 @@ export module Collections {
         Cardapios:Cardapio[];
         Complementos:Complemento[];
         Observacao:string;
-        Aberto:boolean;
+        Estado:string;
         Preco:number;
         DataEnvio:Date;
+        DataAtualizacao:Date;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
         Complementos:Complemento[],
         Observacao:string,
-        Aberto:boolean,
+        Estado:string,
         Preco:number,
-        DataEnvio:Date){
+        DataEnvio:Date,
+        DataAtualizacao:Date
+        ){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
             this.Complementos = Complementos;
-            this.Aberto = Aberto;
+            this.Estado = Estado;
             this.Observacao = Observacao;
             this.Preco = Preco;
             this.DataEnvio = DataEnvio;
+            this.DataAtualizacao = DataAtualizacao;
         }
         
     };

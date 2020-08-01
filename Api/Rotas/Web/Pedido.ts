@@ -15,12 +15,13 @@ app.use(function(req, res, next) {
 app.post(Rotas.Pedido, (req:any,res) =>{
     console.log(req.body);
     try{
-        console.log(req.body.token);
         service.getByToken(req.body.token).then(user=>{
             if(user){
                 req.body.Pedido.IdCliente = user;
                 if(req.body.Pedido.IdCliente != 0){
                     console.log("Pedido a ser inserido",req.body.Pedido);
+                    req.body.Pedido.DataEnvio = new Date();
+                    req.body.Pedido.DataAtualizacao = new Date();
                     res.send(Mongo.Insert(Collections.Pedido.NomeID, req.body.Pedido));
                 }else{
                     res.send("token inválido");
@@ -47,5 +48,45 @@ app.post(Rotas.Pedido, (req:any,res) =>{
     catch(err){
         res.send({erro:err})
     }
-});
+}).put(Rotas.Pedido+"/confirmarRecebimento", (req:any,res) =>{
+    console.log(Rotas.Pedido+"/confirmarRecebimento",req.body);
+    try{
+        service.getByToken(req.body.token).then(user=>{
+            if(user){
+                req.body.Pedido.IdCliente = user;
+                if(req.body.Pedido.IdCliente != 0){
+                    req.body.Pedido.DataAtualizacao = new Date();
+                    req.body.Pedido.Estado = "F";
+                    console.log("Id",req.body.Pedido._id,"Query",{DataAtualizacao: req.body.Pedido.DataAtualizacao, Estado:req.body.Pedido.Estado});
+                    res.send(Mongo.Edit(Collections.Pedido.NomeID, req.body.Pedido._id, {DataAtualizacao: req.body.Pedido.DataAtualizacao, Estado:req.body.Pedido.Estado}));
+                }else{
+                    res.send("token inválido");
+                }
+            }
+        });
+    }
+    catch(err){
+        res.send({erro:err})
+    }
+}).put(Rotas.Pedido+"/cancelar", (req:any,res) =>{
+    console.log(Rotas.Pedido+"/cancelar",req.body);
+    try{
+        service.getByToken(req.body.token).then(user=>{
+            if(user){
+                req.body.Pedido.IdCliente = user;
+                if(req.body.Pedido.IdCliente != 0){
+                    req.body.Pedido.DataAtualizacao = new Date();
+                    req.body.Pedido.Estado = "C";
+                    console.log("Id",req.body.Pedido._id,"Query",{DataAtualizacao: req.body.Pedido.DataAtualizacao, Estado:req.body.Pedido.Estado});
+                    res.send(Mongo.Edit(Collections.Pedido.NomeID, req.body.Pedido._id, {DataAtualizacao: req.body.Pedido.DataAtualizacao, Estado:req.body.Pedido.Estado}));
+                }else{
+                    res.send("token inválido");
+                }
+            }
+        });
+    }
+    catch(err){
+        res.send({erro:err})
+    }
+})
 module.exports = app;

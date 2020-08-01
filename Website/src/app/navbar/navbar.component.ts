@@ -6,7 +6,7 @@ import { AuthenticationService } from '../api/authentication/authentication.serv
 import { Collections } from '../shared/_models/MongoCollections';
 import { InformacoesContatoService } from '../api/services/InformacoesContatoService';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-navbar',

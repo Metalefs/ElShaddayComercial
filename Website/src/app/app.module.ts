@@ -21,8 +21,7 @@ import { CardapioCardItemComponent } from './cardapio-card/cardapio-card-item/ca
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { HeroComponent } from './hero/hero.component';
 import { ClarityModule } from '@clr/angular';
-
-
+import { MatTableModule } from '@angular/material/table'  
 import { CountUpModule } from 'ngx-countup';
 import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
 import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
@@ -45,10 +44,10 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
 import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complementos/complemento-item/complemento-item.component';
 import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
- import { DragScrollModule } from 'ngx-drag-scroll';
-import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { LoginDialogComponent } from './dialogs/login-dialog/login-dialog.component';
 import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.component';
-import { MeuPedidoCardComponent } from './pages/entrega/meus-pedidos/meu-pedido-card/meu-pedido-card.component';
+import { DetalhesPedidoDialogComponent } from './dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
+import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-pedido/detalhes-pedido.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +83,8 @@ import { MeuPedidoCardComponent } from './pages/entrega/meus-pedidos/meu-pedido-
     ScrollTopComponent,
     LoginDialogComponent,
     MeusPedidosComponent,
-    MeuPedidoCardComponent
+    DetalhesPedidoDialogComponent,
+    DetalhesPedidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,8 +96,8 @@ import { MeuPedidoCardComponent } from './pages/entrega/meus-pedidos/meu-pedido-
     BrowserAnimationsModule,
     ClarityModule,
     CountUpModule,
-    DragScrollModule,
     MatDialogModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

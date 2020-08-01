@@ -174,23 +174,26 @@ export module Collections {
         Cardapios:Cardapio[];
         Complementos:Complemento[];
         Observacao:string;
-        Aberto:boolean;
+        Estado:string;
         Preco:number;
         DataEnvio:Date;
+        DataAtualizacao:Date;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
         Complementos:Complemento[],
         Observacao:string,
-        Aberto:boolean,
+        Estado:string,
         Preco:number,
-        DataEnvio:Date){
+        DataEnvio:Date,
+        DataAtualizacao:Date
+        ){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
             this.Complementos = Complementos;
-            this.Aberto = Aberto;
+            this.Estado = Estado;
             this.Observacao = Observacao;
             this.Preco = Preco;
             this.DataEnvio = DataEnvio;
@@ -227,19 +230,30 @@ export module Collections {
             return this.Preco;
         }
 
+        CriarMensagemPedido(){
+            let mensagem = 'Olá Elshadday, venho do site diskmarmitexelshadday.com.br, fiz esse pedido: ';
+            mensagem += this.MensagemCardapio();
+            mensagem += this.MensagemComplemento()
+            return mensagem;
+        }
+
         MensagemCardapio(){
-            let Cardapios = '';
+            let Cardapios = '(' + this.Cardapios.length +')';
             this.Cardapios.forEach(cardapio => {
-                Cardapios += `, ${cardapio.Nome}`;
+                Cardapios += `${cardapio.Nome}, `;
             });
             return Cardapios;
         }
 
         MensagemComplemento(){
-            let Complementos = '';
-            this.Complementos.forEach(complemento => {
-                Complementos += `, ${complemento.Nome}`;
-            });
+            let Complementos = 'Sem complementos';
+            if(this.Complementos.length > 1){
+                Complementos = '(' + this.Complementos.length +')';
+                this.Complementos.forEach(complemento => {
+                    if(complemento.Preco > 0)
+                        Complementos += `${complemento.Nome}, `;
+                });
+            }
             return Complementos;
         }
 

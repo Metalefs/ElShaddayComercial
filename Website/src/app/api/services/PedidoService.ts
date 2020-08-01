@@ -25,7 +25,23 @@ export class PedidoService {
         );
     }
 
-    Editar(item: Collections.Pedido): any {
+    ConfirmarRecebimento(item: Collections.Pedido): Observable<any> {
+        this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
+        return this.http.put<Collections.Pedido>(environment.endpoint + routes.Pedido + '/confirmarRecebimento', {Pedido:item, token:this.currentUser?.token}).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Cancelar(item: Collections.Pedido): Observable<any> {
+        this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
+        return this.http.put<Collections.Pedido>(environment.endpoint + routes.Pedido + '/cancelar', {Pedido:item, token:this.currentUser?.token}).pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
+    Editar(item: Collections.Pedido): Observable<any> {
         return this.http.put<Collections.Pedido>(environment.endpoint + routes.Gerenciamento + routes.Pedido, {}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error

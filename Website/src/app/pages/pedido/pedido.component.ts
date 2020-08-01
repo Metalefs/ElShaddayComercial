@@ -17,8 +17,9 @@ export class PedidoComponent implements OnInit, OnDestroy {
         this.Cardapios,
         [new Collections.Complemento("","",0)],
         "",
-        true,
+        "A",
         0,
+        new Date(),
         new Date()
       );
       this.CardapioDeHoje();

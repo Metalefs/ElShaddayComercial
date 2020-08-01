@@ -46,27 +46,20 @@
         </tbody>
     </table>
     <div class="box">
-        <p class="subtitle is-6">R$ {{Pedido?.CalcularPreco().toFixed(2)}}</p>
+        <p class="subtitle is-6" *ngIf="Pedido?.Preco">R$ {{Pedido?.Preco.toFixed(2)}}</p>
         <div class="container">
-            
-            <ng-container *ngIf="Pedido.CalcularPreco() > 0 ; then Pedir; else SemPreco"></ng-container>
-
-            <ng-template #Pedir>
-                <button @fadeIn (click)="CriarMensagemPedido()" class="button is-success" title="{{InformacoesContato?.Telefone}}">
-                    <div class="tile">
-                        <figure class="image is-16x16">
-                            <img src="../../assets/imagens/icones/whatsapp.svg">
-                        </figure>
-                    </div>
-                    <div class="tile ml-3">
-                        <span>Enviar Pedido</span>
-                    </div>
-                </button>
-            </ng-template>
-            <ng-template #SemPreco>
-                <p class="subtitle">Selecione um cardápio para pedir!</p>
-            </ng-template>
-            
+    
+            <button *ngIf="!Pedido.DataEnvio" (click)="CriarMensagemPedido()" class="button is-success" title="{{InformacoesContato?.Telefone}}">
+                <div class="tile">
+                    <figure class="image is-16x16">
+                        <img src="../../assets/imagens/icones/whatsapp.svg">
+                    </figure>
+                </div>
+                <div class="tile ml-3">
+                    <span>Enviar Pedido</span>
+                </div>
+            </button>
+    
         </div>
     </div>
 </div>    

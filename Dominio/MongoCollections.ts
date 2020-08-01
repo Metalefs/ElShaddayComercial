@@ -183,7 +183,9 @@ export module Collections {
         Observacao:string,
         Aberto:boolean,
         Preco:number,
-        DataEnvio:Date){
+        DataEnvio:Date,
+        DataAtualizacao:Date
+        ){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;

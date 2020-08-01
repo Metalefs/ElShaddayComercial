@@ -26,6 +26,7 @@ export class ExibicaoPedidoComponent implements OnInit {
 
   CriarMensagemPedido(){    
     this.PedidoService.Incluir(this.Pedido).subscribe(x=>console.log(x));
+    window.open(`https://wa.me/${this.InformacoesContato.Whatsapp}?text=${this.Pedido.CriarMensagemPedido()}`, "_blank");
   }
 
 

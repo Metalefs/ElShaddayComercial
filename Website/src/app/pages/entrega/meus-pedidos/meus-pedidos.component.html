@@ -1,5 +1,5 @@
 <div class="box">
-    <div class="has-text-centered has-border-bottom-black" @fadeIn>
+    <div class="has-text-centered has-border-bottom-black">
         <table class="table">
             <thead>
                 <tr>
@@ -16,12 +16,18 @@
                         <p class="title is-5">Data</p>
                     </th>
                     <th class="">
-                        <p class="title is-5">Detalhes</p>
+                        <p class="title is-5">Ações</p>
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let Pedido of Pedidos">
+                <TR *ngIf="!Pedidos && !NAPedido">
+                    <h2>Carregando...</h2>
+                </TR>
+                <TR *ngIf="NAPedido">
+                    <h2>Nenhum pedido encontrado.</h2>
+                </TR>
+                <tr *ngFor="let Pedido of Pedidos"  @fadeIn>
                     <!-- <app-meu-pedido-card [Pedido]="pedido"></app-meu-pedido-card> -->
                     <td class="">
                         <p class="subtitle is-5">{{Pedido.Cardapios[0].Nome}}</p>
@@ -36,26 +42,34 @@
                         <p class="subtitle">{{Pedido.DataEnvio}}</p>
                     </td>
                     <td class="">
-                        <button class="button is-success" title="{{InformacoesContato?.Telefone}}">
+                        <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button" title="{{InformacoesContato?.Telefone}}">
                             <div class="tile">
                                 <figure class="image is-16x16">
                                     <img src="../../assets/imagens/icones/whatsapp.svg">
                                 </figure>
                             </div>
-                            <div class="tile ml-3"  *ngIf="Pedido?.Aberto">
+                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'A'">
                                 <span>Confirmar recebimento</span>
                             </div>
-                            <div class="tile ml-3"  *ngIf="!Pedido?.Aberto">
+                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'F'">
                                 <span>Pedido concluido</span>
+                            </div>
+                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'C'">
+                                <span>Pedido cancelado</span>
                             </div>
                         </button>
                     
-                        <button class="button is-warning">
+                        <button title="Detalhes" (click)="openDialog(Pedido)" class="button is-warning">
                             <clr-icon shape="plus"></clr-icon>
+                        </button>
+
+                        <button title="Cancelar" (click)="Cancelar(Pedido)" class="button is-danger">
+                            <clr-icon shape="minus"></clr-icon>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
+
     </div>
 </div>
