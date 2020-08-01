@@ -46,8 +46,9 @@ export class HeroComponent implements OnInit {
   }
 
   async LerPedidos(){
-    this.PedidoService.Ler().subscribe(data=>{
-      this.TotalMarmitasEntregues += data.length;
+    this.PedidoService.Count().subscribe(data=>{
+      console.log(data);
+      this.TotalMarmitasEntregues += data.count;
       this.loading = false;
     });
   }
@@ -58,7 +59,7 @@ export class HeroComponent implements OnInit {
     this.LerSobre();
     this.LerInfoContato();
     this.LerPrecoMarmitex();
-    
+    this.LerPedidos();
   }
 
 }

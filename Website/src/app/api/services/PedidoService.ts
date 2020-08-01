@@ -25,9 +25,9 @@ export class PedidoService {
         );
     }
 
-    Count(): Observable<Collections.Pedido[]> {
+    Count(): Observable<any> {
         this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
-        return this.http.get<Collections.Pedido[]>(environment.endpoint + routes.Pedido + "/count").pipe(
+        return this.http.get<any>(environment.endpoint + routes.Pedido + "/count").pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );

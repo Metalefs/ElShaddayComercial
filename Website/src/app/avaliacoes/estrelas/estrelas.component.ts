@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { AvaliacaoService } from 'src/app/api/services/AvaliacaoService'
 import { Collections } from 'src/app/shared/_models/MongoCollections';
-import { slide } from 'src/app/animations';
+import { slide,fade } from 'src/app/animations';
 
 class Estrela{
   numero:number;
@@ -12,7 +12,7 @@ class Estrela{
   selector: 'app-estrelas',
   templateUrl: './estrelas.component.html',
   styleUrls: ['./estrelas.component.css'],
-  animations : [slide]
+  animations : [slide,fade]
 })
 
 export class EstrelasComponent implements OnInit {

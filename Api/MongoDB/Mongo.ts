@@ -134,7 +134,7 @@ export module Mongo {
                               throw err;
                         }
                         var dbo = db.db(MongoDBName);
-                        dbo.collection(collection).count({}, function(error: any, numOfDocs: any){
+                        dbo.collection(collection).countDocuments({}, function(error: any, numOfDocs: any){
                               if (err){
                                     logger.log(err)
                                     throw err;

@@ -52,7 +52,7 @@ app.post(Rotas.Pedido, (req:any,res) =>{
     console.log(Rotas.Pedido,req.query);
     try{
         Mongo.Count(Collections.Pedido.NomeID).then(result=>{
-            res.send(result);
+            res.send({count:result});
         })
     }
     catch(err){
