@@ -85,7 +85,7 @@ export module Collections {
     };
 
     export class Cliente extends MongoDocument {
-        Nome:string;
+        Nome :string;
         Email:string;
         Senha:string;
         Telefone:string;
@@ -99,16 +99,18 @@ export module Collections {
         token?: string;
         static NomeID:string = "Cliente";
         constructor(
-        Nome:string,
-        Email:string,
-        Senha:string,
-        Telefone:string,
-        Rua:string,
-        Bairro:string,
-        Numero:string,
-        Cidade:string,
-        Estado:string,
-        DataCriacao:Date,Tipo:number){
+            Nome:string,
+            Email:string,
+            Senha:string,
+            Telefone:string,
+            Rua:string,
+            Bairro:string,
+            Numero:string,
+            Cidade:string,
+            Estado:string,
+            DataCriacao:Date,
+            Tipo:number
+        ){
             super();
             this.Nome = Nome;
             this.Email = Email;

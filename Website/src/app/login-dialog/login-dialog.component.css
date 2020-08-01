@@ -1,0 +1,13 @@
+.mat-dialog-container{
+    background: #ffffff3d;
+}
+
+.mat-dialog-container::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,0.5);
+    border-radius: 90px;
+    cursor: pointer;
+}
+.mat-dialog-container::-webkit-scrollbar-track-piece{
+    border-radius: 90px;
+    cursor: pointer;
+}

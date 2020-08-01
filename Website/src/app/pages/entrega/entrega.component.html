@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section entrega-bg">
 
     <ng-container *ngIf="currentUser; then isLogado; else Deslogado">
     </ng-container>
@@ -7,7 +7,7 @@
         
         <div class="columns">
             <div class="column">
-                <h1>Meus pedidos</h1>
+                <h1 class="title has-text-white">Meus pedidos</h1>
                 <app-meus-pedidos></app-meus-pedidos>
             </div>
         </div>
@@ -17,7 +17,8 @@
     <ng-template #Deslogado>
         <div class="columns">
             <div class="column">
-                <h1>Registre-se para acompanhar pedidos</h1>
+                <h1 class="title has-text-white">Registre-se para acompanhar os seus pedidos</h1>
+                <registro-cliente></registro-cliente>
             </div>
         </div>
     </ng-template>

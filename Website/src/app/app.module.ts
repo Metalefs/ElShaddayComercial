@@ -46,7 +46,7 @@ import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complemen
 import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
  import { DragScrollModule } from 'ngx-drag-scroll';
-import { DialogComponent } from './dialog/dialog.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.component';
 import { MeuPedidoCardComponent } from './pages/entrega/meus-pedidos/meu-pedido-card/meu-pedido-card.component';
 
@@ -82,7 +82,7 @@ import { MeuPedidoCardComponent } from './pages/entrega/meus-pedidos/meu-pedido-
     ComplementoItemComponent,
     ExibicaoPedidoComponent,
     ScrollTopComponent,
-    DialogComponent,
+    LoginDialogComponent,
     MeusPedidosComponent,
     MeuPedidoCardComponent
   ],

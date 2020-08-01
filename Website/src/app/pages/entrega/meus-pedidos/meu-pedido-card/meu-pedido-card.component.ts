@@ -18,6 +18,7 @@ export class MeuPedidoCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.Pedido);
   }
 
 }
