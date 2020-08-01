@@ -4,6 +4,7 @@ import { fade } from '../../../animations';
 import { PrecoMarmitexService } from '../../../api/services/PrecoMarmitexService';
 import { InformacoesContatoService } from '../../../api/services/InformacoesContatoService';
 import { PedidoService } from '../../../api/services/PedidoService';
+import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
 @Component({
   selector: 'app-exibicao-pedido',
   templateUrl: './exibicao-pedido.component.html',
@@ -15,20 +16,22 @@ export class ExibicaoPedidoComponent implements OnInit {
   Pedido:Collections.Pedido;
   InformacoesContato:Collections.InformacoesContato;
   PrecoMarmitex:Collections.PrecoMarmitex[];
-
+  Cliente:Collections.Cliente;
   constructor(private InformacoesContatoService: InformacoesContatoService,
     PrecoMarmitexService: PrecoMarmitexService,
-    private PedidoService: PedidoService) {
+    private PedidoService: PedidoService,
+    private AuthenticationService: AuthenticationService
+    ) {
       PrecoMarmitexService.Ler().subscribe(x=>this.PrecoMarmitex = x);
       InformacoesContatoService.Ler().subscribe(x=> this.InformacoesContato = x[0]);
+      AuthenticationService.currentUser.subscribe(x=>this.Cliente = x);
   }
-
 
   CriarMensagemPedido(){    
     this.PedidoService.Incluir(this.Pedido).subscribe(x=>console.log(x));
-    window.open(`https://wa.me/${this.InformacoesContato.Whatsapp}?text=${this.Pedido.CriarMensagemPedido()}`, "_blank");
+    let Endereco = `${this.Cliente.Rua}, ${this.Cliente.Numero}, Bairro ${this.Cliente.Bairro}`;
+    window.open(`https://wa.me/${this.InformacoesContato.Whatsapp}?text=${this.Pedido.CriarMensagemPedido()}. Endereço:${Endereco}`, "_blank");
   }
-
 
   ngOnInit(): void {
   }

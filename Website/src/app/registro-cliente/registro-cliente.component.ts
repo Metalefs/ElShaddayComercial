@@ -22,6 +22,11 @@ class Cadastro_Form {
   Nome:string;
   Telefone:string;
   Senha:string;
+  Rua:string;
+  Bairro:string;
+  Numero:string;
+  Cidade:string;
+  Estado:string;
 }
 
 
@@ -96,9 +101,9 @@ export class RegistroClienteComponent implements OnInit {
       this.Cadastro_Form.Email,
       this.Cadastro_Form.Senha,
       this.Cadastro_Form.Telefone,
-      "",
-      "",
-      "",
+      this.Cadastro_Form.Rua,
+      this.Cadastro_Form.Bairro,
+      this.Cadastro_Form.Numero,
       "Lagoa Santa",
       "Minas Gerais",
       new Date(),
