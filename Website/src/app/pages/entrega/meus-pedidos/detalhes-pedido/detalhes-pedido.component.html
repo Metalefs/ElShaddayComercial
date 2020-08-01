@@ -48,7 +48,24 @@
     <div class="box">
         <p class="subtitle is-6" *ngIf="Pedido?.Preco">R$ {{Pedido?.Preco.toFixed(2)}}</p>
         <div class="container">
-    
+            
+            <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button is-hidden-dektop">
+                <div class="tile">
+                    <figure class="image is-16x16">
+                        <img src="../../assets/imagens/icones/whatsapp.svg">
+                    </figure>
+                </div>
+                <div class="tile"  *ngIf="Pedido?.Estado == 'A'">
+                    <span>Confirmar recebimento</span>
+                </div>
+                <div class="tile"  *ngIf="Pedido?.Estado == 'F'">
+                    <span>Pedido concluido</span>
+                </div>
+                <div class="tile"  *ngIf="Pedido?.Estado == 'C'">
+                    <span>Pedido cancelado</span>
+                </div>
+            </button>
+
             <button *ngIf="!Pedido.DataEnvio" (click)="CriarMensagemPedido()" class="button is-success" title="{{InformacoesContato?.Telefone}}">
                 <div class="tile">
                     <figure class="image is-16x16">

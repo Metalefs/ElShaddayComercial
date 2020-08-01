@@ -1,18 +1,18 @@
-<div class="box">
-    <div class="has-text-centered has-border-bottom-black">
-        <table class="table">
-            <thead>
+<div class="box overflow-x-scroll">
+    <div class="has-text-centered has-border-bottom-black overflow-x-scroll">
+        <table class="table overflow-x-scroll">
+            <thead class="overflow-x-scroll">
                 <tr>
                     <th class="">
                         <p class="title is-5">Nome</p>
                     </th>
-                    <th class="">
+                    <th class="is-hidden-touch">
                         <p class="title is-5">Preço</p>
                     </th>
-                    <th class="">
+                    <th class="is-hidden-touch">
                         <p class="title is-5">Tamanho</p>
                     </th>
-                    <th class="">
+                    <th class="is-hidden-touch">
                         <p class="title is-5">Data</p>
                     </th>
                     <th class="">
@@ -20,7 +20,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="overflow-x-scroll{">
                 <TR *ngIf="!Pedidos && !NAPedido">
                     <h2>Carregando...</h2>
                 </TR>
@@ -32,29 +32,29 @@
                     <td class="">
                         <p class="subtitle is-5">{{Pedido.Cardapios[0].Nome}}</p>
                     </td>
-                    <td class="">
+                    <td class="is-hidden-touch">
                         <p class="subtitle is-5"><clr-icon shape="dollar"></clr-icon>{{Pedido.Preco.toFixed(2)}}</p>
                     </td>
-                    <td class="">
+                    <td class="is-hidden-touch">
                         <p class="subtitle is-5">{{Pedido.Cardapios[0].Tamanho}}</p>
                     </td>
-                    <td class="">
+                    <td class="is-hidden-touch">
                         <p class="subtitle">{{Pedido.DataEnvio}}</p>
                     </td>
                     <td class="">
-                        <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button" title="{{InformacoesContato?.Telefone}}">
+                        <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button is-hidden-touch" title="{{InformacoesContato?.Telefone}}">
                             <div class="tile">
                                 <figure class="image is-16x16">
                                     <img src="../../assets/imagens/icones/whatsapp.svg">
                                 </figure>
                             </div>
-                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'A'">
+                            <div class="tile"  *ngIf="Pedido?.Estado == 'A'">
                                 <span>Confirmar recebimento</span>
                             </div>
-                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'F'">
+                            <div class="tile"  *ngIf="Pedido?.Estado == 'F'">
                                 <span>Pedido concluido</span>
                             </div>
-                            <div class="tile ml-3"  *ngIf="Pedido?.Estado == 'C'">
+                            <div class="tile"  *ngIf="Pedido?.Estado == 'C'">
                                 <span>Pedido cancelado</span>
                             </div>
                         </button>
