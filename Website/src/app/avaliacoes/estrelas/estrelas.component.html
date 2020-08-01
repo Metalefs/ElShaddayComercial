@@ -1,0 +1,13 @@
+
+<div class="columns is-mobile is-1">
+    
+   
+    <div class="column" *ngFor="let estrela of QuantEstrelas">
+        <ng-container *ngIf="Estrelas > MediaAvaliacoes ? 0 : IncrEscrelas()"></ng-container>
+        <button class="button" (click)="Avaliar(estrela)"  [ngClass]="estrela.active? 'estrela-ativa': ''"> 
+            <clr-icon shape="star"  [ngClass]="estrela.active? 'estrela-ativa': ''" [ngClass]="Estrelas > MediaAvaliacoes ? 'is-solid': ''"></clr-icon>
+        </button>
+    </div>
+
+
+</div>

@@ -35,7 +35,7 @@ import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-prec
 import { PedidoComponent } from './pages/pedido/pedido.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
-import { AvaliacoesComponent } from './avaliacoes/avaliacoes.component';
+import { FeedbackComponent } from './avaliacoes/feedback/feedback.component';
 import { MontarPedidoComponent } from './pages/pedido/montar-pedido/montar-pedido.component';
 import { CardapioListaAgrupadaComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-agrupada.component';
 import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos/complementos.component';
@@ -48,6 +48,7 @@ import { LoginDialogComponent } from './dialogs/login-dialog/login-dialog.compon
 import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.component';
 import { DetalhesPedidoDialogComponent } from './dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
 import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-pedido/detalhes-pedido.component';
+import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-p
     PedidoComponent,
     EntregaComponent,
     LocalizacaoComponent,
-    AvaliacoesComponent,
+    FeedbackComponent,
     MontarPedidoComponent,
     CardapioListaAgrupadaComponent,
     ComplementosComponent,
@@ -85,6 +86,7 @@ import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-p
     MeusPedidosComponent,
     DetalhesPedidoDialogComponent,
     DetalhesPedidoComponent,
+    EstrelasComponent,
   ],
   imports: [
     BrowserModule,

@@ -84,6 +84,14 @@ export module Collections {
         
     };
 
+    export class Avaliacao{
+        Nota:number;
+        static NomeID:string = "Avaliacao";
+        constructor(Nota:number){
+            this.Nota = Nota;
+        }
+    }
+
     export class Cliente extends MongoDocument {
         Nome :string;
         Email:string;

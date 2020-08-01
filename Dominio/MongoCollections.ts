@@ -81,8 +81,15 @@ export module Collections {
             this.Titulo = Titulo;
             this.Comentario = Comentario;
         }
-        
     };
+
+    export class Avaliacao{
+        Nota:number;
+        static NomeID:string = "Avaliacao";
+        constructor(Nota:number){
+            this.Nota = Nota;
+        }
+    }
 
     export class Cliente extends MongoDocument {
         Nome:string;
@@ -172,16 +179,17 @@ export module Collections {
         Cardapios:Cardapio[];
         Complementos:Complemento[];
         Observacao:string;
-        Aberto:boolean;
+        Estado:string;
         Preco:number;
         DataEnvio:Date;
+        DataAtualizacao:Date;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
         Cardapios:Cardapio[],
         Complementos:Complemento[],
         Observacao:string,
-        Aberto:boolean,
+        Estado:string,
         Preco:number,
         DataEnvio:Date,
         DataAtualizacao:Date
@@ -190,7 +198,7 @@ export module Collections {
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
             this.Complementos = Complementos;
-            this.Aberto = Aberto;
+            this.Estado = Estado;
             this.Observacao = Observacao;
             this.Preco = Preco;
             this.DataEnvio = DataEnvio;
