@@ -1,0 +1,65 @@
+<div class="">
+    <div class="">
+        <table class="table section">
+            <thead>
+                <tr>
+                    <th>Marmitas</th>
+                    <th>Preço</th>
+                    <th>Tamanho</th>
+                </tr>
+            </thead>
+            <tbody class="max-height-80">
+                <tr *ngFor="let Cardapio of Pedido?.Cardapios" @fadeIn>
+                    <td>
+                        <p class="subtitle is-6">{{Cardapio.Nome}}</p>
+                    </td>
+                    <td>
+                        <p class="subtitle is-6">{{Cardapio.Preco.toFixed(2)}}</p>
+                    </td>
+                    <td>
+                        <p class="subtitle is-6">{{Cardapio.Tamanho}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <table class="table section">
+        <thead>
+            <tr>
+                <th>
+                    <p class="subtitle is-6">Complementos</p>
+                </th>
+                <th>
+                    <p class="subtitle is-6">Preço</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Complemento of Pedido?.Complementos"  @fadeIn>
+                <td>
+                    <div class="">{{Complemento?.Nome}}</div>
+                </td>
+                <td>
+                    <div class="">{{Complemento?.Preco.toFixed(2)}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="box">
+        <p class="subtitle is-6">R$ {{Pedido?.CalcularPreco().toFixed(2)}}</p>
+        <div class="container">
+    
+            <button class="button is-success" title="{{InformacoesContato?.Telefone}}">
+                <div class="tile">
+                    <figure class="image is-16x16">
+                        <img src="../../assets/imagens/icones/whatsapp.svg">
+                    </figure>
+                </div>
+                <div class="tile ml-3">
+                    <span>Confirmar recebimento</span>
+                </div>
+            </button>
+    
+        </div>
+    </div>
+</div>    
