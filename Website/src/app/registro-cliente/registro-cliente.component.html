@@ -76,7 +76,7 @@
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Telefone</label>
-                <input type="tel" name="Telefone" clrInput placeholder="(31) 999446-1428" [(ngModel)]="Cadastro_Form.Telefone" required />
+                <input mask="(00) 0000-0000||(00) 0 0000-0000" name="Telefone" clrInput placeholder="(31) 999446-1428" [(ngModel)]="Cadastro_Form.Telefone" required />
                 <clr-control-error>O Campo telefone é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-password-container>
@@ -86,17 +86,17 @@
             </clr-password-container>
             <clr-input-container>
                 <label class="clr-sr-only">Rua</label>
-                <input type="text" name="Rua" clrInput placeholder="..." [(ngModel)]="Cadastro_Form.Rua" required />
+                <input type="text" name="Rua" clrInput placeholder="Minha rua" [(ngModel)]="Cadastro_Form.Rua" required />
                 <clr-control-error>O Campo Rua é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Bairro</label>
-                <input type="text" name="Bairro" clrInput placeholder="..." [(ngModel)]="Cadastro_Form.Bairro" required />
+                <input type="text" name="Bairro" clrInput placeholder="Meu bairro" [(ngModel)]="Cadastro_Form.Bairro" required />
                 <clr-control-error>O Campo Bairro é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Número</label>
-                <input type="text" name="Numero" clrInput placeholder="..." [(ngModel)]="Cadastro_Form.Numero" required />
+                <input type="text" name="Numero" clrInput placeholder="N° casa" [(ngModel)]="Cadastro_Form.Numero" required />
                 <clr-control-error>O Campo Número é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <div [ngClass]="(EmailError || PassError || error)?'error active':'error'">

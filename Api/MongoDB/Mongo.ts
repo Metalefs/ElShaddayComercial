@@ -127,6 +127,25 @@ export module Mongo {
             });
       }
 
+      export function Count (collection: string){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
+            return new Promise((resolve, reject) => { MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => object; }) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        var dbo = db.db(MongoDBName);
+                        dbo.collection(collection).count({}, function(error: any, numOfDocs: any){
+                              if (err){
+                                    logger.log(err)
+                                    throw err;
+                              }
+                              db.close();
+                              resolve(numOfDocs);
+                        });
+                  });
+            });
+      }
+
       
       export async function LerECachear (collection: string, redisConfig: any, CacheKey: string){ // OBTÉM DADOS DO BANCO, COLOCA EM CACHE E RETORNA PARA O CLIENTE
             return new Promise((resolve, reject) => { 

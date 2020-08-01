@@ -25,6 +25,14 @@ export class PedidoService {
         );
     }
 
+    Count(): Observable<Collections.Pedido[]> {
+        this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
+        return this.http.get<Collections.Pedido[]>(environment.endpoint + routes.Pedido + "/count").pipe(
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
+    }
+
     ConfirmarRecebimento(item: Collections.Pedido): Observable<any> {
         this.AuthenticationService.currentUser.subscribe(x => this.currentUser = x);
         return this.http.put<Collections.Pedido>(environment.endpoint + routes.Pedido + '/confirmarRecebimento', {Pedido:item, token:this.currentUser?.token}).pipe(
@@ -57,12 +65,17 @@ export class PedidoService {
 
     Incluir(Pedido: Collections.Pedido): Observable<any> {
         let token;
-        this.AuthenticationService.currentUser.subscribe(x=>token = x.token);
-        console.log(environment.endpoint +  routes.Pedido, {Pedido, token});
-        return this.http.post<Collections.Pedido>(environment.endpoint + routes.Pedido, {Pedido:Pedido, token:token}).pipe(
-            retry(3),
-            catchError(this.handleError)
-        );
+        this.AuthenticationService.currentUser.subscribe(x=>{
+            if(x != null)
+            token = x.token
+            console.log(environment.endpoint +  routes.Pedido, {Pedido, token});
+        });
+        if(token)
+            return this.http.post<Collections.Pedido>(environment.endpoint + routes.Pedido, {Pedido:Pedido, token:token}).pipe(
+                retry(3),
+                catchError(this.handleError)
+            );
+        else throw 'Usuário não logado.'
     }
 
     getLoadingState(){

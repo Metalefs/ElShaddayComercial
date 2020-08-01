@@ -48,6 +48,16 @@ app.post(Rotas.Pedido, (req:any,res) =>{
     catch(err){
         res.send({erro:err})
     }
+}).get(Rotas.Pedido+"/count", (req:any,res) =>{
+    console.log(Rotas.Pedido,req.query);
+    try{
+        Mongo.Count(Collections.Pedido.NomeID).then(result=>{
+            res.send(result);
+        })
+    }
+    catch(err){
+        res.send({erro:err})
+    }
 }).put(Rotas.Pedido+"/confirmarRecebimento", (req:any,res) =>{
     console.log(Rotas.Pedido+"/confirmarRecebimento",req.body);
     try{

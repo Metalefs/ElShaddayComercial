@@ -28,8 +28,13 @@ export class ExibicaoPedidoComponent implements OnInit {
   }
 
   CriarMensagemPedido(){    
-    this.PedidoService.Incluir(this.Pedido).subscribe(x=>console.log(x));
-    let Endereco = `${this.Cliente.Rua}, ${this.Cliente.Numero}, Bairro ${this.Cliente.Bairro}`;
+    try{
+      this.PedidoService.Incluir(this.Pedido).subscribe(x=>console.log(x));
+    }
+    catch(err){}
+    let Endereco = '';
+    if(this.Cliente)
+      Endereco= `${this.Cliente.Rua}, ${this.Cliente.Numero}, Bairro ${this.Cliente.Bairro}`;
     window.open(`https://wa.me/${this.InformacoesContato.Whatsapp}?text=${this.Pedido.CriarMensagemPedido()}. Endereço:${Endereco}`, "_blank");
   }
 

@@ -49,7 +49,7 @@ import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.
 import { DetalhesPedidoDialogComponent } from './dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
 import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-pedido/detalhes-pedido.component';
 import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +86,7 @@ import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
     MeusPedidosComponent,
     DetalhesPedidoDialogComponent,
     DetalhesPedidoComponent,
-    EstrelasComponent,
+    EstrelasComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +99,8 @@ import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
     ClarityModule,
     CountUpModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
