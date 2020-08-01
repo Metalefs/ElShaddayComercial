@@ -174,6 +174,7 @@ export module Collections {
         Observacao:string;
         Aberto:boolean;
         Preco:number;
+        DataEnvio:Date;
         static NomeID:string = "Pedido";
         constructor(
         IdCliente:string,
@@ -181,7 +182,8 @@ export module Collections {
         Complementos:Complemento[],
         Observacao:string,
         Aberto:boolean,
-        Preco:number){
+        Preco:number,
+        DataEnvio:Date){
             super();
             this.IdCliente = IdCliente;
             this.Cardapios = Cardapios;
@@ -189,21 +191,9 @@ export module Collections {
             this.Aberto = Aberto;
             this.Observacao = Observacao;
             this.Preco = Preco;
+            this.DataEnvio = DataEnvio;
         }
-
-        AdicionarComplemento(Complemento: Complemento){
-            this.Complementos.push(Complemento);
-        }
-        SelecionarCardapio(Cardapio: Cardapio){
-            this.Cardapios.push(Cardapio);
-        }
-        CalcularPreco(PrecoMarmitex: PrecoMarmitex){
-            this.Preco = this.Cardapios[0].Tipo == "N" ? PrecoMarmitex.Pequena : PrecoMarmitex.Pequena ;
-            this.Complementos.forEach(complemento => {
-                this.Preco += complemento.Preco;
-            })
-        }
-
+        
     };
 
     // export class Sessoes extends MongoDocument {

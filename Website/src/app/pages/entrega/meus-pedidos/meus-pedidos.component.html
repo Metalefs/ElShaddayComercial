@@ -1,3 +1,61 @@
-<div *ngFor="let pedido of Pedidos">
-    <app-meu-pedido-card [Pedido]="pedido"></app-meu-pedido-card>
+<div class="box">
+    <div class="has-text-centered has-border-bottom-black" @fadeIn>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="">
+                        <p class="title is-5">Nome</p>
+                    </th>
+                    <th class="">
+                        <p class="title is-5">Preço</p>
+                    </th>
+                    <th class="">
+                        <p class="title is-5">Tamanho</p>
+                    </th>
+                    <th class="">
+                        <p class="title is-5">Data</p>
+                    </th>
+                    <th class="">
+                        <p class="title is-5">Detalhes</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Pedido of Pedidos">
+                    <!-- <app-meu-pedido-card [Pedido]="pedido"></app-meu-pedido-card> -->
+                    <td class="">
+                        <p class="subtitle is-5">{{Pedido.Cardapios[0].Nome}}</p>
+                    </td>
+                    <td class="">
+                        <p class="subtitle is-5"><clr-icon shape="dollar"></clr-icon>{{Pedido.Preco.toFixed(2)}}</p>
+                    </td>
+                    <td class="">
+                        <p class="subtitle is-5">{{Pedido.Cardapios[0].Tamanho}}</p>
+                    </td>
+                    <td class="">
+                        <p class="subtitle">{{Pedido.DataEnvio}}</p>
+                    </td>
+                    <td class="">
+                        <button class="button is-success" title="{{InformacoesContato?.Telefone}}">
+                            <div class="tile">
+                                <figure class="image is-16x16">
+                                    <img src="../../assets/imagens/icones/whatsapp.svg">
+                                </figure>
+                            </div>
+                            <div class="tile ml-3"  *ngIf="Pedido?.Aberto">
+                                <span>Confirmar recebimento</span>
+                            </div>
+                            <div class="tile ml-3"  *ngIf="!Pedido?.Aberto">
+                                <span>Pedido concluido</span>
+                            </div>
+                        </button>
+                    
+                        <button class="button is-warning">
+                            <clr-icon shape="plus"></clr-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
