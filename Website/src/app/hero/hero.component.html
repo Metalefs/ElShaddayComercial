@@ -19,9 +19,22 @@
                 </article>
             </div>
         </div>
-        <div class="container mt-6">
-            <span class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified" [countUp]="TotalMarmitasEntregues">0</span>
-            <span class="is-size-5 is-light has-text-weight-medium has-text-white has-text-justified"> Marmitas entregues</span>
+        <div class="container pl-6 mt-6">
+            <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                    <nav class="level is-mobile is-gapless">
+                        <p class="level-item has-text-centered">
+                            <span class="is-size-5 is-light has-text-weight-medium has-text-justified button" [countUp]="TotalMarmitasEntregues">0</span>
+                        </p>
+                        <p class="level-item has-text-centered">
+                            
+                        </p>
+                    </nav>
+                </div>
+                <div class="column">
+                    <span class="level-right is-size-5 is-light has-text-weight-medium has-text-white has-text-justified"> Marmitas Entregues</span>      
+                </div>
+            </div>
         </div>
     </div>
     <div class="column is-4 mr-2" *ngIf="!currentUser">

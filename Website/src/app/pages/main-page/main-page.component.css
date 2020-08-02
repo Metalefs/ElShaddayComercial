@@ -17,12 +17,12 @@
     background: rgba(220, 220, 220, .5);
 }
 .bg-dark-transparent{
-    background: rgba(20, 20, 20, .5);
+    background: rgba(58, 58, 58, 0.36);
 }
 @media (min-width: 320px) and (max-width: 1023px) {
   
     .hero{
-        background: url(../../../../src/assets/imagens/fundos/inicio/jason-leung-AUAuEgUxg5Q-unsplash.jpg) no-repeat center center fixed;
+        background: url(../../../../src/assets/imagens/fundos/inicio/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

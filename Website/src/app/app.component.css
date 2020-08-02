@@ -5,6 +5,9 @@
 .stack-view-key{
     flex:initial !important;
 }
+.footer{
+    background: linear-gradient(90deg,#ff0000,#ff4c4c 35%,#ff0000);
+}
 @keyframes fade-in{
     0%{
         transform: translateY(-10px);

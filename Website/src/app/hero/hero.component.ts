@@ -54,7 +54,7 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.TotalMarmitasEntregues = 300;
+    this.TotalMarmitasEntregues = 768;
     this.loading = true;
     this.LerSobre();
     this.LerInfoContato();
