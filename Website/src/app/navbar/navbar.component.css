@@ -8,6 +8,24 @@
     margin: 0 auto;
     color: #ccc;
     position: relative;
+    animation: gangorra 1s ease-out forwards;
+}
+.m-number:hover{
+    animation: gangorra 1s ease-in-out forwards;
+}
+@keyframes gangorra{
+    0%{
+        transform: rotate(-5deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    90%{
+        transform: rotate(-1deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
 }
 .bg-transparent{
     background: transparent;

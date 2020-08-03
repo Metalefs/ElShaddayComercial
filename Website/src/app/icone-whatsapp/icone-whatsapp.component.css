@@ -15,7 +15,8 @@
 @media (min-width: 320px ) and (max-width: 1023px) {
     
     .icon-container{
-        bottom: 80px;
+        bottom: 10px;
+        right: 5px;
     }
     
 }

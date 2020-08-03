@@ -4,7 +4,7 @@
    
     <div class="column" *ngFor="let estrela of QuantEstrelas">
       
-        <button [title]="estrela.numero <= MediaAvaliacoes ? 'Nota Média': ' '" class="button" (click)="Avaliar(estrela)"  [ngClass]="estrela.active? 'estrela-ativa': ''" [ngClass]="estrela.numero <= MediaAvaliacoes ? 'is-solid is-media-box': ' '"> 
+        <button aria-label="Avaliar com {{estrela.numero}}" [title]="estrela.numero <= MediaAvaliacoes ? 'Nota Média': ' '" class="button" (click)="Avaliar(estrela)"  [ngClass]="estrela.active? 'estrela-ativa': ''" [ngClass]="estrela.numero <= MediaAvaliacoes ? 'is-solid is-media-box': ' '"> 
          
             <clr-icon @slideInOut shape="star"  [ngClass]="estrela.active? 'estrela-ativa is-solid': ''" [ngClass]="estrela.numero <= MediaAvaliacoes ? 'is-solid is-media': ' '"></clr-icon>
         
@@ -14,4 +14,4 @@
     
 </div>
 <div *ngIf="Saved"><p @fade class="subtitle is-4 has-text-white">Salvamos sua avaliação!</p></div>
-<h1 class="subtitle is-4 is-italic has-text-warning">Média : {{MediaAvaliacoes?.toFixed(2)}} <clr-icon @slideInOut shape="star"></clr-icon></h1>
+<h1 class="subtitle is-7 is-italic has-text-warning">Média : {{MediaAvaliacoes?.toFixed(2)}} <clr-icon @slideInOut shape="star"></clr-icon></h1>

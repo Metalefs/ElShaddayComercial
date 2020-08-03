@@ -3,22 +3,22 @@
         <div class="tile">
           </div>
         <h1 class="title is-1 has-text-weight-semibold has-text-white has-text-centered">{{Sobre.Servico}}</h1>
-        <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white is-italic has-text-centered">{{Sobre.Slogan}}</h2>
+        <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white has-text-centered">{{Sobre.Slogan}}</h2>
         <p class="is-size-5 is-light has-text-weight-medium has-text-white has-text-centered" innerHTML="{{Sobre.Descricao}}"></p>
         <div class="is-divider" data-content="Preço"></div>
-        <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white has-text-centered">Normal: {{PrecoMarmitex?.Grande}} | Pequena: {{PrecoMarmitex?.Pequena}}</h2>
-        <h3 class="subtitle has-text-weight-medium has-text-warning  has-text-centered">Funcionamento de {{InformacaoContato?.HorarioAtendimento}}</h3>
-        <div class="tile is-ancestor is-hidden-desktop">
+        <h2 class="ls-1 title is-hidden-touch is-4 has-text-weight-medium has-text-white has-text-centered">Normal: {{PrecoMarmitex?.Grande}} | Pequena: {{PrecoMarmitex?.Pequena}}</h2>
+        <div class="tile mt-6 is-ancestor is-hidden-desktop">
             <div class="tile is-parent is-12">
                 <article class="tile is-child">
                     <div class="content">
-                        <a target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">
-                            <p class="mr-0 is-size-3 underline--magical is-size-4-mobile is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
+                        <a rel="noopener" target="_blank" class="mr-0" href="https://wa.me/{{InformacaoContato.Whatsapp}}?text=Olá,%20ElShadday%20 !">
+                            <p class="mr-0 is-size-3 subtitle underline--magical is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
                         </a>
                     </div>
                 </article>
             </div>
         </div>
+        <h3 class="subtitle mt-2 has-text-weight-medium has-text-warning has-text-centered">Funcionamento de {{InformacaoContato?.HorarioAtendimento}}</h3>
         <div class="container pl-6 mt-6">
             <div class="columns is-mobile is-gapless is-vcentered">
                 <div class="column">

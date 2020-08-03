@@ -1,12 +1,12 @@
 .hero{
-    background: url(../../../../src/assets/imagens/fundos/inicio/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg) no-repeat center center fixed;
+    background: url(../../../../src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .bg-ls{
-    background: url(../../../../src/assets/imagens/fundos/inicio/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg) no-repeat center center fixed;
+    background: url(../../../../src/assets/imagens/fundos/inicio/lagoa-central.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,19 +14,22 @@
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
 }
 .bg-light-transparent{
-    background: rgba(220, 220, 220, .5);
+    background: rgba(123, 123, 123, 0.5);
 }
 .bg-dark-transparent{
-    background: rgba(58, 58, 58, 0.36);
+    background: rgba(123, 123, 123, 0.5);
 }
 @media (min-width: 320px) and (max-width: 1023px) {
   
     .hero{
-        background: url(../../../../src/assets/imagens/fundos/inicio/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg) no-repeat center center fixed;
+        background: url(../../../../src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+    .bg-dark-transparent{
+        background: rgba(58, 58, 58, 0.36);
     }
     
 }

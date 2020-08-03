@@ -10,12 +10,12 @@
         <div class="login-group pt-0">
             <clr-input-container>
                 <label class="clr-sr-only">E-mail</label>
-                <input type="email" name="Email" clrInput placeholder="E-mail" [(ngModel)]="form.Email" #emailControl="ngModel" required />
+                <input aria-label="E-mail" type="email" name="Email" clrInput placeholder="E-mail" [(ngModel)]="form.Email" #emailControl="ngModel" required />
                 <clr-control-error>O Campo de e-mail é necessário para o login</clr-control-error>
             </clr-input-container>
             <clr-password-container>
                 <label class="clr-sr-only">Senha</label>
-                <input type="password" name="Senha" clrPassword placeholder="Senha" [(ngModel)]="form.Senha" #SenhaControl="ngModel" required />
+                <input aria-label="Senha" type="password" name="Senha" clrPassword placeholder="Senha" [(ngModel)]="form.Senha" #SenhaControl="ngModel" required />
                 <clr-control-error>A senha deve ser fornecida</clr-control-error>
             </clr-password-container>
             <clr-checkbox-wrapper>
@@ -66,37 +66,37 @@
         <div class="login-group pt-0">
             <clr-input-container>
                 <label class="clr-sr-only">Nome completo</label>
-                <input type="text" name="Nome" clrInput placeholder="Meu nome" [(ngModel)]="Cadastro_Form.Nome" required />
+                <input type="text" aria-label="Nome completo" name="Nome" clrInput placeholder="Meu nome" [(ngModel)]="Cadastro_Form.Nome" required />
                 <clr-control-error>O Campo Nome é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">E-mail</label>
-                <input type="text" name="Email" clrInput placeholder="E-mail" [(ngModel)]="Cadastro_Form.Email" required />
+                <input type="text" aria-label="Email" name="Email" clrInput placeholder="E-mail" [(ngModel)]="Cadastro_Form.Email" required />
                 <clr-control-error>O Campo de e-mail é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Telefone</label>
-                <input mask="(00) 0000-0000||(00) 0 0000-0000" name="Telefone" clrInput placeholder="(31) 999446-1428" [(ngModel)]="Cadastro_Form.Telefone" required />
+                <input aria-label="Telefone" mask="(00) 0000-0000||(00) 0 0000-0000" name="Telefone" clrInput placeholder="(31) 999446-1428" [(ngModel)]="Cadastro_Form.Telefone" required />
                 <clr-control-error>O Campo telefone é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-password-container>
                 <label class="clr-sr-only">Senha</label>
-                <input type="password" name="Senha" clrPassword placeholder="Senha" [(ngModel)]="Cadastro_Form.Senha" required />
+                <input type="password" aria-label="Senha" name="Senha" clrPassword placeholder="Senha" [(ngModel)]="Cadastro_Form.Senha" required />
                 <clr-control-error>A senha deve ser fornecida</clr-control-error>
             </clr-password-container>
             <clr-input-container>
                 <label class="clr-sr-only">Rua</label>
-                <input type="text" name="Rua" clrInput placeholder="Minha rua" [(ngModel)]="Cadastro_Form.Rua" required />
+                <input type="text" aria-label="Rua" name="Rua" clrInput placeholder="Minha rua" [(ngModel)]="Cadastro_Form.Rua" required />
                 <clr-control-error>O Campo Rua é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Bairro</label>
-                <input type="text" name="Bairro" clrInput placeholder="Meu bairro" [(ngModel)]="Cadastro_Form.Bairro" required />
+                <input type="text" aria-label="Bairro" name="Bairro" clrInput placeholder="Meu bairro" [(ngModel)]="Cadastro_Form.Bairro" required />
                 <clr-control-error>O Campo Bairro é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Número</label>
-                <input type="text" name="Numero" clrInput placeholder="N° casa" [(ngModel)]="Cadastro_Form.Numero" required />
+                <input type="text" aria-label="Número" name="Numero" clrInput placeholder="N° casa" [(ngModel)]="Cadastro_Form.Numero" required />
                 <clr-control-error>O Campo Número é necessário para o cadastro</clr-control-error>
             </clr-input-container>
             <div [ngClass]="(EmailError || PassError || error)?'error active':'error'">

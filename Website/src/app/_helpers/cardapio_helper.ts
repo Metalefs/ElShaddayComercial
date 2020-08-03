@@ -8,7 +8,7 @@ import { Collections } from '../shared/_models/MongoCollections';
         let Caminho = "";
         let Video = true;
         if(Cardapio.ImgSrc === "F"){
-            Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.png`;
+            Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.jpeg`;
             Video = false;
         }
         else{

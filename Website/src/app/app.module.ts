@@ -49,7 +49,9 @@ import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.
 import { DetalhesPedidoDialogComponent } from './dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
 import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-pedido/detalhes-pedido.component';
 import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +103,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     MatDialogModule,
     MatTableModule,
     NgxMaskModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

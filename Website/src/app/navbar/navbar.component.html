@@ -20,34 +20,36 @@
                     <div style="flex: 1;height: 20px; background-color: #ff8686"></div>
                 </div>
                 <div class="navbar-item m-number">
-                    <a target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">Ligue já!
+                    <a rel="noopener" target="_blank" class="mr-0" href="https://wa.me/{{Whatsapp}}?text=Olá,%20ElShadday%20 !">Ligue já!
                         <p class="mr-0 is-size-3 is-size-5-mobile is-light has-text-weight-medium has-text-white has-text-centered">{{InformacaoContato?.Telefone}}</p>
                     </a>
                 </div>
-                <!--                
-                    <div class="navbar-item has-dropdown is-hoverable">
+                                
+                <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                    Mais
+                        Atalhos
                     </a>
             
                     <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        
-                    </a>
-                    <a class="navbar-item">
-                    </a>
-                    <a class="navbar-item">
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                    </a>
+                        <a href="#cardapio" class="navbar-item">
+                            Cardapio
+                        </a>
+                        <a href="#contato" class="navbar-item">
+                            Contato
+                        </a>
+                        <a href="#localizacao" class="navbar-item">
+                            Localização
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                        </a>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a href="https://instagram.com/{{InformacaoContato?.Instagram}}" target="_blank" class="button is-light bg-transparent" title="Acesse nosso Instagram">
+                        <a href="https://instagram.com/{{InformacaoContato?.Instagram}}" rel="noopener" target="_blank" class="button is-light bg-transparent" title="Acesse nosso Instagram">
                             <img class="image is-32x32" src="../../assets/imagens/icones/instagram.svg" alt="Instagram">
                         </a>
                         <a href="#" >
