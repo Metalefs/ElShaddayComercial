@@ -7,10 +7,7 @@ import { NoAuthGuard } from './core/guard/no-auth.guard';
 import { AppComponent } from './app.component';
 
 import { ContentLayoutComponent } from 'src/app/layout/content-layout/content-layout.component';
-import { FooterComponent } from 'src/app/layout/footer/footer.component';
-import { NavbarComponent } from 'src/app/layout/nav/navbar.component';
 
-import { AuthModule } from 'src/app/modules/auth/auth.module';
 import { LandingPageModule } from 'src/app/modules/landing/landing.module';
 import { PedidoModule } from 'src/app/modules/pedido/pedido.module';
 import { EntregaModule } from 'src/app/modules/entrega/entrega.module';
@@ -26,7 +23,7 @@ const routes: Routes = [
     canActivate: [NoAuthGuard], 
     children: [
       {
-        path: 'inicio',
+        path: '',
         loadChildren: () =>
           import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
       },

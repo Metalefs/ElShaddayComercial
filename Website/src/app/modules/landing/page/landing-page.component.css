@@ -1,12 +1,12 @@
 .hero{
-    background: url(src/app/src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg) no-repeat center center fixed;
+    background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .bg-ls{
-    background: url(src/app/src/assets/imagens/fundos/inicio/lagoa-central.jpg) no-repeat center center fixed;
+    background: url("src/assets/imagens/fundos/inicio/lagoa-central.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,7 +22,7 @@
 @media (min-width: 320px) and (max-width: 1023px) {
   
     .hero{
-        background: url(src/app/src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg) no-repeat center center fixed;
+        background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

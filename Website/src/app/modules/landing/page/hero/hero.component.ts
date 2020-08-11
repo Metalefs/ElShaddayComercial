@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { SobreService } from 'src/app/data/service/domain//SobreService';
@@ -6,6 +6,7 @@ import { InformacoesContatoService } from 'src/app/data/service/domain//Informac
 import { PrecoMarmitexService } from 'src/app/data/service/domain//PrecoMarmitexService';
 import { PedidoService } from 'src/app/data/service/domain//PedidoService';
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',

@@ -2,7 +2,7 @@
     max-width: 97vw;
 }
 .cardapio-bg{
-    background-image: url(src/app/src/app/assets/imagens/fundos/pedido/guarnicoes-de-comida-para-seu-restaurante.jpg);
+    background-image: url('src/assets/imagens/fundos/pedido/guarnicoes-de-comida-para-seu-restaurante.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

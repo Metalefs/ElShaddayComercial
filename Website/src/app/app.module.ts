@@ -5,57 +5,56 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from 'src/app/shared/material.module';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './core/interceptor';
-
-import { ClarityModule } from '@clr/angular';
-
-import { MatTableModule } from '@angular/material/table'  
 import { CountUpModule } from 'ngx-countup';
+import { ClarityModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ContentLayoutComponent } from 'src/app/layout/content-layout/content-layout.component';
+import { FactoryStepsComponent } from 'src/app/layout/content-layout/page/factory-steps/component/factory-steps.component';
+import { NavbariconComponent } from 'src/app/layout/content-layout/page/factory-steps/component/navbaricon/navbaricon.component';
+import { FeedbackComponent } from 'src/app/layout/content-layout/page//feedback/feedback.component';
+import { ScrollTopComponent } from 'src/app/layout/content-layout/page/scroll-top/scroll-top.component';
+
 import { FooterComponent } from 'src/app/layout/footer/footer.component';
 import { NavbarComponent } from 'src/app/layout/nav/navbar.component';
 
-import { AuthModule } from 'src/app/modules/auth/auth.module';
-import { LandingPageModule } from 'src/app/modules/landing/landing.module';
-import { PedidoModule } from 'src/app/modules/pedido/pedido.module';
-import { EntregaModule } from 'src/app/modules/entrega/entrega.module';
-import { GerenciamentoModule } from 'src/app/modules/gerenciamento/gerenciamento.module';
-
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 import { CardapioHelper } from './_helpers/cardapio_helper';
-
-import { LoginDialogComponent } from 'src/app/shared/dialogs/login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentLayoutComponent,
+    FactoryStepsComponent,
+    NavbariconComponent,
+    FeedbackComponent,
+    ScrollTopComponent,
     FooterComponent,
     NavbarComponent,
-    LoginDialogComponent,
+    ContentLayoutComponent
   ],
   imports: [
+    ClarityModule,
+    MaterialModule,
     BrowserModule,
+    CoreModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClarityModule,
     CountUpModule,
-    MatDialogModule,
-    MatTableModule,
     NgxMaskModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

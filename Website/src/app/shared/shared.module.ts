@@ -5,11 +5,10 @@ import { RouterModule } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
 import { CardapioCardComponent } from './component/cardapio-card/component/cardapio-card.component';
 import { CardapioCardItemComponent } from './component/cardapio-card/component/cardapio-card-item/cardapio-card-item.component';
-import { FactoryStepsComponent } from './component/factory-steps/component/factory-steps.component';
-import { NavbariconComponent } from './component/factory-steps/component/navbaricon/navbaricon.component';
 import { IconeWhatsappComponent } from './component/icone-whatsapp/icone-whatsapp.component';
-import { ScrollTopComponent } from './component/scroll-top/scroll-top.component';
+
 import { MaterialModule } from './material.module';
+import { AuthModule } from './component/auth/auth.module';
 
 @NgModule({
   imports: [
@@ -22,18 +21,19 @@ import { MaterialModule } from './material.module';
   declarations: [
     CardapioCardComponent,
     CardapioCardItemComponent,
-    FactoryStepsComponent,
-    NavbariconComponent, IconeWhatsappComponent, ScrollTopComponent],
+    IconeWhatsappComponent
+  ],
   exports: [
     CommonModule,
+    ClarityModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    AuthModule,
     CardapioCardComponent,
-    CardapioCardItemComponent,
-    FactoryStepsComponent,
-    NavbariconComponent, IconeWhatsappComponent, ScrollTopComponent, IconeWhatsappComponent, ScrollTopComponent
+    CardapioCardItemComponent, 
+    IconeWhatsappComponent,
   ]
 })
 export class SharedModule {

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ComplementosComponent } from './components/complementos/complementos.component';
 import { ComplementoItemComponent } from './components/complementos/complemento-item/complemento-item.component';
 import { MontarPedidoComponent } from './components/montar-pedido.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { MontarPedidoComponent } from './components/montar-pedido.component';
     ComplementoItemComponent,
     MontarPedidoComponent
   ],
-  imports: [],
+  imports: [SharedModule],
   exports: [ComplementosComponent,
     ComplementoItemComponent,
     MontarPedidoComponent],

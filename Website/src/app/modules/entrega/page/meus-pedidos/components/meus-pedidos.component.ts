@@ -3,7 +3,7 @@ import { Collections } from 'src/app/data/schema/MongoCollections';
 import { PedidoService } from 'src/app/data/service/domain/PedidoService';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
-import { DetalhesPedidoDialogComponent } from 'src/app/shared/dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
+//import { DetalhesPedidoDialogComponent } from './detalhes-pedido/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
 import { fade } from 'src/app/animations';
 
 @Component({
@@ -29,13 +29,13 @@ export class MeusPedidosComponent implements OnInit {
   displayedColumns: string[] = ['Nome', 'Preço', 'Tamanho', 'Data','Detalhes'];
   
   openDialog(pedido): void {
-    const dialogRef = this.dialog.open(DetalhesPedidoDialogComponent, {
-      width: '90%',
-      data: pedido
-    });
+    // const dialogRef = this.dialog.open(DetalhesPedidoDialogComponent, {
+    //   width: '90%',
+    //   data: pedido
+    // });
 
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    // });
   }
 
   ConfirmarRecebimento(pedido){
