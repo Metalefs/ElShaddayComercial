@@ -1,3 +1,15 @@
 .mat-app-background {
   height: 100%;
 }
+@keyframes fade-in{
+  0%{
+      transform: translateY(-10px);
+  }
+  100%{
+      transform: translate(0px);
+  }
+}
+.main{
+  animation: fade-in ease-in-out .5s forwards;
+  width: 100vw;
+}

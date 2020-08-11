@@ -28,12 +28,12 @@ const routes: Routes = [
           import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
       },
       {
-        path: 'pedido',
+        path: '',
         loadChildren: () =>
           import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule)
       },
       {
-        path: 'entrega',
+        path: '',
         loadChildren: () =>
           import('src/app/modules/entrega/entrega.module').then(m => m.EntregaModule)
       },
