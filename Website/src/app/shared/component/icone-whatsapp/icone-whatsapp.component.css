@@ -1,0 +1,24 @@
+.icon-container{
+    background: white;
+    border-radius:180px;
+    margin:0 0 5px 0px;
+    position: fixed;
+    bottom: 0;
+    right: 35px;
+    display: flex;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (min-width: 320px ) and (max-width: 1023px) {
+    
+    .icon-container{
+        bottom: 10px;
+        right: 5px;
+        z-index: 2;
+        opacity: .8;
+    }
+    
+}

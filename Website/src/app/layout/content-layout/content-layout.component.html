@@ -1,0 +1,9 @@
+<app-navbar [Titulo] = "title" [Logado]="currentUser"></app-navbar>
+<div [@routeAnimations]="prepareRoute(outlet)" class="main">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
+<!-- <app-icone-whatsapp></app-icone-whatsapp>
+<app-feedback></app-feedback>
+<app-factory-steps></app-factory-steps>
+<app-footer></app-footer>
+<app-scroll-top></app-scroll-top> -->

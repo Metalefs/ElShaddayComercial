@@ -1,0 +1,13 @@
+.login-wrapper{
+    background: url() !important;
+    background-color: #fafafae3 !important;
+    min-height:initial !important;
+    height: max-content;
+}
+.login-wrapper .login{
+    padding-top: 3em;
+    min-height:initial !important;
+    background: transparent !important;
+    width: 100%;
+    justify-content: start;
+}

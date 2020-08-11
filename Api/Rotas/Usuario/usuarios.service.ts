@@ -9,7 +9,6 @@ import {Collections} from '../../MongoDB/MongoCollections';
 
 export module service {
    
-
     export async function authenticate(cliente : Collections.Cliente) {
         console.log('query:', {Email: cliente.Email}, {Senha: cliente.Senha});
         
