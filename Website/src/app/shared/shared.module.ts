@@ -6,21 +6,24 @@ import { ClarityModule } from '@clr/angular';
 import { CardapioCardComponent } from './component/cardapio-card/component/cardapio-card.component';
 import { CardapioCardItemComponent } from './component/cardapio-card/component/cardapio-card-item/cardapio-card-item.component';
 import { IconeWhatsappComponent } from './component/icone-whatsapp/icone-whatsapp.component';
+import { CountPedidoComponent } from './component/count-pedido/count-pedido.component';
 import { MaterialModule } from './material.module';
 import { AuthModule } from './component/auth/auth.module';
-
+import { CountUpModule } from 'ngx-countup';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    CountUpModule,
     RouterModule,
     ClarityModule
   ],
   declarations: [
     CardapioCardComponent,
     CardapioCardItemComponent,
-    IconeWhatsappComponent
+    IconeWhatsappComponent,
+    CountPedidoComponent
   ],
   exports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { AuthModule } from './component/auth/auth.module';
     CardapioCardComponent,
     CardapioCardItemComponent, 
     IconeWhatsappComponent,
+    CountPedidoComponent
   ]
 })
 export class SharedModule {

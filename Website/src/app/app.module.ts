@@ -26,6 +26,7 @@ import { FactoryStepsComponent } from 'src/app/layout/content-layout/page/factor
 import { NavbariconComponent } from 'src/app/layout/content-layout/page/factory-steps/component/navbaricon/navbaricon.component';
 import { FeedbackComponent } from 'src/app/layout/content-layout/page//feedback/feedback.component';
 import { ScrollTopComponent } from 'src/app/layout/content-layout/page/scroll-top/scroll-top.component';
+import { MeusPedidosModule } from 'src/app/modules/entrega/page/meus-pedidos/meus-pedidos.module';
 
 import { FooterComponent } from 'src/app/layout/footer/footer.component';
 import { NavbarComponent } from 'src/app/layout/nav/navbar.component';
@@ -43,7 +44,7 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
     ScrollTopComponent,
     FooterComponent,
     NavbarComponent,
-    ContentLayoutComponent
+    ContentLayoutComponent,
   ],
   imports: [
     ClarityModule,
@@ -57,6 +58,7 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MeusPedidosModule,
     CountUpModule,
     NgxPageScrollCoreModule,
     NgxPageScrollModule,

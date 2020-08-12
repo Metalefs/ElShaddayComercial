@@ -3,7 +3,7 @@
         <table class="table overflow-x-scroll">
             <thead class="overflow-x-scroll">
                 <tr>
-                    <th class="">
+                    <!-- <th class="">
                         <p class="title is-5">Nome</p>
                     </th>
                     <th class="is-hidden-touch">
@@ -11,7 +11,7 @@
                     </th>
                     <th class="is-hidden-touch">
                         <p class="title is-5">Tamanho</p>
-                    </th>
+                    </th> -->
                     <th class="is-hidden-touch">
                         <p class="title is-5">Data</p>
                     </th>
@@ -29,17 +29,17 @@
                 </TR>
                 <tr *ngFor="let Pedido of Pedidos"  @fadeIn>
                     <!-- <app-meu-pedido-card [Pedido]="pedido"></app-meu-pedido-card> -->
-                    <td class="">
-                        <p class="subtitle is-5">{{Pedido.Cardapios[0].Nome}}</p>
+                    <!-- <td class="">
+                        <p class="subtitle is-5">{{Pedido?.Cardapios[0].Nome}}</p>
                     </td>
                     <td class="is-hidden-touch">
-                        <p class="subtitle is-5"><clr-icon shape="dollar"></clr-icon>{{Pedido.Preco.toFixed(2)}}</p>
+                        <p class="subtitle is-5"><clr-icon shape="dollar"></clr-icon>{{Pedido?.Preco.toFixed(2)}}</p>
                     </td>
                     <td class="is-hidden-touch">
-                        <p class="subtitle is-5">{{Pedido.Cardapios[0].Tamanho}}</p>
-                    </td>
+                        <p class="subtitle is-5">{{Pedido?.Cardapios[0].Tamanho}}</p>
+                    </td> -->
                     <td class="is-hidden-touch">
-                        <p class="subtitle">{{Pedido.DataEnvio}}</p>
+                        <p class="subtitle">{{Pedido?.DataEnvio}}</p>
                     </td>
                     <td class="">
                         <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button is-hidden-touch" title="{{InformacoesContato?.Telefone}}">

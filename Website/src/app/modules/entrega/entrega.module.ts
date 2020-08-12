@@ -14,7 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MeusPedidosModule,
     EntregaRoutes
   ],
-  exports: [],
+  exports: [MeusPedidosModule],
   providers: []
 })
 export class EntregaModule {}

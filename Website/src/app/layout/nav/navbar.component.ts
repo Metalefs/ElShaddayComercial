@@ -6,7 +6,7 @@ import { AuthenticationService } from 'src/app/core/service/authentication/authe
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { InformacoesContatoService } from 'src/app/data/service/domain/InformacoesContatoService';
 import { MatDialog } from '@angular/material/dialog';
-// import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -48,13 +48,13 @@ export class NavbarComponent implements OnInit {
   }
 
   AbrirModalEntrar(): void {
-    // const dialogRef = this.dialog.open(LoginDialogComponent, {
-    //   width: '90%',
-    //   data: {}
-    // });
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '90%',
+      data: {}
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, NgZone} from '@angular/core';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface LoginDialogData {
@@ -16,10 +16,13 @@ export class LoginDialogComponent {
   operacao: string;
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: LoginDialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: LoginDialogData, private ngZone: NgZone) {}
 
   onNoClick(): void {
     this.dialogRef.close();
+    this.ngZone.run(() => {
+      this.dialogRef.close();
+    });    
   }
 
 }
