@@ -8,7 +8,7 @@ export class CadastroService {
     private CadastrarSubject: BehaviorSubject<boolean>;
 
     constructor() {
-        this.CadastrarSubject = new BehaviorSubject<boolean>(JSON.parse(localStorage.getItem('currentUser')));
+        this.CadastrarSubject = new BehaviorSubject<boolean>(JSON.parse(localStorage.getItem('cadastrar')));
         this.Cadastrar = this.CadastrarSubject.asObservable();
     }
 
@@ -18,5 +18,6 @@ export class CadastroService {
 
     setCadastrar(State:boolean) {
         localStorage.setItem('cadastrar', JSON.stringify(State));
+        this.Cadastrar = this.CadastrarSubject.asObservable();
     }
 }

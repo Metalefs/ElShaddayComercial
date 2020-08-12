@@ -52,7 +52,7 @@
             <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button is-hidden-dektop">
                 <div class="tile">
                     <figure class="image is-16x16">
-                        <img src="src/assets/imagens/icones/whatsapp.svg">
+                        <img src="/assets/imagens/icones/whatsapp.svg">
                     </figure>
                 </div>
                 <div class="tile"  *ngIf="Pedido?.Estado == 'A'">
@@ -69,7 +69,7 @@
             <button *ngIf="!Pedido.DataEnvio" (click)="CriarMensagemPedido()" class="button is-success" title="{{InformacoesContato?.Telefone}}">
                 <div class="tile">
                     <figure class="image is-16x16">
-                        <img src="src/assets/imagens/icones/whatsapp.svg">
+                        <img src="/assets/imagens/icones/whatsapp.svg">
                     </figure>
                 </div>
                 <div class="tile ml-3">

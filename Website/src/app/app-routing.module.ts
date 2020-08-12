@@ -26,11 +26,13 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
+        , data: { animation: 'isLeft' }
       },
       {
         path: '',
         loadChildren: () =>
           import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule)
+          , data: { animation: 'isRight' }
       },
       {
         path: '',

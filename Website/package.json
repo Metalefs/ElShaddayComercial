@@ -40,6 +40,8 @@
     "gsap": "^3.4.0",
     "ngx-countup": "^7.3.1",
     "ngx-mask": "^9.1.2",
+    "ngx-page-scroll": "^7.0.3",
+    "ngx-page-scroll-core": "^7.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "typescript": "^3.9.7",

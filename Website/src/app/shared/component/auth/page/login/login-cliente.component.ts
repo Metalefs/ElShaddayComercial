@@ -39,7 +39,8 @@ export class LoginClienteComponent implements OnInit {
   EmailError:boolean;
   PassError:boolean;
   Cardapio:Collections.Cardapio;
-  Cadastrar:boolean;
+  @Input()
+  Cadastrar:Boolean;
   constructor(
     private infocontatoservice: InformacoesContatoService, 
     private route: ActivatedRoute,
@@ -50,7 +51,6 @@ export class LoginClienteComponent implements OnInit {
     ) 
     { 
         this.authenticationService.currentUser.subscribe(x =>console.log(x));
-        this.CadastroService.Cadastrar.subscribe(x=> this.Cadastrar = x);
     }
 
   LerInformacoesContato() {
@@ -62,6 +62,7 @@ export class LoginClienteComponent implements OnInit {
 
   SetCadastrar(val){
     this.CadastroService.setCadastrar(val);
+    this.Cadastrar = val;
   }
 
   Login() {

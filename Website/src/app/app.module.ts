@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './core/interceptor';
 import { CountUpModule } from 'ngx-countup';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule  } from 'ngx-page-scroll';
 import { ClarityModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +22,7 @@ import { AppComponent } from './app.component';
 
 import { ContentLayoutComponent } from 'src/app/layout/content-layout/content-layout.component';
 import { FactoryStepsComponent } from 'src/app/layout/content-layout/page/factory-steps/component/factory-steps.component';
+
 import { NavbariconComponent } from 'src/app/layout/content-layout/page/factory-steps/component/navbaricon/navbaricon.component';
 import { FeedbackComponent } from 'src/app/layout/content-layout/page//feedback/feedback.component';
 import { ScrollTopComponent } from 'src/app/layout/content-layout/page/scroll-top/scroll-top.component';
@@ -55,6 +58,8 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
     HttpClientModule,
     BrowserAnimationsModule,
     CountUpModule,
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule,
     NgxMaskModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
