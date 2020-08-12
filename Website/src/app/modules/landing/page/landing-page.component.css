@@ -5,6 +5,9 @@
     -o-background-size: cover;
     background-size: cover;
 }
+.hero.is-medium .hero-body{
+    padding-top:5rem;
+}
 .bg-ls{
     background: url("src/assets/imagens/fundos/inicio/lagoa-central.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -12,6 +15,15 @@
     -o-background-size: cover;
     background-size: cover;
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
+}
+.cardapio-bg{
+    background-image: url('src/assets/imagens/fundos/pedido/guarnicoes-de-comida-para-seu-restaurante.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
+    border-radius: 0;
 }
 .bg-light-transparent{
     background: rgba(123, 123, 123, 0.5);
@@ -21,12 +33,16 @@
 }
 @media (min-width: 320px) and (max-width: 1023px) {
   
-    .hero{
+    #main-hero{
         background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        padding: 2px;
+    }
+    .hero.is-medium .hero-body{
+        padding: 1em;
     }
     .bg-dark-transparent{
         background: rgba(58, 58, 58, 0.36);

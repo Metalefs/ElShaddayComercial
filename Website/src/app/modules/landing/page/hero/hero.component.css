@@ -3,10 +3,12 @@
 }
 
 .right-column{
-    background: #4444446b;
-    border-radius: 36px;
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: 1rem;
+    padding-top: 3rem !important;
     display: flex;
     align-items: center;
+    border: 5px solid #ffa2a2;
     flex-direction: column;
 }
 .underline--magical {
@@ -21,9 +23,9 @@
   }
   
 
-.section {
+/* .section {
     padding: 1rem 0.5rem;
-}
+} */
 .wp-svg{
     bottom: 14px;
     position: relative;
