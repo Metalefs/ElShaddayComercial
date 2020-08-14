@@ -4,6 +4,7 @@ import { CardapioService } from 'src/app/data/service/domain/CardapioService';
 import { MatDialog } from '@angular/material/dialog';
 import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export class Table {
   displayedColumns: string[];
@@ -18,13 +19,10 @@ export class Table {
 export class EditarCardapioComponent implements OnInit {
   
   CardapioTable:Table;
-
   constructor(private api: CardapioService,private dialog: MatDialog) { 
     this.CardapioTable = new Table();
-    api.Ler().subscribe(x=>{
-      this.CardapioTable.dataSource = x;
-    })
-
+    this.api = api;
+    this.AtualizarTabela();
     this.CardapioTable.displayedColumns = [
       "Dia",
       "Nome",
@@ -35,13 +33,19 @@ export class EditarCardapioComponent implements OnInit {
     ];
 
   }
+  AtualizarTabela(){
+    this.api.Ler().subscribe(x=>{
+      this.CardapioTable.dataSource = x;
+    })
+  }
+
   AbrirModalEntrar(): void {
     
   }
   Editar(Cardapio:Collections.Cardapio){
 
     let data = [];
-    
+    let id = Cardapio._id;
     Object.entries(Cardapio).forEach(([key, value]) => {
       if(key != "_id")
       data.push(
@@ -70,7 +74,8 @@ export class EditarCardapioComponent implements OnInit {
         result[3].value,
         result[4].value,
       )
-      this.api.Editar(Cardapio);
+      Cardapio._id = id;
+      this.api.Editar(Cardapio).subscribe(x=> this.AtualizarTabela());
     });
   }
 

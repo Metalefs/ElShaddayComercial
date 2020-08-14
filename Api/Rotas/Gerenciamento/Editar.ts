@@ -19,14 +19,13 @@ app.put(Rotas.Cardapios, (req:any,res) =>{
             Nome: req.body.Cardapio.Nome,
             Ingredientes: req.body.Cardapio.Ingredientes,
             Tipo: req.body.Cardapio.Tipo,
-            ImgSrc: req.body.Cardapio.ImgSrc,
-            Preco: req.body.Cardapio.Preco,
-            Tamanho: req.body.Cardapio.Tamanho
+            ImgSrc: req.body.Cardapio.ImgSrc
         }
         console.log("gerenciamento/"+Rotas.Cardapios,query)
 
-        Mongo.Edit(Collections.Cardapio.NomeID, req.Cardapio._id, query).then(x=>{
+        Mongo.Edit(Collections.Cardapio.NomeID, req.body.Cardapio._id, query).then(x=>{
             redisConfig.flushAll();
+            console.log(x);
             res.send(x);
         });
     }
@@ -46,7 +45,7 @@ app.put(Rotas.InfoContato, (req:any,res) => {
             Instagram:req.body.InfoContato.Instagram
         }
 
-        Mongo.Edit(Collections.InformacoesContato.NomeID, req.InformacoesContato._id, query).then(x=>{
+        Mongo.Edit(Collections.InformacoesContato.NomeID, req.body.InformacoesContato._id, query).then(x=>{
             redisConfig.flushAll();
             res.send(x);
         });
@@ -68,7 +67,7 @@ app.put(Rotas.Sobre, (req:any,res) => {
             Slogan:req.body.Sobre.Slogan,
         }
 
-        Mongo.Edit(Collections.Sobre.NomeID, req.Sobre._id , query).then(x=>{
+        Mongo.Edit(Collections.Sobre.NomeID, req.body.Sobre._id , query).then(x=>{
             redisConfig.flushAll();
             res.send(x);
         });
