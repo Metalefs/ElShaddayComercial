@@ -9,6 +9,8 @@ import { IconeWhatsappComponent } from './component/icone-whatsapp/icone-whatsap
 import { CountPedidoComponent } from './component/count-pedido/count-pedido.component';
 import { MaterialModule } from './material.module';
 import { AuthModule } from './component/auth/auth.module';
+import { DynamicFormModule } from './component/dynamic-form/dynamic-form.module';
+
 import { CountUpModule } from 'ngx-countup';
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { CountUpModule } from 'ngx-countup';
     ReactiveFormsModule,
     CountUpModule,
     RouterModule,
-    ClarityModule
+    ClarityModule,
+    MaterialModule
   ],
   declarations: [
     CardapioCardComponent,
@@ -33,6 +36,7 @@ import { CountUpModule } from 'ngx-countup';
     ReactiveFormsModule,
     RouterModule,
     AuthModule,
+    DynamicFormModule,
     CardapioCardComponent,
     CardapioCardItemComponent, 
     IconeWhatsappComponent,

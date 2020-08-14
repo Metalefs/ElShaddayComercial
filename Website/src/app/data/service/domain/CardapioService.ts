@@ -29,7 +29,8 @@ export class CardapioService {
     }
 
     Editar(item: Collections.Cardapio): any {
-        return this.http.put<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, {}).pipe(
+        console.log(environment.endpoint + routes.Gerenciamento + routes.Cardapios,item);
+        return this.http.put<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, item).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );

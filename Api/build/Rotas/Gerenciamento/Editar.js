@@ -24,6 +24,7 @@ app.put(Routes_1.Rotas.Cardapios, function (req, res) {
             Preco: req.body.Cardapio.Preco,
             Tamanho: req.body.Cardapio.Tamanho
         };
+        console.log("gerenciamento/" + Routes_1.Rotas.Cardapios, query);
         Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Cardapio.NomeID, req.Cardapio._id, query).then(function (x) {
             redisConfig_1.redisConfig.flushAll();
             res.send(x);

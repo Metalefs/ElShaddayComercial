@@ -13,7 +13,6 @@ app.use(function(req, res, next) {
 });
 app.put(Rotas.Cardapios, (req:any,res) =>{
     try{
-
         let query = 
         {
             Dia: req.body.Cardapio.Dia,
@@ -24,6 +23,7 @@ app.put(Rotas.Cardapios, (req:any,res) =>{
             Preco: req.body.Cardapio.Preco,
             Tamanho: req.body.Cardapio.Tamanho
         }
+        console.log("gerenciamento/"+Rotas.Cardapios,query)
 
         Mongo.Edit(Collections.Cardapio.NomeID, req.Cardapio._id, query).then(x=>{
             redisConfig.flushAll();

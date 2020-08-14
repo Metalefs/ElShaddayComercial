@@ -226,8 +226,8 @@ export module Mongo {
                                     throw err;
                               }
                               console.log("Editado", result, query)
-                              resolve(result);
                               db.close();
+                              resolve(result);
                         });
                   });
             });

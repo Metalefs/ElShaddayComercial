@@ -1,0 +1,23 @@
+<div >
+
+  <div [ngSwitch]="question.controlType">
+
+    <div>
+      <label class="clr-sr-only">{{question.key}}</label>
+      <input class="input" *ngSwitchCase="'textbox'" [id]="question.key"  [type]="question.type" [(ngModel)]="question.value" value="{{question.value}}" style="width: 100%" aria-label="{{question.key}}" name="{{question.key}}" required />
+    </div>
+
+    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+  </div>
+
+</div>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

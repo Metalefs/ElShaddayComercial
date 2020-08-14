@@ -17,5 +17,5 @@ export let routes = {
         Login:"/usuario/login/",
         Registro:"/usuario/registro/",
 
-    Gerenciamento:"/gerenciamento/"
+    Gerenciamento:"/gerenciamento"
 };

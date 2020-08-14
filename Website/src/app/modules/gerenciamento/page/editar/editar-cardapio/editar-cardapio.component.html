@@ -1,0 +1,38 @@
+<table mat-table [dataSource]="CardapioTable.dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Dia">
+      <th mat-header-cell *matHeaderCellDef> Dia </th>
+      <td mat-cell *matCellDef="let element"> {{element.Dia}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Ingredientes">
+      <th mat-header-cell *matHeaderCellDef> Ingredientes </th>
+      <td mat-cell *matCellDef="let element"> {{element.Ingredientes}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Tipo">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let element"> {{element.Tipo}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="ImgSrc">
+        <th mat-header-cell *matHeaderCellDef> ImgSrc </th>
+        <td mat-cell *matCellDef="let element"> {{element.ImgSrc}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Acoes">
+        <th mat-header-cell *matHeaderCellDef> Acoes </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button class="button button-primary" (click)="Editar(element)">Editar</button>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="CardapioTable.displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: CardapioTable.displayedColumns;"></tr>
+  </table>
+  
