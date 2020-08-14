@@ -41,6 +41,14 @@
         background-size: cover;
         padding: 2px;
     }
+    .bg-ls{
+        /* background: lightblue; */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
+    }
     .hero.is-medium .hero-body{
         padding: 1em;
     }

@@ -20,27 +20,43 @@ import { CardapioCardComponent } from 'src/app/shared/component/cardapio-card/co
 const routes: Routes = [
   { 
     path: '', component: ContentLayoutComponent,
+    data: {
+      reuse: true
+      },
     canActivate: [NoAuthGuard], 
     children: [
       {
         path: '',
         loadChildren: () =>
           import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
-        , data: { animation: 'isLeft' }
+        , data: { animation: 'isLeft', reuse: true }
       },
       {
         path: '',
         loadChildren: () =>
           import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule)
-          , data: { animation: 'isRight' }
+          , data: { animation: 'isRight', reuse: true }
       },
       {
         path: '',
+        data: {
+          reuse: true
+          },
         loadChildren: () =>
           import('src/app/modules/entrega/entrega.module').then(m => m.EntregaModule)
       },
+      
       { path: 'cardapio', component: CardapioCardComponent },
-      { path: 'gerenciamento', component: GerenciamentoModule, canActivate: [AuthGuard] },
+
+      { 
+        path: 'gerenciamento',
+        canActivate: [AuthGuard],
+        data: {
+          reuse: true
+          },
+        loadChildren: () =>
+        import('src/app/modules/gerenciamento/gerenciamento.module').then(m => m.GerenciamentoModule)
+      },
     ]
   },
   

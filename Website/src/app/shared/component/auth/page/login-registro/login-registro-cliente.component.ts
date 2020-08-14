@@ -111,6 +111,8 @@ export class LoginRegistroClienteComponent implements OnInit {
         .subscribe(
             data => {
                 this.router.navigate([this.returnUrl]);
+                this.error = null;
+                this.Logado = true;
             },
             error => {
                 this.error = error;

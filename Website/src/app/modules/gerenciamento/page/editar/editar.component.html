@@ -1,1 +1,47 @@
-<p>editar works!</p>
+<div class="box">
+    <div class="px-3">
+
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Cardapios
+                </ng-template>
+                <app-editar-cardapio></app-editar-cardapio>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Complementos
+                </ng-template>
+                <app-editar-complemento></app-editar-complemento>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Informações de contato
+                </ng-template>
+                <app-editar-infocontato></app-editar-infocontato>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Preços de marmitex
+                </ng-template>
+                <app-editar-preco-marmitex></app-editar-preco-marmitex>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    Sobre
+                </ng-template>
+                <app-editar-sobre></app-editar-sobre>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon>thumb_up</mat-icon> Considerações
+                </ng-template>
+                <div class="card-body">
+                    <h1>Estado da aplicação: <span id="windowstatusfield"></span></h1>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-import {config} from '../../config';
+import {crypt_config} from '../../config';
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const sgMail = require('@sendgrid/mail');
@@ -17,7 +17,7 @@ export module service {
             console.log('user:', user[0]);
 
             if (user && bcrypt.compareSync(cliente.Senha, user[0].Senha)) {
-                const token = jwt.sign({ sub: user[0]._id }, config.secret, { expiresIn: '7d' });
+                const token = jwt.sign({ sub: user[0]._id }, crypt_config.secret, { expiresIn: '7d' });
                 console.log("login com sucesso. token gerado", {...user[0],token});
                 
                 cliente.token = token;
@@ -51,7 +51,7 @@ export module service {
             NovoCliente.DataCriacao = new Date();
             await Mongo.Insert(Collections.Cliente.NomeID, NovoCliente);
 
-            const token = jwt.sign({ sub: NovoCliente._id }, config.secret, { expiresIn: '7d' });
+            const token = jwt.sign({ sub: NovoCliente._id }, crypt_config.secret, { expiresIn: '7d' });
             console.log("usuário cadastrado com sucesso. token gerado", {...NovoCliente,token});
             
             NovoCliente.token = token;

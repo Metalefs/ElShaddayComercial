@@ -9,11 +9,13 @@ var app = express();
 var RotasWeb = require("./Rotas/Web/Web");
 var RotasPedido = require("./Rotas/Web/Pedido");
 var RotasFeedback = require("./Rotas/Web/Feedback");
+var RotasAvaliacao = require("./Rotas/Web/Avaliacao");
 var RotasUsuario = require("./Rotas/Usuario/Usuarios.controller");
 var RotasEditar = require("./Rotas/Gerenciamento/Editar");
 var RotasRemover = require("./Rotas/Gerenciamento/Remover");
 var RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
 app.use(cors());
+app.use(express.static('./static-files'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
@@ -21,7 +23,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.use("/", [RotasWeb, RotasPedido, RotasFeedback]);
+app.use("/", [RotasWeb, RotasPedido, RotasAvaliacao, RotasFeedback]);
 app.use("/usuario", [RotasUsuario]);
 app.use("/gerenciamento/", [RotasEditar, RotasRemover, RotasIncluir]);
 app.listen(port, function () { return console.log("Running on port " + port); });

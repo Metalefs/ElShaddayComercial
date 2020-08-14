@@ -34,6 +34,8 @@ import { NavbarComponent } from 'src/app/layout/nav/navbar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { CardapioHelper } from './_helpers/cardapio_helper';
+import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseService } from 'src/app/core/service/RouteReuseService';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,10 @@ import { CardapioHelper } from './_helpers/cardapio_helper';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: CardapioHelper },
     { provide: Document },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReuseService
+    }
   ],
   bootstrap: [AppComponent]
 })

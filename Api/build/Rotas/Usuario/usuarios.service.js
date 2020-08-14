@@ -77,7 +77,7 @@ var service;
                         return [4 /*yield*/, Mongo_1.Mongo.BuscarUm(MongoCollections_1.Collections.Cliente.NomeID, { Email: cliente.Email }).then(function (user) {
                                 console.log('user:', user[0]);
                                 if (user && bcrypt.compareSync(cliente.Senha, user[0].Senha)) {
-                                    var token = jwt.sign({ sub: user[0]._id }, config_1.config.secret, { expiresIn: '7d' });
+                                    var token = jwt.sign({ sub: user[0]._id }, config_1.crypt_config.secret, { expiresIn: '7d' });
                                     console.log("login com sucesso. token gerado", __assign(__assign({}, user[0]), { token: token }));
                                     cliente.token = token;
                                     update(__assign(__assign({}, user[0]), { token: token }));
@@ -116,7 +116,7 @@ var service;
                         return [4 /*yield*/, Mongo_1.Mongo.Insert(MongoCollections_1.Collections.Cliente.NomeID, NovoCliente)];
                     case 2:
                         _a.sent();
-                        token = jwt.sign({ sub: NovoCliente._id }, config_1.config.secret, { expiresIn: '7d' });
+                        token = jwt.sign({ sub: NovoCliente._id }, config_1.crypt_config.secret, { expiresIn: '7d' });
                         console.log("usuário cadastrado com sucesso. token gerado", __assign(__assign({}, NovoCliente), { token: token }));
                         NovoCliente.token = token;
                         update(NovoCliente);

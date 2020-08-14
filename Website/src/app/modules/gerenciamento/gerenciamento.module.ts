@@ -7,6 +7,7 @@ import { EditarPrecoMarmitexComponent } from './page/editar/editar-preco-marmite
 import { EditarSobreComponent } from './page/editar/editar-sobre/editar-sobre.component';
 import { EditarComponent } from './page/editar/editar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GerenciamentoPageRoutes } from './gerenciamento.routing';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     EditarSobreComponent,
     EditarComponent,
   ],
-  imports: [SharedModule
-    ],
+  imports: [
+    SharedModule, 
+    GerenciamentoPageRoutes
+  ],
   exports: [],
   providers: []
 })

@@ -1,5 +1,5 @@
 .cardapio-section{
-    max-width: 97vw;
+    max-width: 100vw;
 }
 
 .overflow-x-scroll::-webkit-scrollbar{
@@ -12,9 +12,6 @@
 }
 .overflow-x-scroll::-webkit-scrollbar-button{
     display: none;
-}
-.height-inherit{
-    height:inherit;
 }
 drag-scroll {
     height: 90%;

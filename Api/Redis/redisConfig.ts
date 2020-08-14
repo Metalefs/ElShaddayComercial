@@ -1,11 +1,11 @@
 const redis = require('redis');
 const cacheAddress = process.env.REDIS_URL || "//127.0.0.1:6379";
-import {Logger}  from "../logger";
+import {AppLogger}  from "../app-logger";
 
 const bluebird= require ('bluebird');
 bluebird.promisifyAll(redis);
 const redisClient = redis.createClient(cacheAddress);
-let logger = new Logger();
+let logger = new AppLogger();
 export module redisConfig {
     
     export async function getCache(key: string) {

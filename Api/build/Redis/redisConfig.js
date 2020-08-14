@@ -39,11 +39,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.redisConfig = void 0;
 var redis = require('redis');
 var cacheAddress = process.env.REDIS_URL || "//127.0.0.1:6379";
-var logger_1 = require("../logger");
+var app_logger_1 = require("../app-logger");
 var bluebird = require('bluebird');
 bluebird.promisifyAll(redis);
 var redisClient = redis.createClient(cacheAddress);
-var logger = new logger_1.Logger();
+var logger = new app_logger_1.AppLogger();
 var redisConfig;
 (function (redisConfig) {
     function getCache(key) {

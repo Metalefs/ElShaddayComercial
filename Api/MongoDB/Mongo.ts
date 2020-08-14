@@ -1,15 +1,15 @@
 const MongoClient = require('mongodb').MongoClient;
 const MDBurl = process.env.MONGODB_URI || 'mongodb+srv://Metalefs:i4e7l4@cluster0.7u463.azure.mongodb.net/ElShadday?retryWrites=true&w=majority';
 const MongoDBName = "ElShadday";
-
+var ObjectId = require('mongodb').ObjectID;
 import {Seeder} from "./MongoSeed";
 const Options = {
       useNewUrlParser: true, 
       poolSize : 10,
       useUnifiedTopology: true   
 }
-import {Logger} from "../logger";
-let logger = new Logger();
+import {AppLogger} from "../app-logger";
+let logger = new AppLogger();
 
 export module Mongo {
       export function createCollection(collection: string | any[]){ // CRIAR COLEÇÕES DE DADOS (Não utilizado)
@@ -211,7 +211,29 @@ export module Mongo {
              });
        }
       
-      export function Edit (collection: any, id:string, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+      export async function Edit (collection: any, id:string, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+            return new Promise((resolve, reject) => { 
+                  MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                        if (err){
+                              logger.log(err)
+                              throw err;
+                        }
+                        let dbo = db.db(MongoDBName);
+                        console.log(collection,query,id);
+                        dbo.collection(collection).updateOne({"_id": new ObjectId(id)}, {$set: query}, function(err: any, result: any) {
+                              if (err){
+                                    logger.log(err)
+                                    throw err;
+                              }
+                              console.log("Editado", result, query)
+                              resolve(result);
+                              db.close();
+                        });
+                  });
+            });
+      }
+
+      export function EditarPorAtributo (collection: any, attr:object, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
            
             MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
                   if (err){
@@ -219,7 +241,8 @@ export module Mongo {
                         throw err;
                   }
                   let dbo = db.db(MongoDBName);
-                  dbo.collection(collection).updateOne({_id: id}, {$set: query}, function(err: any, result: any) {
+                  console.log(collection,query,attr);
+                  dbo.collection(collection).updateOne(attr, {$set: query}, function(err: any, result: any) {
                         if (err){
                               logger.log(err)
                               throw err;

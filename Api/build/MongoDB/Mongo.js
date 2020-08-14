@@ -40,14 +40,15 @@ exports.Mongo = void 0;
 var MongoClient = require('mongodb').MongoClient;
 var MDBurl = process.env.MONGODB_URI || 'mongodb+srv://Metalefs:i4e7l4@cluster0.7u463.azure.mongodb.net/ElShadday?retryWrites=true&w=majority';
 var MongoDBName = "ElShadday";
+var ObjectId = require('mongodb').ObjectID;
 var MongoSeed_1 = require("./MongoSeed");
 var Options = {
     useNewUrlParser: true,
     poolSize: 10,
     useUnifiedTopology: true
 };
-var logger_1 = require("../logger");
-var logger = new logger_1.Logger();
+var app_logger_1 = require("../app-logger");
+var logger = new app_logger_1.AppLogger();
 var Mongo;
 (function (Mongo) {
     function createCollection(collection) {
@@ -173,6 +174,26 @@ var Mongo;
         });
     }
     Mongo.Ler = Ler;
+    function Count(collection) {
+        return new Promise(function (resolve, reject) {
+            MongoClient.connect(MDBurl, Options, function (err, db) {
+                if (err) {
+                    logger.log(err);
+                    throw err;
+                }
+                var dbo = db.db(MongoDBName);
+                dbo.collection(collection).countDocuments({}, function (error, numOfDocs) {
+                    if (err) {
+                        logger.log(err);
+                        throw err;
+                    }
+                    db.close();
+                    resolve(numOfDocs);
+                });
+            });
+        });
+    }
+    Mongo.Count = Count;
     function LerECachear(collection, redisConfig, CacheKey) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -249,13 +270,40 @@ var Mongo;
     }
     Mongo.Filtrar = Filtrar;
     function Edit(collection, id, query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        MongoClient.connect(MDBurl, Options, function (err, db) {
+                            if (err) {
+                                logger.log(err);
+                                throw err;
+                            }
+                            var dbo = db.db(MongoDBName);
+                            console.log(collection, query, id);
+                            dbo.collection(collection).updateOne({ "_id": new ObjectId(id) }, { $set: query }, function (err, result) {
+                                if (err) {
+                                    logger.log(err);
+                                    throw err;
+                                }
+                                console.log("Editado", result, query);
+                                resolve(result);
+                                db.close();
+                            });
+                        });
+                    })];
+            });
+        });
+    }
+    Mongo.Edit = Edit;
+    function EditarPorAtributo(collection, attr, query) {
         MongoClient.connect(MDBurl, Options, function (err, db) {
             if (err) {
                 logger.log(err);
                 throw err;
             }
             var dbo = db.db(MongoDBName);
-            dbo.collection(collection).updateOne({ _id: id }, { $set: query }, function (err, result) {
+            console.log(collection, query, attr);
+            dbo.collection(collection).updateOne(attr, { $set: query }, function (err, result) {
                 if (err) {
                     logger.log(err);
                     throw err;
@@ -265,7 +313,7 @@ var Mongo;
             });
         });
     }
-    Mongo.Edit = Edit;
+    Mongo.EditarPorAtributo = EditarPorAtributo;
     function UpdateUserToken(collection, id, token) {
         MongoClient.connect(MDBurl, Options, function (err, db) {
             if (err) {

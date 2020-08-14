@@ -3,6 +3,9 @@
     opacity: .75;
     transition: .5s;
 }
+.cardapio-card{
+    height: 100%;
+}
 .cardapio-card:hover{
     opacity:1;
     cursor: pointer;
@@ -33,9 +36,6 @@
     100%{
         box-shadow:1px 1px 10px rgba(0,0,0,.5);
     }
-}
-:root{
-    --border-width: 3px;
 }
 .cardapio-atual {
     opacity: 1;
