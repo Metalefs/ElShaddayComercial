@@ -2,21 +2,64 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-import { AuthGuard } from './_helpers';
+import { AuthGuard } from './core/interceptor';
+import { NoAuthGuard } from './core/guard/no-auth.guard';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { PedidoComponent } from './pages/pedido/pedido.component';
-import { EntregaComponent } from './pages/entrega/entrega.component';
-import { HeroComponent } from './hero/hero.component';
-import { EditarComponent } from './gerenciamento/editar/editar.component';
-import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+
+import { ContentLayoutComponent } from 'src/app/layout/content-layout/content-layout.component';
+
+import { LandingPageModule } from 'src/app/modules/landing/landing.module';
+import { PedidoModule } from 'src/app/modules/pedido/pedido.module';
+import { EntregaModule } from 'src/app/modules/entrega/entrega.module';
+import { GerenciamentoModule } from 'src/app/modules/gerenciamento/gerenciamento.module';
+
+import { CardapioCardComponent } from 'src/app/shared/component/cardapio-card/component/cardapio-card.component';
+
+//import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
-  { path: 'hero', component: HeroComponent, data: { animation: 'isLeft' } },
-  { path: 'entrega', component: EntregaComponent },
-  { path: 'pedido', component: PedidoComponent, data: { animation: 'isRight' } },
-  { path: 'gerenciamento', component: EditarComponent, canActivate: [AuthGuard] },
+  { 
+    path: '', component: ContentLayoutComponent,
+    data: {
+      reuse: true
+      },
+    canActivate: [NoAuthGuard], 
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
+        , data: { animation: 'isLeft', reuse: true }
+      },
+      {
+        path: '',
+        loadChildren: () =>
+          import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule)
+          , data: { animation: 'isRight', reuse: true }
+      },
+      {
+        path: '',
+        data: {
+          reuse: true
+          },
+        loadChildren: () =>
+          import('src/app/modules/entrega/entrega.module').then(m => m.EntregaModule)
+      },
+      
+      { path: 'cardapio', component: CardapioCardComponent },
+
+      { 
+        path: 'gerenciamento',
+        canActivate: [AuthGuard],
+        data: {
+          reuse: true
+          },
+        loadChildren: () =>
+        import('src/app/modules/gerenciamento/gerenciamento.module').then(m => m.GerenciamentoModule)
+      },
+    ]
+  },
+  
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,15 +1,1 @@
-<app-navbar [Titulo] = "title" [Logado]="currentUser"></app-navbar>
-<app-factory-steps></app-factory-steps>
-<div [@routeAnimations]="prepareRoute(outlet)" class="main">
-    <router-outlet #outlet="outlet"></router-outlet>
-</div>
-<app-icone-whatsapp></app-icone-whatsapp>
-<app-feedback></app-feedback>
-<footer class="footer">
-    <div class="content">
-        <p class="has-text-white-bis is-family-primary">
-            <strong>ElShadday</strong> - 2020 - Todos os direitos reservados.
-        </p>
-    </div>
-</footer>
-<app-scroll-top></app-scroll-top>
+<router-outlet #outlet="outlet"></router-outlet>

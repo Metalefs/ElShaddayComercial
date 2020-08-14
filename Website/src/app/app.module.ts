@@ -1,107 +1,69 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from 'src/app/shared/material.module';
 
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NavbariconComponent } from './shared/factory-steps/navbaricon/navbaricon.component';
-import { ContatoComponent } from './contato/contato.component';
-import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
-import { CardapioCardComponent } from './cardapio-card/cardapio-card.component';
-import { CardapioCardItemComponent } from './cardapio-card/cardapio-card-item/cardapio-card-item.component';
-import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
-import { HeroComponent } from './hero/hero.component';
-import { ClarityModule } from '@clr/angular';
-import { MatTableModule } from '@angular/material/table'  
-import { CountUpModule } from 'ngx-countup';
-import { FactoryStepsComponent } from './shared/factory-steps/factory-steps.component';
-import { IconeWhatsappComponent } from './icone-whatsapp/icone-whatsapp.component';
-import { ZippyComponent } from './shared/zippy/zippy.component';
-import { EditarComponent } from './gerenciamento/editar/editar.component';
-import { EditarSobreComponent } from './gerenciamento/editar/editar-sobre/editar-sobre.component';
-import { EditarInfocontatoComponent } from './gerenciamento/editar/editar-infocontato/editar-infocontato.component';
-import { EditarCardapioComponent } from './gerenciamento/editar/editar-cardapio/editar-cardapio.component';
-import { EditarComplementoComponent } from './gerenciamento/editar/editar-complemento/editar-complemento.component';
-import { EditarPrecoMarmitexComponent } from './gerenciamento/editar/editar-preco-marmitex/editar-preco-marmitex.component';
-import { PedidoComponent } from './pages/pedido/pedido.component';
-import { EntregaComponent } from './pages/entrega/entrega.component';
-import { LocalizacaoComponent } from './localizacao/localizacao.component';
-import { FeedbackComponent } from './avaliacoes/feedback/feedback.component';
-import { MontarPedidoComponent } from './pages/pedido/montar-pedido/montar-pedido.component';
-import { CardapioListaAgrupadaComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-agrupada.component';
-import { ComplementosComponent } from './pages/pedido/montar-pedido/complementos/complementos.component';
-import { CardapioListaItemComponent } from './pages/pedido/cardapio-lista-agrupada/cardapio-lista-item/cardapio-lista-item.component';
-import { CardapioHelper } from './_helpers/cardapio_helper';
-import { ComplementoItemComponent } from './pages/pedido/montar-pedido/complementos/complemento-item/complemento-item.component';
-import { ExibicaoPedidoComponent } from './pages/pedido/exibicao-pedido/exibicao-pedido.component';
-import { ScrollTopComponent } from './scroll-top/scroll-top.component';
-import { LoginDialogComponent } from './dialogs/login-dialog/login-dialog.component';
-import { MeusPedidosComponent } from './pages/entrega/meus-pedidos/meus-pedidos.component';
-import { DetalhesPedidoDialogComponent } from './dialogs/detalhes-pedido-dialog/detalhes-pedido-dialog.component';
-import { DetalhesPedidoComponent } from './pages/entrega/meus-pedidos/detalhes-pedido/detalhes-pedido.component';
-import { EstrelasComponent } from './avaliacoes/estrelas/estrelas.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from 'src/environments/environment'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor } from './core/interceptor';
+import { CountUpModule } from 'ngx-countup';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule  } from 'ngx-page-scroll';
+import { ClarityModule } from '@clr/angular';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { ContentLayoutComponent } from 'src/app/layout/content-layout/content-layout.component';
+import { FactoryStepsComponent } from 'src/app/layout/content-layout/page/factory-steps/component/factory-steps.component';
+
+import { NavbariconComponent } from 'src/app/layout/content-layout/page/factory-steps/component/navbaricon/navbaricon.component';
+import { FeedbackComponent } from 'src/app/layout/content-layout/page//feedback/feedback.component';
+import { ScrollTopComponent } from 'src/app/layout/content-layout/page/scroll-top/scroll-top.component';
+import { MeusPedidosModule } from 'src/app/modules/entrega/page/meus-pedidos/meus-pedidos.module';
+
+import { FooterComponent } from 'src/app/layout/footer/footer.component';
+import { NavbarComponent } from 'src/app/layout/nav/navbar.component';
+
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardapioHelper } from './_helpers/cardapio_helper';
+import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseService } from 'src/app/core/service/RouteReuseService';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    NavbariconComponent,
-    ContatoComponent,
-    PageNotFoundComponent,
-    MainPageComponent,
-    CardapioCardComponent,
-    CardapioCardItemComponent,
-    RegistroClienteComponent,
-    HeroComponent,
     FactoryStepsComponent,
-    IconeWhatsappComponent,
-    ZippyComponent,
-    EditarComponent,
-    EditarSobreComponent,
-    EditarInfocontatoComponent,
-    EditarCardapioComponent,
-    EditarComplementoComponent,
-    EditarPrecoMarmitexComponent,
-    PedidoComponent,
-    EntregaComponent,
-    LocalizacaoComponent,
+    NavbariconComponent,
     FeedbackComponent,
-    MontarPedidoComponent,
-    CardapioListaAgrupadaComponent,
-    ComplementosComponent,
-    CardapioListaItemComponent,
-    ComplementoItemComponent,
-    ExibicaoPedidoComponent,
     ScrollTopComponent,
-    LoginDialogComponent,
-    MeusPedidosComponent,
-    DetalhesPedidoDialogComponent,
-    DetalhesPedidoComponent,
-    EstrelasComponent
+    FooterComponent,
+    NavbarComponent,
+    ContentLayoutComponent,
   ],
   imports: [
+    ClarityModule,
+    MaterialModule,
     BrowserModule,
+    CoreModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClarityModule,
+    MeusPedidosModule,
     CountUpModule,
-    MatDialogModule,
-    MatTableModule,
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule,
     NgxMaskModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
@@ -110,6 +72,10 @@ import { environment } from '../environments/environment'
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: CardapioHelper },
     { provide: Document },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReuseService
+    }
   ],
   bootstrap: [AppComponent]
 })

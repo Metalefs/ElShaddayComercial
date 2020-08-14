@@ -2,22 +2,18 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { Router, RouterOutlet } from '@angular/router';
 
-import { AuthenticationService } from './api/authentication/authentication.service';
+import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
 import { fade, slider } from './animations';
 
-import { OpcaoNavbar } from './shared/_models/OpcoesNavbar';
-import { Collections } from './shared/_models/MongoCollections';
-import { slide } from './animations';
+import { OpcaoNavbar } from 'src/app/data/schema/OpcoesNavbar';
+import { Collections } from './data/schema/MongoCollections';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    // fader,
-     slider,
-    // transformer,
-    //stepper
+     slider
   ]
 })
 

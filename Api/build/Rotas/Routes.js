@@ -9,6 +9,7 @@ exports.Rotas = {
     PrecoMarmitex: "/precoMarmitex/",
     Complemento: "/complemento/",
     Feedback: "/feedback/",
+    Avaliacao: '/avaliacao/',
     Pedido: "/pedido/",
     Seed: "/seed/",
     FlushAll: "/flushAll/",

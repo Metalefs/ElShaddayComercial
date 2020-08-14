@@ -1,4 +1,4 @@
-import { Collections } from '../shared/_models/MongoCollections';
+import { Collections } from '../data/schema/MongoCollections';
 
   export class CardapioHelper {
     

@@ -1,0 +1,42 @@
+
+.factory-steps{
+    background: linear-gradient(90deg,#f15b5b,#ff4242 35%,#f15b5b);
+    width: 100vw;
+    margin: 0;
+    height: 70px;
+    z-index: 1;
+    place-items: center;
+}
+li{
+    width: 71px;
+}
+@media (min-width: 320px ) and (max-width: 1023px) {
+    
+    .fix-bottom-on-mobile{
+        bottom: 0;
+        top: initial;
+        /* background: #8c8c8ccf; */
+        /* position: fixed; */
+        width: 100%;
+    }
+    
+}
+
+  li {
+    width: 50px;
+    float: left;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  .li:nth-of-type(1):hover ~ .underbar {
+    margin-left: 5%;
+  }
+  
+  .li:nth-of-type(2):hover ~ .underbar {
+    margin-left: 7%;
+  }
+  
+  li:nth-of-type(3):hover ~ .underbar {
+    margin-left: 15%;
+  }

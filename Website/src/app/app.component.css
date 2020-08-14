@@ -1,18 +1,4 @@
-.main{
-    animation: fade-in ease-in-out .5s forwards;
-    width: 100vw;
-}
-.stack-view-key{
-    flex:initial !important;
-}
-.footer{
-    background: linear-gradient(90deg,#e82d2d,#d62e2e 35%,#c54242);
-}
-@keyframes fade-in{
-    0%{
-        transform: translateY(-10px);
-    }
-    100%{
-        transform: translate(0px);
-    }
+
+.height-inherit{
+    height:inherit;
 }

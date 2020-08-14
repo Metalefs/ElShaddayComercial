@@ -1,0 +1,14 @@
+<div class="height-inherit">
+
+    <section *ngIf="Cardapios != undefined" class="section bg-light-transparent mx-0">
+        <h3 class="title is-4 has-text-white has-text-left">Cardápio da semana </h3>
+        
+        <div class="columns cardapio-section is-mobile overflow-x-scroll">
+            <div class="column" *ngFor="let Cardapio of Cardapios">
+                <cardapio-card-item [Cardapio]="Cardapio"></cardapio-card-item>
+            </div>
+        </div>
+        
+    </section>
+
+</div>

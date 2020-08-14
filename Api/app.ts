@@ -16,7 +16,7 @@ const RotasRemover = require("./Rotas/Gerenciamento/Remover");
 const RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
 
 app.use(cors());
-
+app.use(express.static('./static-files'));
 app.use(bodyParser.json());      
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(function(req: any, res: { header: (arg0: string, arg1: string) => void; }, next: () => void) {

@@ -1,0 +1,52 @@
+<section *ngIf="InformacoesContato != undefined" class="section">
+    
+    <div class="has-background-gray-light">
+
+            <div class="columns is-gapless">
+                <div class="column primary">
+                   
+                    <div class="">
+                       <h2>Contato</h2>
+                       <article class="media">
+                            <figure class="media-left">
+                                <clr-icon shape="phone-handset" class="image"></clr-icon>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <a rel="noopener" target="_blank" class="mr-0" href="https://wa.me/{{InformacoesContato?.Whatsapp}}?text=Olá,%20ElShadday%20 !">
+                                        <p class="mr-0 is-size-6 is-light has-text-weight-medium has-text-justified underline--magical">{{InformacoesContato?.Telefone}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <figure class="media-left">
+                                <clr-icon shape="envelope" class="image"></clr-icon>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <a href="mailto:{{InformacoesContato.Email}}">
+                                        <p class="is-size-6 is-light has-text-weight-medium has-text-justified"> {{InformacoesContato.Email}} </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>    
+                   </div>
+                    
+                </div>
+                
+                <hr>
+                <div class="column">
+
+                    <div class="">
+                        <h2>Atendimento</h2>
+ 
+                       <p class="is-size-6">{{InformacoesContato.HorarioAtendimento}}</p>        
+                    </div>
+                    
+                </div>
+            </div>
+
+    </div>
+    
+</section>
