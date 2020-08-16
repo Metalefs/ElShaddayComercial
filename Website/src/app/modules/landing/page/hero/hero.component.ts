@@ -31,20 +31,32 @@ export class HeroComponent implements OnInit {
      }
 
   async LerSobre(){
+    if(localStorage.getItem("Sobre"))
+      this.Sobre = JSON.parse(localStorage.getItem("Sobre"))
+    else
     this.SobreService.Ler().subscribe(data=>{
       this.Sobre = data[0];
+      localStorage.setItem("Sobre",JSON.stringify(this.Sobre))
     });
   }
 
   async LerInfoContato(){
+    if(localStorage.getItem("InformacaoContato"))
+      this.InformacaoContato = JSON.parse(localStorage.getItem("InformacaoContato"))
+    else
     this.InfoContatoService.Ler().subscribe(data=>{
       this.InformacaoContato = data[0];
+      localStorage.setItem("InformacaoContato",JSON.stringify(this.InformacaoContato))
     });
   }
 
   async LerPrecoMarmitex(){
+    if(localStorage.getItem("PrecoMarmitex"))
+      this.PrecoMarmitex = JSON.parse(localStorage.getItem("PrecoMarmitex"))
+    else
     this.PrecoMarmitexService.Ler().subscribe(data=>{
       this.PrecoMarmitex = data[0];
+      localStorage.setItem("PrecoMarmitex",JSON.stringify(this.PrecoMarmitex))
       this.loading = false;
     });
   }

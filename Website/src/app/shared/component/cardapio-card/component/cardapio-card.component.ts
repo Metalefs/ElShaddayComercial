@@ -18,6 +18,9 @@ export class CardapioCardComponent implements OnInit {
   }
 
   LerCardapio() {
+    if(localStorage.getItem("Cardapio"))
+      this.Cardapios = JSON.parse(localStorage.getItem("Cardapio"))
+    else
     this.api.Cardapios().subscribe(data=>{
       console.log(data);
       this.Cardapios = data;
@@ -25,6 +28,7 @@ export class CardapioCardComponent implements OnInit {
       this.Cardapios.forEach(x=>{
         x.Dia = this.CardapioHelper.ObterDiaSemana(x.Dia);
       })
+      localStorage.setItem("Cardapio", JSON.stringify(this.Cardapios))
     });
   }
 

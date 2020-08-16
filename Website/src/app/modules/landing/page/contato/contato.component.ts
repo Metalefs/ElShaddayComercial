@@ -17,9 +17,12 @@ export class ContatoComponent implements OnInit {
   constructor(public api: RestApiService) {  }
 
   LerInformacoesContato() {
+    if(localStorage.getItem("InformacaoContato"))
+      this.InformacoesContato = JSON.parse(localStorage.getItem("InformacaoContato"))
+    else
     this.api.InformacoesContato().subscribe(data=>{
       this.InformacoesContato = data[0];
-      console.log(this.InformacoesContato);
+      localStorage.setItem("InformacaoContato",JSON.stringify(this.InformacoesContato))
     });
   }
 
