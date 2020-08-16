@@ -20,13 +20,12 @@ app.put(Routes_1.Rotas.Cardapios, function (req, res) {
             Nome: req.body.Cardapio.Nome,
             Ingredientes: req.body.Cardapio.Ingredientes,
             Tipo: req.body.Cardapio.Tipo,
-            ImgSrc: req.body.Cardapio.ImgSrc,
-            Preco: req.body.Cardapio.Preco,
-            Tamanho: req.body.Cardapio.Tamanho
+            ImgSrc: req.body.Cardapio.ImgSrc
         };
         console.log("gerenciamento/" + Routes_1.Rotas.Cardapios, query);
-        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Cardapio.NomeID, req.Cardapio._id, query).then(function (x) {
+        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Cardapio.NomeID, req.body.Cardapio._id, query).then(function (x) {
             redisConfig_1.redisConfig.flushAll();
+            console.log(x);
             res.send(x);
         });
     }
@@ -37,13 +36,13 @@ app.put(Routes_1.Rotas.Cardapios, function (req, res) {
 app.put(Routes_1.Rotas.InfoContato, function (req, res) {
     try {
         var query = {
-            Telefone: req.body.InfoContato.Telefone,
-            Email: req.body.InfoContato.Email,
-            HorarioAtendimento: req.body.InfoContato.HorarioAtendimento,
-            Whatsapp: req.body.InfoContato.Whatsapp,
-            Instagram: req.body.InfoContato.Instagram
+            Telefone: req.body.InformacoesContato.Telefone,
+            Email: req.body.InformacoesContato.Email,
+            HorarioAtendimento: req.body.InformacoesContato.HorarioAtendimento,
+            Whatsapp: req.body.InformacoesContato.Whatsapp,
+            Instagram: req.body.InformacoesContato.Instagram
         };
-        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.InformacoesContato.NomeID, req.InformacoesContato._id, query).then(function (x) {
+        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.InformacoesContato.NomeID, req.body.InformacoesContato._id, query).then(function (x) {
             redisConfig_1.redisConfig.flushAll();
             res.send(x);
         });
@@ -61,7 +60,7 @@ app.put(Routes_1.Rotas.Sobre, function (req, res) {
             Historia: req.body.Sobre.Historia,
             Slogan: req.body.Sobre.Slogan,
         };
-        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Sobre.NomeID, req.Sobre._id, query).then(function (x) {
+        Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Sobre.NomeID, req.body.Sobre._id, query).then(function (x) {
             redisConfig_1.redisConfig.flushAll();
             res.send(x);
         });

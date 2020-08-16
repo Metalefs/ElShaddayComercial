@@ -23,7 +23,7 @@ export class ComplementoService {
     }
     
     Editar(item: Collections.Complemento): any {
-        return this.http.put<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento, {}).pipe(
+        return this.http.put<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento, {Complemento:item}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );

@@ -6,11 +6,13 @@ import { InformacoesContatoService } from 'src/app/data/service/domain//Informac
 import { PrecoMarmitexService } from 'src/app/data/service/domain//PrecoMarmitexService';
 
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+import { fade } from 'src/app/animations';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  styleUrls: ['./hero.component.css'],
+  animations:[fade]
 })
 export class HeroComponent implements OnInit {
   loading = false;

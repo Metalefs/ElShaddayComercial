@@ -1,1 +1,22 @@
-<p>editar-preco-marmitex works!</p>
+<table mat-table [dataSource]="PrecoMarmitexTable.dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Pequena">
+        <th mat-header-cell *matHeaderCellDef> Pequena </th>
+        <td mat-cell *matCellDef="let element"> {{element.Pequena}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Grande">
+        <th mat-header-cell *matHeaderCellDef> Grande </th>
+        <td mat-cell *matCellDef="let element"> {{element.Grande}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acoes">
+        <th mat-header-cell *matHeaderCellDef> Acoes </th>
+        <td mat-cell *matCellDef="let element">
+            <button class="button button-primary" (click)="Editar(element)">Editar</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="PrecoMarmitexTable.displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: PrecoMarmitexTable.displayedColumns;"></tr>
+</table>

@@ -1,10 +1,10 @@
 <nav class="factory-steps fix-bottom-on-mobile columns px-5 is-centered is-mobile">
-    <ul>
-        <li *ngFor="let opcao of Opcoes">
+    <div class="columns is-mobile">
+        <div class="column" *ngFor="let opcao of Opcoes">
             <div class="column border-white">
                 <navbaricon class="nav-icon tile" [EstadoNav]="EstadoNav" [Titulo]="opcao.Titulo" [Link]="opcao.Link" [Icon]="opcao.Icon"></navbaricon>
             </div>
-        </li>
+        </div>
         <div class="underbar"></div>
-    </ul>
+    </div>
 </nav>

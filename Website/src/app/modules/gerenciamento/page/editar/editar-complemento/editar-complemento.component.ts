@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { ComplementoService } from 'src/app/data/service/domain/ComplementoService';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
+import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
+import { Table } from 'src/app/data/schema/Table';
 @Component({
   selector: 'app-editar-complemento',
   templateUrl: './editar-complemento.component.html',
@@ -10,16 +13,70 @@ import { ComplementoService } from 'src/app/data/service/domain/ComplementoServi
 export class EditarComplementoComponent implements OnInit {
 
   Complemento:Collections.Complemento = null;
-  constructor(private api: ComplementoService) {  }
+  ComplementoTable:Table;
 
-  Editar(){
-    this.api.Editar(this.Complemento);
+  constructor(private api: ComplementoService, private dialog: MatDialog) { 
+    this.ComplementoTable = new Table();
+    this.api = api;
+    this.AtualizarTabela();
+    this.ComplementoTable.displayedColumns = [
+      "Nome",
+      "Tipo",
+      "Preco",
+      "Acoes"
+    ];
+
   }
-  Remover(){
-    this.api.Remover(this.Complemento._id);
+  AtualizarTabela(){
+    this.api.Ler().subscribe(x=>{
+      this.ComplementoTable.dataSource = x;
+    })
+  }
+
+  AbrirModalEntrar(): void {
+    
+  }
+  Editar(Complemento:Collections.Complemento){
+
+    let data = [];
+    let id = Complemento._id;
+    Object.entries(Complemento).forEach(([key, value]) => {
+      if(key != "_id")
+      data.push(
+        new TextboxQuestion({
+          key: key,
+          label: key,
+          value: value,
+          required: true,
+          type:"textbox",
+          order: 1
+        })
+      )
+    })
+      
+    console.log(data);
+    const dialogRef = this.dialog.open(DynamicFormComponent, {
+      width: '90%',
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
+      let Complemento = new Collections.Complemento(
+        result[0].value,
+        result[1].value,
+        parseFloat(result[2].value),
+      )
+      Complemento._id = id;
+      this.api.Editar(Complemento).subscribe(x=> this.AtualizarTabela());
+    });
+  }
+
+  Remover(Complemento:Collections.Complemento){
+    this.api.Remover(Complemento._id);
   }
   
   ngOnInit(): void {
   }
+
 
 }

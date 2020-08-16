@@ -19,7 +19,8 @@ export class FactoryStepsComponent implements OnInit {
   EstadoNav = new EstadoNav();
   Opcoes:OpcaoNavbar[] = [
     new OpcaoNavbar("Inicio", "", "Home"),
-    new OpcaoNavbar("Pedido", "/pedido", "view-list"),
+    new OpcaoNavbar("Pratos", "/pratos", "checkbox-list"),
+    new OpcaoNavbar("Pedido", "/pedido", "add-text"),
     new OpcaoNavbar("Entrega", "/entrega", "shopping-cart"),
   ];
 

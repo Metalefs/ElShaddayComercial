@@ -38,11 +38,11 @@ app.put(Rotas.InfoContato, (req:any,res) => {
 
         let query = 
         {
-            Telefone:req.body.InfoContato.Telefone,
-            Email:req.body.InfoContato.Email,
-            HorarioAtendimento:req.body.InfoContato.HorarioAtendimento,
-            Whatsapp:req.body.InfoContato.Whatsapp,
-            Instagram:req.body.InfoContato.Instagram
+            Telefone:req.body.InformacoesContato.Telefone,
+            Email:req.body.InformacoesContato.Email,
+            HorarioAtendimento:req.body.InformacoesContato.HorarioAtendimento,
+            Whatsapp:req.body.InformacoesContato.Whatsapp,
+            Instagram:req.body.InformacoesContato.Instagram
         }
 
         Mongo.Edit(Collections.InformacoesContato.NomeID, req.body.InformacoesContato._id, query).then(x=>{

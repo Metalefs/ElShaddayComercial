@@ -59,4 +59,8 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    tokenize(item:object){
+        return {item, token: this.currentUserSubject.value.token}
+    }
 }

@@ -4,10 +4,10 @@ export module Seeder {
       export function SeedCollections (){ // FAZ SEEDING NO MONGODB DO AMBIENTE
             let InformacoesContato = 
             new Collections.InformacoesContato(
-                  "(31) 99446-1428",
+                  "(31) 99267-0818",
                   "diskmarmitex@elshadday.com",
                   "Segunda a Sábado, 8:00 ás 14:00h",
-                  "5531994461428",
+                  "55319992670818",
                   "diskmarmitexls"
             );
 

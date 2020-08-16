@@ -5,11 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
-export class Table {
-  displayedColumns: string[];
-  dataSource = {};
-}
+import { Table } from 'src/app/data/schema/Table';
 
 @Component({
   selector: 'app-editar-cardapio',

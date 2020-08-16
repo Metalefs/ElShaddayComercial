@@ -31,12 +31,21 @@ const routes: Routes = [
           import('src/app/modules/landing/landing.module').then(m => m.LandingPageModule)
         , data: { animation: 'isLeft', reuse: true }
       },
+
+      {
+        path: '',
+        loadChildren: () =>
+          import('src/app/modules/pratos/pratos.module').then(m => m.PratosModule)
+          , data: { animation: 'isRight', reuse: true }
+      },
+
       {
         path: '',
         loadChildren: () =>
           import('src/app/modules/pedido/pedido.module').then(m => m.PedidoModule)
           , data: { animation: 'isRight', reuse: true }
       },
+
       {
         path: '',
         data: {
