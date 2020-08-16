@@ -64,6 +64,7 @@ export class LoginRegistroClienteComponent implements OnInit {
     { 
         this.authenticationService.currentUser.subscribe(x =>console.log(x));
         this.Cadastrar = false;
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
   LerInformacoesContato() {
@@ -84,6 +85,8 @@ export class LoginRegistroClienteComponent implements OnInit {
                 this.PassError = false;
                 this.error = null;
                 this.Logado = true;
+                if(this.returnUrl != "/")
+                  this.router.navigateByUrl(this.returnUrl);
             },
             error => {
                 this.error = error;

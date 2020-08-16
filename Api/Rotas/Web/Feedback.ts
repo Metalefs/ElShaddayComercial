@@ -2,7 +2,7 @@ import {Rotas} from '../Routes';
 import {Mongo} from '../../MongoDB/Mongo';
 import {Collections} from '../../MongoDB/MongoCollections';
 import express = require('express');
-import {service} from "../Usuario/usuarios.service";
+import {UsuarioService} from "../Usuario/usuarios.service";
 const app: express.Application = express();
 
 // [GET]----------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 app.post(Rotas.Feedback, (req:any,res) =>{
     try{
-        if(service.getByToken(req.body.token))
+        if(UsuarioService.getByToken(req.body.token))
             res.send(Mongo.Insert(Collections.Feedback.NomeID, req.body.Feedback));
     }
     catch(err){

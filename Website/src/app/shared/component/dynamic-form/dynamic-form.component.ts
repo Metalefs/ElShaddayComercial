@@ -12,7 +12,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<string>[] = [];
-  Method:string
+  Method:string;
+  MethodButtonName:string;
   form: FormGroup;
   payLoad = '';
 
@@ -20,6 +21,7 @@ export class DynamicFormComponent implements OnInit {
       public dialogRef: MatDialogRef<DynamicFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data:  DynFormQuestions) {
       this.Method = data.Method;
+      this.MethodButtonName = data.Method == "Editar" ? "Atualizar" : data.Method;
       this.questions = data.questions;
     }
 

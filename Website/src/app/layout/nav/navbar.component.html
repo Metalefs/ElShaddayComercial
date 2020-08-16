@@ -40,6 +40,9 @@
                         <a pageScroll [pageScrollOffset]="0" [pageScrollDuration]="300" [routerLink]="['inicio']" href="#localizacao" class="navbar-item">
                             Localização
                         </a>
+                        <a *ngIf="currentUser?.Tipo == 2" [routerLink]="['gerenciamento']" class="navbar-item">
+                            Gerenciamento
+                        </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
                         </a>

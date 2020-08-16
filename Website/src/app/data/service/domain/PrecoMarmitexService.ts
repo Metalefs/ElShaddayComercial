@@ -25,7 +25,7 @@ export class PrecoMarmitexService {
     }
 
     Editar(item: Collections.PrecoMarmitex): any {
-        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        let payload = this.AuthenticationService.tokenize({PrecoMarmitex:item});
         console.log(payload);
         return this.http.put<Collections.PrecoMarmitex>(environment.endpoint + routes.Gerenciamento + routes.PrecoMarmitex, 
             payload).pipe(

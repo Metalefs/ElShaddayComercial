@@ -24,7 +24,7 @@ export class SobreService {
     }
 
     Editar(item: Collections.Sobre): any {
-        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        let payload = this.AuthenticationService.tokenize({Sobre:item});
         console.log(payload);
         return this.http.put<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, 
             payload).pipe(

@@ -7,6 +7,7 @@ import { Collections } from 'src/app/data/schema/MongoCollections';
 import { InformacoesContatoService } from 'src/app/data/service/domain/InformacoesContatoService';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-navbar',
@@ -31,14 +32,17 @@ export class NavbarComponent implements OnInit {
     });
   }
   InformacaoContato:Collections.InformacoesContato;
-
+  currentUser: Collections.Cliente;
   constructor( 
     private InfoContatoService: InformacoesContatoService,
     private AuthenticationService:AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
     private dialog: MatDialog
-    ) {  }
+    ) { 
+      this.currentUser = AuthenticationService.currentUserValue; 
+      AuthenticationService.currentUser.subscribe(u =>this.currentUser = u)
+    }
 
   menuAtivo = false;
 

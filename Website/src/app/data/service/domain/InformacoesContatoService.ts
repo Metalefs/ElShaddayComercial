@@ -25,9 +25,10 @@ export class InformacoesContatoService {
     }
 
     Editar(item: Collections.InformacoesContato): any {
-        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        let payload = this.AuthenticationService.tokenize({InformacoesContato:item});
         console.log(payload);
-        return this.http.put<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato, {InformacoesContato:item}).pipe(
+        return this.http.put<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato,
+            payload).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );
