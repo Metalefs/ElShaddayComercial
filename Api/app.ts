@@ -17,8 +17,8 @@ const RotasIncluir = require("./Rotas/Gerenciamento/Incluir");
 
 app.use(cors());
 app.use(express.static('./static-files'));
-app.use(bodyParser.json());      
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 app.use(function(req: any, res: { header: (arg0: string, arg1: string) => void; }, next: () => void) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

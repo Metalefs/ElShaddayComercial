@@ -136,7 +136,8 @@ export module Collections {
         Nome:string;
         Ingredientes:string;
         Tipo:string;
-        ImgSrc:string;
+        Src:string;
+        SrcType:string;
         Preco?:number;
         Tamanho?:string;
         static NomeID:string = "Cardapios";
@@ -145,7 +146,8 @@ export module Collections {
         Nome:string,
         Ingredientes:string,
         Tipo:string,
-        ImgSrc:string,
+        Src:string,
+        SrcType:string,
         Preco?:number,
         Tamanho?:string){
             super();
@@ -153,7 +155,8 @@ export module Collections {
             this.Nome = Nome;
             this.Ingredientes = Ingredientes;
             this.Tipo = Tipo;
-            this.ImgSrc = ImgSrc;
+            this.Src = Src;
+            this.SrcType = SrcType;
             this.Preco = Preco;
             this.Tamanho = Tamanho;
         }

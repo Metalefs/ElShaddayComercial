@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { CardapioService } from 'src/app/data/service/domain/CardapioService';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,7 +24,8 @@ export class EditarCardapioComponent implements OnInit {
       "Nome",
       "Ingredientes",
       "Tipo",
-      "ImgSrc",
+      "Src",
+      "SrcType",
       "Acoes"
     ];
 
@@ -43,17 +44,34 @@ export class EditarCardapioComponent implements OnInit {
     let data = [];
     let id = Cardapio._id;
     Object.entries(Cardapio).forEach(([key, value]) => {
-      if(key != "_id")
-      data.push(
-        new TextboxQuestion({
-          key: key,
-          label: key,
-          value: value,
-          required: true,
-          type:"textbox",
-          order: 1
-        })
-      )
+      if(key != "_id"){
+
+        let type = "textbox";
+        let options :{key: string, value:string }[];
+
+        if(key == "Src"){
+          type = "file";
+        }
+        else if(key == "SrcType"){
+          type = "dropdown";
+          options = [
+            {key:"Foto", value:"F"},
+            {key:"Video", value:"V"}
+          ]
+        }
+        data.push(
+          new TextboxQuestion({
+            key: key,
+            label: key,
+            value: value,
+            required: true,
+            type:type,
+            options: options,
+            order: 1
+          })
+        )
+
+      }
     })
       
     console.log(data);
@@ -63,14 +81,17 @@ export class EditarCardapioComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
+
       let Cardapio = new Collections.Cardapio(
         result[0].value,
         result[1].value,
         result[2].value,
         result[3].value,
-        result[4].value,
+        result[4].image,
+        result[5].value,
       )
       Cardapio._id = id;
+     
       this.api.Editar(Cardapio).subscribe(x=> this.AtualizarTabela());
     });
   }

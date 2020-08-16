@@ -11,6 +11,26 @@ export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<string>;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.question.key].valid; }
+  images;
+  fileChangeEvent(fileInput: any) {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+        
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            const image = new Image();
+            image.src = e.target.result;
+            image.onload = rs => {
+
+                    const imgBase64Path = e.target.result;
+                    this.question.image= imgBase64Path;
+                    console.log(this.question.image);
+                
+            };
+        };
+
+        reader.readAsDataURL(fileInput.target.files[0]);
+    }
+}
 }
 
 

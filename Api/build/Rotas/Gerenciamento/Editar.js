@@ -3,24 +3,36 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Routes_1 = require("../Routes");
 var Mongo_1 = require("../../MongoDB/Mongo");
 var MongoCollections_1 = require("../../MongoDB/MongoCollections");
+var multer = require('multer');
 var express = require("express");
 var ObjectId = require('mongodb').ObjectID;
 var app = express();
 var redisConfig_1 = require("../../Redis/redisConfig");
-// [GET]----------------------------------------------------------------------------------------------
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.put(Routes_1.Rotas.Cardapios, function (req, res) {
+var storage = multer.diskStorage({
+    destination: function (req, file, callBack) {
+        callBack(null, 'static-files/imagens/cardapio');
+    },
+    filename: function (req, file, callBack) {
+        callBack(null, "" + file.originalname);
+    }
+});
+var upload = multer({ storage: storage });
+// [ROUTES]----------------------------------------------------------------------------------------------
+app.put(Routes_1.Rotas.Cardapios, upload.single('file'), function (req, res) {
+    console.log(req.body.Cardapio.Src);
     try {
         var query = {
             Dia: req.body.Cardapio.Dia,
             Nome: req.body.Cardapio.Nome,
             Ingredientes: req.body.Cardapio.Ingredientes,
             Tipo: req.body.Cardapio.Tipo,
-            ImgSrc: req.body.Cardapio.ImgSrc
+            Src: req.body.Cardapio.Src,
+            SrcType: req.body.Cardapio.SrcType
         };
         console.log("gerenciamento/" + Routes_1.Rotas.Cardapios, query);
         Mongo_1.Mongo.Edit(MongoCollections_1.Collections.Cardapio.NomeID, req.body.Cardapio._id, query).then(function (x) {

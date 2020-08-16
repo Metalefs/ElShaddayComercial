@@ -1,17 +1,35 @@
 import {Rotas} from '../Routes';
 import {Mongo} from '../../MongoDB/Mongo';
 import {Collections} from '../../MongoDB/MongoCollections';
+const multer = require('multer');
+
 import express = require('express');
 var ObjectId = require('mongodb').ObjectID;
 const app: express.Application = express();
 import {redisConfig} from '../../Redis/redisConfig';
-// [GET]----------------------------------------------------------------------------------------------
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.put(Rotas.Cardapios, (req:any,res) =>{
+
+const storage = multer.diskStorage({
+    destination: (req: any, file: any, callBack: (arg0: null, arg1: string) => void) => {
+        callBack(null, 'static-files/imagens/cardapio')
+    },
+    filename: (req: any, file: { originalname: any; }, callBack: (arg0: null, arg1: string) => void) => {
+        callBack(null, `${file.originalname}`)
+    }
+  })
+  
+const upload = multer({ storage: storage })
+
+
+// [ROUTES]----------------------------------------------------------------------------------------------
+
+
+app.put(Rotas.Cardapios, upload.single('file'), (req:any,res) =>{
+    console.log(req.body.Cardapio.Src);
     try{
         let query = 
         {
@@ -19,13 +37,15 @@ app.put(Rotas.Cardapios, (req:any,res) =>{
             Nome: req.body.Cardapio.Nome,
             Ingredientes: req.body.Cardapio.Ingredientes,
             Tipo: req.body.Cardapio.Tipo,
-            ImgSrc: req.body.Cardapio.ImgSrc
+            Src: req.body.Cardapio.Src,
+            SrcType: req.body.Cardapio.SrcType
         }
         console.log("gerenciamento/"+Rotas.Cardapios,query)
 
         Mongo.Edit(Collections.Cardapio.NomeID, req.body.Cardapio._id, query).then(x=>{
             redisConfig.flushAll();
             console.log(x);
+
             res.send(x);
         });
     }

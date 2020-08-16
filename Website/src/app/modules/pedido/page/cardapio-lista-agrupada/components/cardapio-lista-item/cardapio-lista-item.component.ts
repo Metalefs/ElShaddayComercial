@@ -67,7 +67,7 @@ export class CardapioListaItemComponent implements OnInit {
   ngOnInit(): void {
     this.Caminho = this.CardapioHelper.ObertCaminhoRecurso(this.Cardapio);
     this.Ativo = this.CardapioHelper.VerificarAtivo(this.Cardapio);
-    if(this.Cardapio.ImgSrc == "V"){
+    if(this.Cardapio.SrcType == "V"){
       this.Video = true;
     }
   }

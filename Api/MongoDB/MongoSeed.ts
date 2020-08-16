@@ -24,13 +24,13 @@ export module Seeder {
 
             let Cardapios:Collections.Cardapio[];
             Cardapios = [];
-            Cardapios.push(new Collections.Cardapio("1","Carne de panela","Arroz, Feijao, Carne cozida com batata e salada","N","F"));
-            Cardapios.push(new Collections.Cardapio("2","Bife de frango grelhado","Arroz, Feijao, Macarrão ao alho e óleo, Filé de frango a milanesa","N","F"));
-            Cardapios.push(new Collections.Cardapio("3","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","F"));
-            Cardapios.push(new Collections.Cardapio("4","Frango com Quiabo","Arroz, Feijao, Frango com Quiabo e Angu","N","F"));
-            Cardapios.push(new Collections.Cardapio("4","Bisteca com couve e angu","Arroz, Feijao, Bisteca com Couve e Angu","N","F"));
-            Cardapios.push(new Collections.Cardapio("5","Feijoada","Arroz, Feijoada, Couve, Farofa, Laranja e Vinagrete","N","V"));
-            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","F"));
+            Cardapios.push(new Collections.Cardapio("1","Carne de panela","Arroz, Feijao, Carne cozida com batata e salada","N","","F"));
+            Cardapios.push(new Collections.Cardapio("2","Bife de frango grelhado","Arroz, Feijao, Macarrão ao alho e óleo, Filé de frango a milanesa","N","","F"));
+            Cardapios.push(new Collections.Cardapio("3","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","","F"));
+            Cardapios.push(new Collections.Cardapio("4","Frango com Quiabo","Arroz, Feijao, Frango com Quiabo e Angu","N","","F"));
+            Cardapios.push(new Collections.Cardapio("4","Bisteca com couve e angu","Arroz, Feijao, Bisteca com Couve e Angu","N","","F"));
+            Cardapios.push(new Collections.Cardapio("5","Feijoada","Arroz, Feijoada, Couve, Farofa, Laranja e Vinagrete","N","","V"));
+            Cardapios.push(new Collections.Cardapio("6","Tropeiro","Arroz, Tropeiro com bife de porco, Couve e Torresmo","N","","F"));
 
             let Saladas_Complemento:Collections.Complemento[];
             Saladas_Complemento = [];

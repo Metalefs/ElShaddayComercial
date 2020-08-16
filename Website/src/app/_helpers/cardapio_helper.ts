@@ -5,16 +5,17 @@ import { Collections } from '../data/schema/MongoCollections';
     constructor(){};
 
     ObertCaminhoRecurso(Cardapio: Collections.Cardapio){
-        let Caminho = "";
-        let Video = true;
-        if(Cardapio.ImgSrc === "F"){
-            Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.jpeg`;
-            Video = false;
-        }
-        else{
-            Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.mp4`;
-        }
-        return Caminho;
+        // let Caminho = "";
+        // let Video = true;
+        // if(Cardapio.SrcType === "F"){
+        //     Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.jpeg`;
+        //     Video = false;
+        // }
+        // else{
+        //     Caminho = `/assets/imagens/cardapio/${Cardapio.Nome.trim()}.mp4`;
+        // }
+        // return Caminho;
+        return Cardapio.Src;
     }
 
     VerificarAtivo(Cardapio){
