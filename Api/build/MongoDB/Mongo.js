@@ -139,19 +139,26 @@ var Mongo;
     }
     Mongo.InsertMany = InsertMany;
     function Insert(collection, value) {
-        MongoClient.connect(MDBurl, Options, function (err, db) {
-            if (err) {
-                logger.log(err);
-                throw err;
-            }
-            var dbo = db.db(MongoDBName);
-            dbo.collection(collection).insertOne(value, function (err, res) {
-                if (err) {
-                    logger.log(err);
-                    throw err;
-                }
-                console.log("Inserido " + res.insertedCount + " " + collection + " : | " + new Date());
-                db.close();
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        MongoClient.connect(MDBurl, Options, function (err, db) {
+                            if (err) {
+                                logger.log(err);
+                                throw err;
+                            }
+                            var dbo = db.db(MongoDBName);
+                            dbo.collection(collection).insertOne(value, function (err, res) {
+                                if (err) {
+                                    logger.log(err);
+                                    throw err;
+                                }
+                                console.log("Inserido " + res.insertedCount + " " + collection + " : | " + new Date());
+                                resolve({ resultado: "Inserido " + res.insertedCount + " " + collection + " : | " + new Date() });
+                                db.close();
+                            });
+                        });
+                    })];
             });
         });
     }
@@ -285,7 +292,7 @@ var Mongo;
                                     logger.log(err);
                                     throw err;
                                 }
-                                console.log("Editado", result, query);
+                                console.log("Editado", result.n);
                                 db.close();
                                 resolve(result);
                             });
@@ -332,20 +339,26 @@ var Mongo;
         });
     }
     Mongo.UpdateUserToken = UpdateUserToken;
-    function Remove(collection, query) {
-        MongoClient.connect(MDBurl, Options, function (err, db) {
-            if (err) {
-                logger.log(err);
-                throw err;
-            }
-            var dbo = db.db(MongoDBName);
-            dbo.collection(collection).deleteOne(query, function (err, result) {
-                if (err) {
-                    logger.log(err);
-                    throw err;
-                }
-                console.log("removido " + result.insertedCount + " " + collection + " : | " + new Date());
-                db.close();
+    function Remove(collection, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        MongoClient.connect(MDBurl, Options, function (err, db) {
+                            if (err) {
+                                logger.log(err);
+                                throw err;
+                            }
+                            var dbo = db.db(MongoDBName);
+                            dbo.collection(collection).deleteOne({ "_id": new ObjectId(id) }, function (err, result) {
+                                if (err) {
+                                    logger.log(err);
+                                    throw err;
+                                }
+                                resolve(result);
+                                db.close();
+                            });
+                        });
+                    })];
             });
         });
     }

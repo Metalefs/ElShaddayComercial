@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
 app.post(Routes_1.Rotas.Pedido, function (req, res) {
     console.log(req.body);
     try {
-        usuarios_service_1.service.getByToken(req.body.token).then(function (user) {
+        usuarios_service_1.UsuarioService.getByToken(req.body.token).then(function (user) {
             if (user) {
                 req.body.Pedido.IdCliente = user;
                 if (req.body.Pedido.IdCliente != 0) {
@@ -37,7 +37,7 @@ app.post(Routes_1.Rotas.Pedido, function (req, res) {
 }).get(Routes_1.Rotas.Pedido, function (req, res) {
     console.log(Routes_1.Rotas.Pedido, req.query);
     try {
-        usuarios_service_1.service.getByToken(req.query.token).then(function (user) {
+        usuarios_service_1.UsuarioService.getByToken(req.query.token).then(function (user) {
             if (user) {
                 console.log(Routes_1.Rotas.Pedido, user);
                 console.log("Query", { "IdCliente.Email": user[0].Email });
@@ -63,7 +63,7 @@ app.post(Routes_1.Rotas.Pedido, function (req, res) {
 }).put(Routes_1.Rotas.Pedido + "/confirmarRecebimento", function (req, res) {
     console.log(Routes_1.Rotas.Pedido + "/confirmarRecebimento", req.body);
     try {
-        usuarios_service_1.service.getByToken(req.body.token).then(function (user) {
+        usuarios_service_1.UsuarioService.getByToken(req.body.token).then(function (user) {
             if (user) {
                 req.body.Pedido.IdCliente = user;
                 if (req.body.Pedido.IdCliente != 0) {
@@ -84,7 +84,7 @@ app.post(Routes_1.Rotas.Pedido, function (req, res) {
 }).put(Routes_1.Rotas.Pedido + "/cancelar", function (req, res) {
     console.log(Routes_1.Rotas.Pedido + "/cancelar", req.body);
     try {
-        usuarios_service_1.service.getByToken(req.body.token).then(function (user) {
+        usuarios_service_1.UsuarioService.getByToken(req.body.token).then(function (user) {
             if (user) {
                 req.body.Pedido.IdCliente = user;
                 if (req.body.Pedido.IdCliente != 0) {

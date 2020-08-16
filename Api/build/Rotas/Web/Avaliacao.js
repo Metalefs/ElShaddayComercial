@@ -22,7 +22,7 @@ app.get(Routes_1.Rotas.Avaliacao, function (req, res) {
     }
 }).post(Routes_1.Rotas.Avaliacao, function (req, res) {
     try {
-        if (usuarios_service_1.service.getByToken(req.body.token))
+        if (usuarios_service_1.UsuarioService.getByToken(req.body.token))
             res.send(Mongo_1.Mongo.Insert(MongoCollections_1.Collections.Avaliacao.NomeID, req.body.Avaliacao));
     }
     catch (err) {

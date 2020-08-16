@@ -18,7 +18,8 @@ export class LandingPageComponent implements OnInit {
   constructor(api:RestApiService) {
     this.api = api;
   }
+  ngOnInit(){
 
-  ngOnInit(){}
+  }
 
 }

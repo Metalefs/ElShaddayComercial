@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
@@ -7,14 +6,17 @@ import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+import { StateService } from 'src/app/core/service/state/state.service';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class CardapioService {
-    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
-    
+    constructor(private http: HttpClient, 
+        private AuthenticationService: AuthenticationService,
+        private StateService: StateService){}
+
     private IsLoading = true;
     Ler(): Observable<Collections.Cardapio[]> {
         return this.http.get<Collections.Cardapio[]>(environment.endpoint + routes.Cardapios).pipe(
@@ -83,7 +85,7 @@ export class CardapioService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        this.StateService.currentState.subscribe(x=>x.Cardapio = false);
         return throwError(errorMessage);
     }
 }

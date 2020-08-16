@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
 });
 app.post(Routes_1.Rotas.Feedback, function (req, res) {
     try {
-        if (usuarios_service_1.service.getByToken(req.body.token))
+        if (usuarios_service_1.UsuarioService.getByToken(req.body.token))
             res.send(Mongo_1.Mongo.Insert(MongoCollections_1.Collections.Feedback.NomeID, req.body.Feedback));
     }
     catch (err) {

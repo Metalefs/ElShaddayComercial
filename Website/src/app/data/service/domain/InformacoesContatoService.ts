@@ -8,13 +8,16 @@ import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { RowActionService } from '@clr/angular/data/datagrid/providers/row-action-service';
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+import { StateService } from 'src/app/core/service/state/state.service';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class InformacoesContatoService {
-    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
+    constructor(private http: HttpClient, 
+        private AuthenticationService: AuthenticationService,
+        private StateService: StateService) { }
     
     private IsLoading = true;
     Ler(): Observable<Collections.InformacoesContato[]> {
@@ -69,7 +72,7 @@ export class InformacoesContatoService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        this.StateService.currentState.subscribe(x=>x.InformacoesContato = false);
         return throwError(errorMessage);
     }
 }

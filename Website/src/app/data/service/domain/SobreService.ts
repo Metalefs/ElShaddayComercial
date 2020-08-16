@@ -6,13 +6,16 @@ import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+import { StateService } from 'src/app/core/service/state/state.service';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class SobreService {
-    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
+    constructor(private http: HttpClient, 
+        private AuthenticationService: AuthenticationService,
+        private StateService: StateService){}
     
     private IsLoading = true;
 
@@ -68,7 +71,7 @@ export class SobreService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        this.StateService.currentState.subscribe(x=>x.Sobre = false);
         return throwError(errorMessage);
     }
 }

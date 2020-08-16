@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
@@ -6,12 +5,16 @@ import { environment } from 'src/environments/environment';
 import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
+import { StateService } from 'src/app/core/service/state/state.service';
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class FeedbackService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, 
+        private StateService: StateService){}
+    
     
     private IsLoading = true;
 
@@ -64,7 +67,7 @@ export class FeedbackService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        this.StateService.currentState.subscribe(x=>x.Feedback = false);
         return throwError(errorMessage);
     }
 }

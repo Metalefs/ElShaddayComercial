@@ -6,13 +6,13 @@ var express = require("express");
 var app = express();
 app.post(Routes_1.Rotas.Login, function (req, res, next) {
     console.log(req.body);
-    usuarios_service_1.service.authenticate(req.body)
+    usuarios_service_1.UsuarioService.authenticate(req.body)
         .then(function (user) { return res.json(user); })
         .catch(next);
 });
 app.post(Routes_1.Rotas.Registro, function (req, res, next) {
     console.log(req.body.cliente);
-    usuarios_service_1.service.create(req.body.cliente)
+    usuarios_service_1.UsuarioService.create(req.body.cliente)
         .then(function (user) { return res.json(user); })
         .catch(next);
 });

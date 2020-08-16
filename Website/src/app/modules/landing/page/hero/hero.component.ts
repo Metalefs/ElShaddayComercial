@@ -51,8 +51,10 @@ export class HeroComponent implements OnInit {
   }
 
   async LerPrecoMarmitex(){
-    if(localStorage.getItem("PrecoMarmitex"))
+    if(localStorage.getItem("PrecoMarmitex")){
       this.PrecoMarmitex = JSON.parse(localStorage.getItem("PrecoMarmitex"))
+      this.loading = false;
+    }
     else
     this.PrecoMarmitexService.Ler().subscribe(data=>{
       this.PrecoMarmitex = data[0];

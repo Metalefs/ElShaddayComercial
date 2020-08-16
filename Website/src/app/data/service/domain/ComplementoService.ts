@@ -7,13 +7,15 @@ import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
-
+import { StateService } from 'src/app/core/service/state/state.service';
 @Injectable({
     providedIn: 'root'
 })
 
 export class ComplementoService {
-    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
+    constructor(private http: HttpClient, 
+        private AuthenticationService: AuthenticationService,
+        private StateService: StateService){}
     
     private IsLoading = true;
     
@@ -72,7 +74,7 @@ export class ComplementoService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        this.StateService.currentState.subscribe(x=>x.Complemento = false);
         return throwError(errorMessage);
     }
 }

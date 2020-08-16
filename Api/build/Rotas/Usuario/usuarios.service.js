@@ -58,7 +58,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.service = void 0;
+exports.UsuarioService = void 0;
 var config_1 = require("../../config");
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -66,8 +66,8 @@ var sgMail = require('@sendgrid/mail');
 sgMail.setApiKey("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");
 var Mongo_1 = require("../../MongoDB/Mongo");
 var MongoCollections_1 = require("../../MongoDB/MongoCollections");
-var service;
-(function (service) {
+var UsuarioService;
+(function (UsuarioService) {
     function authenticate(cliente) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -91,7 +91,7 @@ var service;
             });
         });
     }
-    service.authenticate = authenticate;
+    UsuarioService.authenticate = authenticate;
     function create(NovoCliente) {
         return __awaiter(this, void 0, void 0, function () {
             var token, msg;
@@ -137,7 +137,7 @@ var service;
             });
         });
     }
-    service.create = create;
+    UsuarioService.create = create;
     function getById(id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -148,7 +148,7 @@ var service;
             });
         });
     }
-    service.getById = getById;
+    UsuarioService.getById = getById;
     function getByToken(id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -159,7 +159,7 @@ var service;
             });
         });
     }
-    service.getByToken = getByToken;
+    UsuarioService.getByToken = getByToken;
     function update(cliente) {
         return __awaiter(this, void 0, void 0, function () {
             var user;
@@ -179,7 +179,7 @@ var service;
             });
         });
     }
-    service.update = update;
+    UsuarioService.update = update;
     function _delete(id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -192,12 +192,12 @@ var service;
             });
         });
     }
-    service._delete = _delete;
+    UsuarioService._delete = _delete;
     // helper functions
     function omitPassword(cliente) {
         var Senha = cliente.Senha, userWithoutPassword = __rest(cliente, ["Senha"]);
         return userWithoutPassword;
     }
-    service.omitPassword = omitPassword;
-})(service = exports.service || (exports.service = {}));
+    UsuarioService.omitPassword = omitPassword;
+})(UsuarioService = exports.UsuarioService || (exports.UsuarioService = {}));
 ;
