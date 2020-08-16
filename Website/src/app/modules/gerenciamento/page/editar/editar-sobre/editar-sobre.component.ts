@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
 import { Table } from 'src/app/data/schema/Table';
+import { QuestionBase, DynFormQuestions } from 'src/app/shared/component/dynamic-form/question-base';
 
 @Component({
   selector: 'app-editar-sobre',
@@ -41,11 +42,12 @@ export class EditarSobreComponent implements OnInit {
   }
   Editar(Sobre:Collections.Sobre){
 
-    let data = [];
+    let questions: QuestionBase<string>[] = [];
+    let method = "Editar";
     let id = Sobre._id;
     Object.entries(Sobre).forEach(([key, value]) => {
       if(key != "_id")
-      data.push(
+      questions.push(
         new TextboxQuestion({
           key: key,
           label: key,
@@ -57,10 +59,10 @@ export class EditarSobreComponent implements OnInit {
       )
     })
       
-    console.log(data);
+    let Data = new DynFormQuestions(questions,method);
     const dialogRef = this.dialog.open(DynamicFormComponent, {
       width: '90%',
-      data: data
+      data: Data
     });
 
     dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {

@@ -6,6 +6,7 @@ import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dyna
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Table } from 'src/app/data/schema/Table';
+import { DynFormQuestions, QuestionBase } from 'src/app/shared/component/dynamic-form/question-base';
 
 @Component({
   selector: 'app-editar-cardapio',
@@ -36,12 +37,72 @@ export class EditarCardapioComponent implements OnInit {
     })
   }
 
-  AbrirModalEntrar(): void {
-    
+  Criar(): void {
+    let questions: QuestionBase<string>[] = [];
+    let method = "Criar";
+    let Cardapio = new Collections.Cardapio(
+      "0",
+      "",
+      "",
+      "",
+      "",
+      "",
+    );
+    Object.entries(Cardapio).forEach(([key, value]) => {
+      if(key != "_id" && key != "Preco" && key != "Tamanho"){
+
+        let type = "textbox";
+        let options :{key: string, value:string }[];
+
+        if(key == "Src"){
+          type = "file";
+        }
+        else if(key == "SrcType"){
+          type = "dropdown";
+          options = [
+            {key:"Foto", value:"F"},
+            {key:"Video", value:"V"}
+          ]
+        }
+        questions.push(
+          new TextboxQuestion({
+            key: key,
+            label: key,
+            value: value,
+            required: true,
+            type:type,
+            options: options,
+            order: 1
+          })
+        )
+
+      }
+    })
+    let Data = new DynFormQuestions(questions,method);
+    const dialogRef = this.dialog.open(DynamicFormComponent, {
+      width: '90%',
+      data: Data
+    });
+
+    dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
+
+      let Cardapio = new Collections.Cardapio(
+        result[0].value,
+        result[1].value,
+        result[2].value,
+        result[3].value,
+        result[4].image,
+        result[5].value,
+      )
+     
+      this.api.Incluir(Cardapio).subscribe(x=> this.AtualizarTabela());
+    });
   }
+
   Editar(Cardapio:Collections.Cardapio){
 
-    let data = [];
+    let questions: QuestionBase<string>[] = [];
+    let method = "Editar";
     let id = Cardapio._id;
     Object.entries(Cardapio).forEach(([key, value]) => {
       if(key != "_id"){
@@ -59,7 +120,7 @@ export class EditarCardapioComponent implements OnInit {
             {key:"Video", value:"V"}
           ]
         }
-        data.push(
+        questions.push(
           new TextboxQuestion({
             key: key,
             label: key,
@@ -73,11 +134,10 @@ export class EditarCardapioComponent implements OnInit {
 
       }
     })
-      
-    console.log(data);
+    let Data = new DynFormQuestions(questions,method);
     const dialogRef = this.dialog.open(DynamicFormComponent, {
       width: '90%',
-      data: data
+      data: Data
     });
 
     dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
@@ -97,7 +157,8 @@ export class EditarCardapioComponent implements OnInit {
   }
 
   Remover(Cardapio:Collections.Cardapio){
-    this.api.Remover(Cardapio._id);
+    alert("Deletando Cardapio " +Cardapio.Nome)
+    this.api.Remover(Cardapio._id).subscribe(x=> this.AtualizarTabela());
   }
   
   ngOnInit(): void {

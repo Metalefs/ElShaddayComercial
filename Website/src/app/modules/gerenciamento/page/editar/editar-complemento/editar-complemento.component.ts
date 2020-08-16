@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
 import { Table } from 'src/app/data/schema/Table';
+import { QuestionBase, DynFormQuestions } from 'src/app/shared/component/dynamic-form/question-base';
 @Component({
   selector: 'app-editar-complemento',
   templateUrl: './editar-complemento.component.html',
@@ -33,16 +34,51 @@ export class EditarComplementoComponent implements OnInit {
     })
   }
 
-  AbrirModalEntrar(): void {
-    
+  Criar(): void {
+    let questions: QuestionBase<string>[] = [];
+    let method = "Criar";
+    let Complemento = new Collections.Complemento(
+      "",
+      "",
+      0,
+    );
+    Object.entries(Complemento).forEach(([key, value]) => {
+      if(key != "_id")
+      questions.push(
+        new TextboxQuestion({
+          key: key,
+          label: key,
+          value: value,
+          required: true,
+          type:"textbox",
+          order: 1
+        })
+      )
+    })
+    let Data = new DynFormQuestions(questions,method);
+    const dialogRef = this.dialog.open(DynamicFormComponent, {
+      width: '90%',
+      data: Data
+    });
+
+    dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
+      let Complemento = new Collections.Complemento(
+        result[0].value,
+        result[1].value,
+        parseFloat(result[2].value),
+      )
+      this.api.Incluir(Complemento).subscribe(x=> this.AtualizarTabela());
+    });
   }
+
   Editar(Complemento:Collections.Complemento){
 
-    let data = [];
+    let questions: QuestionBase<string>[] = [];
+    let method = "Editar";
     let id = Complemento._id;
     Object.entries(Complemento).forEach(([key, value]) => {
       if(key != "_id")
-      data.push(
+      questions.push(
         new TextboxQuestion({
           key: key,
           label: key,
@@ -54,10 +90,10 @@ export class EditarComplementoComponent implements OnInit {
       )
     })
       
-    console.log(data);
+    let Data = new DynFormQuestions(questions,method);
     const dialogRef = this.dialog.open(DynamicFormComponent, {
       width: '90%',
-      data: data
+      data: Data
     });
 
     dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {
@@ -72,7 +108,8 @@ export class EditarComplementoComponent implements OnInit {
   }
 
   Remover(Complemento:Collections.Complemento){
-    this.api.Remover(Complemento._id);
+    alert("Deletando complemento " +Complemento.Nome)
+    this.api.Remover(Complemento._id).subscribe(x=> this.AtualizarTabela());
   }
   
   ngOnInit(): void {

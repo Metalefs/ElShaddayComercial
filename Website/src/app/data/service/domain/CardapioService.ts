@@ -22,14 +22,24 @@ export class CardapioService {
             catchError(this.handleError) // then handle the error
         );
     }
-
+    
     Filtrar(dia: number): Observable<Collections.Cardapio[]> {
         return this.http.get<Collections.Cardapio[]>(environment.endpoint + routes.CardapiosPorDia + `?Dia=${dia}`).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
+            );
+        }
+        
+    Incluir(item: Collections.Cardapio): any  {
+        console.log(environment.endpoint + routes.Gerenciamento + routes.Cardapios,item);
+        let payload = this.AuthenticationService.tokenize({Cardapio:item});
+        console.log(payload);
+        return this.http.post<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios
+            ,payload).pipe(
+            retry(3),
+            catchError(this.handleError)
         );
     }
-
     Editar(item: Collections.Cardapio):  Observable<any> {
         console.log(environment.endpoint + routes.Gerenciamento + routes.Cardapios,item);
         let payload = this.AuthenticationService.tokenize({Cardapio:item});
@@ -43,13 +53,8 @@ export class CardapioService {
     }
 
     Remover(id: string): any {
-        return this.http.delete<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios).pipe(
-            retry(3),
-            catchError(this.handleError)
-        );
-    }
-    Incluir(item: Collections.Cardapio): any  {
-        return this.http.post<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, {}).pipe(
+        let payload = this.AuthenticationService.tokenize({id:id});
+        return this.http.delete<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios +`?id=${id}&token=${payload.token}`).pipe(
             retry(3),
             catchError(this.handleError)
         );

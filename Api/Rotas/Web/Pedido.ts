@@ -1,7 +1,7 @@
 import {Rotas} from '../Routes';
 import {Mongo} from '../../MongoDB/Mongo';
 import {Collections} from '../../MongoDB/MongoCollections';
-import {service} from "../Usuario/usuarios.service";
+import {UsuarioService} from "../Usuario/usuarios.service";
 import express = require('express');
 var mongo = require('mongodb');
 const app: express.Application = express();
@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
 app.post(Rotas.Pedido, (req:any,res) =>{
     console.log(req.body);
     try{
-        service.getByToken(req.body.token).then(user=>{
+        UsuarioService.getByToken(req.body.token).then(user=>{
             if(user){
                 req.body.Pedido.IdCliente = user;
                 if(req.body.Pedido.IdCliente != 0){
@@ -35,7 +35,7 @@ app.post(Rotas.Pedido, (req:any,res) =>{
 }).get(Rotas.Pedido, (req:any,res) =>{
     console.log(Rotas.Pedido,req.query);
     try{
-        service.getByToken(req.query.token).then(user=>{
+        UsuarioService.getByToken(req.query.token).then(user=>{
             if(user){
                 console.log(Rotas.Pedido,user);
                 console.log("Query",{"IdCliente.Email": user[0].Email});
@@ -61,7 +61,7 @@ app.post(Rotas.Pedido, (req:any,res) =>{
 }).put(Rotas.Pedido+"/confirmarRecebimento", (req:any,res) =>{
     console.log(Rotas.Pedido+"/confirmarRecebimento",req.body);
     try{
-        service.getByToken(req.body.token).then(user=>{
+        UsuarioService.getByToken(req.body.token).then(user=>{
             if(user){
                 req.body.Pedido.IdCliente = user;
                 if(req.body.Pedido.IdCliente != 0){
@@ -81,7 +81,7 @@ app.post(Rotas.Pedido, (req:any,res) =>{
 }).put(Rotas.Pedido+"/cancelar", (req:any,res) =>{
     console.log(Rotas.Pedido+"/cancelar",req.body);
     try{
-        service.getByToken(req.body.token).then(user=>{
+        UsuarioService.getByToken(req.body.token).then(user=>{
             if(user){
                 req.body.Pedido.IdCliente = user;
                 if(req.body.Pedido.IdCliente != 0){

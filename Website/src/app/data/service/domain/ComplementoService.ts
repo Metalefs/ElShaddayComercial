@@ -24,6 +24,14 @@ export class ComplementoService {
         );
     }
     
+    Incluir(item: Collections.Complemento): any  {
+        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        return this.http.post<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento
+            , payload).pipe(
+            retry(3),
+            catchError(this.handleError)
+        );
+    }
     Editar(item: Collections.Complemento): any {
         let payload = this.AuthenticationService.tokenize({Complemento:item});
         console.log(payload);
@@ -34,13 +42,8 @@ export class ComplementoService {
         );
     }
     Remover(id: string): any {
-        return this.http.delete<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento).pipe(
-            retry(3),
-            catchError(this.handleError)
-        );
-    }
-    Incluir(item: Collections.Complemento): any  {
-        return this.http.post<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento, {}).pipe(
+        let payload = this.AuthenticationService.tokenize({id:id});
+        return this.http.delete<Collections.Complemento>(environment.endpoint + routes.Gerenciamento + routes.Complemento +`?id=${id}&token=${payload.token}`).pipe(
             retry(3),
             catchError(this.handleError)
         );

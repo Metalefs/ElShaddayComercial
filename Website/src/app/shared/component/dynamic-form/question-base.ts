@@ -1,3 +1,5 @@
+import { MatFormField } from '@angular/material/form-field';
+
 export class QuestionBase<T> {
   value: T;
   key: string;
@@ -32,6 +34,14 @@ export class QuestionBase<T> {
   }
 }
 
+export class DynFormQuestions{
+  questions: QuestionBase<string>[];
+  Method: string;
+  constructor(questions: QuestionBase<string>[],Method: string){
+    this.questions = questions;
+    this.Method = Method;
+  }
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

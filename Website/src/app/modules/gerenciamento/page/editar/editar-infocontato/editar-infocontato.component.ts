@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
 import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
 import { Table } from 'src/app/data/schema/Table';
+import { QuestionBase, DynFormQuestions } from 'src/app/shared/component/dynamic-form/question-base';
 
 @Component({
   selector: 'app-editar-infocontato',
@@ -42,11 +43,12 @@ export class EditarInfoContatoComponent implements OnInit {
   }
   Editar(InformacoesContato:Collections.InformacoesContato){
 
-    let data = [];
+    let questions: QuestionBase<string>[] = [];
+    let method = "Editar";
     let id = InformacoesContato._id;
     Object.entries(InformacoesContato).forEach(([key, value]) => {
       if(key != "_id")
-      data.push(
+      questions.push(
         new TextboxQuestion({
           key: key,
           label: key,
@@ -58,10 +60,10 @@ export class EditarInfoContatoComponent implements OnInit {
       )
     })
       
-    console.log(data);
+    let Data = new DynFormQuestions(questions,method);
     const dialogRef = this.dialog.open(DynamicFormComponent, {
       width: '90%',
-      data: data
+      data: Data
     });
 
     dialogRef.afterClosed().subscribe((result :TextboxQuestion[]) => {

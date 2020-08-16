@@ -1,3 +1,9 @@
+<div class="container is-fluid">
+  <div class="notification">
+    <button (click)="Criar()" class="button is-success right"><clr-icon shape="plus"></clr-icon>Adicionar</button>
+  </div>
+</div>
+
 <table mat-table [dataSource]="ComplementoTable.dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="Nome">
@@ -19,6 +25,7 @@
         <th mat-header-cell *matHeaderCellDef> Acoes </th>
         <td mat-cell *matCellDef="let element"> 
             <button class="button button-primary" (click)="Editar(element)">Editar</button>
+            <button class="button is-danger" (click)="Remover(element)">Excluir</button>
         </td>
       </ng-container>
 

@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Atualizar</h1>
+<h1 mat-dialog-title>{{Method}}</h1>
 <div mat-dialog-content>
-    <p>Atualizar item</p>
+    <p>{{Method}} item</p>
 </div>
 <div mat-dialog-content>
 
@@ -11,5 +11,5 @@
 </div>
 <div mat-dialog-actions>
     <button class="button is-primary is-light" (click)="onNoClick()" cdkFocusInitial>Cancelar</button>
-    <button class="btn-success" class="button is-info is-light" [mat-dialog-close]="questions">Atualizar</button>
+    <button class="btn-success" class="button is-info is-light" [mat-dialog-close]="questions">{{Method}}</button>
 </div>

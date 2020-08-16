@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { QuestionBase } from './question-base';
+import { QuestionBase, DynFormQuestions } from './question-base';
 import { QuestionControlService } from './question-control.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
@@ -12,14 +12,15 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<string>[] = [];
+  Method:string
   form: FormGroup;
   payLoad = '';
 
   constructor(private qcs: QuestionControlService,
       public dialogRef: MatDialogRef<DynamicFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:  QuestionBase<string>[]) {
-
-      this.questions = data;
+    @Inject(MAT_DIALOG_DATA) public data:  DynFormQuestions) {
+      this.Method = data.Method;
+      this.questions = data.questions;
     }
 
   ngOnInit() {

@@ -89,24 +89,27 @@ export module Mongo {
             });
       }
 
-      export function Insert (collection: any,value: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
-           
-            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
-                  if (err){
-                        logger.log(err)
-                        throw err;
-                  }
-                  let dbo = db.db(MongoDBName);
-                  dbo.collection(collection).insertOne(value, function(err: any, res: any) {
-                        if (err){
+      export async function Insert (collection: any,value: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+            
+            return new Promise((resolve, reject) => {
+                  MongoClient.connect(MDBurl, Options, function (err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                        if (err) {
                               logger.log(err)
                               throw err;
                         }
-                        console.log("Inserido "+res.insertedCount+" "+collection+" : | "+new Date());
-                        db.close();
+                        let dbo = db.db(MongoDBName);
+                        dbo.collection(collection).insertOne(value, function (err: any, res: any) {
+                              if (err) {
+                                    logger.log(err)
+                                    throw err;
+                              }
+                              console.log("Inserido " + res.insertedCount + " " + collection + " : | " + new Date());
+                              resolve({resultado:"Inserido " + res.insertedCount + " " + collection + " : | " + new Date()})
+                              db.close();
+                        });
                   });
             });
-
+            
       }      
       
       export function Ler (collection: string, res : any){ // OBTÉM DADOS DO BANCO SEM COLOCAR EM CACHE
@@ -274,24 +277,24 @@ export module Mongo {
             
       }
 
-      export function Remove (collection: any, query: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
-           
-            MongoClient.connect(MDBurl,Options, function(err: any, db: { db: (arg0: string) => any; close: () => void; }) {
-                  if (err){
-                        logger.log(err)
-                        throw err;
-                  }
-                  let dbo = db.db(MongoDBName);
-                  dbo.collection(collection).deleteOne(query, function(err: any, result: any) {
-                        if (err){
+      export async function Remove (collection: any, id: any)  { // CRIA COLEÇÃO IMPLICITAMENTE E INSERE UM
+            return new Promise((resolve, reject) => {
+                  MongoClient.connect(MDBurl, Options, function (err: any, db: { db: (arg0: string) => any; close: () => void; }) {
+                        if (err) {
                               logger.log(err)
                               throw err;
                         }
-                        console.log("removido "+result.insertedCount+" "+collection+" : | "+new Date());
-                        
-                        db.close();
+                        let dbo = db.db(MongoDBName);
+                        dbo.collection(collection).deleteOne({"_id": new ObjectId(id)}, function (err: any, result: any) {
+                              if (err) {
+                                    logger.log(err)
+                                    throw err;
+                              }
+                              resolve(result);
+
+                              db.close();
+                        });
                   });
             });
-            
       }
 }
