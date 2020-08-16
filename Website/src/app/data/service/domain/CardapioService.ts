@@ -6,12 +6,14 @@ import { environment } from 'src/environments/environment';
 import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
+import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class CardapioService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
     
     private IsLoading = true;
     Ler(): Observable<Collections.Cardapio[]> {
@@ -30,10 +32,14 @@ export class CardapioService {
 
     Editar(item: Collections.Cardapio):  Observable<any> {
         console.log(environment.endpoint + routes.Gerenciamento + routes.Cardapios,item);
-        return this.http.put<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, {Cardapio:item}).pipe(
-            retry(3), // retry a failed request up to 3 times
-            catchError(this.handleError) // then handle the error
-        );
+        let payload = this.AuthenticationService.tokenize({Cardapio:item});
+        console.log(payload);
+        return this.http.put<Collections.Cardapio>(environment.endpoint + routes.Gerenciamento + routes.Cardapios, 
+            payload)
+            .pipe(
+                retry(3), // retry a failed request up to 3 times
+                catchError(this.handleError) // then handle the error
+            );
     }
 
     Remover(id: string): any {

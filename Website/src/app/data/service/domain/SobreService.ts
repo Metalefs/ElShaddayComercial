@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
@@ -6,12 +5,14 @@ import { environment } from 'src/environments/environment';
 import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
+import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class SobreService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
     
     private IsLoading = true;
 
@@ -23,7 +24,10 @@ export class SobreService {
     }
 
     Editar(item: Collections.Sobre): any {
-        return this.http.put<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, item).pipe(
+        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        console.log(payload);
+        return this.http.put<Collections.Sobre>(environment.endpoint + routes.Gerenciamento + routes.Sobre, 
+            payload).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error
         );

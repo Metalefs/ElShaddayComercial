@@ -7,12 +7,14 @@ import { routes } from 'src/app/data/schema/routes';
 import { retry, catchError } from 'rxjs/operators';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { RowActionService } from '@clr/angular/data/datagrid/providers/row-action-service';
+import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
+
 @Injectable({
     providedIn: 'root'
 })
 
 export class InformacoesContatoService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private AuthenticationService: AuthenticationService) { }
     
     private IsLoading = true;
     Ler(): Observable<Collections.InformacoesContato[]> {
@@ -23,6 +25,8 @@ export class InformacoesContatoService {
     }
 
     Editar(item: Collections.InformacoesContato): any {
+        let payload = this.AuthenticationService.tokenize({Complemento:item});
+        console.log(payload);
         return this.http.put<Collections.InformacoesContato>(environment.endpoint + routes.Gerenciamento + routes.InfoContato, {InformacoesContato:item}).pipe(
             retry(3), // retry a failed request up to 3 times
             catchError(this.handleError) // then handle the error

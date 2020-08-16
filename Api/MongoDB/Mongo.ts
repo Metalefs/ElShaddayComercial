@@ -225,7 +225,7 @@ export module Mongo {
                                     logger.log(err)
                                     throw err;
                               }
-                              console.log("Editado", result, query)
+                              console.log("Editado", result.n)
                               db.close();
                               resolve(result);
                         });

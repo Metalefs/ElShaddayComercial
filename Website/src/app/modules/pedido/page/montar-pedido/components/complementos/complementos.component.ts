@@ -32,6 +32,7 @@ export class ComplementosComponent implements OnInit {
       {tipo:"S", nome: "Salada", class:"has-background-success", total:0.00},
       {tipo:"C", nome: "Carne", class:"has-background-danger", total:0.00},
       {tipo:"B", nome: "Bebida", class:"has-background-info", total:0.00},
+      {tipo:"O", nome: "Outro", class:"has-background-info", total:0.00},
     ];
     this.LerComplementos();
     

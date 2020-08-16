@@ -14,15 +14,15 @@ import { fade } from 'src/app/animations';
 })
 export class MeusPedidosComponent implements OnInit {
 
-  Pedidos: Collections.Pedido[];
+  Pedidos: any;
   NAPedido: boolean;
   @ViewChild(MatTable) MatTable: MatTable<any>;
   constructor(private PedidoService: PedidoService,
     public dialog: MatDialog) {
     this.PedidoService.Ler().subscribe(x=> {
       this.Pedidos = x;
-      console.log(this.Pedidos )
-      if(this.Pedidos.length == 0)
+      console.log(this.Pedidos)
+      if(this.Pedidos.length == 0 || this.Pedidos.erro)
         this.NAPedido = true
       } );
    
