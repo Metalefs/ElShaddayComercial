@@ -30,6 +30,7 @@ export class PratosComponent implements OnInit {
   }
   AtualizarTabela(){
     this.api.Ler().subscribe(x=>{
+      x.sort(function(a, b){return parseInt(a.Dia)-parseInt(b.Dia)})
       x.forEach(y => {
         y.Dia = this.CardapioHelper.ObterDiaSemana(y.Dia);
       });
