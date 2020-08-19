@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { Router, RouterOutlet } from '@angular/router';
-
+declare let gtag: Function;
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
 import { fade, slider } from './animations';
 
@@ -25,6 +25,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
+      this.router.events.subscribe(event => {
+         if(event instanceof NavigationEnd){
+             gtag('config', 'xx-xxxxx-xx', 
+                   {
+                     'page_path': event.urlAfterRedirects
+                   }
+                  );
+          }
+       }
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
