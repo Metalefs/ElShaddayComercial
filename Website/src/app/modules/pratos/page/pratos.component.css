@@ -2,6 +2,10 @@ table {
     width: 100%;
   }
 
+.mat-row{
+    border-top: 1px dashed;
+}
+
 .bg-pratos{
     background: url("src/assets/imagens/fundos/pedido/salad.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;

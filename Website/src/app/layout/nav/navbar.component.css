@@ -1,8 +1,8 @@
 .navbar{
     height: 80px;
     background: linear-gradient(90deg,#f15b5b,#ff4c4c 35%,#f15b5b);
-    border-bottom: 1px solid rgba(173, 81, 81, 0.19);
-    padding: 10px 24px;
+    /* border-bottom: 1px solid rgb(247, 80, 80); */
+    padding: 10px 10px;
 }
 .m-number{
     margin: 0 auto;

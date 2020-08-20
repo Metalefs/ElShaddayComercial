@@ -10,7 +10,8 @@ export class CardapioCardItemComponent implements OnInit {
 
   @Input()
   Cardapio: Collections.Cardapio;
-
+  @Input()
+  Instagram: string;
   Ativo:boolean;  
   Video:boolean;  
   Caminho:string;  

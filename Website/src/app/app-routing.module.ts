@@ -36,7 +36,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('src/app/modules/pratos/pratos.module').then(m => m.PratosModule)
-          , data: { animation: 'isRight', reuse: true }
+          , data: { animation: '', reuse: true }
       },
 
       {

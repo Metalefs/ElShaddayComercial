@@ -25,12 +25,12 @@ export let slide = trigger('slideInOut', [
 
     group([
       query(':leave', [
-        animate('500ms ease-in-out', style({
+        animate('100ms ease-in-out', style({
           transform: 'translateX(100vw)'
         }))
       ], { optional: true }),
       query(':enter', [
-        animate('500ms ease-in-out', style({
+        animate('100ms ease-in-out', style({
           transform: 'translateX(0)'
         }))
       ], { optional: true })
@@ -62,10 +62,10 @@ function slideTo(direction) {
     ]),
     group([
       query(':leave', [
-        animate('600ms ease-in-out', style({ [direction]: '100%'}))
+        animate('100ms ease-in', style({ [direction]: '100%'}))
       ], optional),
       query(':enter', [
-        animate('600ms ease-in-out', style({ [direction]: '0%'}))
+        animate('100ms ease-out', style({ [direction]: '0%'}))
       ])
     ]),
     // Normalize the page style... Might not be necessary

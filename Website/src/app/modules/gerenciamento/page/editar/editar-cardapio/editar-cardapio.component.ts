@@ -33,6 +33,7 @@ export class EditarCardapioComponent implements OnInit {
   }
   AtualizarTabela(){
     this.api.Ler().subscribe(x=>{
+      x.sort(function(a, b){return parseInt(a.Dia)-parseInt(b.Dia)})
       this.CardapioTable.dataSource = x;
     })
   }

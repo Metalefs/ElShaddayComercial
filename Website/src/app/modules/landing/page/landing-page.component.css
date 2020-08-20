@@ -1,9 +1,8 @@
-.hero{
-    background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+#main-hero{
+    background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat 80% fixed;
     background-size: cover;
+    width: 100vw;
+    margin: 0 auto;
 }
 
 .hero.is-medium .hero-body{

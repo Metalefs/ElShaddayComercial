@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 declare let gtag: Function;
 import { AuthenticationService } from 'src/app/core/service/authentication/authentication.service';
 import { fade, slider } from './animations';
@@ -13,7 +13,7 @@ import { Collections } from './data/schema/MongoCollections';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-     slider
+    fade
   ]
 })
 
@@ -27,13 +27,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) {
       this.router.events.subscribe(event => {
          if(event instanceof NavigationEnd){
-             gtag('config', 'xx-xxxxx-xx', 
+             gtag('config', 'UA-175817845-1', 
                    {
                      'page_path': event.urlAfterRedirects
                    }
                   );
           }
-       }
+       });
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -47,9 +47,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     new OpcaoNavbar("Entrega", "", "shopping-cart"),
   ];
 
-  triggerAnimation(outlet) {
-    return outlet.activatedRouteData.animation || null;
-  }
 
   ngOnInit(): void {
     // VARIABLES
