@@ -1,10 +1,10 @@
 export let routes = {
     Cardapios:"/cardapio/",
     CardapiosPorDia:"/cardapioPorDia/",
-    InfoContato:"/infoContato/",
     Sobre:"/sobre/",
     PrecoMarmitex:"/precoMarmitex/",
     Complemento:"/complemento/",
+	InfoContato:"/infoContato/",
     Feedback:"/feedback/",
     Avaliacao:"/avaliacao/",
     Pedido:"/pedido/",

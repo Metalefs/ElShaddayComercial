@@ -30,14 +30,14 @@
                 </div>
             </nav>
         </div>
-        <div class="media-right">
-            <button type="button" (click)="AdicinarAoPedido('p')" [disabled]="!Ativo" class="btn btn-icon btn-success is-rounded" aria-label="done">
+        <div class="">
+            <button type="button" (click)="AdicinarAoPedido('p')" [disabled]="!Ativo" class="btn btn-medium btn-icon btn-success is-rounded" aria-label="done">
                 <clr-icon shape="plus"></clr-icon>Pequena
             </button>
-            <button type="button" (click)="AdicinarAoPedido('g')" [disabled]="!Ativo" class="btn btn-icon btn-success is-rounded" aria-label="done">
+            <button type="button" (click)="AdicinarAoPedido('g')" [disabled]="!Ativo" class="btn btn-medium btn-icon btn-success is-rounded" aria-label="done">
                 <clr-icon shape="plus"></clr-icon>Grande
             </button>
-            <button type="button" (click)="RemoverDoPedido()" [disabled]="!Ativo" class="btn btn-icon is-rounded" aria-label="home">
+            <button type="button" (click)="RemoverDoPedido()"   [disabled]="!Ativo" class="btn btn-medium btn-icon is-rounded" aria-label="home">
                 <clr-icon shape="minus"></clr-icon>
             </button>
             <div class="">

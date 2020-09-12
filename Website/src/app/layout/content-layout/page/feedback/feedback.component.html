@@ -1,37 +1,37 @@
-<clr-accordion  class="mb-0 pb-0">
+<clr-accordion  class="mb-0 pb-0 mx-auto">
     <clr-accordion-panel>
         <clr-accordion-title>Criticas ou sugestões
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>
-            <form clrForm clrLayout="horizontal">
-                <section class="title mb-0">
-                    <h3 class="welcome">Feeback</h3>
-                    
-                    <h5 class="hint"></h5>
-                </section>
+            <section class="title mb-0">
+                <h3 class="welcome">Feeback</h3>
+                
+                <h5 class="hint"></h5>
+            </section>
+            <form clrForm clrLayout="horizontal" class="columns is-gapless">
 
-                <clr-input-container>
+                <clr-input-container class="column">
                     <label class="clr-sr-only">Titulo</label>
                     <label class="">Titulo da mensagem</label>
                     <input clrInput name="Mensagem" type="text" [(ngModel)]="Feedback.Titulo" required  placeholder="Insira um Titulo para seu comentário" >
                     <clr-control-error>Insira um Titulo</clr-control-error>
                 </clr-input-container>
         
-                <clr-input-container>
+                <clr-input-container class="column">
                     <label class="clr-sr-only"><clr-icon shape="envelope"></clr-icon></label>
                     <label><clr-icon shape="envelope"></clr-icon> Seu e-mail</label>
                     <input clrInput name="Email" type="email" [(ngModel)]="Feedback.Email" required placeholder="Seu email">
                     <clr-control-error>O Campo de e-mail é necessário para enviar o feedback</clr-control-error>
                 </clr-input-container>
                 
-                <clr-textarea-container>
+                <clr-textarea-container class="column">
                     <label class="clr-sr-only">Escreva sua mensagem aqui</label>
                     <textarea clrTextarea [(ngModel)]="Feedback.Comentario" name="Mensagem" required placeholder="Escreva sua mensagem aqui"></textarea>
                     <clr-control-helper>Escreva aqui</clr-control-helper>
                     <clr-control-error>A mensagem não pode ser enviada vazia.</clr-control-error>
                 </clr-textarea-container>
 
-                <button type="submit" class="btn btn-primary" (click)="SendFeedback()">Enviar</button>
+                <button matButton type="submit" class="btn btn-primary" (click)="SendFeedback()">Enviar</button>
             </form>  
                
             <hr>

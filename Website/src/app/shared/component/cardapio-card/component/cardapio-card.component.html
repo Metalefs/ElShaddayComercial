@@ -1,10 +1,19 @@
 <div class="height-inherit">
 
-    <section *ngIf="Cardapios != undefined" class="section bg-light-transparent mx-0">
+    <section class="section mx-0">
         <h3 class="title is-4 has-text-white has-text-left">Cardápio da semana </h3>
-        
-        <div class="columns cardapio-section is-mobile overflow-x-scroll">
-            <div class="column" *ngFor="let Cardapio of Cardapios">
+        <div *ngIf="loading" class="w-100 mx-auto relative flex-center">
+            <span class="spinner spinner-lg">
+                <clr-spinner clrInline>
+                    Carregando...
+                </clr-spinner>
+                <span>
+                    Carregando...
+                </span>
+            </span>
+        </div>
+        <div *ngIf="Cardapios != undefined" class="columns cardapio-section is-vcentered is-mobile overflow-x-scroll">
+            <div class="column " *ngFor="let Cardapio of Cardapios">
                 <cardapio-card-item [Cardapio]="Cardapio" [Instagram]="Instagram"></cardapio-card-item>
             </div>
         </div>

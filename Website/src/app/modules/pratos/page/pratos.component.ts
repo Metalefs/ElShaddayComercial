@@ -7,14 +7,17 @@ import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Table } from 'src/app/data/schema/Table';
 import { CardapioHelper } from 'src/app/_helpers/cardapio_helper';
+import { fade } from 'src/app/animations';
 
 @Component({
   selector: 'app-pratos',
   templateUrl: './pratos.component.html',
-  styleUrls: ['./pratos.component.css']
+  styleUrls: ['./pratos.component.css'],
+  animations: [fade]
 })
 export class PratosComponent implements OnInit {
   x : any;
+  loading = true;
   CardapioTable:Table;
   constructor(private api: CardapioService,
     private CardapioHelper: CardapioHelper) { 
@@ -35,6 +38,7 @@ export class PratosComponent implements OnInit {
         y.Dia = this.CardapioHelper.ObterDiaSemana(y.Dia);
       });
       this.CardapioTable.dataSource = x;
+      this.loading = false;
     })
   }
 

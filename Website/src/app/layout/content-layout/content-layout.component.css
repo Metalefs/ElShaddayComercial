@@ -10,6 +10,6 @@
   }
 }
 .main{
+  min-height: 100vh;
   animation: fade-in ease-in-out .5s forwards;
-  width: 100vw;
 }

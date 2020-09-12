@@ -11,7 +11,7 @@ import { InformacoesContatoService } from 'src/app/data/service/domain/Informaco
   styleUrls: ['./cardapio-card.component.css']
 })
 export class CardapioCardComponent implements OnInit {
-
+  loading = true;
   Cardapios:Collections.Cardapio[] = null;
   Instagram:string;
   constructor(private api: RestApiService, private CardapioHelper: CardapioHelper,
@@ -20,9 +20,6 @@ export class CardapioCardComponent implements OnInit {
   }
 
   LerCardapio() {
-    if(sessionStorage.getItem("Cardapio"))
-      this.Cardapios = JSON.parse(sessionStorage.getItem("Cardapio"))
-    else
     this.api.Cardapios().subscribe(data=>{
       console.log(data);
       this.Cardapios = data;
@@ -30,7 +27,7 @@ export class CardapioCardComponent implements OnInit {
       this.Cardapios.forEach(x=>{
         x.Dia = this.CardapioHelper.ObterDiaSemana(x.Dia);
       })
-      sessionStorage.setItem("Cardapio", JSON.stringify(this.Cardapios))
+      this.loading = false;
     });
   }
 

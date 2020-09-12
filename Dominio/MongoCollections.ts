@@ -1,4 +1,4 @@
-class MongoDocument{
+export class MongoDocument{
     _id!: string;
 }
 

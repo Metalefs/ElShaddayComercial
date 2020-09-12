@@ -1,7 +1,7 @@
 
 .factory-steps{
-    background: linear-gradient(90deg,#f15b5b,#ff4242 35%,#f15b5b);
-    width: 100vw;
+    background: 
+    linear-gradient(90deg,red,#ff4c4c 50%,red);
     margin: 0;
     height: 70px;
     z-index: 1;

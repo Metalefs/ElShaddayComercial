@@ -1,12 +1,6 @@
 #main-hero{
-    background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat 80% fixed;
+    /* background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat 80% fixed; */
     background-size: cover;
-    width: 100vw;
-    margin: 0 auto;
-}
-
-.hero.is-medium .hero-body{
-    padding-top:5rem;
 }
 .bg-ls{
     background: url("src/assets/imagens/fundos/inicio/lagoa-central.jpg") no-repeat center center fixed;
@@ -26,10 +20,13 @@
     border-radius: 0;
 }
 .bg-light-transparent{
-    background: rgba(123, 123, 123, 0.5);
+    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
 }
 .bg-dark-transparent{
-    background: rgba(123, 123, 123, 0.5);
+    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
+}
+.hero-body{
+    padding:0;
 }
 @media (min-width: 320px) and (max-width: 1023px) {
   
@@ -41,12 +38,21 @@
         background-size: cover;
         padding: 2px;
     }
+    .bg-dark-transparent{
+        background: linear-gradient(90deg, rgba(72,71,79,.21) 0%, rgba(71,73,77,.31) 35%, rgba(85,76,76,.81) 100%);
+    }
+    .cardapio-bg{
+        background-image: url('src/assets/imagens/fundos/pedido/guarnicoes-de-comida-para-seu-restaurante.jpg');
+        box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
+        border-radius: 0;
+    }
     .bg-ls{
-        /* background: lightblue; */
+        background: url("src/assets/imagens/fundos/inicio/lagoa-central.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        background-position: right;
         box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
     }
     .hero.is-medium .hero-body{

@@ -1,0 +1,14 @@
+.mat-expansion-panel-header {
+    flex-direction: row-reverse;
+}
+.mat-expansion-indicator{
+    margin: 0 20px;
+}
+.mat-expansion-panel-header {
+    border-top-right-radius: .15rem;
+    border-top-left-radius: .15rem;
+    border-bottom: .05rem solid #ccc;
+    font-size: var(--clr-accordion-header-button-font-size,.6rem);
+    height: initial;
+    padding: .3rem .6rem;
+}

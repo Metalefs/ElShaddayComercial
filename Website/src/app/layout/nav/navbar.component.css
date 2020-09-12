@@ -1,6 +1,7 @@
 .navbar{
     height: 80px;
-    background: linear-gradient(90deg,#f15b5b,#ff4c4c 35%,#f15b5b);
+    background: 
+    linear-gradient(90deg,red,#ff4c4c 50%,red);
     /* border-bottom: 1px solid rgb(247, 80, 80); */
     padding: 10px 10px;
 }

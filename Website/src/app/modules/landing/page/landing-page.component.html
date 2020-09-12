@@ -1,5 +1,5 @@
 <div class="main pt-0">
-    <div id="heroDiv" class="hero is-medium ">
+    <div id="heroDiv" class="is-medium">
         <section class="hero-body" id="main-hero">
             <div>
                 <app-hero></app-hero>
@@ -7,23 +7,41 @@
         </section>
     </div>
     <div>
-        <div class="cardapio-bg hero is-fullheight" id="cardapio">
-            <app-cardapio-card></app-cardapio-card>
+        <div class="cardapio-bg hero box is-fullheight" id="cardapio">
+            <div class="hero-body">
+                <app-cardapio-card></app-cardapio-card>
+            </div>
         </div>
     </div>
-    <div class="container" id="contato">
-        <div>
-            <app-contato></app-contato>
+    <section class="hero is-dark is-medium">
+        <div class="hero-body">
+          <div class="container">
+              <h2 class="subtitle">
+                  <div class="columns">
+                      <div class="column">
+                        <h1 class="title">
+                            Contato
+                        </h1>
+                        <app-contato></app-contato>
+                   </div>
+                   <div class="column">
+                        <h1 class="title">
+                            Atendimento
+                        </h1>
+                        <app-atendimento></app-atendimento>
+                   </div>
+               </div>
+            </h2>
+          </div>
         </div>
-    </div>
+    </section>
     <div class="bg-ls hero is-medium" id="localizacao">
         <div class="columns px-3 mb-0 height-inherit">
             <div class="column section is-6 bg-light-transparent">
-                <p class="title is-4 has-text-white">Onde estamos:</p>
+                <p class="title is-4 has-text-warning">Onde estamos:</p>
                 <app-localizacao></app-localizacao>
             </div>
             <div class="column section is-6 bg-dark-transparent height-inherit">
-                <p class="title is-4 has-text-white">Avalie o nosso trabalho:</p>
                 <app-estrelas></app-estrelas>
             </div>
         </div>

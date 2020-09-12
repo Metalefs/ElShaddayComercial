@@ -8,6 +8,7 @@ import { LandingPageComponent } from './page/landing-page.component';
 import { LandingPageRoutes } from './landing.routing';
 
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AtendimentoComponent } from './page/atendimento/atendimento.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ContatoComponent,
     HeroComponent,
     LocalizacaoComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    AtendimentoComponent
   ],
   imports: [
     SharedModule,

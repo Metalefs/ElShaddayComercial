@@ -1,7 +1,3 @@
-.cardapio-section{
-    max-width: 100vw;
-}
-
 .overflow-x-scroll::-webkit-scrollbar{
     border-bottom: 2px solid;
     background: transparent;
@@ -32,7 +28,9 @@ img {
     border-radius: 90px;
     cursor: pointer;
 }
-
+.cardapio-section{
+    max-width: 95vw;
+}
 .cardapio-column{
     margin: 0 auto;
     width: 100%;
@@ -40,7 +38,6 @@ img {
 }
 .overflow-x-scroll{
     overflow-x: scroll;
-    width: 100vw;
 }
 .bg-light-transparent{
     background: rgba(220, 220, 220, .5);

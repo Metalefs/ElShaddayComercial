@@ -21,10 +21,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatExpansionModule } from '@angular/material/expansion'; 
 @NgModule({
   declarations: [],
-  imports: [
+  exports: [
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
@@ -46,31 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     MatNativeDateModule, 
     MatDialogModule,
     MatFormFieldModule,
-    MatTableModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatSelectModule,
-    MatTabsModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatChipsModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatListModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatSlideToggleModule,
-    MatDividerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule {}
