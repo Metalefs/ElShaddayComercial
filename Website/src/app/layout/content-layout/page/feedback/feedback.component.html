@@ -8,29 +8,29 @@
                 
                 <h5 class="hint"></h5>
             </section>
-            <form clrForm clrLayout="horizontal" class="columns is-gapless">
+            <form clrForm clrLayout="horizontal" class="mx-auto w-100">
 
-                <clr-input-container class="column is-3">
+                <clr-input-container class="">
                     <label class="clr-sr-only">Titulo</label>
                     <input clrInput name="Mensagem" type="text" [(ngModel)]="Feedback.Titulo" required  placeholder="Insira um Titulo para seu comentário" >
                     <clr-control-error>Insira um Titulo</clr-control-error>
                 </clr-input-container>
         
-                <clr-input-container class="column is-3">
-                    <label class="clr-sr-only"><clr-icon shape="envelope"></clr-icon></label>
+                <clr-input-container class="">
+                    <label class="clr-sr-only">E-mail</label>
                     <label><clr-icon shape="envelope"></clr-icon></label>
                     <input clrInput name="Email" type="email" [(ngModel)]="Feedback.Email" required placeholder="Seu email">
                     <clr-control-error>O Campo de e-mail é necessário para enviar o feedback</clr-control-error>
                 </clr-input-container>
                 
-                <clr-textarea-container class="column is-6">
+                <clr-textarea-container class="">
                     <label class="clr-sr-only">Escreva sua mensagem aqui</label>
                     <textarea clrTextarea [(ngModel)]="Feedback.Comentario" name="Mensagem" required placeholder="Escreva sua mensagem aqui"></textarea>
                     <clr-control-helper>Escreva aqui</clr-control-helper>
                     <clr-control-error>A mensagem não pode ser enviada vazia.</clr-control-error>
-                    <button matRipple type="submit" class="btn btn-primary" (click)="SendFeedback()">Enviar</button>
                 </clr-textarea-container>
-
+                
+                <button matRipple type="submit" class="btn btn-primary" (click)="SendFeedback()">Enviar</button>
             </form>  
                
             <hr>

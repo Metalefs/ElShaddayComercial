@@ -14,7 +14,7 @@ import { fade } from 'src/app/animations';
   animations:[fade]
 })
 export class HeroComponent implements OnInit {
-  loading = false;
+  loading = true;
   Sobre:Collections.Sobre;
   InformacaoContato:Collections.InformacoesContato;
 
@@ -28,12 +28,10 @@ export class HeroComponent implements OnInit {
      }
 
   async LerSobre(){
-    if(localStorage.getItem("Sobre"))
-      this.Sobre = JSON.parse(localStorage.getItem("Sobre"))
-    else
     this.SobreService.Ler().subscribe(data=>{
       this.Sobre = data[0];
-      localStorage.setItem("Sobre",JSON.stringify(this.Sobre))
+      localStorage.setItem("Sobre",JSON.stringify(this.Sobre));
+      this.loading = false;
     });
   }
 
@@ -48,9 +46,8 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.LerSobre();
     this.LerInfoContato();
+    this.LerSobre();
   }
 
 }
