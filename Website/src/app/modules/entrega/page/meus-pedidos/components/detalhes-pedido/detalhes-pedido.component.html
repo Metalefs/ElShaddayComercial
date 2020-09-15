@@ -46,7 +46,7 @@
         </tbody>
     </table>
     <div class="box">
-        <p class="subtitle is-6" *ngIf="Pedido?.Preco">R$ {{Pedido?.Preco.toFixed(2)}}</p>
+        <p class="subtitle is-6" *ngIf="Pedido?.Preco">Total : R$ {{Pedido?.Preco.toFixed(2)}}</p>
         <div class="container">
             
             <button (click)="ConfirmarRecebimento(Pedido)" [ngClass]="Pedido?.Estado == 'C' ? 'is-danger': 'is-success'" class="button is-hidden-dektop">
@@ -59,7 +59,7 @@
                     <span>Confirmar recebimento</span>
                 </div>
                 <div class="tile"  *ngIf="Pedido?.Estado == 'F'">
-                    <span>Pedido concluido</span>
+                    <span>Pedido concluido em {{Pedido.DataAtualizacao}}</span>
                 </div>
                 <div class="tile"  *ngIf="Pedido?.Estado == 'C'">
                     <span>Pedido cancelado</span>

@@ -19,13 +19,7 @@ export class MeusPedidosComponent implements OnInit {
   @ViewChild(MatTable) MatTable: MatTable<any>;
   constructor(private PedidoService: PedidoService,
     public dialog: MatDialog) {
-    this.PedidoService.Ler().subscribe(x=> {
-      this.Pedidos = x;
-      console.log(this.Pedidos)
-      if(this.Pedidos.length == 0 || this.Pedidos.erro)
-        this.NAPedido = true
-      } );
-   
+    
   }
   displayedColumns: string[] = ['Nome', 'Preço', 'Tamanho', 'Data','Detalhes'];
   
@@ -40,14 +34,28 @@ export class MeusPedidosComponent implements OnInit {
     });
   }
 
-  ConfirmarRecebimento(pedido){
-    this.PedidoService.ConfirmarRecebimento(pedido).subscribe();
+  LerPedidos(){
+    this.PedidoService.Ler().subscribe(x=> {
+      this.Pedidos = x;
+      if(this.Pedidos.length == 0 || this.Pedidos.erro)
+        this.NAPedido = true
+      } );
   }
+
+  ConfirmarRecebimento(pedido){
+    this.PedidoService.ConfirmarRecebimento(pedido).subscribe(x=>{
+      this.LerPedidos();
+    });
+  }
+
   Cancelar(pedido){
-    this.PedidoService.Cancelar(pedido).subscribe();
+    this.PedidoService.Cancelar(pedido).subscribe(x=>{
+      this.LerPedidos();
+    });
   }
 
   ngOnInit(): void {
+    this.LerPedidos();
   }
 
 }
