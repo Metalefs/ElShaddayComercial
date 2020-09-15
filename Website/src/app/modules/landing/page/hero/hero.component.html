@@ -19,7 +19,6 @@
         <h2 class="ls-1 title is-4 has-text-weight-medium has-text-white has-text-centered">{{Sobre.Slogan}}</h2>
         <p class="is-size-5 is-light has-text-weight-medium has-text-white has-text-centered" innerHTML="{{Sobre.Descricao}}"></p>
         <div class="is-divider" data-content="Preço"></div>
-        <h2 class="ls-1 title is-hidden-touch is-4 has-text-weight-medium has-text-white has-text-centered">Normal: {{PrecoMarmitex?.Grande}} | Pequena: {{PrecoMarmitex?.Pequena}}</h2>
         <div class="tile mt-3 is-ancestor is-hidden-desktop">
             <div class="tile is-parent is-12">
                 <article class="tile is-child">
@@ -36,7 +35,7 @@
             
         </div>
     </div>
-    <div class="column is-5 registro-cliente" *ngIf="!currentUser">
+    <div class="column is-4 registro-cliente" *ngIf="!currentUser">
         <login-registro-cliente></login-registro-cliente>
     </div>
 </section>

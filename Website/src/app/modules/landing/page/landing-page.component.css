@@ -19,12 +19,6 @@
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
     border-radius: 0;
 }
-.bg-light-transparent{
-    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
-}
-.bg-dark-transparent{
-    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
-}
 .hero-body{
     padding:0;
 }

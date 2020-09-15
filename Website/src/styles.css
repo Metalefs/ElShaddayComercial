@@ -33,3 +33,13 @@ body{
 .w-100{
     width: 100%;
 }
+
+.bg-white-transparent{
+    background: rgba(225, 225, 255, .5);
+}
+.bg-light-transparent{
+    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
+}
+.bg-dark-transparent{
+    background: linear-gradient(180deg, rgb(54, 54, 54) 0%, rgba(71,73,77,0.5760679271708684) 35%, rgb(160, 156, 156) 100%);
+}

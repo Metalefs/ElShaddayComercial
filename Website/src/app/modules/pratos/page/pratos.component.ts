@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Collections } from 'src/app/data/schema/MongoCollections';
 import { CardapioService } from 'src/app/data/service/domain/CardapioService';
-import { MatDialog } from '@angular/material/dialog';
-import { DynamicFormComponent } from 'src/app/shared/component/dynamic-form/dynamic-form.component';
-import { TextboxQuestion } from 'src/app/shared/component/dynamic-form/question-textbox';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { PrecoMarmitexService } from 'src/app/data/service/domain//PrecoMarmitexService';
+
 import { Table } from 'src/app/data/schema/Table';
 import { CardapioHelper } from 'src/app/_helpers/cardapio_helper';
 import { fade } from 'src/app/animations';
@@ -19,7 +17,10 @@ export class PratosComponent implements OnInit {
   x : any;
   loading = true;
   CardapioTable:Table;
+  PrecoMarmitex:Collections.PrecoMarmitex;
+
   constructor(private api: CardapioService,
+    private PrecoMarmitexService : PrecoMarmitexService,
     private CardapioHelper: CardapioHelper) { 
     this.CardapioTable = new Table();
     this.api = api;
@@ -42,11 +43,21 @@ export class PratosComponent implements OnInit {
     })
   }
 
+  async LerPrecoMarmitex(){
+    if(localStorage.getItem("PrecoMarmitex")){
+      this.PrecoMarmitex = JSON.parse(localStorage.getItem("PrecoMarmitex"))
+      this.loading = false;
+    }
+    else
+    this.PrecoMarmitexService.Ler().subscribe(data=>{
+      this.PrecoMarmitex = data[0];
+      localStorage.setItem("PrecoMarmitex",JSON.stringify(this.PrecoMarmitex))
+      this.loading = false;
+    });
+  }
+
   ngOnInit(): void {
-    // this.x = setInterval(() => { 
-    //    this.AtualizarTabela();
-    //   },
-    // 1100);
+    this.LerPrecoMarmitex();
   }
 
 }
