@@ -36,8 +36,10 @@
     flex-direction: column;
 }
 .registro-cliente{
-    padding:0 !important;
+    padding: 0!important;
     margin: 20px;
+    margin-bottom: -20px;
+    z-index: 10;
 }
 .columns:last-child {
     margin-bottom: 0;

@@ -19,20 +19,16 @@
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
     border-radius: 0;
 }
-.hero.is-medium .hero-body{
-    padding: 1em;
+.main-hero .hero-body{
     padding: 0rem 1.5rem;
 }
-.hero-body{
-    padding:0;
-}
+
 .estrelas-section{
     display: flex;
     justify-content: center;
     align-content: center;
 }
 @media (min-width: 320px) and (max-width: 1023px) {
-  
     .main-hero{
         background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -43,6 +39,14 @@
     }
     .bg-dark-transparent{
         background: linear-gradient(90deg, rgba(72,71,79,.21) 0%, rgba(71,73,77,.31) 35%, rgba(85,76,76,.81) 100%);
+    }
+    
+    .bg-dark-transparent{
+        background: rgba(58, 58, 58, 0.36);
+    }
+
+    .bg-light-transparent{
+        background: transparent;
     }
     .cardapio-bg{
         background-image: url('src/assets/imagens/fundos/pedido/guarnicoes-de-comida-para-seu-restaurante.jpg');
@@ -57,12 +61,6 @@
         background-size: cover;
         background-position: right;
         box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
-    }
-    .hero.is-medium .hero-body{
-        padding: 1em;
-    }
-    .bg-dark-transparent{
-        background: rgba(58, 58, 58, 0.36);
     }
     
 }
