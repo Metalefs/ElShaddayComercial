@@ -28,7 +28,7 @@
     position: fixed !important;
 }
 .right-column{
-    background: rgba(109, 108, 108, 0.42);
+    /* background: rgba(109, 108, 108, 0.42); */
     padding-top: 2rem !important;
     margin: 0;
     display: flex;
@@ -37,7 +37,7 @@
 }
 .registro-cliente{
     padding:0 !important;
-    margin-bottom:0! important;
+    margin: 20px;
 }
 .columns:last-child {
     margin-bottom: 0;

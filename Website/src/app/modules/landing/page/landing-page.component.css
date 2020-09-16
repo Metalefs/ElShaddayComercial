@@ -1,5 +1,5 @@
-#main-hero{
-    /* background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat 80% fixed; */
+.foto-marmitex{
+    background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat 80% fixed;
     background-size: cover;
 }
 .bg-ls{
@@ -19,12 +19,21 @@
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
     border-radius: 0;
 }
+.hero.is-medium .hero-body{
+    padding: 1em;
+    padding: 3rem 1.5rem;
+}
 .hero-body{
     padding:0;
 }
+.estrelas-section{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 @media (min-width: 320px) and (max-width: 1023px) {
   
-    #main-hero{
+    .main-hero{
         background: url("src/assets/imagens/fundos/inicio/Aprenda-6-truques-infalíveis-para-fornecer-marmitas-congeladas-perfeitas.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;

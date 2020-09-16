@@ -67,7 +67,7 @@
                             <clr-icon shape="plus"></clr-icon>
                         </button>
 
-                        <button *ngIf="Pedido.Estado != 'F'" title="Cancelar" (click)="Cancelar(Pedido)" class="button is-danger">
+                        <button *ngIf="Pedido.Estado != 'F' && Pedido.Estado != 'C'" title="Cancelar" (click)="Cancelar(Pedido)" class="button is-danger">
                             <clr-icon shape="minus"></clr-icon>
                         </button>
                     </td>

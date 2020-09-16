@@ -1,6 +1,6 @@
 <section *ngIf="InformacoesContato != undefined" class="section">
 
-    <div class="has-background-gray-light">
+    <div class="has-background-gray-light has-text-white">
 
         <article class="media">
             <figure class="media-left">
@@ -8,9 +8,9 @@
             </figure>
             <div class="media-content">
                 <div class="content">
-                    <a rel="noopener" target="_blank" class="mr-0"
+                    <a rel="noopener" target="_blank" class="mr-0 has-text-white"
                         href="https://wa.me/{{InformacoesContato?.Whatsapp}}?text=Olá,%20ElShadday%20 !">
-                        <p class="mr-0 is-size-6 is-light has-text-weight-medium has-text-justified underline--magical">
+                        <p class="mr-0 is-size-6 is-light has-text-weight-medium has-text-justified underline--magical has-text-white">
                             {{InformacoesContato?.Telefone}}</p>
                     </a>
                 </div>
@@ -23,7 +23,7 @@
             <div class="media-content">
                 <div class="content">
                     <a href="mailto:{{InformacoesContato.Email}}">
-                        <p class="is-size-6 is-light has-text-weight-medium has-text-justified">
+                        <p class="is-size-6 is-light has-text-weight-medium has-text-justified has-text-white">
                             {{InformacoesContato.Email}} </p>
                     </a>
                 </div>

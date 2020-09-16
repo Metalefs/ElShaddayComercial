@@ -1,19 +1,19 @@
 <div class="main pt-0">
-    <div id="heroDiv" class="is-medium">
-        <section class="hero-body" id="main-hero">
+    <div id="heroDiv" class="hero is-medium">
+        <section class="hero-body main-hero">
             <div>
                 <app-hero></app-hero>
             </div>
         </section>
     </div>
     <div>
-        <div class="cardapio-bg hero box is-fullheight" id="cardapio">
+        <div class="cardapio-bg hero is-fullheight" id="cardapio">
             <div class="hero-body">
                 <app-cardapio-card></app-cardapio-card>
             </div>
         </div>
     </div>
-    <section class="hero is-dark is-medium">
+    <section class="hero is-danger is-medium">
         <div class="hero-body">
           <div class="container">
               <h2 class="subtitle">
@@ -35,14 +35,19 @@
                             <p class="title is-4 has-text-warning">Onde estamos:</p>
                             <app-localizacao></app-localizacao>
                         </div>
+                        <div class="hero is-small is-hidden-desktop">
+                            <div class="section height-inherit estrelas-section">
+                                <app-estrelas></app-estrelas>
+                            </div>
+                        </div>
                    </div>
                </div>
             </h2>
           </div>
         </div>
     </section>
-    <div class="hero is-small">
-        <div class="section bg-dark-transparent height-inherit">
+    <div class="hero is-small foto-marmitex is-hidden-touch">
+        <div class="section height-inherit estrelas-section">
             <app-estrelas></app-estrelas>
         </div>
     <div>
