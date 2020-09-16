@@ -19,8 +19,8 @@
     box-shadow: 1px 0px 5px rgba(0,0,0,0.5);
     border-radius: 0;
 }
-.main-hero .hero-body{
-    padding: 0rem 1.5rem;
+#heroDiv .hero-body {
+    padding: 0rem 1.5rem !important;
 }
 
 .estrelas-section{
@@ -36,6 +36,9 @@
         -o-background-size: cover;
         background-size: cover;
         padding: 2px;
+    }
+    #heroDiv .hero-body {
+        padding: initial !important;
     }
     .bg-dark-transparent{
         background: linear-gradient(90deg, rgba(72,71,79,.21) 0%, rgba(71,73,77,.31) 35%, rgba(85,76,76,.81) 100%);

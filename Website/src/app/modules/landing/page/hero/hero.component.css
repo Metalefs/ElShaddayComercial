@@ -69,7 +69,11 @@
         background: rgba(0, 0, 0, 0.52);
         padding-top: 2rem !important;
     }
-    
+    .registro-cliente{
+        padding: 0!important;
+        margin: 0px;
+        z-index: 10;
+    }
     .hero-section{
         margin-top: -2px !important;
     }
